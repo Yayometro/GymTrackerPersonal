@@ -86,9 +86,9 @@ tr:hover td{background:var(--surf)}
 .bar-f{height:100%;border-radius:2px}
 tr.work-row td{background:var(--teal-a)}
 /* Chart */
-.chart-wrap{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:20px 20px 14px;margin-bottom:28px;overflow:hidden}
+.chart-wrap{position:relative;background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:20px 20px 14px;margin-bottom:28px;overflow:hidden}
 .chart-title{font-family:var(--fm);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--t3);margin-bottom:16px}
-canvas{width:100%;height:110px;display:block}
+canvas{width:100%;height:130px;display:block;cursor:crosshair}
 /* Body comp */
 .bodycomp{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .bc-card{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:26px}
@@ -169,9 +169,9 @@ td.hna{color:var(--t3)}
 
 <!-- CHART HISTORIAL DE PESO PERSISTENTE -->
 <div class="wrap">
-  <div class="sec-head"><h2>Tendencia de Peso</h2><span class="badge">Sep 2025 &rarr; Jul 2026</span></div>
+  <div class="sec-head"><h2>Tendencia de Peso Total</h2><span class="badge">Sep 2025 &rarr; Jul 2026 &middot; Hover para fecha</span></div>
   <div class="chart-wrap" style="margin-bottom: 0;">
-    <div class="chart-title">Gr&aacute;fica de peso &mdash; Sep 2025 a Jul 2026</div>
+    <div class="chart-title">Gr&aacute;fica de peso (kg) &mdash; Hover para detalles por fecha</div>
     <canvas id="wtCanvas"></canvas>
   </div>
 </div>
@@ -253,8 +253,23 @@ td.hna{color:var(--t3)}
   </div>
 </div>
 
-<!-- ==================== PESTAÑA 2: TABLA HISTORIAL DE PESO ==================== -->
+<!-- ==================== PESTAÑA 2: TABLA HISTORIAL DE PESO + CHARTS DE MASA MAGRA Y GRASA ==================== -->
 <div id="tab-historial-peso" class="tab-content" role="tabpanel">
+  <!-- CHARTS DE MASA MAGRA Y MASA GRASA -->
+  <div class="wrap" style="margin-bottom: 28px;">
+    <div class="sec-head"><h2>Desglose de Composici&oacute;n Corporal (kg)</h2><span class="badge">Masa Magra vs. Masa Grasa &middot; F&oacute;rmula Naval USA</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+      <div class="chart-wrap" style="margin-bottom:0">
+        <div class="chart-title">Evoluci&oacute;n de Masa Magra (kg) &mdash; M&uacute;sculo / Magro</div>
+        <canvas id="leanWeightCanvas"></canvas>
+      </div>
+      <div class="chart-wrap" style="margin-bottom:0">
+        <div class="chart-title">Evoluci&oacute;n de Masa Grasa (kg) &mdash; Tejido Adiposo</div>
+        <canvas id="fatWeightCanvas"></canvas>
+      </div>
+    </div>
+  </div>
+
   <div class="wrap">
     <div class="sec-head"><h2>Historial de Peso</h2><span class="badge">14 registros con peso &middot; M&aacute;s nuevos arriba</span></div>
     <table>
@@ -388,11 +403,11 @@ td.hna{color:var(--t3)}
   </div>
 </div>
 
-<!-- ==================== PESTAÑA 3: COMPOSICIÓN CORPORAL Y COMPARATIVA ==================== -->
+<!-- ==================== PESTAÑA 3: COMPOSICIÓN CORPORAL Y CHART DEDICADO DE MASA MAGRA ==================== -->
 <div id="tab-composicion-corporal" class="tab-content" role="tabpanel">
-  <!-- COMPOSICIÓN CORPORAL -->
+  <!-- COMPOSICIÓN CORPORAL CARDS -->
   <div class="wrap">
-    <div class="sec-head"><h2>Composici&oacute;n Corporal</h2><span class="badge">25 Jul 2026 &middot; Naval USA</span></div>
+    <div class="sec-head"><h2>Composici&oacute;n Corporal Actual</h2><span class="badge">25 Jul 2026 &middot; Naval USA</span></div>
     <div class="bodycomp">
       <div class="bc-card lean">
         <div class="bc-lbl">Masa Magra &mdash; proteger siempre</div>
@@ -406,6 +421,15 @@ td.hna{color:var(--t3)}
         <div class="bc-sub">25.7% del peso total &middot; meta: llegar a 14&ndash;16%</div>
         <div class="bc-bar"></div>
       </div>
+    </div>
+  </div>
+
+  <!-- CHART DEDICADO DE MASA MAGRA EN COMPOSICIÓN CORPORAL -->
+  <div class="wrap" style="margin-bottom: 28px;">
+    <div class="sec-head"><h2>Gr&aacute;fico Espec&iacute;fico de Masa Magra</h2><span class="badge">Modelo Naval USA &middot; Seguimiento temporal</span></div>
+    <div class="chart-wrap" style="margin-bottom:0">
+      <div class="chart-title">Evoluci&oacute;n de Masa Magra (kg) &mdash; F&oacute;rmula Naval USA (Cuello + Cintura + Altura 179cm)</div>
+      <canvas id="compLeanCanvas"></canvas>
     </div>
   </div>
 
@@ -676,106 +700,330 @@ setTimeout(()=>{
   const s=()=>{if(c<t){c++;el.textContent=c+'%';setTimeout(s,1700/t)}};s();
 },350);
 
-// Generic sparkline chart renderer
-function createSparkline(canvasId, dataPoints, minVal, maxVal, unit, goalVal) {
-  const canvas=document.getElementById(canvasId);
-  if(!canvas) return;
-  const parent=canvas.parentElement;
-  if(!parent || parent.clientWidth === 0) return;
+// Configuración de datos para todos los gráficos
+const chartConfigs = {
+  wtCanvas: {
+    title: "Peso Total",
+    unit: "kg",
+    minVal: 88, maxVal: 103, goalVal: 80,
+    data: [
+      { d: 0, v: 93.5, lbl: "20 Sep 25" },
+      { d: 10, v: 91.3, lbl: "30 Sep 25" },
+      { d: 16, v: 90.55, lbl: "6 Oct 25" },
+      { d: 23, v: 90.5, lbl: "13 Oct 25" },
+      { d: 73, v: 95.4, lbl: "2 Dic 25" },
+      { d: 79, v: 94.5, lbl: "8 Dic 25" },
+      { d: 86, v: 93.0, lbl: "Med Dic 25" },
+      { d: 112, v: 92.0, lbl: "10 Ene 26" },
+      { d: 219, v: 101.5, lbl: "27 Abr 26", note: "Pico Máximo (101.5 kg)" },
+      { d: 297, v: 98.34, lbl: "14 Jul 26" },
+      { d: 301, v: 98.6, lbl: "18 Jul 26" },
+      { d: 302, v: 98.34, lbl: "19 Jul 26" },
+      { d: 303, v: 99.34, lbl: "20 Jul 26" },
+      { d: 308, v: 98.3, lbl: "25 Jul 26", note: "Actual (98.3 kg)" }
+    ]
+  },
+  leanWeightCanvas: {
+    title: "Masa Magra",
+    unit: "kg",
+    minVal: 65, maxVal: 78,
+    data: [
+      { d: 0, v: 72.2, lbl: "20 Sep 25" },
+      { d: 10, v: 69.8, lbl: "30 Sep 25" },
+      { d: 16, v: 71.2, lbl: "6 Oct 25" },
+      { d: 23, v: 69.9, lbl: "13 Oct 25" },
+      { d: 73, v: 72.2, lbl: "2 Dic 25" },
+      { d: 79, v: 71.6, lbl: "8 Dic 25" },
+      { d: 86, v: 70.8, lbl: "Med Dic 25" },
+      { d: 112, v: 71.0, lbl: "10 Ene 26" },
+      { d: 219, v: 74.5, lbl: "27 Abr 26", note: "Pico Magro (74.5 kg)" },
+      { d: 297, v: 72.7, lbl: "14 Jul 26" },
+      { d: 308, v: 73.0, lbl: "25 Jul 26", note: "Actual (74.3% del peso)" }
+    ]
+  },
+  fatWeightCanvas: {
+    title: "Masa Grasa",
+    unit: "kg",
+    minVal: 16, maxVal: 30,
+    data: [
+      { d: 0, v: 21.3, lbl: "20 Sep 25" },
+      { d: 10, v: 21.5, lbl: "30 Sep 25" },
+      { d: 16, v: 19.4, lbl: "6 Oct 25" },
+      { d: 23, v: 20.6, lbl: "13 Oct 25" },
+      { d: 73, v: 23.2, lbl: "2 Dic 25" },
+      { d: 79, v: 22.9, lbl: "8 Dic 25" },
+      { d: 86, v: 22.2, lbl: "Med Dic 25" },
+      { d: 112, v: 21.0, lbl: "10 Ene 26" },
+      { d: 219, v: 27.0, lbl: "27 Abr 26", note: "Pico Grasa (27.0 kg)" },
+      { d: 297, v: 25.6, lbl: "14 Jul 26" },
+      { d: 308, v: 25.3, lbl: "25 Jul 26", note: "Actual (25.7% grasa)" }
+    ]
+  },
+  compLeanCanvas: {
+    title: "Masa Magra (Composición)",
+    unit: "kg",
+    minVal: 65, maxVal: 78,
+    data: [
+      { d: 0, v: 72.2, lbl: "20 Sep 25" },
+      { d: 10, v: 69.8, lbl: "30 Sep 25" },
+      { d: 16, v: 71.2, lbl: "6 Oct 25" },
+      { d: 23, v: 69.9, lbl: "13 Oct 25" },
+      { d: 73, v: 72.2, lbl: "2 Dic 25" },
+      { d: 79, v: 71.6, lbl: "8 Dic 25" },
+      { d: 86, v: 70.8, lbl: "Med Dic 25" },
+      { d: 112, v: 71.0, lbl: "10 Ene 26" },
+      { d: 219, v: 74.5, lbl: "27 Abr 26", note: "Máximo Magro (74.5 kg)" },
+      { d: 297, v: 72.7, lbl: "14 Jul 26" },
+      { d: 308, v: 73.0, lbl: "25 Jul 26", note: "Actual (73.0 kg / 74.3%)" }
+    ]
+  },
+  backCanvas: {
+    title: "Espalda + Pecho",
+    unit: "cm",
+    minVal: 100, maxVal: 118,
+    data: [
+      { d: 0, v: 105, lbl: "5 Sep 25" },
+      { d: 15, v: 109, lbl: "20 Sep 25" },
+      { d: 25, v: 109, lbl: "30 Sep 25" },
+      { d: 31, v: 109, lbl: "6 Oct 25" },
+      { d: 38, v: 107, lbl: "13 Oct 25" },
+      { d: 67, v: 110, lbl: "11 Nov 25" },
+      { d: 88, v: 110, lbl: "2 Dic 25" },
+      { d: 94, v: 109, lbl: "8 Dic 25" },
+      { d: 101, v: 109, lbl: "Med Dic 25" },
+      { d: 115, v: 110, lbl: "29 Dic 25" },
+      { d: 127, v: 109.5, lbl: "10 Ene 26" },
+      { d: 234, v: 115, lbl: "27 Abr 26", note: "Pico Máximo (115 cm)" },
+      { d: 312, v: 112, lbl: "14 Jul 26" },
+      { d: 323, v: 112, lbl: "25 Jul 26", note: "Actual (112 cm)" }
+    ]
+  },
+  waistCanvas: {
+    title: "Panza / Ombligo",
+    unit: "cm",
+    minVal: 92, maxVal: 110,
+    data: [
+      { d: 0, v: 97.5, lbl: "5 Sep 25" },
+      { d: 15, v: 98, lbl: "20 Sep 25" },
+      { d: 25, v: 99, lbl: "30 Sep 25" },
+      { d: 31, v: 96, lbl: "6 Oct 25" },
+      { d: 38, v: 98, lbl: "13 Oct 25" },
+      { d: 67, v: 99, lbl: "11 Nov 25" },
+      { d: 88, v: 101, lbl: "2 Dic 25" },
+      { d: 94, v: 100, lbl: "8 Dic 25" },
+      { d: 101, v: 99.5, lbl: "Med Dic 25" },
+      { d: 115, v: 99, lbl: "29 Dic 25" },
+      { d: 127, v: 98, lbl: "10 Ene 26" },
+      { d: 234, v: 107, lbl: "27 Abr 26", note: "Pico Máximo (107 cm)" },
+      { d: 312, v: 104, lbl: "14 Jul 26" },
+      { d: 323, v: 103.5, lbl: "25 Jul 26", note: "Actual (103.5 cm)" }
+    ]
+  }
+};
 
-  const dpr=window.devicePixelRatio||1;
-  const W=parent.clientWidth-40;
-  const H=110;
-  canvas.width=W*dpr;canvas.height=H*dpr;
-  canvas.style.width=W+'px';canvas.style.height=H+'px';
-  const ctx=canvas.getContext('2d');
-  ctx.scale(dpr,dpr);
+// Hitos temporales para líneas verticales en los gráficos
+const timeMilestones = [
+  { d: 0, lbl: "Sep '25" },
+  { d: 38, lbl: "Oct '25" },
+  { d: 88, lbl: "Dic '25" },
+  { d: 127, lbl: "Ene '26" },
+  { d: 234, lbl: "Abr '26" },
+  { d: 323, lbl: "Jul '26" }
+];
 
-  const pad={l:8,r:8,t:16,b:24};
-  const cw=W-pad.l-pad.r;
-  const ch=H-pad.t-pad.b;
-  const maxD=308;
+const activeHoverPoints = {};
 
-  function xp(d){return pad.l+((d/maxD)*cw)}
-  function yp(v){return pad.t+(1-(v-minVal)/(maxVal-minVal))*ch}
+function drawChart(canvasId) {
+  const cfg = chartConfigs[canvasId];
+  if (!cfg) return;
 
-  // Reference lines
-  ctx.strokeStyle='rgba(30,34,53,0.8)';ctx.lineWidth=1;
-  const stepVal=Math.round((maxVal-minVal)/3);
-  [minVal+stepVal, minVal+stepVal*2].forEach(rv=>{
-    const ry=yp(rv);
-    ctx.beginPath();ctx.moveTo(pad.l,ry);ctx.lineTo(W-pad.r,ry);ctx.stroke();
-    ctx.fillStyle='rgba(69,75,104,0.8)';ctx.font='9px JetBrains Mono,monospace';
-    ctx.fillText(rv+unit,pad.l+2,ry-3);
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const parent = canvas.parentElement;
+  if (!parent || parent.clientWidth === 0) return;
+
+  const dpr = window.devicePixelRatio || 1;
+  const W = parent.clientWidth - 40;
+  const H = 130;
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  canvas.style.width = W + 'px';
+  canvas.style.height = H + 'px';
+
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const pad = { l: 32, r: 16, t: 16, b: 24 };
+  const cw = W - pad.l - pad.r;
+  const ch = H - pad.t - pad.b;
+  const maxD = 323;
+
+  function xp(d) { return pad.l + ((d / maxD) * cw); }
+  function yp(v) { return pad.t + (1 - (v - cfg.minVal) / (cfg.maxVal - cfg.minVal)) * ch; }
+
+  // 1. Líneas de cuadrícula horizontales (Valores Y)
+  ctx.strokeStyle = 'rgba(30,34,53,0.7)';
+  ctx.lineWidth = 1;
+  const stepVal = Math.round((cfg.maxVal - cfg.minVal) / 3);
+  [cfg.minVal + stepVal, cfg.minVal + stepVal * 2].forEach(rv => {
+    const ry = yp(rv);
+    ctx.beginPath(); ctx.moveTo(pad.l, ry); ctx.lineTo(W - pad.r, ry); ctx.stroke();
+    ctx.fillStyle = 'rgba(69,75,104,0.7)';
+    ctx.font = '9px JetBrains Mono, monospace';
+    ctx.textAlign = 'right';
+    ctx.fillText(rv + cfg.unit, pad.l - 4, ry + 3);
   });
 
-  if(goalVal) {
-    ctx.strokeStyle='rgba(255,168,48,0.3)';ctx.setLineDash([4,4]);
-    ctx.beginPath();ctx.moveTo(pad.l,yp(goalVal));ctx.lineTo(W-pad.r,yp(goalVal));ctx.stroke();
+  // 2. Líneas de cuadrícula verticales (Tiempos X)
+  ctx.strokeStyle = 'rgba(30,34,53,0.5)';
+  ctx.setLineDash([3, 3]);
+  timeMilestones.forEach(m => {
+    const mx = xp(m.d);
+    ctx.beginPath(); ctx.moveTo(mx, pad.t); ctx.lineTo(mx, H - pad.b); ctx.stroke();
+    ctx.fillStyle = 'rgba(69,75,104,0.75)';
+    ctx.font = '9px JetBrains Mono, monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText(m.lbl, mx, H - pad.b + 14);
+  });
+  ctx.setLineDash([]);
+
+  // Meta (si existe)
+  if (cfg.goalVal) {
+    ctx.strokeStyle = 'rgba(255,168,48,0.4)'; ctx.setLineDash([4, 4]);
+    ctx.beginPath(); ctx.moveTo(pad.l, yp(cfg.goalVal)); ctx.lineTo(W - pad.r, yp(cfg.goalVal)); ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle='rgba(255,168,48,0.6)';ctx.font='9px JetBrains Mono,monospace';
-    ctx.fillText(goalVal+unit+' meta',pad.l+2,yp(goalVal)-3);
+    ctx.fillStyle = 'rgba(255,168,48,0.7)'; ctx.font = '9px JetBrains Mono, monospace';
+    ctx.textAlign = 'right';
+    ctx.fillText(cfg.goalVal + cfg.unit + ' meta', W - pad.r - 2, yp(cfg.goalVal) - 4);
   }
 
-  // Gradient fill
-  const grad=ctx.createLinearGradient(0,pad.t,0,H-pad.b);
-  grad.addColorStop(0,'rgba(0,201,167,0.15)');
-  grad.addColorStop(1,'rgba(0,201,167,0)');
+  // 3. Relleno de degradado
+  const grad = ctx.createLinearGradient(0, pad.t, 0, H - pad.b);
+  grad.addColorStop(0, 'rgba(0,201,167,0.18)');
+  grad.addColorStop(1, 'rgba(0,201,167,0.01)');
   ctx.beginPath();
-  ctx.moveTo(xp(dataPoints[0].d),yp(dataPoints[0].v));
-  dataPoints.forEach(pt=>ctx.lineTo(xp(pt.d),yp(pt.v)));
-  ctx.lineTo(xp(dataPoints[dataPoints.length-1].d),H-pad.b+pad.t);
-  ctx.lineTo(xp(dataPoints[0].d),H-pad.b+pad.t);
-  ctx.closePath();ctx.fillStyle=grad;ctx.fill();
+  ctx.moveTo(xp(cfg.data[0].d), yp(cfg.data[0].v));
+  cfg.data.forEach(pt => ctx.lineTo(xp(pt.d), yp(pt.v)));
+  ctx.lineTo(xp(cfg.data[cfg.data.length - 1].d), H - pad.b);
+  ctx.lineTo(xp(cfg.data[0].d), H - pad.b);
+  ctx.closePath(); ctx.fillStyle = grad; ctx.fill();
 
-  // Line
-  ctx.beginPath();ctx.moveTo(xp(dataPoints[0].d),yp(dataPoints[0].v));
-  dataPoints.forEach(pt=>ctx.lineTo(xp(pt.d),yp(pt.v)));
-  ctx.strokeStyle='#00C9A7';ctx.lineWidth=2;ctx.lineJoin='round';ctx.stroke();
+  // 4. Línea principal del gráfico
+  ctx.beginPath();
+  ctx.moveTo(xp(cfg.data[0].d), yp(cfg.data[0].v));
+  cfg.data.forEach(pt => ctx.lineTo(xp(pt.d), yp(pt.v)));
+  ctx.strokeStyle = '#00C9A7';
+  ctx.lineWidth = 2;
+  ctx.lineJoin = 'round';
+  ctx.stroke();
 
-  // Peak/Max dot
-  let maxPt=dataPoints[0];
-  dataPoints.forEach(pt=>{if(pt.v>maxPt.v) maxPt=pt;});
-  ctx.beginPath();ctx.arc(xp(maxPt.d),yp(maxPt.v),5,0,Math.PI*2);
-  ctx.fillStyle='#FF5C5C';ctx.fill();
+  // 5. Puntos de datos (Pico en Coral, Actual en Teal)
+  let maxPt = cfg.data[0];
+  cfg.data.forEach(pt => { if (pt.v > maxPt.v) maxPt = pt; });
 
-  // Current dot
-  const cur_pt=dataPoints[dataPoints.length-1];
-  ctx.beginPath();ctx.arc(xp(cur_pt.d),yp(cur_pt.v),5,0,Math.PI*2);
-  ctx.fillStyle='#00C9A7';ctx.fill();
-  ctx.beginPath();ctx.arc(xp(cur_pt.d),yp(cur_pt.v),9,0,Math.PI*2);
-  ctx.strokeStyle='rgba(0,201,167,0.3)';ctx.lineWidth=2;ctx.stroke();
+  // Punto máximo
+  ctx.beginPath(); ctx.arc(xp(maxPt.d), yp(maxPt.v), 4, 0, Math.PI * 2);
+  ctx.fillStyle = '#FF5C5C'; ctx.fill();
+
+  // Punto actual
+  const cur_pt = cfg.data[cfg.data.length - 1];
+  ctx.beginPath(); ctx.arc(xp(cur_pt.d), yp(cur_pt.v), 4.5, 0, Math.PI * 2);
+  ctx.fillStyle = '#00C9A7'; ctx.fill();
+
+  // 6. Efecto Hover / Tooltip Interactivo
+  const hoverPt = activeHoverPoints[canvasId];
+  if (hoverPt) {
+    const hx = xp(hoverPt.d);
+    const hy = yp(hoverPt.v);
+
+    // Línea guía vertical
+    ctx.strokeStyle = 'rgba(0,201,167,0.5)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([2, 2]);
+    ctx.beginPath(); ctx.moveTo(hx, pad.t); ctx.lineTo(hx, H - pad.b); ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Anillo exterior brillante sobre el punto activo
+    ctx.beginPath(); ctx.arc(hx, hy, 7, 0, Math.PI * 2);
+    ctx.fillStyle = '#00C9A7'; ctx.fill();
+    ctx.beginPath(); ctx.arc(hx, hy, 11, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(0,201,167,0.4)'; ctx.lineWidth = 2; ctx.stroke();
+
+    // Caja de Tooltip inteligente
+    const tooltipText = `${hoverPt.lbl}: ${hoverPt.v} ${cfg.unit}` + (hoverPt.note ? ` (${hoverPt.note})` : '');
+    ctx.font = '10px JetBrains Mono, monospace';
+    const textWidth = ctx.measureText(tooltipText).width;
+    const boxW = textWidth + 16;
+    const boxH = 22;
+    let boxX = hx - boxW / 2;
+    let boxY = hy - boxH - 10;
+
+    if (boxX < pad.l) boxX = pad.l;
+    if (boxX + boxW > W - pad.r) boxX = W - pad.r - boxW;
+    if (boxY < pad.t) boxY = hy + 12;
+
+    // Fondo del Tooltip
+    ctx.fillStyle = 'rgba(16,19,28,0.92)';
+    ctx.strokeStyle = 'rgba(0,201,167,0.6)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(boxX, boxY, boxW, boxH, 6);
+    ctx.fill(); ctx.stroke();
+
+    // Texto del Tooltip
+    ctx.fillStyle = '#DEE3F0';
+    ctx.textAlign = 'center';
+    ctx.fillText(tooltipText, boxX + boxW / 2, boxY + 14);
+  }
+}
+
+function bindCanvasHover(canvasId) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const cfg = chartConfigs[canvasId];
+  if (!cfg) return;
+
+  canvas.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const pad = { l: 32, r: 16 };
+    const cw = canvas.clientWidth - pad.l - pad.r;
+    const maxD = 323;
+
+    // Buscar el punto más cercano
+    let closestPt = null;
+    let minDiff = Infinity;
+    cfg.data.forEach(pt => {
+      const px = pad.l + ((pt.d / maxD) * cw);
+      const diff = Math.abs(mouseX - px);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestPt = pt;
+      }
+    });
+
+    if (closestPt && minDiff < 40) {
+      activeHoverPoints[canvasId] = closestPt;
+    } else {
+      delete activeHoverPoints[canvasId];
+    }
+    drawChart(canvasId);
+  });
+
+  canvas.addEventListener('mouseleave', () => {
+    delete activeHoverPoints[canvasId];
+    drawChart(canvasId);
+  });
 }
 
 function renderAllCharts() {
-  // 1. Weight Chart
-  const weightData=[
-    {d:0,v:93.5},{d:10,v:91.30},{d:16,v:90.55},{d:23,v:90.50},
-    {d:73,v:95.4},{d:79,v:94.5},{d:86,v:93.0},{d:112,v:92.0},
-    {d:219,v:101.5},{d:297,v:98.34},{d:301,v:98.60},{d:302,v:98.34},
-    {d:303,v:99.34},{d:308,v:98.3}
-  ];
-  createSparkline('wtCanvas', weightData, 88, 103, 'kg', 80);
-
-  // 2. Back / Pecho Chart
-  const backData=[
-    {d:0,v:105},{d:10,v:109},{d:16,v:109},{d:23,v:107},
-    {d:52,v:110},{d:73,v:110},{d:79,v:109},{d:86,v:109},
-    {d:100,v:110},{d:112,v:109.5},{d:219,v:115},{d:297,v:112},
-    {d:308,v:112}
-  ];
-  createSparkline('backCanvas', backData, 100, 118, 'cm', null);
-
-  // 3. Panza / Ombligo Chart
-  const waistData=[
-    {d:0,v:97.5},{d:10,v:98},{d:16,v:99},{d:23,v:96},
-    {d:52,v:99},{d:73,v:101},{d:79,v:100},{d:86,v:99.5},
-    {d:100,v:99},{d:112,v:98},{d:219,v:107},{d:297,v:104},
-    {d:308,v:103.5}
-  ];
-  createSparkline('waistCanvas', waistData, 92, 110, 'cm', null);
+  Object.keys(chartConfigs).forEach(id => {
+    drawChart(id);
+  });
 }
 
+// Inicializar eventos de hover en todas las gráficas
+Object.keys(chartConfigs).forEach(bindCanvasHover);
 renderAllCharts();
 window.addEventListener('resize', renderAllCharts);
 
@@ -797,7 +1045,7 @@ function switchTab(tabId) {
   });
 
   // Re-render canvas charts when switching tabs to ensure clientWidth is available
-  setTimeout(renderAllCharts, 50);
+  setTimeout(renderAllCharts, 60);
 }
 </script>
 </body>

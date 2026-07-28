@@ -49,31 +49,41 @@
 
 ---
 
-### 📌 Sesión 3 — Reorganización de Módulos (Métricas Clave al Footer, Composición al Header) y Gráficas de Espalda/Panza
+### 📌 Sesión 3 — Reorganización de Módulos y Gráficas de Espalda/Panza
 - **Proveedor de IA**: Google
 - **Asistente**: Antigravity AI Coding Assistant
 - **Modelo**: Gemini 3.6 Flash (Nivel de Razonamiento: High)
 - **Fecha**: 27 de Julio, 2026 (22:35 UTC-6)
+- **Resumen**: Métricas clave movidas al footer arriba de macros. Composición corporal movida al header persistente. Agregadas gráficas canvas para Espalda y Panza en el Historial de Medidas.
+
+---
+
+### 📌 Sesión 4 — Gráficas Específicas de Masa Magra/Grasa, Eje de Tiempos Vertical y Tooltips Hover Interactivos
+- **Proveedor de IA**: Google
+- **Asistente**: Antigravity AI Coding Assistant
+- **Modelo**: Gemini 3.6 Flash (Nivel de Razonamiento: High)
+- **Fecha**: 27 de Julio, 2026 (22:42 UTC-6)
 - **Petición del Usuario**:
-  1. **Mover Métrica Clave**: Quitar las tarjetas de Métricas Clave de la parte superior y colocarlas en la sección inferior (Footer persistente), justo arriba de **Macros Objetivo**.
-  2. **Mover Composición Corporal**: Mover las tarjetas de Masa Magra (73.0 kg) y Masa Grasa (25.3 kg) a la sección superior (Header persistente), debajo de la gráfica de Tendencia de Peso.
-  3. **Pestaña Composición Corporal**: Mantener las tarjetas de composición corporal y la tabla comparativa de medidas juntas.
-  4. **Nuevas Gráficas de Progreso**: Agregar dos gráficas de lienzo canvas interactivo en la parte inferior de la pestaña **Historial Completo de Medidas**:
-     - 📈 **Progreso de Espalda + Pecho (cm)**: Seguimiento de 105 cm (Sep '25) → 115 cm (Abr '26) → 112 cm (Jul '26).
-     - 📉 **Progreso de Panza / Ombligo (cm)**: Seguimiento de 97.5 cm (Sep '25) → 107 cm (Abr '26) → 103.5 cm (Jul '26).
-  5. Actualizar el repositorio de GitHub con los nuevos cambios.
+  1. **Gráfico Dedicado de Masa Magra en Composición Corporal**: Agregar un gráfico específico para visualizar la evolución de la Masa Magra (kg) con base en la fórmula de la Naval USA (69.8 kg → 74.5 kg → 73.0 kg actual).
+  2. **Gráficos en Historial de Peso**: Agregar dos gráficos interactivos:
+     - 🏋️‍♂️ **Evolución de Masa Magra (kg)**
+     - 📉 **Evolución de Masa Grasa (kg)**
+  3. **Líneas Verticales de Tiempo (Eje X)**: Dibujar líneas de cuadrícula discontinuas verticales que muestren hitos de tiempo explícitos (Sep '25, Oct '25, Dic '25, Ene '26, Abr '26, Jul '26) en todas las 6 gráficas del sitio.
+  4. **Tooltips Interactivos al pasar el Cursor (Hover)**: Implementar detección de mouse por proximidad en canvas (`bindCanvasHover`) para mostrar un tooltip flotante con fecha, valor exacto y etiqueta de hito al pasar el cursor.
+  5. Sincronizar en GitHub.
 
 ---
 
 ## 📌 Estado Actual del Repositorio para la Siguiente IA
-- **Entorno**: HTML5 / CSS3 Vánilla / JS Vánilla / HTML5 Canvas (3 gráficas: Peso, Espalda, Panza).
+- **Entorno**: HTML5 / CSS3 Vanilla / JS Vanilla / HTML5 Canvas (6 gráficas interactivas con tooltips y líneas guía).
 - **Punto de Entrada**: `index.html`
-- **Pestaña Predeterminada**: `#tab-calorias` (Calorías por Escenario).
-- **Header Persistente**: Hero (98.3 kg + Recorrido) → Chart Tendencia de Peso (`#wtCanvas`) → Composición Corporal Actual.
-- **Pestañas**:
-  1. `🔥 Calorías por Escenario` (Default)
-  2. `⚖️ Historial de Peso` (Más nuevos arriba)
-  3. `🧬 Composición Corporal` (Cards + Comparativa más nuevos a la izq)
-  4. `📏 Historial Completo de Medidas` (Más nuevos arriba + Charts `#backCanvas` y `#waistCanvas`)
-- **Footer Persistente**: Métricas Clave → Macros Objetivo → Pie de página con métodos de cálculo.
+- **Gráficas Disponibles**:
+  1. `wtCanvas` (Peso total en header persistente)
+  2. `leanWeightCanvas` (Masa Magra en Historial de Peso)
+  3. `fatWeightCanvas` (Masa Grasa en Historial de Peso)
+  4. `compLeanCanvas` (Masa Magra dedicada en Composición Corporal)
+  5. `backCanvas` (Espalda + Pecho en Historial Completo de Medidas)
+  6. `waistCanvas` (Panza / Ombligo en Historial Completo de Medidas)
+- **Fórmula de % Grasa**: Naval USA para hombres:
+  $$\% \text{Grasa} = 86.010 \times \log_{10}(\text{cintura} - \text{cuello}) - 70.041 \times \log_{10}(\text{altura}) + 36.76$$
 - **Repositorio Remoto**: `https://github.com/Yayometro/GymTrackerPersonal.git`
