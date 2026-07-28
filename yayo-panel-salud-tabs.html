@@ -26,7 +26,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,12,18,0.9);backdrop-fil
 .nav-brand{font-family:var(--fd);font-size:15px;font-weight:700;letter-spacing:-0.03em}
 .nav-brand em{font-style:normal;color:var(--teal)}
 .nav-date{font-family:var(--fm);font-size:11px;color:var(--t3)}
-.hero{padding:50px 28px 36px;max-width:1080px;margin:0 auto}
+.hero{padding:50px 28px 28px;max-width:1080px;margin:0 auto}
 .eyebrow{font-family:var(--fm);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
 .hero-row{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px}
 .hero-num{font-family:var(--fd);font-size:clamp(76px,11vw,130px);font-weight:700;letter-spacing:-0.05em;line-height:1}
@@ -57,7 +57,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,12,18,0.9);backdrop-fil
 .tab-content.active{display:block}
 @keyframes tabFadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 
-.wrap{max-width:1080px;margin:0 auto;padding:0 28px 40px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px 36px}
 .wrap.no-bottom-pad{padding-bottom:12px}
 .sec-head{display:flex;align-items:center;gap:14px;padding-bottom:14px;margin-bottom:22px;border-bottom:1px solid var(--border)}
 .sec-head h2{font-family:var(--fd);font-size:17px;font-weight:600;letter-spacing:-0.02em;flex:1}
@@ -88,7 +88,7 @@ tr.work-row td{background:var(--teal-a)}
 /* Chart */
 .chart-wrap{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:20px 20px 14px;margin-bottom:28px;overflow:hidden}
 .chart-title{font-family:var(--fm);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--t3);margin-bottom:16px}
-#wtCanvas{width:100%;height:110px;display:block}
+canvas{width:100%;height:110px;display:block}
 /* Body comp */
 .bodycomp{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .bc-card{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:26px}
@@ -167,27 +167,31 @@ td.hna{color:var(--t3)}
   </div>
 </div>
 
-<!-- MÉTRICAS CLAVE PERSISTENTES -->
-<div class="wrap no-bottom-pad">
-  <div class="sec-head"><h2>M&eacute;tricas Clave</h2><span class="badge">Actualizado 25 Jul 2026</span></div>
-  <div class="cards">
-    <div class="card"><div class="card-lbl">BMR &middot; Solo existir</div><div class="card-val">1,957</div><div class="card-sub">kcal &middot; sin mover un dedo</div></div>
-    <div class="card a"><div class="card-lbl">Mantenimiento sedentario</div><div class="card-val">2,348</div><div class="card-sub">kcal &middot; cama &rarr; sof&aacute; &rarr; series</div></div>
-    <div class="card t"><div class="card-lbl">&Oacute;ptimo &minus;500 kcal</div><div class="card-val">1,848</div><div class="card-sub">kcal &middot; d&iacute;a sedentario</div></div>
-    <div class="card c"><div class="card-lbl">Agresivo &minus;750 kcal</div><div class="card-val">1,598</div><div class="card-sub">kcal &middot; riesgo muscular</div></div>
-    <div class="card"><div class="card-lbl">% Grasa corporal</div><div class="card-val">25.7%</div><div class="card-sub">F&oacute;rmula Naval USA</div></div>
-    <div class="card t"><div class="card-lbl">Masa magra</div><div class="card-val">73.0 kg</div><div class="card-sub">proteger siempre</div></div>
-    <div class="card"><div class="card-lbl">Grasa total</div><div class="card-val">25.3 kg</div><div class="card-sub">kg a eliminar</div></div>
-    <div class="card b"><div class="card-lbl">Kg para meta</div><div class="card-val">18.3 kg</div><div class="card-sub">&sim;10.4 meses al ritmo &oacute;ptimo</div></div>
-  </div>
-</div>
-
 <!-- CHART HISTORIAL DE PESO PERSISTENTE -->
 <div class="wrap">
-  <div class="sec-head" style="margin-top: 28px;"><h2>Tendencia de Peso</h2><span class="badge">Sep 2025 &rarr; Jul 2026</span></div>
+  <div class="sec-head"><h2>Tendencia de Peso</h2><span class="badge">Sep 2025 &rarr; Jul 2026</span></div>
   <div class="chart-wrap" style="margin-bottom: 0;">
     <div class="chart-title">Gr&aacute;fica de peso &mdash; Sep 2025 a Jul 2026</div>
     <canvas id="wtCanvas"></canvas>
+  </div>
+</div>
+
+<!-- COMPOSICIÓN CORPORAL EN HEADER PERSISTENTE -->
+<div class="wrap">
+  <div class="sec-head"><h2>Composici&oacute;n Corporal Actual</h2><span class="badge">25 Jul 2026 &middot; Naval USA</span></div>
+  <div class="bodycomp">
+    <div class="bc-card lean">
+      <div class="bc-lbl">Masa Magra &mdash; proteger siempre</div>
+      <div class="bc-val">73.0 kg</div>
+      <div class="bc-sub">74.3% del peso total &middot; m&uacute;sculo, hueso, &oacute;rganos, agua</div>
+      <div class="bc-bar"></div>
+    </div>
+    <div class="bc-card fat">
+      <div class="bc-lbl">Masa Grasa &mdash; objetivo reducir</div>
+      <div class="bc-val">25.3 kg</div>
+      <div class="bc-sub">25.7% del peso total &middot; meta: llegar a 14&ndash;16%</div>
+      <div class="bc-bar"></div>
+    </div>
   </div>
 </div>
 
@@ -249,7 +253,7 @@ td.hna{color:var(--t3)}
   </div>
 </div>
 
-<!-- ==================== PESTAÑA 2: TABLA HISTORIAL DE PESO (ORDEN: MÁS NUEVOS ARRIBA) ==================== -->
+<!-- ==================== PESTAÑA 2: TABLA HISTORIAL DE PESO ==================== -->
 <div id="tab-historial-peso" class="tab-content" role="tabpanel">
   <div class="wrap">
     <div class="sec-head"><h2>Historial de Peso</h2><span class="badge">14 registros con peso &middot; M&aacute;s nuevos arriba</span></div>
@@ -384,7 +388,7 @@ td.hna{color:var(--t3)}
   </div>
 </div>
 
-<!-- ==================== PESTAÑA 3: COMPOSICIÓN CORPORAL Y COMPARATIVA (ORDEN: MÁS NUEVOS A LA IZQUIERDA) ==================== -->
+<!-- ==================== PESTAÑA 3: COMPOSICIÓN CORPORAL Y COMPARATIVA ==================== -->
 <div id="tab-composicion-corporal" class="tab-content" role="tabpanel">
   <!-- COMPOSICIÓN CORPORAL -->
   <div class="wrap">
@@ -405,7 +409,7 @@ td.hna{color:var(--t3)}
     </div>
   </div>
 
-  <!-- COMPARATIVA DE MEDIDAS (MÁS NUEVOS A LA IZQUIERDA) -->
+  <!-- COMPARATIVA DE MEDIDAS -->
   <div class="wrap">
     <div class="sec-head"><h2>Comparativa de Medidas</h2><span class="badge">3 fechas clave &middot; M&aacute;s nuevos a la izquierda</span></div>
     <table>
@@ -438,7 +442,7 @@ td.hna{color:var(--t3)}
   </div>
 </div>
 
-<!-- ==================== PESTAÑA 4: HISTORIAL COMPLETO DE MEDIDAS (ORDEN: MÁS NUEVOS ARRIBA) ==================== -->
+<!-- ==================== PESTAÑA 4: HISTORIAL COMPLETO DE MEDIDAS + GRÁFICAS DE ESPALDA Y PANZA ==================== -->
 <div id="tab-historial-medidas" class="tab-content" role="tabpanel">
   <div class="wrap">
     <div class="sec-head"><h2>Historial Completo de Medidas</h2><span class="badge">14 entradas &middot; M&aacute;s nuevos arriba</span></div>
@@ -607,11 +611,42 @@ td.hna{color:var(--t3)}
       </table>
     </div>
     <p style="font-size:11px;color:var(--t3);margin-top:10px">Unidades: kg para peso &middot; cm para todo lo dem&aacute;s &middot; &mdash; = no registrado</p>
+
+    <!-- GRÁFICAS DE PROGRESO DE ESPALDA Y PANZA -->
+    <div style="margin-top:32px">
+      <div class="sec-head"><h2>Gr&aacute;ficas de Progreso de Medidas Clave</h2><span class="badge">Espalda &amp; Panza (cm)</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+        <div class="chart-wrap" style="margin-bottom:0">
+          <div class="chart-title">Progreso de Espalda + Pecho (cm)</div>
+          <canvas id="backCanvas"></canvas>
+        </div>
+        <div class="chart-wrap" style="margin-bottom:0">
+          <div class="chart-title">Progreso de Panza / Ombligo (cm)</div>
+          <canvas id="waistCanvas"></canvas>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- FOOTER PERSISTENTE: MACROS OBJETIVO Y DATOS FINAL -->
-<div class="wrap" style="margin-top: 36px;">
+<!-- FOOTER PERSISTENTE: MÉTRICAS CLAVE MOVIDAS AQUÍ (ARRIBA DE MACROS) -->
+<div class="wrap no-bottom-pad" style="margin-top: 36px;">
+  <div class="sec-head"><h2>M&eacute;tricas Clave</h2><span class="badge">Actualizado 25 Jul 2026</span></div>
+  <div class="cards">
+    <div class="card"><div class="card-lbl">BMR &middot; Solo existir</div><div class="card-val">1,957</div><div class="card-sub">kcal &middot; sin mover un dedo</div></div>
+    <div class="card a"><div class="card-lbl">Mantenimiento sedentario</div><div class="card-val">2,348</div><div class="card-sub">kcal &middot; cama &rarr; sof&aacute; &rarr; series</div></div>
+    <div class="card t"><div class="card-lbl">&Oacute;ptimo &minus;500 kcal</div><div class="card-val">1,848</div><div class="card-sub">kcal &middot; d&iacute;a sedentario</div></div>
+    <div class="card c"><div class="card-lbl">Agresivo &minus;750 kcal</div><div class="card-val">1,598</div><div class="card-sub">kcal &middot; riesgo muscular</div></div>
+    <div class="card"><div class="card-lbl">% Grasa corporal</div><div class="card-val">25.7%</div><div class="card-sub">F&oacute;rmula Naval USA</div></div>
+    <div class="card t"><div class="card-lbl">Masa magra</div><div class="card-val">73.0 kg</div><div class="card-sub">proteger siempre</div></div>
+    <div class="card"><div class="card-lbl">Grasa total</div><div class="card-val">25.3 kg</div><div class="card-sub">kg a eliminar</div></div>
+    <div class="card b"><div class="card-lbl">Kg para meta</div><div class="card-val">18.3 kg</div><div class="card-sub">&sim;10.4 meses al ritmo &oacute;ptimo</div></div>
+  </div>
+</div>
+
+<!-- MACROS OBJETIVO PERSISTENTE -->
+<div class="wrap" style="margin-top: 24px;">
   <div class="sec-head"><h2>Macros Objetivo</h2><span class="badge">D&iacute;a sedentario &middot; 1,848 kcal</span></div>
   <div class="macros-grid">
     <div class="card t"><div class="card-lbl">Prote&iacute;na</div><div class="card-val">160&ndash;180 g</div><div class="card-sub">720 kcal &middot; 39% &middot; 2.2g/kg masa magra</div></div>
@@ -641,91 +676,108 @@ setTimeout(()=>{
   const s=()=>{if(c<t){c++;el.textContent=c+'%';setTimeout(s,1700/t)}};s();
 },350);
 
-// Weight sparkline chart
-function renderChart() {
-  const canvas=document.getElementById('wtCanvas');
+// Generic sparkline chart renderer
+function createSparkline(canvasId, dataPoints, minVal, maxVal, unit, goalVal) {
+  const canvas=document.getElementById(canvasId);
   if(!canvas) return;
+  const parent=canvas.parentElement;
+  if(!parent || parent.clientWidth === 0) return;
+
   const dpr=window.devicePixelRatio||1;
-  const W=canvas.parentElement.clientWidth-40;
+  const W=parent.clientWidth-40;
   const H=110;
   canvas.width=W*dpr;canvas.height=H*dpr;
   canvas.style.width=W+'px';canvas.style.height=H+'px';
   const ctx=canvas.getContext('2d');
   ctx.scale(dpr,dpr);
 
-  const weights=[
-    {d:0,w:93.5,lbl:'Sep 20'},
-    {d:10,w:91.30,lbl:'Sep 30'},
-    {d:16,w:90.55,lbl:'Oct 6'},
-    {d:23,w:90.50,lbl:'Oct 13'},
-    {d:73,w:95.4,lbl:'Dic 2'},
-    {d:79,w:94.5,lbl:'Dic 8'},
-    {d:86,w:93.0,lbl:'~Dic'},
-    {d:112,w:92.0,lbl:'Ene 10'},
-    {d:219,w:101.5,lbl:'Abr 27'},
-    {d:297,w:98.34,lbl:'Jul 14'},
-    {d:301,w:98.60,lbl:'Jul 18'},
-    {d:302,w:98.34,lbl:'Jul 19'},
-    {d:303,w:99.34,lbl:'Jul 20'},
-    {d:308,w:98.3,lbl:'Jul 25'},
-  ];
-
   const pad={l:8,r:8,t:16,b:24};
   const cw=W-pad.l-pad.r;
   const ch=H-pad.t-pad.b;
-  const minW=88,maxW=103;
   const maxD=308;
 
   function xp(d){return pad.l+((d/maxD)*cw)}
-  function yp(w){return pad.t+(1-(w-minW)/(maxW-minW))*ch}
+  function yp(v){return pad.t+(1-(v-minVal)/(maxVal-minVal))*ch}
 
   // Reference lines
   ctx.strokeStyle='rgba(30,34,53,0.8)';ctx.lineWidth=1;
-  [90,95,100].forEach(rw=>{
-    const ry=yp(rw);
+  const stepVal=Math.round((maxVal-minVal)/3);
+  [minVal+stepVal, minVal+stepVal*2].forEach(rv=>{
+    const ry=yp(rv);
     ctx.beginPath();ctx.moveTo(pad.l,ry);ctx.lineTo(W-pad.r,ry);ctx.stroke();
     ctx.fillStyle='rgba(69,75,104,0.8)';ctx.font='9px JetBrains Mono,monospace';
-    ctx.fillText(rw+'kg',pad.l+2,ry-3);
+    ctx.fillText(rv+unit,pad.l+2,ry-3);
   });
 
-  // Goal line
-  ctx.strokeStyle='rgba(255,168,48,0.3)';ctx.setLineDash([4,4]);
-  ctx.beginPath();ctx.moveTo(pad.l,yp(80));ctx.lineTo(W-pad.r,yp(80));ctx.stroke();
-  ctx.setLineDash([]);
-  ctx.fillStyle='rgba(255,168,48,0.6)';ctx.font='9px JetBrains Mono,monospace';
-  ctx.fillText('80kg meta',pad.l+2,yp(80)-3);
+  if(goalVal) {
+    ctx.strokeStyle='rgba(255,168,48,0.3)';ctx.setLineDash([4,4]);
+    ctx.beginPath();ctx.moveTo(pad.l,yp(goalVal));ctx.lineTo(W-pad.r,yp(goalVal));ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle='rgba(255,168,48,0.6)';ctx.font='9px JetBrains Mono,monospace';
+    ctx.fillText(goalVal+unit+' meta',pad.l+2,yp(goalVal)-3);
+  }
 
   // Gradient fill
   const grad=ctx.createLinearGradient(0,pad.t,0,H-pad.b);
   grad.addColorStop(0,'rgba(0,201,167,0.15)');
   grad.addColorStop(1,'rgba(0,201,167,0)');
   ctx.beginPath();
-  ctx.moveTo(xp(weights[0].d),yp(weights[0].w));
-  weights.forEach(pt=>ctx.lineTo(xp(pt.d),yp(pt.w)));
-  ctx.lineTo(xp(weights[weights.length-1].d),H-pad.b+pad.t);
-  ctx.lineTo(xp(weights[0].d),H-pad.b+pad.t);
+  ctx.moveTo(xp(dataPoints[0].d),yp(dataPoints[0].v));
+  dataPoints.forEach(pt=>ctx.lineTo(xp(pt.d),yp(pt.v)));
+  ctx.lineTo(xp(dataPoints[dataPoints.length-1].d),H-pad.b+pad.t);
+  ctx.lineTo(xp(dataPoints[0].d),H-pad.b+pad.t);
   ctx.closePath();ctx.fillStyle=grad;ctx.fill();
 
   // Line
-  ctx.beginPath();ctx.moveTo(xp(weights[0].d),yp(weights[0].w));
-  weights.forEach(pt=>ctx.lineTo(xp(pt.d),yp(pt.w)));
+  ctx.beginPath();ctx.moveTo(xp(dataPoints[0].d),yp(dataPoints[0].v));
+  dataPoints.forEach(pt=>ctx.lineTo(xp(pt.d),yp(pt.v)));
   ctx.strokeStyle='#00C9A7';ctx.lineWidth=2;ctx.lineJoin='round';ctx.stroke();
 
-  // Peak dot
-  const peak_pt=weights.find(p=>p.w===101.5);
-  ctx.beginPath();ctx.arc(xp(peak_pt.d),yp(peak_pt.w),5,0,Math.PI*2);
+  // Peak/Max dot
+  let maxPt=dataPoints[0];
+  dataPoints.forEach(pt=>{if(pt.v>maxPt.v) maxPt=pt;});
+  ctx.beginPath();ctx.arc(xp(maxPt.d),yp(maxPt.v),5,0,Math.PI*2);
   ctx.fillStyle='#FF5C5C';ctx.fill();
 
   // Current dot
-  const cur_pt=weights[weights.length-1];
-  ctx.beginPath();ctx.arc(xp(cur_pt.d),yp(cur_pt.w),5,0,Math.PI*2);
+  const cur_pt=dataPoints[dataPoints.length-1];
+  ctx.beginPath();ctx.arc(xp(cur_pt.d),yp(cur_pt.v),5,0,Math.PI*2);
   ctx.fillStyle='#00C9A7';ctx.fill();
-  ctx.beginPath();ctx.arc(xp(cur_pt.d),yp(cur_pt.w),9,0,Math.PI*2);
+  ctx.beginPath();ctx.arc(xp(cur_pt.d),yp(cur_pt.v),9,0,Math.PI*2);
   ctx.strokeStyle='rgba(0,201,167,0.3)';ctx.lineWidth=2;ctx.stroke();
 }
 
-renderChart();
-window.addEventListener('resize', renderChart);
+function renderAllCharts() {
+  // 1. Weight Chart
+  const weightData=[
+    {d:0,v:93.5},{d:10,v:91.30},{d:16,v:90.55},{d:23,v:90.50},
+    {d:73,v:95.4},{d:79,v:94.5},{d:86,v:93.0},{d:112,v:92.0},
+    {d:219,v:101.5},{d:297,v:98.34},{d:301,v:98.60},{d:302,v:98.34},
+    {d:303,v:99.34},{d:308,v:98.3}
+  ];
+  createSparkline('wtCanvas', weightData, 88, 103, 'kg', 80);
+
+  // 2. Back / Pecho Chart
+  const backData=[
+    {d:0,v:105},{d:10,v:109},{d:16,v:109},{d:23,v:107},
+    {d:52,v:110},{d:73,v:110},{d:79,v:109},{d:86,v:109},
+    {d:100,v:110},{d:112,v:109.5},{d:219,v:115},{d:297,v:112},
+    {d:308,v:112}
+  ];
+  createSparkline('backCanvas', backData, 100, 118, 'cm', null);
+
+  // 3. Panza / Ombligo Chart
+  const waistData=[
+    {d:0,v:97.5},{d:10,v:98},{d:16,v:99},{d:23,v:96},
+    {d:52,v:99},{d:73,v:101},{d:79,v:100},{d:86,v:99.5},
+    {d:100,v:99},{d:112,v:98},{d:219,v:107},{d:297,v:104},
+    {d:308,v:103.5}
+  ];
+  createSparkline('waistCanvas', waistData, 92, 110, 'cm', null);
+}
+
+renderAllCharts();
+window.addEventListener('resize', renderAllCharts);
 
 // Lógica de cambio de pestañas
 function switchTab(tabId) {
@@ -743,6 +795,9 @@ function switchTab(tabId) {
       btn.setAttribute('aria-selected', 'false');
     }
   });
+
+  // Re-render canvas charts when switching tabs to ensure clientWidth is available
+  setTimeout(renderAllCharts, 50);
 }
 </script>
 </body>

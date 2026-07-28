@@ -47,17 +47,33 @@
   6. Crear este documento de coordinación (`AI_COORDINATION_LOG.md`).
   7. Conectar y subir el proyecto al repositorio de GitHub: `https://github.com/Yayometro/GymTrackerPersonal.git`.
 
-- **Archivos del Proyecto**:
-  - `index.html`: Archivo principal con las pestañas y orden cronológico invertido (para hosting en GitHub Pages / Vercel / Netlify).
-  - `yayo-panel-salud-tabs.html`: Copia de respaldo con la misma estructura de pestañas.
-  - `yayo-panel-salud-original.html`: Archivo de referencia original (sin modificar).
-  - `AI_COORDINATION_LOG.md`: Registro de coordinación entre modelos de IA.
+---
+
+### 📌 Sesión 3 — Reorganización de Módulos (Métricas Clave al Footer, Composición al Header) y Gráficas de Espalda/Panza
+- **Proveedor de IA**: Google
+- **Asistente**: Antigravity AI Coding Assistant
+- **Modelo**: Gemini 3.6 Flash (Nivel de Razonamiento: High)
+- **Fecha**: 27 de Julio, 2026 (22:35 UTC-6)
+- **Petición del Usuario**:
+  1. **Mover Métrica Clave**: Quitar las tarjetas de Métricas Clave de la parte superior y colocarlas en la sección inferior (Footer persistente), justo arriba de **Macros Objetivo**.
+  2. **Mover Composición Corporal**: Mover las tarjetas de Masa Magra (73.0 kg) y Masa Grasa (25.3 kg) a la sección superior (Header persistente), debajo de la gráfica de Tendencia de Peso.
+  3. **Pestaña Composición Corporal**: Mantener las tarjetas de composición corporal y la tabla comparativa de medidas juntas.
+  4. **Nuevas Gráficas de Progreso**: Agregar dos gráficas de lienzo canvas interactivo en la parte inferior de la pestaña **Historial Completo de Medidas**:
+     - 📈 **Progreso de Espalda + Pecho (cm)**: Seguimiento de 105 cm (Sep '25) → 115 cm (Abr '26) → 112 cm (Jul '26).
+     - 📉 **Progreso de Panza / Ombligo (cm)**: Seguimiento de 97.5 cm (Sep '25) → 107 cm (Abr '26) → 103.5 cm (Jul '26).
+  5. Actualizar el repositorio de GitHub con los nuevos cambios.
 
 ---
 
 ## 📌 Estado Actual del Repositorio para la Siguiente IA
-- **Entorno**: HTML5 / CSS3 Vánilla / JS Vánilla. Sin frameworks ni dependencias de npm.
+- **Entorno**: HTML5 / CSS3 Vánilla / JS Vánilla / HTML5 Canvas (3 gráficas: Peso, Espalda, Panza).
 - **Punto de Entrada**: `index.html`
 - **Pestaña Predeterminada**: `#tab-calorias` (Calorías por Escenario).
-- **Orden de Datos**: Invertido (más nuevo a la izquierda / más nuevo arriba).
+- **Header Persistente**: Hero (98.3 kg + Recorrido) → Chart Tendencia de Peso (`#wtCanvas`) → Composición Corporal Actual.
+- **Pestañas**:
+  1. `🔥 Calorías por Escenario` (Default)
+  2. `⚖️ Historial de Peso` (Más nuevos arriba)
+  3. `🧬 Composición Corporal` (Cards + Comparativa más nuevos a la izq)
+  4. `📏 Historial Completo de Medidas` (Más nuevos arriba + Charts `#backCanvas` y `#waistCanvas`)
+- **Footer Persistente**: Métricas Clave → Macros Objetivo → Pie de página con métodos de cálculo.
 - **Repositorio Remoto**: `https://github.com/Yayometro/GymTrackerPersonal.git`
