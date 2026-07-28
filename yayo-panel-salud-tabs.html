@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>Yayo · Panel de Salud</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,24 +19,24 @@
   --fd:'Space Grotesk',sans-serif;--fb:'Inter',sans-serif;--fm:'JetBrains Mono',monospace;
   --r:14px;--r2:8px;
 }
-body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:14px;line-height:1.6;min-height:100vh}
-nav{position:sticky;top:0;z-index:100;background:rgba(10,12,18,0.9);backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:13px 28px;
+body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:14px;line-height:1.6;min-height:100vh;overflow-x:hidden}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,12,18,0.92);backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:12px 24px;
   display:flex;justify-content:space-between;align-items:center}
 .nav-brand{font-family:var(--fd);font-size:15px;font-weight:700;letter-spacing:-0.03em}
 .nav-brand em{font-style:normal;color:var(--teal)}
 .nav-date{font-family:var(--fm);font-size:11px;color:var(--t3)}
-.hero{padding:50px 28px 28px;max-width:1080px;margin:0 auto}
-.eyebrow{font-family:var(--fm);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
-.hero-row{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px}
-.hero-num{font-family:var(--fd);font-size:clamp(76px,11vw,130px);font-weight:700;letter-spacing:-0.05em;line-height:1}
-.hero-unit{font-family:var(--fd);font-size:clamp(28px,4vw,48px);font-weight:400;color:var(--t3);letter-spacing:-0.02em}
-.hero-cap{font-family:var(--fm);font-size:12px;color:var(--t3);margin-bottom:36px}
+.hero{padding:40px 24px 24px;max-width:1080px;margin:0 auto}
+.eyebrow{font-family:var(--fm);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.hero-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+.hero-num{font-family:var(--fd);font-size:clamp(64px,11vw,120px);font-weight:700;letter-spacing:-0.05em;line-height:1}
+.hero-unit{font-family:var(--fd);font-size:clamp(24px,4vw,44px);font-weight:400;color:var(--t3);letter-spacing:-0.02em}
+.hero-cap{font-family:var(--fm);font-size:12px;color:var(--t3);margin-bottom:30px}
 .journey{margin-bottom:8px}
-.journey-header{font-family:var(--fm);font-size:10px;letter-spacing:0.13em;text-transform:uppercase;color:var(--t3);margin-bottom:22px}
-.j-stats{display:flex;gap:36px;flex-wrap:wrap;margin-bottom:26px}
-.j-stat{display:flex;flex-direction:column;gap:5px}
-.j-val{font-family:var(--fd);font-size:22px;font-weight:700;letter-spacing:-0.03em;line-height:1}
+.journey-header{font-family:var(--fm);font-size:10px;letter-spacing:0.13em;text-transform:uppercase;color:var(--t3);margin-bottom:18px}
+.j-stats{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:22px}
+.j-stat{display:flex;flex-direction:column;gap:4px}
+.j-val{font-family:var(--fd);font-size:20px;font-weight:700;letter-spacing:-0.03em;line-height:1}
 .j-lbl{font-size:11px;color:var(--t3)}
 .c-coral .j-val{color:var(--coral)}.c-teal .j-val{color:var(--teal)}.c-amber .j-val{color:var(--amber)}.c-blue .j-val{color:var(--blue)}
 .j-track-wrap{position:relative;margin-bottom:10px}
@@ -44,92 +44,118 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,12,18,0.9);backdrop-fil
 .j-fill{position:absolute;top:0;left:0;height:100%;background:linear-gradient(90deg,var(--teal),#00B899);border-radius:99px;width:0%;transition:width 1.7s cubic-bezier(0.22,1,0.36,1)}
 .j-pin{position:absolute;top:50%;left:0%;transform:translate(-50%,-50%);width:17px;height:17px;background:var(--bg);border:3px solid var(--teal);border-radius:50%;transition:left 1.7s cubic-bezier(0.22,1,0.36,1);animation:ping 2.8s ease-in-out infinite}
 @keyframes ping{0%,100%{box-shadow:0 0 0 3px rgba(0,201,167,0.3)}50%{box-shadow:0 0 0 8px rgba(0,201,167,0.05)}}
-.j-axis{display:flex;justify-content:space-between;font-family:var(--fm);font-size:11px;color:var(--t3);padding-top:8px}
+.j-axis{display:flex;justify-content:space-between;font-family:var(--fm);font-size:11px;color:var(--t3);padding-top:6px}
 .j-axis .goal{color:var(--amber)}
 
-/* PESTAÑAS / TABS */
-.tabs-wrapper{max-width:1080px;margin:0 auto 28px;padding:0 28px}
-.tabs-nav{display:flex;gap:8px;background:var(--surf);border:1px solid var(--border);padding:6px;border-radius:var(--r);overflow-x:auto;-webkit-overflow-scrolling:touch}
-.tab-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:transparent;border:1px solid transparent;color:var(--t2);font-family:var(--fd);font-size:13px;font-weight:600;padding:11px 16px;border-radius:10px;cursor:pointer;transition:all 0.2s ease;outline:none;white-space:nowrap}
+/* PESTAÑAS / TABS RESPONSIVAS */
+.tabs-wrapper{max-width:1080px;margin:0 auto 24px;padding:0 24px}
+.tabs-nav{display:flex;gap:6px;background:var(--surf);border:1px solid var(--border);padding:5px;border-radius:var(--r);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.tabs-nav::-webkit-scrollbar{display:none}
+.tab-btn{flex:1 0 auto;display:flex;align-items:center;justify-content:center;gap:6px;background:transparent;border:1px solid transparent;color:var(--t2);font-family:var(--fd);font-size:12px;font-weight:600;padding:10px 14px;border-radius:10px;cursor:pointer;transition:all 0.2s ease;outline:none;white-space:nowrap}
 .tab-btn:hover{color:var(--t1);background:var(--surf2)}
 .tab-btn.active{color:#0A0C12;background:var(--teal);border-color:var(--teal);box-shadow:0 4px 16px rgba(0,201,167,0.3)}
 .tab-content{display:none;animation:tabFadeIn 0.25s ease-out}
 .tab-content.active{display:block}
 @keyframes tabFadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 
-.wrap{max-width:1080px;margin:0 auto;padding:0 28px 36px}
-.wrap.no-bottom-pad{padding-bottom:12px}
-.sec-head{display:flex;align-items:center;gap:14px;padding-bottom:14px;margin-bottom:22px;border-bottom:1px solid var(--border)}
-.sec-head h2{font-family:var(--fd);font-size:17px;font-weight:600;letter-spacing:-0.02em;flex:1}
-.badge{font-family:var(--fm);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--t3);background:var(--surf2);border:1px solid var(--border);padding:4px 10px;border-radius:99px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
-.card{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:18px 16px}
-.card-lbl{font-family:var(--fm);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--t3);margin-bottom:10px}
-.card-val{font-family:var(--fd);font-size:25px;font-weight:700;letter-spacing:-0.03em;line-height:1;margin-bottom:5px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px 32px}
+.wrap.no-bottom-pad{padding-bottom:8px}
+.sec-head{display:flex;align-items:center;gap:12px;padding-bottom:12px;margin-bottom:18px;border-bottom:1px solid var(--border)}
+.sec-head h2{font-family:var(--fd);font-size:16px;font-weight:600;letter-spacing:-0.02em;flex:1}
+.badge{font-family:var(--fm);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--t3);background:var(--surf2);border:1px solid var(--border);padding:4px 9px;border-radius:99px;white-space:nowrap}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.card{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:16px 14px}
+.card-lbl{font-family:var(--fm);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--t3);margin-bottom:8px}
+.card-val{font-family:var(--fd);font-size:22px;font-weight:700;letter-spacing:-0.03em;line-height:1;margin-bottom:4px}
 .card-sub{font-size:11px;color:var(--t3)}
 .card.t{border-color:var(--teal-b);background:var(--teal-a)}.card.t .card-val{color:var(--teal)}
 .card.c .card-val{color:var(--coral)}.card.a .card-val{color:var(--amber)}.card.b .card-val{color:var(--blue)}
-table{width:100%;border-collapse:collapse}
-th{font-family:var(--fm);font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:var(--t3);font-weight:500;padding:10px 14px;text-align:left;border-bottom:1px solid var(--border)}
+
+.table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border);border-radius:var(--r)}
+table{width:100%;border-collapse:collapse;min-width:550px}
+th{font-family:var(--fm);font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:var(--t3);font-weight:500;padding:10px 12px;text-align:left;border-bottom:1px solid var(--border)}
 th.r{text-align:right}th.c{text-align:center}
-td{padding:12px 14px;border-bottom:1px solid rgba(30,34,53,0.6);font-family:var(--fm);font-size:13px;vertical-align:middle}
+td{padding:11px 12px;border-bottom:1px solid rgba(30,34,53,0.6);font-family:var(--fm);font-size:12px;vertical-align:middle}
 td.r{text-align:right}td.c{text-align:center}
 tr:hover td{background:var(--surf)}
-.wh-kg{font-family:var(--fd);font-size:18px;font-weight:700;letter-spacing:-0.02em}
-.tag{font-family:var(--fm);font-size:10px;padding:3px 9px;border-radius:99px;white-space:nowrap}
+.wh-kg{font-family:var(--fd);font-size:16px;font-weight:700;letter-spacing:-0.02em}
+.tag{font-family:var(--fm);font-size:10px;padding:3px 8px;border-radius:99px;white-space:nowrap}
 .tag-max{background:var(--coral-a);color:var(--coral);border:1px solid rgba(255,92,92,0.2)}
 .tag-cur{background:var(--teal-a);color:var(--teal);border:1px solid rgba(0,201,167,0.2)}
 .tag-work{background:var(--amber-a);color:var(--amber);border:1px solid rgba(255,168,48,0.2)}
 .tag-ref{background:var(--blue-a);color:var(--blue);border:1px solid rgba(91,157,255,0.2)}
-.dpos{color:var(--coral);font-size:12px}.dneg{color:var(--teal);font-size:12px}.dna{color:var(--t3);font-size:12px}
-.bar{width:80px;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.dpos{color:var(--coral);font-size:11px}.dneg{color:var(--teal);font-size:11px}.dna{color:var(--t3);font-size:11px}
+.bar{width:70px;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
 .bar-f{height:100%;border-radius:2px}
 tr.work-row td{background:var(--teal-a)}
-/* Chart */
-.chart-wrap{position:relative;background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:20px 20px 14px;margin-bottom:28px;overflow:hidden}
-.chart-title{font-family:var(--fm);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--t3);margin-bottom:16px}
-canvas{width:100%;height:130px;display:block;cursor:crosshair}
+
+/* Chart Wrapper */
+.chart-wrap{position:relative;background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:16px 14px 12px;margin-bottom:24px;overflow:hidden}
+.chart-title{font-family:var(--fm);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--t3);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+canvas{width:100%;height:130px;display:block;cursor:crosshair;touch-action:none}
+
 /* Body comp */
-.bodycomp{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.bc-card{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:26px}
-.bc-lbl{font-family:var(--fm);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--t3);margin-bottom:14px}
-.bc-val{font-family:var(--fd);font-size:42px;font-weight:700;letter-spacing:-0.04em;line-height:1;margin-bottom:8px}
-.bc-sub{font-size:12px;color:var(--t3)}
-.bc-bar{height:5px;border-radius:99px;margin-top:18px}
+.bodycomp{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.bc-card{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:20px}
+.bc-lbl{font-family:var(--fm);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--t3);margin-bottom:12px}
+.bc-val{font-family:var(--fd);font-size:36px;font-weight:700;letter-spacing:-0.04em;line-height:1;margin-bottom:6px}
+.bc-sub{font-size:11px;color:var(--t3)}
+.bc-bar{height:5px;border-radius:99px;margin-top:14px}
 .bc-card.lean{border-color:rgba(0,201,167,0.25)}.bc-card.lean .bc-val{color:var(--teal)}
 .bc-card.lean .bc-bar{background:linear-gradient(90deg,var(--teal),#00B8A9);width:74.3%}
 .bc-card.fat .bc-val{color:var(--amber)}.bc-card.fat .bc-bar{background:linear-gradient(90deg,var(--amber),#FF8C00);width:25.7%}
+
 /* Meas comparison */
 .meas-val{color:var(--t2)}.meas-cur{color:var(--teal);font-weight:600}
-.d-better{color:var(--teal);font-size:12px}.d-worse{color:var(--coral);font-size:12px}.d-na{color:var(--t3);font-size:12px}
+.d-better{color:var(--teal);font-size:11px}.d-worse{color:var(--coral);font-size:11px}.d-na{color:var(--t3);font-size:11px}
+
 /* History full table */
 .hist-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border);border-radius:var(--r)}
-.hist-table{min-width:1100px;width:100%}
-.hist-table th{font-size:9px;padding:8px 10px;white-space:nowrap}
-.hist-table td{font-size:11px;padding:9px 10px;white-space:nowrap}
-.hist-table td:first-child{font-family:var(--fm);font-size:11px;color:var(--t2);position:sticky;left:0;background:var(--surf);z-index:2;border-right:1px solid var(--border);min-width:100px}
+.hist-table{min-width:1050px;width:100%}
+.hist-table th{font-size:9px;padding:8px 9px;white-space:nowrap}
+.hist-table td{font-size:11px;padding:8px 9px;white-space:nowrap}
+.hist-table td:first-child{font-family:var(--fm);font-size:11px;color:var(--t2);position:sticky;left:0;background:var(--surf);z-index:2;border-right:1px solid var(--border);min-width:95px}
 .hist-table tr:hover td:first-child{background:var(--surf2)}
 .hist-table th:first-child{position:sticky;left:0;background:var(--surf2);z-index:3;border-right:1px solid var(--border)}
 .hv{color:var(--t1)}.hem{color:var(--t3)}.hpeak{color:var(--coral);font-weight:600}.hcur{color:var(--teal);font-weight:600}
 td.hna{color:var(--t3)}
+
 /* Scenarios */
-.grp-row td{background:var(--surf2)!important;color:var(--t3)!important;font-family:var(--fm)!important;font-size:10px!important;letter-spacing:0.11em!important;text-transform:uppercase!important;padding:8px 14px!important;text-align:left!important;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.grp-row td{background:var(--surf2)!important;color:var(--t3)!important;font-family:var(--fm)!important;font-size:10px!important;letter-spacing:0.11em!important;text-transform:uppercase!important;padding:7px 12px!important;text-align:left!important;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .scen-n{font-size:10px;color:var(--t3);display:block;margin-bottom:2px}
-.scen-name{font-family:var(--fb);font-size:13px;color:var(--t1);display:block}
-.scen-det{font-family:var(--fm);font-size:11px;color:var(--t3);margin-top:2px;display:block}
+.scen-name{font-family:var(--fb);font-size:12px;color:var(--t1);display:block}
+.scen-det{font-family:var(--fm);font-size:10px;color:var(--t3);margin-top:2px;display:block}
 .c-maint{color:var(--t2);font-family:var(--fm)}.c-opt{color:var(--teal);font-weight:600;font-family:var(--fm)}.c-agg{color:var(--coral);font-family:var(--fm)}
-.infobox{margin-top:14px;padding:14px 16px;background:var(--teal-a);border:1px solid rgba(0,201,167,0.18);border-radius:var(--r2);font-size:12px;color:var(--t2);line-height:1.7}
+.infobox{margin-top:14px;padding:12px 14px;background:var(--teal-a);border:1px solid rgba(0,201,167,0.18);border-radius:var(--r2);font-size:11px;color:var(--t2);line-height:1.6}
 .infobox strong{color:var(--teal)}
-.macros-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
-.footer{border-top:1px solid var(--border);max-width:1080px;margin:0 auto;padding:28px 28px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px}
-.ft-title{font-family:var(--fm);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--t3);margin-bottom:10px}
-.ft-text{font-size:12px;color:var(--t3);line-height:1.8}
+.macros-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.footer{border-top:1px solid var(--border);max-width:1080px;margin:0 auto;padding:24px 24px 36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px}
+.ft-title{font-family:var(--fm);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--t3);margin-bottom:8px}
+.ft-text{font-size:11px;color:var(--t3);line-height:1.7}
+
+/* MEDIA QUERIES RESPONSIVAS PARA MÓVILES */
 @media(max-width:640px){
-  .hero{padding:36px 16px 24px}.wrap{padding:0 16px 28px}.tabs-wrapper{padding:0 16px}nav{padding:12px 16px}
-  .bodycomp{grid-template-columns:1fr}.j-stats{gap:20px}.hero-num{font-size:72px}
-  .tab-btn{font-size:12px;padding:9px 12px}
+  nav{padding:10px 16px}
+  .nav-brand{font-size:14px}
+  .nav-date{font-size:10px;display:none}
+  .hero{padding:28px 16px 20px}
+  .hero-num{font-size:60px}
+  .hero-unit{font-size:24px}
+  .wrap{padding:0 16px 24px}
+  .tabs-wrapper{padding:0 16px 20px}
+  .tabs-nav{gap:4px;padding:4px}
+  .tab-btn{font-size:11px;padding:8px 11px}
+  .j-stats{gap:14px 20px}
+  .j-val{font-size:18px}
+  .bodycomp{grid-template-columns:1fr}
+  .bc-card{padding:16px}
+  .bc-val{font-size:32px}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .macros-grid{grid-template-columns:repeat(2,1fr)}
+  canvas{height:115px}
+  .footer{grid-template-columns:1fr;gap:16px;padding:20px 16px 32px}
 }
-::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 </style>
@@ -169,9 +195,9 @@ td.hna{color:var(--t3)}
 
 <!-- CHART HISTORIAL DE PESO PERSISTENTE -->
 <div class="wrap">
-  <div class="sec-head"><h2>Tendencia de Peso Total</h2><span class="badge">Sep 2025 &rarr; Jul 2026 &middot; Hover para fecha</span></div>
+  <div class="sec-head"><h2>Tendencia de Peso Total</h2><span class="badge">Sep 2025 &rarr; Jul 2026 &middot; Toca / Hover</span></div>
   <div class="chart-wrap" style="margin-bottom: 0;">
-    <div class="chart-title">Gr&aacute;fica de peso (kg) &mdash; Hover para detalles por fecha</div>
+    <div class="chart-title"><span>Gr&aacute;fica de peso (kg)</span><span style="color:var(--teal)">● Actual 98.3 kg</span></div>
     <canvas id="wtCanvas"></canvas>
   </div>
 </div>
@@ -213,58 +239,60 @@ td.hna{color:var(--t3)}
   </div>
 </div>
 
-<!-- ==================== PESTAÑA 1: CALORÍAS POR ESCENARIO (ESTÁNDAR DEFAULT) ==================== -->
+<!-- ==================== PESTAÑA 1: CALORÍAS POR ESCENARIO ==================== -->
 <div id="tab-calorias" class="tab-content active" role="tabpanel">
   <div class="wrap">
     <div class="sec-head"><h2>Calor&iacute;as por Escenario</h2><span class="badge">Base 98.3 kg &middot; BMR 1,957 kcal</span></div>
-    <div style="display:flex;gap:22px;flex-wrap:wrap;margin-bottom:18px;font-size:12px">
-      <span style="color:var(--t2)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--t2);margin-right:6px;vertical-align:middle"></span>Mantenimiento</span>
-      <span style="color:var(--teal)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:6px;vertical-align:middle"></span>&Oacute;ptimo &minus;500 kcal</span>
-      <span style="color:var(--coral)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--coral);margin-right:6px;vertical-align:middle"></span>Agresivo &minus;750 kcal</span>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px;font-size:11px">
+      <span style="color:var(--t2)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--t2);margin-right:5px"></span>Mantenimiento</span>
+      <span style="color:var(--teal)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:5px"></span>&Oacute;ptimo &minus;500 kcal</span>
+      <span style="color:var(--coral)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--coral);margin-right:5px"></span>Agresivo &minus;750 kcal</span>
     </div>
-    <table>
-      <thead>
-        <tr>
-          <th style="width:44%">Escenario</th>
-          <th class="c" style="color:var(--t2)">Mantenimiento</th>
-          <th class="c" style="color:var(--teal)">&#9679; &Oacute;ptimo</th>
-          <th class="c" style="color:var(--coral)">&#9679; Agresivo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="grp-row"><td colspan="4">Sin ejercicio</td></tr>
-        <tr><td><span class="scen-n">#1</span><span class="scen-name">Cama &rarr; sof&aacute; &rarr; series</span><span class="scen-det">Sedentario puro</span></td><td class="c c-maint">2,348</td><td class="c c-opt">1,848</td><td class="c c-agg">1,598</td></tr>
-        <tr><td><span class="scen-n">#2</span><span class="scen-name">Sedentario + tareas del hogar</span><span class="scen-det">Limpiar, lavar, cocinar</span></td><td class="c c-maint">2,484</td><td class="c c-opt">1,984</td><td class="c c-agg">1,734</td></tr>
-        <tr class="grp-row"><td colspan="4">Walking pad &middot; 10k pasos</td></tr>
-        <tr><td><span class="scen-n">#3a</span><span class="scen-name">Trabajo + 10k pasos plano / calle</span><span class="scen-det">0&ndash;2% &middot; +575 kcal</span></td><td class="c c-maint">2,923</td><td class="c c-opt">2,423</td><td class="c c-agg">2,173</td></tr>
-        <tr><td><span class="scen-n">#3b</span><span class="scen-name">Trabajo + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+855 kcal &middot; sweet spot</span></td><td class="c c-maint">3,203</td><td class="c c-opt">2,703</td><td class="c c-agg">2,453</td></tr>
-        <tr class="grp-row"><td colspan="4">Gym 2 horas (+720 kcal)</td></tr>
-        <tr><td><span class="scen-n">#4</span><span class="scen-name">Gym 2h + sedentario</span><span class="scen-det">Solo gym, resto inactivo</span></td><td class="c c-maint">3,068</td><td class="c c-opt">2,568</td><td class="c c-agg">2,318</td></tr>
-        <tr><td><span class="scen-n">#5a</span><span class="scen-name">Gym 2h + 10k pasos plano</span><span class="scen-det">+1,295 kcal total</span></td><td class="c c-maint">3,643</td><td class="c c-opt">3,143</td><td class="c c-agg">2,893</td></tr>
-        <tr><td><span class="scen-n">#5b</span><span class="scen-name">Gym 2h + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,575 kcal total</span></td><td class="c c-maint">3,923</td><td class="c c-opt">3,423</td><td class="c c-agg">3,173</td></tr>
-        <tr><td><span class="scen-n">#5c</span><span class="scen-name">Gym 2h + 10k pasos 12% inclinaci&oacute;n</span><span class="scen-det">Modo beast &middot; +2,040 kcal</span></td><td class="c c-maint">4,388</td><td class="c c-opt">3,888</td><td class="c c-agg">3,638</td></tr>
-        <tr class="grp-row"><td colspan="4">Gym 1h 10min (+440 kcal)</td></tr>
-        <tr><td><span class="scen-n">#6</span><span class="scen-name">Gym 1h10 + sedentario</span><span class="scen-det">Solo gym, resto inactivo</span></td><td class="c c-maint">2,788</td><td class="c c-opt">2,288</td><td class="c c-agg">2,038</td></tr>
-        <tr><td><span class="scen-n">#7a</span><span class="scen-name">Gym 1h10 + 10k pasos plano</span><span class="scen-det">+1,015 kcal total</span></td><td class="c c-maint">3,363</td><td class="c c-opt">2,863</td><td class="c c-agg">2,613</td></tr>
-        <tr><td><span class="scen-n">#7b</span><span class="scen-name">Gym 1h10 + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,295 kcal total</span></td><td class="c c-maint">3,643</td><td class="c c-opt">3,143</td><td class="c c-agg">2,893</td></tr>
-      </tbody>
-    </table>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:44%">Escenario</th>
+            <th class="c" style="color:var(--t2)">Mantenimiento</th>
+            <th class="c" style="color:var(--teal)">&#9679; &Oacute;ptimo</th>
+            <th class="c" style="color:var(--coral)">&#9679; Agresivo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="grp-row"><td colspan="4">Sin ejercicio</td></tr>
+          <tr><td><span class="scen-n">#1</span><span class="scen-name">Cama &rarr; sof&aacute; &rarr; series</span><span class="scen-det">Sedentario puro</span></td><td class="c c-maint">2,348</td><td class="c c-opt">1,848</td><td class="c c-agg">1,598</td></tr>
+          <tr><td><span class="scen-n">#2</span><span class="scen-name">Sedentario + tareas del hogar</span><span class="scen-det">Limpiar, lavar, cocinar</span></td><td class="c c-maint">2,484</td><td class="c c-opt">1,984</td><td class="c c-agg">1,734</td></tr>
+          <tr class="grp-row"><td colspan="4">Walking pad &middot; 10k pasos</td></tr>
+          <tr><td><span class="scen-n">#3a</span><span class="scen-name">Trabajo + 10k pasos plano / calle</span><span class="scen-det">0&ndash;2% &middot; +575 kcal</span></td><td class="c c-maint">2,923</td><td class="c c-opt">2,423</td><td class="c c-agg">2,173</td></tr>
+          <tr><td><span class="scen-n">#3b</span><span class="scen-name">Trabajo + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+855 kcal &middot; sweet spot</span></td><td class="c c-maint">3,203</td><td class="c c-opt">2,703</td><td class="c c-agg">2,453</td></tr>
+          <tr class="grp-row"><td colspan="4">Gym 2 horas (+720 kcal)</td></tr>
+          <tr><td><span class="scen-n">#4</span><span class="scen-name">Gym 2h + sedentario</span><span class="scen-det">Solo gym, resto inactivo</span></td><td class="c c-maint">3,068</td><td class="c c-opt">2,568</td><td class="c c-agg">2,318</td></tr>
+          <tr><td><span class="scen-n">#5a</span><span class="scen-name">Gym 2h + 10k pasos plano</span><span class="scen-det">+1,295 kcal total</span></td><td class="c c-maint">3,643</td><td class="c c-opt">3,143</td><td class="c c-agg">2,893</td></tr>
+          <tr><td><span class="scen-n">#5b</span><span class="scen-name">Gym 2h + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,575 kcal total</span></td><td class="c c-maint">3,923</td><td class="c c-opt">3,423</td><td class="c c-agg">3,173</td></tr>
+          <tr><td><span class="scen-n">#5c</span><span class="scen-name">Gym 2h + 10k pasos 12% inclinaci&oacute;n</span><span class="scen-det">Modo beast &middot; +2,040 kcal</span></td><td class="c c-maint">4,388</td><td class="c c-opt">3,888</td><td class="c c-agg">3,638</td></tr>
+          <tr class="grp-row"><td colspan="4">Gym 1h 10min (+440 kcal)</td></tr>
+          <tr><td><span class="scen-n">#6</span><span class="scen-name">Gym 1h10 + sedentario</span><span class="scen-det">Solo gym, resto inactivo</span></td><td class="c c-maint">2,788</td><td class="c c-opt">2,288</td><td class="c c-agg">2,038</td></tr>
+          <tr><td><span class="scen-n">#7a</span><span class="scen-name">Gym 1h10 + 10k pasos plano</span><span class="scen-det">+1,015 kcal total</span></td><td class="c c-maint">3,363</td><td class="c c-opt">2,863</td><td class="c c-agg">2,613</td></tr>
+          <tr><td><span class="scen-n">#7b</span><span class="scen-name">Gym 1h10 + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,295 kcal total</span></td><td class="c c-maint">3,643</td><td class="c c-opt">3,143</td><td class="c c-agg">2,893</td></tr>
+        </tbody>
+      </table>
+    </div>
     <div class="infobox"><strong>Pasos &amp; inclinaci&oacute;n:</strong> Plano / 0&ndash;2% &asymp; 575 kcal (equiv. calle) &middot; 5% &asymp; 855 kcal &middot; 12% &asymp; 1,320 kcal &middot; Margen individual: &plusmn;15&ndash;20% &middot; No agarrarse del pasamanos (cancela hasta 30% del beneficio)</div>
   </div>
 </div>
 
-<!-- ==================== PESTAÑA 2: TABLA HISTORIAL DE PESO + CHARTS DE MASA MAGRA Y GRASA ==================== -->
+<!-- ==================== PESTAÑA 2: HISTORIAL DE PESO + CHARTS ==================== -->
 <div id="tab-historial-peso" class="tab-content" role="tabpanel">
   <!-- CHARTS DE MASA MAGRA Y MASA GRASA -->
-  <div class="wrap" style="margin-bottom: 28px;">
-    <div class="sec-head"><h2>Desglose de Composici&oacute;n Corporal (kg)</h2><span class="badge">Masa Magra vs. Masa Grasa &middot; F&oacute;rmula Naval USA</span></div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+  <div class="wrap" style="margin-bottom: 24px;">
+    <div class="sec-head"><h2>Desglose de Composici&oacute;n Corporal (kg)</h2><span class="badge">Masa Magra vs. Masa Grasa</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
       <div class="chart-wrap" style="margin-bottom:0">
-        <div class="chart-title">Evoluci&oacute;n de Masa Magra (kg) &mdash; M&uacute;sculo / Magro</div>
+        <div class="chart-title"><span>Evoluci&oacute;n Masa Magra (kg)</span><span style="color:var(--teal)">● M&uacute;sculo</span></div>
         <canvas id="leanWeightCanvas"></canvas>
       </div>
       <div class="chart-wrap" style="margin-bottom:0">
-        <div class="chart-title">Evoluci&oacute;n de Masa Grasa (kg) &mdash; Tejido Adiposo</div>
+        <div class="chart-title"><span>Evoluci&oacute;n Masa Grasa (kg)</span><span style="color:var(--amber)">● Adiposo</span></div>
         <canvas id="fatWeightCanvas"></canvas>
       </div>
     </div>
@@ -272,138 +300,140 @@ td.hna{color:var(--t3)}
 
   <div class="wrap">
     <div class="sec-head"><h2>Historial de Peso</h2><span class="badge">14 registros con peso &middot; M&aacute;s nuevos arriba</span></div>
-    <table>
-      <thead>
-        <tr>
-          <th>Fecha</th><th>Peso</th><th class="r">&Delta; anterior</th><th>Etiqueta</th><th>Barra</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="work-row">
-          <td style="color:var(--teal)">25 Jul 2026 &#9733; HOY</td>
-          <td><span class="wh-kg" style="color:var(--teal)">98.3 kg</span></td>
-          <td class="r"><span class="dneg">&minus;3.2 kg desde pico</span></td>
-          <td><span class="tag tag-cur">Actual confirmado</span></td>
-          <td><div class="bar"><div class="bar-f" style="width:86%;background:var(--teal)"></div></div></td>
-        </tr>
-        <tr>
-          <td style="color:var(--t2)">20 Jul 2026</td>
-          <td><span class="wh-kg">99.34 kg</span></td>
-          <td class="r"><span class="dpos">+1.0 kg</span></td>
-          <td><span style="font-size:11px;color:var(--t3)">Retenci&oacute;n l&iacute;quidos</span></td>
-          <td><div class="bar"><div class="bar-f" style="width:91%;background:var(--amber)"></div></div></td>
-        </tr>
-        <tr>
-          <td style="color:var(--t2)">19 Jul 2026</td>
-          <td><span class="wh-kg">98.34 kg</span></td>
-          <td class="r"><span class="dneg">&minus;0.26 kg</span></td>
-          <td><span style="font-size:11px;color:var(--t3)">Variaci&oacute;n</span></td>
-          <td><div class="bar"><div class="bar-f" style="width:87%;background:var(--teal)"></div></div></td>
-        </tr>
-        <tr>
-          <td style="color:var(--t2)">18 Jul 2026</td>
-          <td><span class="wh-kg">98.60 kg</span></td>
-          <td class="r"><span class="dpos">+0.26 kg</span></td>
-          <td><span style="font-size:11px;color:var(--t3)">Variaci&oacute;n</span></td>
-          <td><div class="bar"><div class="bar-f" style="width:88%;background:var(--teal)"></div></div></td>
-        </tr>
-        <tr>
-          <td style="color:var(--t2)">14 Jul 2026</td>
-          <td><span class="wh-kg">98.34 kg</span></td>
-          <td class="r"><span class="dneg">&minus;3.16 kg</span></td>
-          <td><span style="font-size:11px;color:var(--t3)">Medidas Jul</span></td>
-          <td><div class="bar"><div class="bar-f" style="width:87%;background:var(--teal)"></div></div></td>
-        </tr>
-        <tr>
-          <td style="color:var(--t2)">27 Abr 2026</td>
-          <td><span class="wh-kg" style="color:var(--coral)">101.5 kg</span></td>
-          <td class="r"><span class="dpos">+9.5 kg</span></td>
-          <td><span class="tag tag-max">M&aacute;ximo hist&oacute;rico</span></td>
-          <td><div class="bar"><div class="bar-f" style="width:100%;background:var(--coral)"></div></div></td>
-        </tr>
-        <tr>
-          <td style="color:var(--t2)">10 Ene 2026</td>
-          <td><span class="wh-kg" style="color:var(--blue)">92.0 kg</span></td>
-          <td class="r"><span class="dna">&mdash;</span></td>
-          <td><span class="tag tag-ref">Referencia Ene</span></td>
-          <td><div class="bar"><div class="bar-f" style="width:59%;background:var(--blue)"></div></div></td>
-        </tr>
-        <tr>
-          <td style="color:var(--t2)">29 Dic 2025</td>
-          <td><span class="wh-kg" style="color:var(--t3)">— kg</span></td>
-          <td class="r"><span class="dna">&mdash;</span></td>
-          <td><span style="font-size:11px;color:var(--t3)">Solo medidas</span></td>
-          <td><div class="bar"></div></td>
-        </tr>
-        <tr>
-          <td style="color:var(--t2)">&sim;Med Dic 2025</td>
-          <td><span class="wh-kg">93.0 kg</span></td>
-          <td class="r"><span class="dneg">&minus;1.5 kg</span></td>
-          <td><span style="font-size:11px;color:var(--t3)">Sin fecha exacta</span></td>
-          <td><div class="bar"><div class="bar-f" style="width:64%;background:var(--amber)"></div></div></td>
-        </tr>
-        <tr>
-          <td style="color:var(--t2)">8 Dic 2025</td>
-          <td><span class="wh-kg">94.5 kg</span></td>
-          <td class="r"><span class="dneg">&minus;0.9 kg</span></td>
-          <td><span style="font-size:11px;color:var(--t3)">Recuperando</span></td>
-          <td><div class="bar"><div class="bar-f" style="width:69%;background:var(--amber)"></div></div></td>
-        </tr>
-        <tr>
-          <td style="color:var(--t2)">2 Dic 2025</td>
-          <td><span class="wh-kg" style="color:var(--coral)">95.4 kg</span></td>
-          <td class="r"><span class="dpos">+4.9 kg</span></td>
-          <td><span style="font-size:11px;color:var(--coral)">Subida notable</span></td>
-          <td><div class="bar"><div class="bar-f" style="width:72%;background:var(--coral)"></div></div></td>
-        </tr>
-        <tr>
-          <td style="color:var(--t2)">11 Nov 2025</td>
-          <td><span class="wh-kg" style="color:var(--t3)">— kg</span></td>
-          <td class="r"><span class="dna">&mdash;</span></td>
-          <td><span style="font-size:11px;color:var(--t3)">Solo medidas</span></td>
-          <td><div class="bar"></div></td>
-        </tr>
-        <tr>
-          <td style="color:var(--t2)">13 Oct 2025</td>
-          <td><span class="wh-kg">90.50 kg</span></td>
-          <td class="r"><span class="dneg">&minus;0.05 kg</span></td>
-          <td><span style="font-size:11px;color:var(--t3)">M&iacute;nimo registrado</span></td>
-          <td><div class="bar"><div class="bar-f" style="width:54%;background:var(--teal)"></div></div></td>
-        </tr>
-        <tr>
-          <td style="color:var(--t2)">6 Oct 2025</td>
-          <td><span class="wh-kg">90.55 kg</span></td>
-          <td class="r"><span class="dneg">&minus;0.75 kg</span></td>
-          <td><span style="font-size:11px;color:var(--t3)">Bajando</span></td>
-          <td><div class="bar"><div class="bar-f" style="width:54%;background:var(--teal)"></div></div></td>
-        </tr>
-        <tr>
-          <td style="color:var(--t2)">30 Sep 2025</td>
-          <td><span class="wh-kg">91.30 kg</span></td>
-          <td class="r"><span class="dneg">&minus;2.2 kg</span></td>
-          <td><span style="font-size:11px;color:var(--t3)">Bajando</span></td>
-          <td><div class="bar"><div class="bar-f" style="width:56%;background:var(--teal)"></div></div></td>
-        </tr>
-        <tr>
-          <td style="color:var(--t2)">20 Sep 2025</td>
-          <td><span class="wh-kg">93.5 kg</span></td>
-          <td class="r"><span class="dna">&mdash;</span></td>
-          <td><span style="font-size:11px;color:var(--t3)">Primera pesada</span></td>
-          <td><div class="bar"><div class="bar-f" style="width:62%;background:var(--blue)"></div></div></td>
-        </tr>
-        <tr>
-          <td style="color:var(--t2)">5 Sep 2025</td>
-          <td><span class="wh-kg" style="color:var(--blue)">— kg</span></td>
-          <td class="r"><span class="dna">&mdash;</span></td>
-          <td><span class="tag tag-ref">Primer registro</span></td>
-          <td><div class="bar"></div></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th><th>Peso</th><th class="r">&Delta; anterior</th><th>Etiqueta</th><th>Barra</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="work-row">
+            <td style="color:var(--teal)">25 Jul 2026 &#9733; HOY</td>
+            <td><span class="wh-kg" style="color:var(--teal)">98.3 kg</span></td>
+            <td class="r"><span class="dneg">&minus;3.2 kg desde pico</span></td>
+            <td><span class="tag tag-cur">Actual confirmado</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:86%;background:var(--teal)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">20 Jul 2026</td>
+            <td><span class="wh-kg">99.34 kg</span></td>
+            <td class="r"><span class="dpos">+1.0 kg</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Retenci&oacute;n l&iacute;quidos</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:91%;background:var(--amber)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">19 Jul 2026</td>
+            <td><span class="wh-kg">98.34 kg</span></td>
+            <td class="r"><span class="dneg">&minus;0.26 kg</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Variaci&oacute;n</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:87%;background:var(--teal)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">18 Jul 2026</td>
+            <td><span class="wh-kg">98.60 kg</span></td>
+            <td class="r"><span class="dpos">+0.26 kg</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Variaci&oacute;n</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:88%;background:var(--teal)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">14 Jul 2026</td>
+            <td><span class="wh-kg">98.34 kg</span></td>
+            <td class="r"><span class="dneg">&minus;3.16 kg</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Medidas Jul</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:87%;background:var(--teal)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">27 Abr 2026</td>
+            <td><span class="wh-kg" style="color:var(--coral)">101.5 kg</span></td>
+            <td class="r"><span class="dpos">+9.5 kg</span></td>
+            <td><span class="tag tag-max">M&aacute;ximo hist&oacute;rico</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:100%;background:var(--coral)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">10 Ene 2026</td>
+            <td><span class="wh-kg" style="color:var(--blue)">92.0 kg</span></td>
+            <td class="r"><span class="dna">&mdash;</span></td>
+            <td><span class="tag tag-ref">Referencia Ene</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:59%;background:var(--blue)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">29 Dic 2025</td>
+            <td><span class="wh-kg" style="color:var(--t3)">— kg</span></td>
+            <td class="r"><span class="dna">&mdash;</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Solo medidas</span></td>
+            <td><div class="bar"></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">&sim;Med Dic 2025</td>
+            <td><span class="wh-kg">93.0 kg</span></td>
+            <td class="r"><span class="dneg">&minus;1.5 kg</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Sin fecha exacta</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:64%;background:var(--amber)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">8 Dic 2025</td>
+            <td><span class="wh-kg">94.5 kg</span></td>
+            <td class="r"><span class="dneg">&minus;0.9 kg</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Recuperando</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:69%;background:var(--amber)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">2 Dic 2025</td>
+            <td><span class="wh-kg" style="color:var(--coral)">95.4 kg</span></td>
+            <td class="r"><span class="dpos">+4.9 kg</span></td>
+            <td><span style="font-size:11px;color:var(--coral)">Subida notable</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:72%;background:var(--coral)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">11 Nov 2025</td>
+            <td><span class="wh-kg" style="color:var(--t3)">— kg</span></td>
+            <td class="r"><span class="dna">&mdash;</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Solo medidas</span></td>
+            <td><div class="bar"></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">13 Oct 2025</td>
+            <td><span class="wh-kg">90.50 kg</span></td>
+            <td class="r"><span class="dneg">&minus;0.05 kg</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">M&iacute;nimo registrado</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:54%;background:var(--teal)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">6 Oct 2025</td>
+            <td><span class="wh-kg">90.55 kg</span></td>
+            <td class="r"><span class="dneg">&minus;0.75 kg</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Bajando</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:54%;background:var(--teal)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">30 Sep 2025</td>
+            <td><span class="wh-kg">91.30 kg</span></td>
+            <td class="r"><span class="dneg">&minus;2.2 kg</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Bajando</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:56%;background:var(--teal)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">20 Sep 2025</td>
+            <td><span class="wh-kg">93.5 kg</span></td>
+            <td class="r"><span class="dna">&mdash;</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Primera pesada</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:62%;background:var(--blue)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">5 Sep 2025</td>
+            <td><span class="wh-kg" style="color:var(--blue)">— kg</span></td>
+            <td class="r"><span class="dna">&mdash;</span></td>
+            <td><span class="tag tag-ref">Primer registro</span></td>
+            <td><div class="bar"></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
-<!-- ==================== PESTAÑA 3: COMPOSICIÓN CORPORAL Y CHART DEDICADO DE MASA MAGRA ==================== -->
+<!-- ==================== PESTAÑA 3: COMPOSICIÓN CORPORAL ==================== -->
 <div id="tab-composicion-corporal" class="tab-content" role="tabpanel">
   <!-- COMPOSICIÓN CORPORAL CARDS -->
   <div class="wrap">
@@ -425,10 +455,10 @@ td.hna{color:var(--t3)}
   </div>
 
   <!-- CHART DEDICADO DE MASA MAGRA EN COMPOSICIÓN CORPORAL -->
-  <div class="wrap" style="margin-bottom: 28px;">
-    <div class="sec-head"><h2>Gr&aacute;fico Espec&iacute;fico de Masa Magra</h2><span class="badge">Modelo Naval USA &middot; Seguimiento temporal</span></div>
+  <div class="wrap" style="margin-bottom: 24px;">
+    <div class="sec-head"><h2>Gr&aacute;fico Espec&iacute;fico de Masa Magra</h2><span class="badge">Modelo Naval USA</span></div>
     <div class="chart-wrap" style="margin-bottom:0">
-      <div class="chart-title">Evoluci&oacute;n de Masa Magra (kg) &mdash; F&oacute;rmula Naval USA (Cuello + Cintura + Altura 179cm)</div>
+      <div class="chart-title"><span>Masa Magra (kg) &mdash; Cuello + Cintura + Altura 179cm</span><span style="color:var(--teal)">● Actual 73.0 kg</span></div>
       <canvas id="compLeanCanvas"></canvas>
     </div>
   </div>
@@ -436,37 +466,39 @@ td.hna{color:var(--t3)}
   <!-- COMPARATIVA DE MEDIDAS -->
   <div class="wrap">
     <div class="sec-head"><h2>Comparativa de Medidas</h2><span class="badge">3 fechas clave &middot; M&aacute;s nuevos a la izquierda</span></div>
-    <table>
-      <thead>
-        <tr>
-          <th style="width:24%">Medida</th>
-          <th class="c" style="font-size:9px;color:var(--teal)">Jul 25 '26 &#9733;<br><span style="color:var(--t3)">Actual</span></th>
-          <th class="c" style="font-size:9px;color:var(--coral)">Abr 27 '26<br><span style="color:var(--t3)">Pico m&aacute;x.</span></th>
-          <th class="c" style="font-size:9px;color:var(--blue)">Sep 5 '25<br><span style="color:var(--t3)">Inicio</span></th>
-          <th class="c" style="font-size:9px">&Delta; Inicio&rarr;Actual</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Peso</td><td class="c meas-cur">98.3 kg</td><td class="c" style="color:var(--coral)">101.5 kg</td><td class="c" style="color:var(--blue)">— kg</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
-        <tr><td>Cuello</td><td class="c meas-cur">43.0 cm</td><td class="c meas-val">44.5 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
-        <tr><td>Panza (ombligo)</td><td class="c meas-cur">103.5 cm</td><td class="c" style="color:var(--coral)">107 cm</td><td class="c" style="color:var(--blue)">97.5 cm</td><td class="c"><span class="d-better">&minus;4 cm &darr;</span></td></tr>
-        <tr><td>Espalda + pecho</td><td class="c meas-cur">112 cm</td><td class="c meas-val">115 cm</td><td class="c" style="color:var(--blue)">105 cm</td><td class="c"><span class="d-worse">+7 cm &uarr;</span></td></tr>
-        <tr><td>Brazo Izquierdo</td><td class="c meas-cur">38.5 cm</td><td class="c meas-val">39.0 cm</td><td class="c" style="color:var(--blue)">36.5 cm</td><td class="c"><span class="d-worse">+2 cm &uarr;</span></td></tr>
-        <tr><td>Brazo Derecho</td><td class="c meas-cur">38.5 cm</td><td class="c meas-val">39.0 cm</td><td class="c" style="color:var(--blue)">36.5 cm</td><td class="c"><span class="d-worse">+2 cm &uarr;</span></td></tr>
-        <tr><td>Hombro Izq</td><td class="c meas-cur">42 cm</td><td class="c meas-val">43 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
-        <tr><td>Hombro Der</td><td class="c meas-cur">42 cm</td><td class="c meas-val">43 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
-        <tr><td>Cadera (m&aacute;s ancha)</td><td class="c meas-cur">110 cm</td><td class="c" style="color:var(--coral)">115 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
-        <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Piernas (m&aacute;s anchas)</td><td class="c meas-cur">72.5 cm</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--teal)">nueva medida</span></td></tr>
-        <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Amplitud pecho (ax&ndash;ax)</td><td class="c meas-cur">44 cm</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--teal)">nueva medida</span></td></tr>
-      </tbody>
-    </table>
-    <p style="font-size:11px;color:var(--t3);margin-top:12px;line-height:1.7">
-      &#8593; Brazos/espalda m&aacute;s grandes vs inicio (Sep '25): refleja que en Abr '26 se lleg&oacute; al m&aacute;ximo y desde entonces bajan. La comparaci&oacute;n vs Sep '25 no es del todo favorable pero vs el pico de Abr '26 hay mejora en todas las medidas.
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:24%">Medida</th>
+            <th class="c" style="font-size:9px;color:var(--teal)">Jul 25 '26 &#9733;<br><span style="color:var(--t3)">Actual</span></th>
+            <th class="c" style="font-size:9px;color:var(--coral)">Abr 27 '26<br><span style="color:var(--t3)">Pico m&aacute;x.</span></th>
+            <th class="c" style="font-size:9px;color:var(--blue)">Sep 5 '25<br><span style="color:var(--t3)">Inicio</span></th>
+            <th class="c" style="font-size:9px">&Delta; Inicio&rarr;Actual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Peso</td><td class="c meas-cur">98.3 kg</td><td class="c" style="color:var(--coral)">101.5 kg</td><td class="c" style="color:var(--blue)">— kg</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+          <tr><td>Cuello</td><td class="c meas-cur">43.0 cm</td><td class="c meas-val">44.5 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+          <tr><td>Panza (ombligo)</td><td class="c meas-cur">103.5 cm</td><td class="c" style="color:var(--coral)">107 cm</td><td class="c" style="color:var(--blue)">97.5 cm</td><td class="c"><span class="d-better">&minus;4 cm &darr;</span></td></tr>
+          <tr><td>Espalda + pecho</td><td class="c meas-cur">112 cm</td><td class="c meas-val">115 cm</td><td class="c" style="color:var(--blue)">105 cm</td><td class="c"><span class="d-worse">+7 cm &uarr;</span></td></tr>
+          <tr><td>Brazo Izquierdo</td><td class="c meas-cur">38.5 cm</td><td class="c meas-val">39.0 cm</td><td class="c" style="color:var(--blue)">36.5 cm</td><td class="c"><span class="d-worse">+2 cm &uarr;</span></td></tr>
+          <tr><td>Brazo Derecho</td><td class="c meas-cur">38.5 cm</td><td class="c meas-val">39.0 cm</td><td class="c" style="color:var(--blue)">36.5 cm</td><td class="c"><span class="d-worse">+2 cm &uarr;</span></td></tr>
+          <tr><td>Hombro Izq</td><td class="c meas-cur">42 cm</td><td class="c meas-val">43 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+          <tr><td>Hombro Der</td><td class="c meas-cur">42 cm</td><td class="c meas-val">43 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+          <tr><td>Cadera (m&aacute;s ancha)</td><td class="c meas-cur">110 cm</td><td class="c" style="color:var(--coral)">115 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+          <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Piernas (m&aacute;s anchas)</td><td class="c meas-cur">72.5 cm</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--teal)">nueva medida</span></td></tr>
+          <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Amplitud pecho (ax&ndash;ax)</td><td class="c meas-cur">44 cm</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--teal)">nueva medida</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:11px;color:var(--t3);margin-top:10px;line-height:1.6">
+      &#8593; Brazos/espalda m&aacute;s grandes vs inicio (Sep '25): refleja que en Abr '26 se lleg&oacute; al m&aacute;ximo y desde entonces bajan.
     </p>
   </div>
 </div>
 
-<!-- ==================== PESTAÑA 4: HISTORIAL COMPLETO DE MEDIDAS + GRÁFICAS DE ESPALDA Y PANZA ==================== -->
+<!-- ==================== PESTAÑA 4: HISTORIAL COMPLETO DE MEDIDAS + CHARTS GRUPALES ==================== -->
 <div id="tab-historial-medidas" class="tab-content" role="tabpanel">
   <div class="wrap">
     <div class="sec-head"><h2>Historial Completo de Medidas</h2><span class="badge">14 entradas &middot; M&aacute;s nuevos arriba</span></div>
@@ -634,28 +666,60 @@ td.hna{color:var(--t3)}
         </tbody>
       </table>
     </div>
-    <p style="font-size:11px;color:var(--t3);margin-top:10px">Unidades: kg para peso &middot; cm para todo lo dem&aacute;s &middot; &mdash; = no registrado</p>
+    <p style="font-size:11px;color:var(--t3);margin-top:8px">Unidades: kg para peso &middot; cm para todo lo dem&aacute;s &middot; &mdash; = no registrado</p>
 
-    <!-- GRÁFICAS DE PROGRESO DE ESPALDA Y PANZA -->
-    <div style="margin-top:32px">
-      <div class="sec-head"><h2>Gr&aacute;ficas de Progreso de Medidas Clave</h2><span class="badge">Espalda &amp; Panza (cm)</span></div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+    <!-- GRÁFICAS DE PROGRESO DE MEDIDAS CLAVE (INDIVIDUALES Y GRUPALES UNIFICADAS) -->
+    <div style="margin-top:28px">
+      <div class="sec-head"><h2>Gr&aacute;ficas de Progreso de Medidas Clave</h2><span class="badge">Espalda, Panza, Brazos, Hombros y Piernas</span></div>
+      
+      <!-- Fila 1: Espalda y Panza -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:14px">
         <div class="chart-wrap" style="margin-bottom:0">
-          <div class="chart-title">Progreso de Espalda + Pecho (cm)</div>
+          <div class="chart-title"><span>Progreso de Espalda + Pecho (cm)</span><span style="color:var(--teal)">● Actual 112 cm</span></div>
           <canvas id="backCanvas"></canvas>
         </div>
         <div class="chart-wrap" style="margin-bottom:0">
-          <div class="chart-title">Progreso de Panza / Ombligo (cm)</div>
+          <div class="chart-title"><span>Progreso de Panza / Ombligo (cm)</span><span style="color:var(--teal)">● Actual 103.5 cm</span></div>
           <canvas id="waistCanvas"></canvas>
         </div>
       </div>
+
+      <!-- Fila 2: Brazos y Hombros (Charts Combinados Izq vs Der) -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:14px">
+        <div class="chart-wrap" style="margin-bottom:0">
+          <div class="chart-title">
+            <span>Progreso de Brazos (cm)</span>
+            <span style="font-size:9px"><em style="font-style:normal;color:var(--teal)">● Izq</em> &middot; <em style="font-style:normal;color:var(--blue)">● Der</em></span>
+          </div>
+          <canvas id="armsCanvas"></canvas>
+        </div>
+        <div class="chart-wrap" style="margin-bottom:0">
+          <div class="chart-title">
+            <span>Progreso de Hombros (cm)</span>
+            <span style="font-size:9px"><em style="font-style:normal;color:var(--teal)">● Izq</em> &middot; <em style="font-style:normal;color:var(--blue)">● Der</em></span>
+          </div>
+          <canvas id="shouldersCanvas"></canvas>
+        </div>
+      </div>
+
+      <!-- Fila 3: Piernas (Chart Combinado Izq vs Der) -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
+        <div class="chart-wrap" style="margin-bottom:0">
+          <div class="chart-title">
+            <span>Progreso de Piernas (cm) &mdash; Muslo m&aacute;s ancho</span>
+            <span style="font-size:9px"><em style="font-style:normal;color:var(--teal)">● Izq (72.5cm)</em> &middot; <em style="font-style:normal;color:var(--blue)">● Der (72.5cm)</em></span>
+          </div>
+          <canvas id="legsCanvas"></canvas>
+        </div>
+      </div>
+
     </div>
 
   </div>
 </div>
 
-<!-- FOOTER PERSISTENTE: MÉTRICAS CLAVE MOVIDAS AQUÍ (ARRIBA DE MACROS) -->
-<div class="wrap no-bottom-pad" style="margin-top: 36px;">
+<!-- FOOTER PERSISTENTE: MÉTRICAS CLAVE MOVIDAS AQUÍ -->
+<div class="wrap no-bottom-pad" style="margin-top: 28px;">
   <div class="sec-head"><h2>M&eacute;tricas Clave</h2><span class="badge">Actualizado 25 Jul 2026</span></div>
   <div class="cards">
     <div class="card"><div class="card-lbl">BMR &middot; Solo existir</div><div class="card-val">1,957</div><div class="card-sub">kcal &middot; sin mover un dedo</div></div>
@@ -670,7 +734,7 @@ td.hna{color:var(--t3)}
 </div>
 
 <!-- MACROS OBJETIVO PERSISTENTE -->
-<div class="wrap" style="margin-top: 24px;">
+<div class="wrap" style="margin-top: 20px;">
   <div class="sec-head"><h2>Macros Objetivo</h2><span class="badge">D&iacute;a sedentario &middot; 1,848 kcal</span></div>
   <div class="macros-grid">
     <div class="card t"><div class="card-lbl">Prote&iacute;na</div><div class="card-val">160&ndash;180 g</div><div class="card-sub">720 kcal &middot; 39% &middot; 2.2g/kg masa magra</div></div>
@@ -681,14 +745,14 @@ td.hna{color:var(--t3)}
 </div>
 
 <div class="footer">
-  <div><div class="ft-title">M&eacute;todos de c&aacute;lculo</div><div class="ft-text">BMR: Mifflin-St Jeor + Katch-McArdle (promedio)<br>% Grasa: F&oacute;rmula Naval USA<br>Pasos: ACSM Equations + Compendium of Physical Activities (Ainsworth et al., 2011)<br>Kcal ejercicio: MET &times; peso &times; 3.5 &divide; 200</div></div>
-  <div><div class="ft-title">Objetivos</div><div class="ft-text">Meta: 80 kg<br>D&eacute;ficit recomendado: &minus;500 kcal/d&iacute;a<br>Prote&iacute;na: 160&ndash;180 g/d&iacute;a<br>Ritmo: &sim;0.5&ndash;0.6 kg/semana<br>Estimaci&oacute;n: &sim;10.4 meses</div></div>
-  <div><div class="ft-title">&Uacute;ltima actualizaci&oacute;n</div><div class="ft-text">Peso: 98.3 kg &middot; 25 Jul 2026<br>Medidas: 25 Jul 2026<br>Historial: Sep 2025 &rarr; Jul 2026<br>Entradas: 14 registros de medidas</div></div>
+  <div><div class="ft-title">M&eacute;todos de c&aacute;lculo</div><div class="ft-text">BMR: Mifflin-St Jeor + Katch-McArdle (promedio)<br>% Grasa: F&oacute;rmula Naval USA<br>Pasos: ACSM Equations + Compendium of Physical Activities<br>Kcal ejercicio: MET &times; peso &times; 3.5 &divide; 200</div></div>
+  <div><div class="ft-title">Objetivos</div><div class="ft-text">Meta: 80 kg<br>D&eacute;ficit recomendado: &minus;500 kcal/d&iacute;a<br>Prote&iacute;na: 160&ndash;180 g/d&iacute;a<br>Ritmo: &sim;0.5&ndash;0.6 kg/semana</div></div>
+  <div><div class="ft-title">&Uacute;ltima actualizaci&oacute;n</div><div class="ft-text">Peso: 98.3 kg &middot; 25 Jul 2026<br>Medidas: 25 Jul 2026<br>Historial: Sep 2025 &rarr; Jul 2026</div></div>
 </div>
 
 <script>
 // Nav date
-document.getElementById('navDate').textContent = new Date().toLocaleDateString('es-MX',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+document.getElementById('navDate').textContent = new Date().toLocaleDateString('es-MX',{weekday:'short',year:'numeric',month:'short',day:'numeric'});
 
 // Journey bar animation
 const peak=101.5,goal=80.0,cur=98.3;
@@ -700,12 +764,10 @@ setTimeout(()=>{
   const s=()=>{if(c<t){c++;el.textContent=c+'%';setTimeout(s,1700/t)}};s();
 },350);
 
-// Configuración de datos para todos los gráficos
+// Configuración de datos para todos los gráficos (simples y de series dobles para grupos)
 const chartConfigs = {
   wtCanvas: {
-    title: "Peso Total",
-    unit: "kg",
-    minVal: 88, maxVal: 103, goalVal: 80,
+    unit: "kg", minVal: 88, maxVal: 103, goalVal: 80,
     data: [
       { d: 0, v: 93.5, lbl: "20 Sep 25" },
       { d: 10, v: 91.3, lbl: "30 Sep 25" },
@@ -717,16 +779,11 @@ const chartConfigs = {
       { d: 112, v: 92.0, lbl: "10 Ene 26" },
       { d: 219, v: 101.5, lbl: "27 Abr 26", note: "Pico Máximo (101.5 kg)" },
       { d: 297, v: 98.34, lbl: "14 Jul 26" },
-      { d: 301, v: 98.6, lbl: "18 Jul 26" },
-      { d: 302, v: 98.34, lbl: "19 Jul 26" },
-      { d: 303, v: 99.34, lbl: "20 Jul 26" },
       { d: 308, v: 98.3, lbl: "25 Jul 26", note: "Actual (98.3 kg)" }
     ]
   },
   leanWeightCanvas: {
-    title: "Masa Magra",
-    unit: "kg",
-    minVal: 65, maxVal: 78,
+    unit: "kg", minVal: 65, maxVal: 78,
     data: [
       { d: 0, v: 72.2, lbl: "20 Sep 25" },
       { d: 10, v: 69.8, lbl: "30 Sep 25" },
@@ -738,13 +795,11 @@ const chartConfigs = {
       { d: 112, v: 71.0, lbl: "10 Ene 26" },
       { d: 219, v: 74.5, lbl: "27 Abr 26", note: "Pico Magro (74.5 kg)" },
       { d: 297, v: 72.7, lbl: "14 Jul 26" },
-      { d: 308, v: 73.0, lbl: "25 Jul 26", note: "Actual (74.3% del peso)" }
+      { d: 308, v: 73.0, lbl: "25 Jul 26", note: "Actual (74.3% peso)" }
     ]
   },
   fatWeightCanvas: {
-    title: "Masa Grasa",
-    unit: "kg",
-    minVal: 16, maxVal: 30,
+    unit: "kg", minVal: 16, maxVal: 30,
     data: [
       { d: 0, v: 21.3, lbl: "20 Sep 25" },
       { d: 10, v: 21.5, lbl: "30 Sep 25" },
@@ -760,9 +815,7 @@ const chartConfigs = {
     ]
   },
   compLeanCanvas: {
-    title: "Masa Magra (Composición)",
-    unit: "kg",
-    minVal: 65, maxVal: 78,
+    unit: "kg", minVal: 65, maxVal: 78,
     data: [
       { d: 0, v: 72.2, lbl: "20 Sep 25" },
       { d: 10, v: 69.8, lbl: "30 Sep 25" },
@@ -778,9 +831,7 @@ const chartConfigs = {
     ]
   },
   backCanvas: {
-    title: "Espalda + Pecho",
-    unit: "cm",
-    minVal: 100, maxVal: 118,
+    unit: "cm", minVal: 100, maxVal: 118,
     data: [
       { d: 0, v: 105, lbl: "5 Sep 25" },
       { d: 15, v: 109, lbl: "20 Sep 25" },
@@ -793,15 +844,13 @@ const chartConfigs = {
       { d: 101, v: 109, lbl: "Med Dic 25" },
       { d: 115, v: 110, lbl: "29 Dic 25" },
       { d: 127, v: 109.5, lbl: "10 Ene 26" },
-      { d: 234, v: 115, lbl: "27 Abr 26", note: "Pico Máximo (115 cm)" },
+      { d: 234, v: 115, lbl: "27 Abr 26", note: "Pico (115 cm)" },
       { d: 312, v: 112, lbl: "14 Jul 26" },
       { d: 323, v: 112, lbl: "25 Jul 26", note: "Actual (112 cm)" }
     ]
   },
   waistCanvas: {
-    title: "Panza / Ombligo",
-    unit: "cm",
-    minVal: 92, maxVal: 110,
+    unit: "cm", minVal: 92, maxVal: 110,
     data: [
       { d: 0, v: 97.5, lbl: "5 Sep 25" },
       { d: 15, v: 98, lbl: "20 Sep 25" },
@@ -814,9 +863,99 @@ const chartConfigs = {
       { d: 101, v: 99.5, lbl: "Med Dic 25" },
       { d: 115, v: 99, lbl: "29 Dic 25" },
       { d: 127, v: 98, lbl: "10 Ene 26" },
-      { d: 234, v: 107, lbl: "27 Abr 26", note: "Pico Máximo (107 cm)" },
+      { d: 234, v: 107, lbl: "27 Abr 26", note: "Pico (107 cm)" },
       { d: 312, v: 104, lbl: "14 Jul 26" },
       { d: 323, v: 103.5, lbl: "25 Jul 26", note: "Actual (103.5 cm)" }
+    ]
+  },
+  // BRAZOS (Serie 1: Izquierda #00C9A7, Serie 2: Derecha #5B9DFF)
+  armsCanvas: {
+    unit: "cm", minVal: 34, maxVal: 41, dualSeries: true,
+    data1: [
+      { d: 0, v: 36.5, lbl: "5 Sep 25" },
+      { d: 15, v: 37, lbl: "20 Sep 25" },
+      { d: 25, v: 36, lbl: "30 Sep 25" },
+      { d: 31, v: 37, lbl: "6 Oct 25" },
+      { d: 38, v: 35.5, lbl: "13 Oct 25" },
+      { d: 67, v: 35.5, lbl: "11 Nov 25" },
+      { d: 88, v: 36, lbl: "2 Dic 25" },
+      { d: 94, v: 37, lbl: "8 Dic 25" },
+      { d: 101, v: 37.5, lbl: "Med Dic 25" },
+      { d: 115, v: 37.3, lbl: "29 Dic 25" },
+      { d: 127, v: 37, lbl: "10 Ene 26" },
+      { d: 234, v: 39, lbl: "27 Abr 26", note: "Pico Izq (39 cm)" },
+      { d: 312, v: 38, lbl: "14 Jul 26" },
+      { d: 323, v: 38.5, lbl: "25 Jul 26", note: "Actual Izq (38.5 cm)" }
+    ],
+    data2: [
+      { d: 0, v: 36.5, lbl: "5 Sep 25" },
+      { d: 15, v: 37, lbl: "20 Sep 25" },
+      { d: 25, v: 36, lbl: "30 Sep 25" },
+      { d: 31, v: 36, lbl: "6 Oct 25" },
+      { d: 38, v: 36, lbl: "13 Oct 25" },
+      { d: 67, v: 36, lbl: "11 Nov 25" },
+      { d: 88, v: 36.5, lbl: "2 Dic 25" },
+      { d: 94, v: 37, lbl: "8 Dic 25" },
+      { d: 101, v: 37.5, lbl: "Med Dic 25" },
+      { d: 115, v: 37.5, lbl: "29 Dic 25" },
+      { d: 127, v: 37.5, lbl: "10 Ene 26" },
+      { d: 234, v: 39, lbl: "27 Abr 26", note: "Pico Der (39 cm)" },
+      { d: 312, v: 38.5, lbl: "14 Jul 26" },
+      { d: 323, v: 38.5, lbl: "25 Jul 26", note: "Actual Der (38.5 cm)" }
+    ]
+  },
+  // HOMBROS (Serie 1: Izquierda #00C9A7, Serie 2: Derecha #5B9DFF)
+  shouldersCanvas: {
+    unit: "cm", minVal: 37, maxVal: 45, dualSeries: true,
+    data1: [
+      { d: 15, v: 40, lbl: "20 Sep 25" },
+      { d: 25, v: 39, lbl: "30 Sep 25" },
+      { d: 31, v: 40, lbl: "6 Oct 25" },
+      { d: 38, v: 39.5, lbl: "13 Oct 25" },
+      { d: 67, v: 38.5, lbl: "11 Nov 25" },
+      { d: 88, v: 38.5, lbl: "2 Dic 25" },
+      { d: 94, v: 39.5, lbl: "8 Dic 25" },
+      { d: 101, v: 40, lbl: "Med Dic 25" },
+      { d: 115, v: 40, lbl: "29 Dic 25" },
+      { d: 127, v: 40, lbl: "10 Ene 26" },
+      { d: 234, v: 43, lbl: "27 Abr 26", note: "Pico Izq (43 cm)" },
+      { d: 312, v: 41.5, lbl: "14 Jul 26" },
+      { d: 323, v: 42, lbl: "25 Jul 26", note: "Actual Izq (42 cm)" }
+    ],
+    data2: [
+      { d: 15, v: 42, lbl: "20 Sep 25" },
+      { d: 25, v: 41, lbl: "30 Sep 25" },
+      { d: 31, v: 42, lbl: "6 Oct 25" },
+      { d: 38, v: 42.5, lbl: "13 Oct 25" },
+      { d: 67, v: 41, lbl: "11 Nov 25" },
+      { d: 88, v: 41, lbl: "2 Dic 25" },
+      { d: 94, v: 40.5, lbl: "8 Dic 25" },
+      { d: 101, v: 41, lbl: "Med Dic 25" },
+      { d: 115, v: 41, lbl: "29 Dic 25" },
+      { d: 127, v: 41.5, lbl: "10 Ene 26" },
+      { d: 234, v: 43, lbl: "27 Abr 26", note: "Pico Der (43 cm)" },
+      { d: 312, v: 41.5, lbl: "14 Jul 26" },
+      { d: 323, v: 42, lbl: "25 Jul 26", note: "Actual Der (42 cm)" }
+    ]
+  },
+  // PIERNAS (Serie 1: Izquierda #00C9A7, Serie 2: Derecha #5B9DFF)
+  legsCanvas: {
+    unit: "cm", minVal: 63, maxVal: 75, dualSeries: true,
+    data1: [
+      { d: 25, v: 68, lbl: "30 Sep 25" },
+      { d: 31, v: 65.5, lbl: "6 Oct 25" },
+      { d: 88, v: 68, lbl: "2 Dic 25" },
+      { d: 94, v: 67, lbl: "8 Dic 25" },
+      { d: 101, v: 68, lbl: "Med Dic 25" },
+      { d: 323, v: 72.5, lbl: "25 Jul 26", note: "Actual Izq (72.5 cm)" }
+    ],
+    data2: [
+      { d: 25, v: 69, lbl: "30 Sep 25" },
+      { d: 31, v: 66, lbl: "6 Oct 25" },
+      { d: 88, v: 69, lbl: "2 Dic 25" },
+      { d: 94, v: 68, lbl: "8 Dic 25" },
+      { d: 101, v: 69.5, lbl: "Med Dic 25" },
+      { d: 323, v: 72.5, lbl: "25 Jul 26", note: "Actual Der (72.5 cm)" }
     ]
   }
 };
@@ -843,8 +982,9 @@ function drawChart(canvasId) {
   if (!parent || parent.clientWidth === 0) return;
 
   const dpr = window.devicePixelRatio || 1;
-  const W = parent.clientWidth - 40;
-  const H = 130;
+  const isMobile = window.innerWidth <= 640;
+  const W = parent.clientWidth - (isMobile ? 24 : 32);
+  const H = isMobile ? 115 : 130;
   canvas.width = W * dpr;
   canvas.height = H * dpr;
   canvas.style.width = W + 'px';
@@ -853,7 +993,7 @@ function drawChart(canvasId) {
   const ctx = canvas.getContext('2d');
   ctx.scale(dpr, dpr);
 
-  const pad = { l: 32, r: 16, t: 16, b: 24 };
+  const pad = { l: 28, r: 14, t: 14, b: 22 };
   const cw = W - pad.l - pad.r;
   const ch = H - pad.t - pad.b;
   const maxD = 323;
@@ -861,17 +1001,16 @@ function drawChart(canvasId) {
   function xp(d) { return pad.l + ((d / maxD) * cw); }
   function yp(v) { return pad.t + (1 - (v - cfg.minVal) / (cfg.maxVal - cfg.minVal)) * ch; }
 
-  // 1. Líneas de cuadrícula horizontales (Valores Y)
-  ctx.strokeStyle = 'rgba(30,34,53,0.7)';
-  ctx.lineWidth = 1;
+  // 1. Líneas de cuadrícula horizontales
+  ctx.strokeStyle = 'rgba(30,34,53,0.7)'; ctx.lineWidth = 1;
   const stepVal = Math.round((cfg.maxVal - cfg.minVal) / 3);
   [cfg.minVal + stepVal, cfg.minVal + stepVal * 2].forEach(rv => {
     const ry = yp(rv);
     ctx.beginPath(); ctx.moveTo(pad.l, ry); ctx.lineTo(W - pad.r, ry); ctx.stroke();
-    ctx.fillStyle = 'rgba(69,75,104,0.7)';
+    ctx.fillStyle = 'rgba(69,75,104,0.75)';
     ctx.font = '9px JetBrains Mono, monospace';
     ctx.textAlign = 'right';
-    ctx.fillText(rv + cfg.unit, pad.l - 4, ry + 3);
+    ctx.fillText(rv + cfg.unit, pad.l - 3, ry + 3);
   });
 
   // 2. Líneas de cuadrícula verticales (Tiempos X)
@@ -883,7 +1022,7 @@ function drawChart(canvasId) {
     ctx.fillStyle = 'rgba(69,75,104,0.75)';
     ctx.font = '9px JetBrains Mono, monospace';
     ctx.textAlign = 'center';
-    ctx.fillText(m.lbl, mx, H - pad.b + 14);
+    ctx.fillText(m.lbl, mx, H - pad.b + 13);
   });
   ctx.setLineDash([]);
 
@@ -897,123 +1036,165 @@ function drawChart(canvasId) {
     ctx.fillText(cfg.goalVal + cfg.unit + ' meta', W - pad.r - 2, yp(cfg.goalVal) - 4);
   }
 
-  // 3. Relleno de degradado
-  const grad = ctx.createLinearGradient(0, pad.t, 0, H - pad.b);
-  grad.addColorStop(0, 'rgba(0,201,167,0.18)');
-  grad.addColorStop(1, 'rgba(0,201,167,0.01)');
-  ctx.beginPath();
-  ctx.moveTo(xp(cfg.data[0].d), yp(cfg.data[0].v));
-  cfg.data.forEach(pt => ctx.lineTo(xp(pt.d), yp(pt.v)));
-  ctx.lineTo(xp(cfg.data[cfg.data.length - 1].d), H - pad.b);
-  ctx.lineTo(xp(cfg.data[0].d), H - pad.b);
-  ctx.closePath(); ctx.fillStyle = grad; ctx.fill();
+  if (!cfg.dualSeries) {
+    // === GRÁFICA DE SERIE ÚNICA ===
+    const grad = ctx.createLinearGradient(0, pad.t, 0, H - pad.b);
+    grad.addColorStop(0, 'rgba(0,201,167,0.18)');
+    grad.addColorStop(1, 'rgba(0,201,167,0.01)');
+    ctx.beginPath();
+    ctx.moveTo(xp(cfg.data[0].d), yp(cfg.data[0].v));
+    cfg.data.forEach(pt => ctx.lineTo(xp(pt.d), yp(pt.v)));
+    ctx.lineTo(xp(cfg.data[cfg.data.length - 1].d), H - pad.b);
+    ctx.lineTo(xp(cfg.data[0].d), H - pad.b);
+    ctx.closePath(); ctx.fillStyle = grad; ctx.fill();
 
-  // 4. Línea principal del gráfico
-  ctx.beginPath();
-  ctx.moveTo(xp(cfg.data[0].d), yp(cfg.data[0].v));
-  cfg.data.forEach(pt => ctx.lineTo(xp(pt.d), yp(pt.v)));
-  ctx.strokeStyle = '#00C9A7';
-  ctx.lineWidth = 2;
-  ctx.lineJoin = 'round';
-  ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(xp(cfg.data[0].d), yp(cfg.data[0].v));
+    cfg.data.forEach(pt => ctx.lineTo(xp(pt.d), yp(pt.v)));
+    ctx.strokeStyle = '#00C9A7'; ctx.lineWidth = 2; ctx.lineJoin = 'round'; ctx.stroke();
 
-  // 5. Puntos de datos (Pico en Coral, Actual en Teal)
-  let maxPt = cfg.data[0];
-  cfg.data.forEach(pt => { if (pt.v > maxPt.v) maxPt = pt; });
+    // Puntos
+    let maxPt = cfg.data[0];
+    cfg.data.forEach(pt => { if (pt.v > maxPt.v) maxPt = pt; });
+    ctx.beginPath(); ctx.arc(xp(maxPt.d), yp(maxPt.v), 4, 0, Math.PI * 2);
+    ctx.fillStyle = '#FF5C5C'; ctx.fill();
 
-  // Punto máximo
-  ctx.beginPath(); ctx.arc(xp(maxPt.d), yp(maxPt.v), 4, 0, Math.PI * 2);
-  ctx.fillStyle = '#FF5C5C'; ctx.fill();
+    const cur_pt = cfg.data[cfg.data.length - 1];
+    ctx.beginPath(); ctx.arc(xp(cur_pt.d), yp(cur_pt.v), 4.5, 0, Math.PI * 2);
+    ctx.fillStyle = '#00C9A7'; ctx.fill();
 
-  // Punto actual
-  const cur_pt = cfg.data[cfg.data.length - 1];
-  ctx.beginPath(); ctx.arc(xp(cur_pt.d), yp(cur_pt.v), 4.5, 0, Math.PI * 2);
-  ctx.fillStyle = '#00C9A7'; ctx.fill();
+  } else {
+    // === GRÁFICA DE SERIE DOBLE (IZQUIERDA VS DERECHA) ===
+    // Serie 1 (Izquierda - Teal)
+    ctx.beginPath();
+    ctx.moveTo(xp(cfg.data1[0].d), yp(cfg.data1[0].v));
+    cfg.data1.forEach(pt => ctx.lineTo(xp(pt.d), yp(pt.v)));
+    ctx.strokeStyle = '#00C9A7'; ctx.lineWidth = 2; ctx.lineJoin = 'round'; ctx.stroke();
 
-  // 6. Efecto Hover / Tooltip Interactivo
-  const hoverPt = activeHoverPoints[canvasId];
-  if (hoverPt) {
-    const hx = xp(hoverPt.d);
-    const hy = yp(hoverPt.v);
+    // Serie 2 (Derecha - Blue)
+    ctx.beginPath();
+    ctx.moveTo(xp(cfg.data2[0].d), yp(cfg.data2[0].v));
+    cfg.data2.forEach(pt => ctx.lineTo(xp(pt.d), yp(pt.v)));
+    ctx.strokeStyle = '#5B9DFF'; ctx.lineWidth = 2; ctx.setLineDash([4, 2]); ctx.stroke(); ctx.setLineDash([]);
+
+    // Puntos finales
+    const cur1 = cfg.data1[cfg.data1.length - 1];
+    const cur2 = cfg.data2[cfg.data2.length - 1];
+    ctx.beginPath(); ctx.arc(xp(cur1.d), yp(cur1.v), 4, 0, Math.PI * 2); ctx.fillStyle = '#00C9A7'; ctx.fill();
+    ctx.beginPath(); ctx.arc(xp(cur2.d), yp(cur2.v), 4, 0, Math.PI * 2); ctx.fillStyle = '#5B9DFF'; ctx.fill();
+  }
+
+  // 6. Efecto Hover / Touch Tooltip Interactivo
+  const hoverState = activeHoverPoints[canvasId];
+  if (hoverState) {
+    const pt = hoverState.pt;
+    const hx = xp(pt.d);
+    const hy = yp(pt.v);
 
     // Línea guía vertical
     ctx.strokeStyle = 'rgba(0,201,167,0.5)';
-    ctx.lineWidth = 1;
-    ctx.setLineDash([2, 2]);
+    ctx.lineWidth = 1; ctx.setLineDash([2, 2]);
     ctx.beginPath(); ctx.moveTo(hx, pad.t); ctx.lineTo(hx, H - pad.b); ctx.stroke();
     ctx.setLineDash([]);
 
     // Anillo exterior brillante sobre el punto activo
-    ctx.beginPath(); ctx.arc(hx, hy, 7, 0, Math.PI * 2);
+    ctx.beginPath(); ctx.arc(hx, hy, 6, 0, Math.PI * 2);
     ctx.fillStyle = '#00C9A7'; ctx.fill();
-    ctx.beginPath(); ctx.arc(hx, hy, 11, 0, Math.PI * 2);
+    ctx.beginPath(); ctx.arc(hx, hy, 10, 0, Math.PI * 2);
     ctx.strokeStyle = 'rgba(0,201,167,0.4)'; ctx.lineWidth = 2; ctx.stroke();
 
-    // Caja de Tooltip inteligente
-    const tooltipText = `${hoverPt.lbl}: ${hoverPt.v} ${cfg.unit}` + (hoverPt.note ? ` (${hoverPt.note})` : '');
+    // Texto del Tooltip
+    let tooltipText = `${pt.lbl}: ${pt.v} ${cfg.unit}`;
+    if (cfg.dualSeries && hoverState.pt2) {
+      tooltipText = `${pt.lbl} | Izq: ${pt.v}${cfg.unit} · Der: ${hoverState.pt2.v}${cfg.unit}`;
+    } else if (pt.note) {
+      tooltipText += ` (${pt.note})`;
+    }
+
     ctx.font = '10px JetBrains Mono, monospace';
     const textWidth = ctx.measureText(tooltipText).width;
-    const boxW = textWidth + 16;
+    const boxW = textWidth + 14;
     const boxH = 22;
     let boxX = hx - boxW / 2;
     let boxY = hy - boxH - 10;
 
     if (boxX < pad.l) boxX = pad.l;
     if (boxX + boxW > W - pad.r) boxX = W - pad.r - boxW;
-    if (boxY < pad.t) boxY = hy + 12;
+    if (boxY < pad.t) boxY = hy + 10;
 
-    // Fondo del Tooltip
-    ctx.fillStyle = 'rgba(16,19,28,0.92)';
+    ctx.fillStyle = 'rgba(16,19,28,0.94)';
     ctx.strokeStyle = 'rgba(0,201,167,0.6)';
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.roundRect(boxX, boxY, boxW, boxH, 6);
     ctx.fill(); ctx.stroke();
 
-    // Texto del Tooltip
     ctx.fillStyle = '#DEE3F0';
     ctx.textAlign = 'center';
     ctx.fillText(tooltipText, boxX + boxW / 2, boxY + 14);
   }
 }
 
-function bindCanvasHover(canvasId) {
+function bindCanvasEvents(canvasId) {
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
   const cfg = chartConfigs[canvasId];
   if (!cfg) return;
 
-  canvas.addEventListener('mousemove', e => {
+  const handlePointer = (clientX) => {
     const rect = canvas.getBoundingClientRect();
-    const mouseX = e.clientX - rect.left;
-    const pad = { l: 32, r: 16 };
+    const mouseX = clientX - rect.left;
+    const pad = { l: 28, r: 14 };
     const cw = canvas.clientWidth - pad.l - pad.r;
     const maxD = 323;
 
-    // Buscar el punto más cercano
+    const dataList = cfg.dualSeries ? cfg.data1 : cfg.data;
     let closestPt = null;
+    let closestIdx = -1;
     let minDiff = Infinity;
-    cfg.data.forEach(pt => {
+
+    dataList.forEach((pt, i) => {
       const px = pad.l + ((pt.d / maxD) * cw);
       const diff = Math.abs(mouseX - px);
       if (diff < minDiff) {
         minDiff = diff;
         closestPt = pt;
+        closestIdx = i;
       }
     });
 
-    if (closestPt && minDiff < 40) {
-      activeHoverPoints[canvasId] = closestPt;
+    if (closestPt && minDiff < 45) {
+      if (cfg.dualSeries) {
+        const pt2 = cfg.data2[closestIdx] || cfg.data2[cfg.data2.length - 1];
+        activeHoverPoints[canvasId] = { pt: closestPt, pt2: pt2 };
+      } else {
+        activeHoverPoints[canvasId] = { pt: closestPt };
+      }
     } else {
       delete activeHoverPoints[canvasId];
     }
     drawChart(canvasId);
-  });
+  };
 
+  canvas.addEventListener('mousemove', e => handlePointer(e.clientX));
   canvas.addEventListener('mouseleave', () => {
     delete activeHoverPoints[canvasId];
     drawChart(canvasId);
   });
+
+  // Eventos táctiles para móviles
+  canvas.addEventListener('touchstart', e => {
+    if (e.touches.length > 0) handlePointer(e.touches[0].clientX);
+  }, { passive: true });
+  canvas.addEventListener('touchmove', e => {
+    if (e.touches.length > 0) handlePointer(e.touches[0].clientX);
+  }, { passive: true });
+  canvas.addEventListener('touchend', () => {
+    setTimeout(() => {
+      delete activeHoverPoints[canvasId];
+      drawChart(canvasId);
+    }, 1800);
+  }, { passive: true });
 }
 
 function renderAllCharts() {
@@ -1022,12 +1203,12 @@ function renderAllCharts() {
   });
 }
 
-// Inicializar eventos de hover en todas las gráficas
-Object.keys(chartConfigs).forEach(bindCanvasHover);
+// Inicializar eventos en todos los canvas
+Object.keys(chartConfigs).forEach(bindCanvasEvents);
 renderAllCharts();
 window.addEventListener('resize', renderAllCharts);
 
-// Lógica de cambio de pestañas
+// Cambiar pestañas
 function switchTab(tabId) {
   const tabs = ['calorias', 'historial-peso', 'composicion-corporal', 'historial-medidas'];
   tabs.forEach(t => {
@@ -1044,7 +1225,6 @@ function switchTab(tabId) {
     }
   });
 
-  // Re-render canvas charts when switching tabs to ensure clientWidth is available
   setTimeout(renderAllCharts, 60);
 }
 </script>
