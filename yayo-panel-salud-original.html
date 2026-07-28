@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yayo · Panel de Salud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0C12;--surf:#10131C;--surf2:#171A25;--border:#1E2235;
+  --teal:#00C9A7;--teal-a:rgba(0,201,167,0.10);--teal-b:rgba(0,201,167,0.22);
+  --coral:#FF5C5C;--coral-a:rgba(255,92,92,0.10);
+  --amber:#FFA830;--amber-a:rgba(255,168,48,0.10);
+  --blue:#5B9DFF;--blue-a:rgba(91,157,255,0.10);
+  --t1:#DEE3F0;--t2:#8990AD;--t3:#454B68;
+  --fd:'Space Grotesk',sans-serif;--fb:'Inter',sans-serif;--fm:'JetBrains Mono',monospace;
+  --r:14px;--r2:8px;
+}
+body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:14px;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,12,18,0.9);backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:13px 28px;
+  display:flex;justify-content:space-between;align-items:center}
+.nav-brand{font-family:var(--fd);font-size:15px;font-weight:700;letter-spacing:-0.03em}
+.nav-brand em{font-style:normal;color:var(--teal)}
+.nav-date{font-family:var(--fm);font-size:11px;color:var(--t3)}
+.hero{padding:60px 28px 44px;max-width:1080px;margin:0 auto}
+.eyebrow{font-family:var(--fm);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.hero-row{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px}
+.hero-num{font-family:var(--fd);font-size:clamp(76px,11vw,130px);font-weight:700;letter-spacing:-0.05em;line-height:1}
+.hero-unit{font-family:var(--fd);font-size:clamp(28px,4vw,48px);font-weight:400;color:var(--t3);letter-spacing:-0.02em}
+.hero-cap{font-family:var(--fm);font-size:12px;color:var(--t3);margin-bottom:52px}
+.journey{margin-bottom:8px}
+.journey-header{font-family:var(--fm);font-size:10px;letter-spacing:0.13em;text-transform:uppercase;color:var(--t3);margin-bottom:22px}
+.j-stats{display:flex;gap:36px;flex-wrap:wrap;margin-bottom:26px}
+.j-stat{display:flex;flex-direction:column;gap:5px}
+.j-val{font-family:var(--fd);font-size:22px;font-weight:700;letter-spacing:-0.03em;line-height:1}
+.j-lbl{font-size:11px;color:var(--t3)}
+.c-coral .j-val{color:var(--coral)}.c-teal .j-val{color:var(--teal)}.c-amber .j-val{color:var(--amber)}.c-blue .j-val{color:var(--blue)}
+.j-track-wrap{position:relative;margin-bottom:10px}
+.j-track{height:7px;background:var(--border);border-radius:99px;overflow:visible;position:relative}
+.j-fill{position:absolute;top:0;left:0;height:100%;background:linear-gradient(90deg,var(--teal),#00B899);border-radius:99px;width:0%;transition:width 1.7s cubic-bezier(0.22,1,0.36,1)}
+.j-pin{position:absolute;top:50%;left:0%;transform:translate(-50%,-50%);width:17px;height:17px;background:var(--bg);border:3px solid var(--teal);border-radius:50%;transition:left 1.7s cubic-bezier(0.22,1,0.36,1);animation:ping 2.8s ease-in-out infinite}
+@keyframes ping{0%,100%{box-shadow:0 0 0 3px rgba(0,201,167,0.3)}50%{box-shadow:0 0 0 8px rgba(0,201,167,0.05)}}
+.j-axis{display:flex;justify-content:space-between;font-family:var(--fm);font-size:11px;color:var(--t3);padding-top:8px}
+.j-axis .goal{color:var(--amber)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px 56px}
+.sec-head{display:flex;align-items:center;gap:14px;padding-bottom:14px;margin-bottom:22px;border-bottom:1px solid var(--border)}
+.sec-head h2{font-family:var(--fd);font-size:17px;font-weight:600;letter-spacing:-0.02em;flex:1}
+.badge{font-family:var(--fm);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--t3);background:var(--surf2);border:1px solid var(--border);padding:4px 10px;border-radius:99px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.card{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:18px 16px}
+.card-lbl{font-family:var(--fm);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--t3);margin-bottom:10px}
+.card-val{font-family:var(--fd);font-size:25px;font-weight:700;letter-spacing:-0.03em;line-height:1;margin-bottom:5px}
+.card-sub{font-size:11px;color:var(--t3)}
+.card.t{border-color:var(--teal-b);background:var(--teal-a)}.card.t .card-val{color:var(--teal)}
+.card.c .card-val{color:var(--coral)}.card.a .card-val{color:var(--amber)}.card.b .card-val{color:var(--blue)}
+table{width:100%;border-collapse:collapse}
+th{font-family:var(--fm);font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:var(--t3);font-weight:500;padding:10px 14px;text-align:left;border-bottom:1px solid var(--border)}
+th.r{text-align:right}th.c{text-align:center}
+td{padding:12px 14px;border-bottom:1px solid rgba(30,34,53,0.6);font-family:var(--fm);font-size:13px;vertical-align:middle}
+td.r{text-align:right}td.c{text-align:center}
+tr:hover td{background:var(--surf)}
+.wh-kg{font-family:var(--fd);font-size:18px;font-weight:700;letter-spacing:-0.02em}
+.tag{font-family:var(--fm);font-size:10px;padding:3px 9px;border-radius:99px;white-space:nowrap}
+.tag-max{background:var(--coral-a);color:var(--coral);border:1px solid rgba(255,92,92,0.2)}
+.tag-cur{background:var(--teal-a);color:var(--teal);border:1px solid rgba(0,201,167,0.2)}
+.tag-work{background:var(--amber-a);color:var(--amber);border:1px solid rgba(255,168,48,0.2)}
+.tag-ref{background:var(--blue-a);color:var(--blue);border:1px solid rgba(91,157,255,0.2)}
+.dpos{color:var(--coral);font-size:12px}.dneg{color:var(--teal);font-size:12px}.dna{color:var(--t3);font-size:12px}
+.bar{width:80px;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.bar-f{height:100%;border-radius:2px}
+tr.work-row td{background:var(--teal-a)}
+/* Chart */
+.chart-wrap{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:20px 20px 14px;margin-bottom:28px;overflow:hidden}
+.chart-title{font-family:var(--fm);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--t3);margin-bottom:16px}
+#wtCanvas{width:100%;height:110px;display:block}
+/* Body comp */
+.bodycomp{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bc-card{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:26px}
+.bc-lbl{font-family:var(--fm);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--t3);margin-bottom:14px}
+.bc-val{font-family:var(--fd);font-size:42px;font-weight:700;letter-spacing:-0.04em;line-height:1;margin-bottom:8px}
+.bc-sub{font-size:12px;color:var(--t3)}
+.bc-bar{height:5px;border-radius:99px;margin-top:18px}
+.bc-card.lean{border-color:rgba(0,201,167,0.25)}.bc-card.lean .bc-val{color:var(--teal)}
+.bc-card.lean .bc-bar{background:linear-gradient(90deg,var(--teal),#00B8A9);width:74.3%}
+.bc-card.fat .bc-val{color:var(--amber)}.bc-card.fat .bc-bar{background:linear-gradient(90deg,var(--amber),#FF8C00);width:25.7%}
+/* Meas comparison */
+.meas-val{color:var(--t2)}.meas-cur{color:var(--teal);font-weight:600}
+.d-better{color:var(--teal);font-size:12px}.d-worse{color:var(--coral);font-size:12px}.d-na{color:var(--t3);font-size:12px}
+/* History full table */
+.hist-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border);border-radius:var(--r)}
+.hist-table{min-width:1100px;width:100%}
+.hist-table th{font-size:9px;padding:8px 10px;white-space:nowrap}
+.hist-table td{font-size:11px;padding:9px 10px;white-space:nowrap}
+.hist-table td:first-child{font-family:var(--fm);font-size:11px;color:var(--t2);position:sticky;left:0;background:var(--surf);z-index:2;border-right:1px solid var(--border);min-width:100px}
+.hist-table tr:hover td:first-child{background:var(--surf2)}
+.hist-table th:first-child{position:sticky;left:0;background:var(--surf2);z-index:3;border-right:1px solid var(--border)}
+.hv{color:var(--t1)}.hem{color:var(--t3)}.hpeak{color:var(--coral);font-weight:600}.hcur{color:var(--teal);font-weight:600}
+td.hna{color:var(--t3)}
+/* Scenarios */
+.grp-row td{background:var(--surf2)!important;color:var(--t3)!important;font-family:var(--fm)!important;font-size:10px!important;letter-spacing:0.11em!important;text-transform:uppercase!important;padding:8px 14px!important;text-align:left!important;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.scen-n{font-size:10px;color:var(--t3);display:block;margin-bottom:2px}
+.scen-name{font-family:var(--fb);font-size:13px;color:var(--t1);display:block}
+.scen-det{font-family:var(--fm);font-size:11px;color:var(--t3);margin-top:2px;display:block}
+.c-maint{color:var(--t2);font-family:var(--fm)}.c-opt{color:var(--teal);font-weight:600;font-family:var(--fm)}.c-agg{color:var(--coral);font-family:var(--fm)}
+.infobox{margin-top:14px;padding:14px 16px;background:var(--teal-a);border:1px solid rgba(0,201,167,0.18);border-radius:var(--r2);font-size:12px;color:var(--t2);line-height:1.7}
+.infobox strong{color:var(--teal)}
+.macros-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.footer{border-top:1px solid var(--border);max-width:1080px;margin:0 auto;padding:28px 28px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px}
+.ft-title{font-family:var(--fm);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--t3);margin-bottom:10px}
+.ft-text{font-size:12px;color:var(--t3);line-height:1.8}
+@media(max-width:640px){
+  .hero{padding:40px 16px 36px}.wrap{padding:0 16px 40px}nav{padding:12px 16px}
+  .bodycomp{grid-template-columns:1fr}.j-stats{gap:20px}.hero-num{font-size:72px}
+}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-brand">Yayo &middot; <em>Panel de Salud</em></div>
+  <div class="nav-date" id="navDate"></div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="eyebrow">&#9655; Peso confirmado &middot; 25 Julio 2026</div>
+  <div class="hero-row">
+    <span class="hero-num">98.3</span>
+    <span class="hero-unit">kg</span>
+  </div>
+  <div class="hero-cap">Registrado 25 Jul &middot; Altura 179 cm &middot; 29 a&ntilde;os &middot; Meta: 80 kg</div>
+
+  <div class="journey">
+    <div class="journey-header">Recorrido &middot; M&aacute;ximo &rarr; Meta</div>
+    <div class="j-stats">
+      <div class="j-stat c-coral"><span class="j-val">101.5 kg</span><span class="j-lbl">M&aacute;ximo &middot; Abr '26</span></div>
+      <div class="j-stat c-teal"><span class="j-val">98.3 kg</span><span class="j-lbl">Actual &middot; 25 Jul '26</span></div>
+      <div class="j-stat c-amber"><span class="j-val">80.0 kg</span><span class="j-lbl">Meta</span></div>
+      <div class="j-stat c-blue"><span class="j-val" id="pctVal">0%</span><span class="j-lbl">Completado</span></div>
+    </div>
+    <div class="j-track-wrap">
+      <div class="j-track"><div class="j-fill" id="jFill"></div></div>
+      <div class="j-pin" id="jPin"></div>
+    </div>
+    <div class="j-axis"><span>101.5 kg &middot; pico</span><span class="goal">80 kg &middot; meta</span></div>
+  </div>
+</div>
+
+<!-- MÉTRICAS CLAVE -->
+<div class="wrap">
+  <div class="sec-head"><h2>M&eacute;tricas Clave</h2><span class="badge">Actualizado 25 Jul 2026</span></div>
+  <div class="cards">
+    <div class="card"><div class="card-lbl">BMR &middot; Solo existir</div><div class="card-val">1,957</div><div class="card-sub">kcal &middot; sin mover un dedo</div></div>
+    <div class="card a"><div class="card-lbl">Mantenimiento sedentario</div><div class="card-val">2,348</div><div class="card-sub">kcal &middot; cama &rarr; sof&aacute; &rarr; series</div></div>
+    <div class="card t"><div class="card-lbl">&Oacute;ptimo &minus;500 kcal</div><div class="card-val">1,848</div><div class="card-sub">kcal &middot; d&iacute;a sedentario</div></div>
+    <div class="card c"><div class="card-lbl">Agresivo &minus;750 kcal</div><div class="card-val">1,598</div><div class="card-sub">kcal &middot; riesgo muscular</div></div>
+    <div class="card"><div class="card-lbl">% Grasa corporal</div><div class="card-val">25.7%</div><div class="card-sub">F&oacute;rmula Naval USA</div></div>
+    <div class="card t"><div class="card-lbl">Masa magra</div><div class="card-val">73.0 kg</div><div class="card-sub">proteger siempre</div></div>
+    <div class="card"><div class="card-lbl">Grasa total</div><div class="card-val">25.3 kg</div><div class="card-sub">kg a eliminar</div></div>
+    <div class="card b"><div class="card-lbl">Kg para meta</div><div class="card-val">18.3 kg</div><div class="card-sub">&sim;10.4 meses al ritmo &oacute;ptimo</div></div>
+  </div>
+</div>
+
+<!-- HISTORIAL DE PESO -->
+<div class="wrap">
+  <div class="sec-head"><h2>Historial de Peso</h2><span class="badge">14 registros con peso</span></div>
+
+  <!-- Sparkline Chart -->
+  <div class="chart-wrap">
+    <div class="chart-title">Tendencia de peso &mdash; Sep 2025 a Jul 2026</div>
+    <canvas id="wtCanvas"></canvas>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Fecha</th><th>Peso</th><th class="r">&Delta; anterior</th><th>Etiqueta</th><th>Barra</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="color:var(--t2)">5 Sep 2025</td>
+        <td><span class="wh-kg" style="color:var(--blue)">— kg</span></td>
+        <td class="r"><span class="dna">&mdash;</span></td>
+        <td><span class="tag tag-ref">Primer registro</span></td>
+        <td><div class="bar"></div></td>
+      </tr>
+      <tr>
+        <td style="color:var(--t2)">20 Sep 2025</td>
+        <td><span class="wh-kg">93.5 kg</span></td>
+        <td class="r"><span class="dna">&mdash;</span></td>
+        <td><span style="font-size:11px;color:var(--t3)">Primera pesada</span></td>
+        <td><div class="bar"><div class="bar-f" style="width:62%;background:var(--blue)"></div></div></td>
+      </tr>
+      <tr>
+        <td style="color:var(--t2)">30 Sep 2025</td>
+        <td><span class="wh-kg">91.30 kg</span></td>
+        <td class="r"><span class="dneg">&minus;2.2 kg</span></td>
+        <td><span style="font-size:11px;color:var(--t3)">Bajando</span></td>
+        <td><div class="bar"><div class="bar-f" style="width:56%;background:var(--teal)"></div></div></td>
+      </tr>
+      <tr>
+        <td style="color:var(--t2)">6 Oct 2025</td>
+        <td><span class="wh-kg">90.55 kg</span></td>
+        <td class="r"><span class="dneg">&minus;0.75 kg</span></td>
+        <td><span style="font-size:11px;color:var(--t3)">Bajando</span></td>
+        <td><div class="bar"><div class="bar-f" style="width:54%;background:var(--teal)"></div></div></td>
+      </tr>
+      <tr>
+        <td style="color:var(--t2)">13 Oct 2025</td>
+        <td><span class="wh-kg">90.50 kg</span></td>
+        <td class="r"><span class="dneg">&minus;0.05 kg</span></td>
+        <td><span style="font-size:11px;color:var(--t3)">M&iacute;nimo registrado</span></td>
+        <td><div class="bar"><div class="bar-f" style="width:54%;background:var(--teal)"></div></div></td>
+      </tr>
+      <tr>
+        <td style="color:var(--t2)">11 Nov 2025</td>
+        <td><span class="wh-kg" style="color:var(--t3)">— kg</span></td>
+        <td class="r"><span class="dna">&mdash;</span></td>
+        <td><span style="font-size:11px;color:var(--t3)">Solo medidas</span></td>
+        <td><div class="bar"></div></td>
+      </tr>
+      <tr>
+        <td style="color:var(--t2)">2 Dic 2025</td>
+        <td><span class="wh-kg" style="color:var(--coral)">95.4 kg</span></td>
+        <td class="r"><span class="dpos">+4.9 kg</span></td>
+        <td><span style="font-size:11px;color:var(--coral)">Subida notable</span></td>
+        <td><div class="bar"><div class="bar-f" style="width:72%;background:var(--coral)"></div></div></td>
+      </tr>
+      <tr>
+        <td style="color:var(--t2)">8 Dic 2025</td>
+        <td><span class="wh-kg">94.5 kg</span></td>
+        <td class="r"><span class="dneg">&minus;0.9 kg</span></td>
+        <td><span style="font-size:11px;color:var(--t3)">Recuperando</span></td>
+        <td><div class="bar"><div class="bar-f" style="width:69%;background:var(--amber)"></div></div></td>
+      </tr>
+      <tr>
+        <td style="color:var(--t2)">&sim;Med Dic 2025</td>
+        <td><span class="wh-kg">93.0 kg</span></td>
+        <td class="r"><span class="dneg">&minus;1.5 kg</span></td>
+        <td><span style="font-size:11px;color:var(--t3)">Sin fecha exacta</span></td>
+        <td><div class="bar"><div class="bar-f" style="width:64%;background:var(--amber)"></div></div></td>
+      </tr>
+      <tr>
+        <td style="color:var(--t2)">29 Dic 2025</td>
+        <td><span class="wh-kg" style="color:var(--t3)">— kg</span></td>
+        <td class="r"><span class="dna">&mdash;</span></td>
+        <td><span style="font-size:11px;color:var(--t3)">Solo medidas</span></td>
+        <td><div class="bar"></div></td>
+      </tr>
+      <tr>
+        <td style="color:var(--t2)">10 Ene 2026</td>
+        <td><span class="wh-kg" style="color:var(--blue)">92.0 kg</span></td>
+        <td class="r"><span class="dna">&mdash;</span></td>
+        <td><span class="tag tag-ref">Referencia Ene</span></td>
+        <td><div class="bar"><div class="bar-f" style="width:59%;background:var(--blue)"></div></div></td>
+      </tr>
+      <tr>
+        <td style="color:var(--t2)">27 Abr 2026</td>
+        <td><span class="wh-kg" style="color:var(--coral)">101.5 kg</span></td>
+        <td class="r"><span class="dpos">+9.5 kg</span></td>
+        <td><span class="tag tag-max">M&aacute;ximo hist&oacute;rico</span></td>
+        <td><div class="bar"><div class="bar-f" style="width:100%;background:var(--coral)"></div></div></td>
+      </tr>
+      <tr>
+        <td style="color:var(--t2)">14 Jul 2026</td>
+        <td><span class="wh-kg">98.34 kg</span></td>
+        <td class="r"><span class="dneg">&minus;3.16 kg</span></td>
+        <td><span style="font-size:11px;color:var(--t3)">Medidas Jul</span></td>
+        <td><div class="bar"><div class="bar-f" style="width:87%;background:var(--teal)"></div></div></td>
+      </tr>
+      <tr>
+        <td style="color:var(--t2)">18 Jul 2026</td>
+        <td><span class="wh-kg">98.60 kg</span></td>
+        <td class="r"><span class="dpos">+0.26 kg</span></td>
+        <td><span style="font-size:11px;color:var(--t3)">Variaci&oacute;n</span></td>
+        <td><div class="bar"><div class="bar-f" style="width:88%;background:var(--teal)"></div></div></td>
+      </tr>
+      <tr>
+        <td style="color:var(--t2)">19 Jul 2026</td>
+        <td><span class="wh-kg">98.34 kg</span></td>
+        <td class="r"><span class="dneg">&minus;0.26 kg</span></td>
+        <td><span style="font-size:11px;color:var(--t3)">Variaci&oacute;n</span></td>
+        <td><div class="bar"><div class="bar-f" style="width:87%;background:var(--teal)"></div></div></td>
+      </tr>
+      <tr>
+        <td style="color:var(--t2)">20 Jul 2026</td>
+        <td><span class="wh-kg">99.34 kg</span></td>
+        <td class="r"><span class="dpos">+1.0 kg</span></td>
+        <td><span style="font-size:11px;color:var(--t3)">Retenci&oacute;n l&iacute;quidos</span></td>
+        <td><div class="bar"><div class="bar-f" style="width:91%;background:var(--amber)"></div></div></td>
+      </tr>
+      <tr class="work-row">
+        <td style="color:var(--teal)">25 Jul 2026 &#9733; HOY</td>
+        <td><span class="wh-kg" style="color:var(--teal)">98.3 kg</span></td>
+        <td class="r"><span class="dneg">&minus;3.2 kg desde pico</span></td>
+        <td><span class="tag tag-cur">Actual confirmado</span></td>
+        <td><div class="bar"><div class="bar-f" style="width:86%;background:var(--teal)"></div></div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- COMPOSICIÓN CORPORAL -->
+<div class="wrap">
+  <div class="sec-head"><h2>Composici&oacute;n Corporal</h2><span class="badge">25 Jul 2026 &middot; Naval USA</span></div>
+  <div class="bodycomp">
+    <div class="bc-card lean">
+      <div class="bc-lbl">Masa Magra &mdash; proteger siempre</div>
+      <div class="bc-val">73.0 kg</div>
+      <div class="bc-sub">74.3% del peso total &middot; m&uacute;sculo, hueso, &oacute;rganos, agua</div>
+      <div class="bc-bar"></div>
+    </div>
+    <div class="bc-card fat">
+      <div class="bc-lbl">Masa Grasa &mdash; objetivo reducir</div>
+      <div class="bc-val">25.3 kg</div>
+      <div class="bc-sub">25.7% del peso total &middot; meta: llegar a 14&ndash;16%</div>
+      <div class="bc-bar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARATIVA DE MEDIDAS (3 fechas clave) -->
+<div class="wrap">
+  <div class="sec-head"><h2>Comparativa de Medidas</h2><span class="badge">3 fechas clave</span></div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:24%">Medida</th>
+        <th class="c" style="font-size:9px;color:var(--blue)">Sep 5 '25<br><span style="color:var(--t3)">Inicio</span></th>
+        <th class="c" style="font-size:9px;color:var(--coral)">Abr 27 '26<br><span style="color:var(--t3)">Pico m&aacute;x.</span></th>
+        <th class="c" style="font-size:9px;color:var(--teal)">Jul 25 '26 &#9733;<br><span style="color:var(--t3)">Actual</span></th>
+        <th class="c" style="font-size:9px">&Delta; Inicio&rarr;Actual</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Peso</td><td class="c" style="color:var(--blue)">— kg</td><td class="c" style="color:var(--coral)">101.5 kg</td><td class="c meas-cur">98.3 kg</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+      <tr><td>Cuello</td><td class="c meas-val">&mdash;</td><td class="c meas-val">44.5 cm</td><td class="c meas-cur">43.0 cm</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+      <tr><td>Panza (ombligo)</td><td class="c" style="color:var(--blue)">97.5 cm</td><td class="c" style="color:var(--coral)">107 cm</td><td class="c meas-cur">103.5 cm</td><td class="c"><span class="d-better">&minus;4 cm &darr;</span></td></tr>
+      <tr><td>Espalda + pecho</td><td class="c" style="color:var(--blue)">105 cm</td><td class="c meas-val">115 cm</td><td class="c meas-cur">112 cm</td><td class="c"><span class="d-worse">+7 cm &uarr;</span></td></tr>
+      <tr><td>Brazo Izquierdo</td><td class="c" style="color:var(--blue)">36.5 cm</td><td class="c meas-val">39.0 cm</td><td class="c meas-cur">38.5 cm</td><td class="c"><span class="d-worse">+2 cm &uarr;</span></td></tr>
+      <tr><td>Brazo Derecho</td><td class="c" style="color:var(--blue)">36.5 cm</td><td class="c meas-val">39.0 cm</td><td class="c meas-cur">38.5 cm</td><td class="c"><span class="d-worse">+2 cm &uarr;</span></td></tr>
+      <tr><td>Hombro Izq</td><td class="c meas-val">&mdash;</td><td class="c meas-val">43 cm</td><td class="c meas-cur">42 cm</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+      <tr><td>Hombro Der</td><td class="c meas-val">&mdash;</td><td class="c meas-val">43 cm</td><td class="c meas-cur">42 cm</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+      <tr><td>Cadera (m&aacute;s ancha)</td><td class="c meas-val">&mdash;</td><td class="c" style="color:var(--coral)">115 cm</td><td class="c meas-cur">110 cm</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+      <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Piernas (m&aacute;s anchas)</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c meas-cur">72.5 cm</td><td class="c"><span style="font-size:10px;color:var(--teal)">nueva medida</span></td></tr>
+      <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Amplitud pecho (ax&ndash;ax)</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c meas-cur">44 cm</td><td class="c"><span style="font-size:10px;color:var(--teal)">nueva medida</span></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:11px;color:var(--t3);margin-top:12px;line-height:1.7">
+    &#8593; Brazos/espalda m&aacute;s grandes vs inicio (Sep '25): refleja que en Abr '26 se lleg&oacute; al m&aacute;ximo y desde entonces bajan. La comparaci&oacute;n vs Sep '25 no es del todo favorable pero vs el pico de Abr '26 hay mejora en todas las medidas.
+  </p>
+</div>
+
+<!-- HISTORIAL COMPLETO DE MEDIDAS -->
+<div class="wrap">
+  <div class="sec-head"><h2>Historial Completo de Medidas</h2><span class="badge">14 entradas &middot; Sep 2025 &rarr; Jul 2026</span></div>
+  <div class="hist-scroll">
+    <table class="hist-table">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th class="c">Peso</th>
+          <th class="c">Cuello</th>
+          <th class="c">Panza</th>
+          <th class="c">Espalda</th>
+          <th class="c">Br.Izq</th>
+          <th class="c">Br.Der</th>
+          <th class="c">Ho.Izq</th>
+          <th class="c">Ho.Der</th>
+          <th class="c">Cadera</th>
+          <th class="c">Cintura</th>
+          <th class="c">Pierna I</th>
+          <th class="c">Pierna D</th>
+          <th class="c">Notas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>5 Sep '25</td>
+          <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+          <td class="c hv">97.5</td><td class="c hv">105</td>
+          <td class="c hv">36.5</td><td class="c hv">36.5</td>
+          <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+          <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+          <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+          <td style="color:var(--t3);font-size:10px">Primer registro</td>
+        </tr>
+        <tr>
+          <td>20 Sep '25</td>
+          <td class="c hv">93.5</td><td class="c hna">&mdash;</td>
+          <td class="c hv">98</td><td class="c hv">109</td>
+          <td class="c hv">37</td><td class="c hv">37</td>
+          <td class="c hv">40</td><td class="c hv">42</td>
+          <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+          <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+          <td style="color:var(--t3);font-size:10px">&mdash;</td>
+        </tr>
+        <tr>
+          <td>30 Sep '25</td>
+          <td class="c hv">91.30</td><td class="c hna">&mdash;</td>
+          <td class="c hv">99</td><td class="c hv">109</td>
+          <td class="c hv">36</td><td class="c hv">36</td>
+          <td class="c hv">39</td><td class="c hv">41</td>
+          <td class="c hna">&mdash;</td><td class="c hv">108</td>
+          <td class="c hv">68</td><td class="c hv">69</td>
+          <td style="color:var(--t3);font-size:10px">&mdash;</td>
+        </tr>
+        <tr>
+          <td>6 Oct '25</td>
+          <td class="c hv">90.55</td><td class="c hna">&mdash;</td>
+          <td class="c hv">96</td><td class="c hv">109</td>
+          <td class="c hv">37</td><td class="c hv">36</td>
+          <td class="c hv">40</td><td class="c hv">42</td>
+          <td class="c hna">&mdash;</td><td class="c hv">108</td>
+          <td class="c hv">65.5</td><td class="c hv">66</td>
+          <td style="color:var(--t3);font-size:10px">Ax&ndash;ax: 44</td>
+        </tr>
+        <tr>
+          <td>13 Oct '25</td>
+          <td class="c hv">90.50</td><td class="c hna">&mdash;</td>
+          <td class="c hv">98</td><td class="c hv">107</td>
+          <td class="c hv">35.5</td><td class="c hv">36</td>
+          <td class="c hv">39.5</td><td class="c hv">42.5</td>
+          <td class="c hna">&mdash;</td><td class="c hv">108</td>
+          <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+          <td style="color:var(--t3);font-size:10px">Ax&ndash;ax: 110</td>
+        </tr>
+        <tr>
+          <td>11 Nov '25</td>
+          <td class="c hna">&mdash;</td><td class="c hv">41</td>
+          <td class="c hv">99</td><td class="c hv">110</td>
+          <td class="c hv">35.5</td><td class="c hv">36</td>
+          <td class="c hv">38.5</td><td class="c hv">41</td>
+          <td class="c hna">&mdash;</td><td class="c hv">108</td>
+          <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+          <td style="color:var(--t3);font-size:10px">&mdash;</td>
+        </tr>
+        <tr>
+          <td>2 Dic '25</td>
+          <td class="c" style="color:var(--coral)">95.4</td>
+          <td class="c hv">41.5</td><td class="c hv">101</td><td class="c hv">110</td>
+          <td class="c hv">36</td><td class="c hv">36.5</td>
+          <td class="c hv">38.5</td><td class="c hv">41</td>
+          <td class="c hv">109</td><td class="c hv">101</td>
+          <td class="c hv">68</td><td class="c hv">69</td>
+          <td style="color:var(--t3);font-size:10px">Pant. I:42.5 D:44</td>
+        </tr>
+        <tr>
+          <td>8 Dic '25</td>
+          <td class="c hv">94.5</td><td class="c hv">41</td>
+          <td class="c hv">100</td><td class="c hv">109</td>
+          <td class="c hv">37</td><td class="c hv">37</td>
+          <td class="c hv">39.5</td><td class="c hv">40.5</td>
+          <td class="c hv">109</td><td class="c hna">&mdash;</td>
+          <td class="c hv">67</td><td class="c hv">68</td>
+          <td style="color:var(--t3);font-size:10px">&mdash;</td>
+        </tr>
+        <tr>
+          <td>&sim;Med Dic '25</td>
+          <td class="c hv">93.0</td><td class="c hv">41</td>
+          <td class="c hv">99.5</td><td class="c hv">109</td>
+          <td class="c hv">37.5</td><td class="c hv">37.5</td>
+          <td class="c hv">40</td><td class="c hv">41</td>
+          <td class="c hv">110</td><td class="c hv">100</td>
+          <td class="c hv">68</td><td class="c hv">69.5</td>
+          <td style="color:var(--t3);font-size:10px">Sin fecha exacta</td>
+        </tr>
+        <tr>
+          <td>29 Dic '25</td>
+          <td class="c hna">&mdash;</td><td class="c hv">41</td>
+          <td class="c hv">99</td><td class="c hv">110&ndash;111</td>
+          <td class="c hv">37.3</td><td class="c hv">37.5</td>
+          <td class="c hv">40</td><td class="c hv">41</td>
+          <td class="c hv">110</td><td class="c hna">&mdash;</td>
+          <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+          <td style="color:var(--t3);font-size:10px">Antebrazo: 30 (ambos)</td>
+        </tr>
+        <tr>
+          <td>10 Ene '26</td>
+          <td class="c" style="color:var(--blue)">92.0</td><td class="c hna">&mdash;</td>
+          <td class="c hv">98</td><td class="c hv">109&ndash;110</td>
+          <td class="c hv">37</td><td class="c hv">37.5</td>
+          <td class="c hv">40</td><td class="c hv">41.5</td>
+          <td class="c hv">107</td><td class="c hna">&mdash;</td>
+          <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+          <td style="color:var(--t3);font-size:10px">&mdash;</td>
+        </tr>
+        <tr>
+          <td>27 Abr '26</td>
+          <td class="c hpeak">101.5</td><td class="c hpeak">44.5</td>
+          <td class="c hpeak">107</td><td class="c hpeak">115</td>
+          <td class="c hpeak">39</td><td class="c hpeak">39</td>
+          <td class="c hpeak">43</td><td class="c hpeak">43</td>
+          <td class="c hpeak">115</td><td class="c hna">&mdash;</td>
+          <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+          <td style="color:var(--coral);font-size:10px">PICO &middot; Anchura 130 &middot; Antebrazo 31</td>
+        </tr>
+        <tr>
+          <td>14 Jul '26</td>
+          <td class="c hv">98.34</td><td class="c hv">43.2</td>
+          <td class="c hv">104</td><td class="c hv">112</td>
+          <td class="c hv">38</td><td class="c hv">38.5</td>
+          <td class="c hv">41.5</td><td class="c hv">41.5</td>
+          <td class="c hv">113</td><td class="c hna">&mdash;</td>
+          <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+          <td style="color:var(--t3);font-size:10px">Anchura 135</td>
+        </tr>
+        <tr style="background:var(--teal-a)">
+          <td style="color:var(--teal)">25 Jul '26 &#9733;</td>
+          <td class="c hcur">98.3</td><td class="c hcur">43</td>
+          <td class="c hcur">103.5</td><td class="c hcur">112</td>
+          <td class="c hcur">38.5</td><td class="c hcur">38.5</td>
+          <td class="c hcur">42</td><td class="c hcur">42</td>
+          <td class="c hcur">110</td><td class="c hna">&mdash;</td>
+          <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+          <td style="color:var(--teal);font-size:10px">Piernas 72.5 &middot; Ampl.pecho 44</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:11px;color:var(--t3);margin-top:10px">Unidades: kg para peso &middot; cm para todo lo dem&aacute;s &middot; &mdash; = no registrado</p>
+</div>
+
+<!-- ESCENARIOS CALÓRICOS -->
+<div class="wrap">
+  <div class="sec-head"><h2>Calor&iacute;as por Escenario</h2><span class="badge">Base 98.3 kg &middot; BMR 1,957 kcal</span></div>
+  <div style="display:flex;gap:22px;flex-wrap:wrap;margin-bottom:18px;font-size:12px">
+    <span style="color:var(--t2)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--t2);margin-right:6px;vertical-align:middle"></span>Mantenimiento</span>
+    <span style="color:var(--teal)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:6px;vertical-align:middle"></span>&Oacute;ptimo &minus;500 kcal</span>
+    <span style="color:var(--coral)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--coral);margin-right:6px;vertical-align:middle"></span>Agresivo &minus;750 kcal</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:44%">Escenario</th>
+        <th class="c" style="color:var(--t2)">Mantenimiento</th>
+        <th class="c" style="color:var(--teal)">&#9679; &Oacute;ptimo</th>
+        <th class="c" style="color:var(--coral)">&#9679; Agresivo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="grp-row"><td colspan="4">Sin ejercicio</td></tr>
+      <tr><td><span class="scen-n">#1</span><span class="scen-name">Cama &rarr; sof&aacute; &rarr; series</span><span class="scen-det">Sedentario puro</span></td><td class="c c-maint">2,348</td><td class="c c-opt">1,848</td><td class="c c-agg">1,598</td></tr>
+      <tr><td><span class="scen-n">#2</span><span class="scen-name">Sedentario + tareas del hogar</span><span class="scen-det">Limpiar, lavar, cocinar</span></td><td class="c c-maint">2,484</td><td class="c c-opt">1,984</td><td class="c c-agg">1,734</td></tr>
+      <tr class="grp-row"><td colspan="4">Walking pad &middot; 10k pasos</td></tr>
+      <tr><td><span class="scen-n">#3a</span><span class="scen-name">Trabajo + 10k pasos plano / calle</span><span class="scen-det">0&ndash;2% &middot; +575 kcal</span></td><td class="c c-maint">2,923</td><td class="c c-opt">2,423</td><td class="c c-agg">2,173</td></tr>
+      <tr><td><span class="scen-n">#3b</span><span class="scen-name">Trabajo + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+855 kcal &middot; sweet spot</span></td><td class="c c-maint">3,203</td><td class="c c-opt">2,703</td><td class="c c-agg">2,453</td></tr>
+      <tr class="grp-row"><td colspan="4">Gym 2 horas (+720 kcal)</td></tr>
+      <tr><td><span class="scen-n">#4</span><span class="scen-name">Gym 2h + sedentario</span><span class="scen-det">Solo gym, resto inactivo</span></td><td class="c c-maint">3,068</td><td class="c c-opt">2,568</td><td class="c c-agg">2,318</td></tr>
+      <tr><td><span class="scen-n">#5a</span><span class="scen-name">Gym 2h + 10k pasos plano</span><span class="scen-det">+1,295 kcal total</span></td><td class="c c-maint">3,643</td><td class="c c-opt">3,143</td><td class="c c-agg">2,893</td></tr>
+      <tr><td><span class="scen-n">#5b</span><span class="scen-name">Gym 2h + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,575 kcal total</span></td><td class="c c-maint">3,923</td><td class="c c-opt">3,423</td><td class="c c-agg">3,173</td></tr>
+      <tr><td><span class="scen-n">#5c</span><span class="scen-name">Gym 2h + 10k pasos 12% inclinaci&oacute;n</span><span class="scen-det">Modo beast &middot; +2,040 kcal</span></td><td class="c c-maint">4,388</td><td class="c c-opt">3,888</td><td class="c c-agg">3,638</td></tr>
+      <tr class="grp-row"><td colspan="4">Gym 1h 10min (+440 kcal)</td></tr>
+      <tr><td><span class="scen-n">#6</span><span class="scen-name">Gym 1h10 + sedentario</span><span class="scen-det">Solo gym, resto inactivo</span></td><td class="c c-maint">2,788</td><td class="c c-opt">2,288</td><td class="c c-agg">2,038</td></tr>
+      <tr><td><span class="scen-n">#7a</span><span class="scen-name">Gym 1h10 + 10k pasos plano</span><span class="scen-det">+1,015 kcal total</span></td><td class="c c-maint">3,363</td><td class="c c-opt">2,863</td><td class="c c-agg">2,613</td></tr>
+      <tr><td><span class="scen-n">#7b</span><span class="scen-name">Gym 1h10 + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,295 kcal total</span></td><td class="c c-maint">3,643</td><td class="c c-opt">3,143</td><td class="c c-agg">2,893</td></tr>
+    </tbody>
+  </table>
+  <div class="infobox"><strong>Pasos &amp; inclinaci&oacute;n:</strong> Plano / 0&ndash;2% &asymp; 575 kcal (equiv. calle) &middot; 5% &asymp; 855 kcal &middot; 12% &asymp; 1,320 kcal &middot; Margen individual: &plusmn;15&ndash;20% &middot; No agarrarse del pasamanos (cancela hasta 30% del beneficio)</div>
+</div>
+
+<!-- MACROS -->
+<div class="wrap">
+  <div class="sec-head"><h2>Macros Objetivo</h2><span class="badge">D&iacute;a sedentario &middot; 1,848 kcal</span></div>
+  <div class="macros-grid">
+    <div class="card t"><div class="card-lbl">Prote&iacute;na</div><div class="card-val">160&ndash;180 g</div><div class="card-sub">720 kcal &middot; 39% &middot; 2.2g/kg masa magra</div></div>
+    <div class="card a"><div class="card-lbl">Carbohidratos</div><div class="card-val">165 g</div><div class="card-sub">660 kcal &middot; 36% &middot; +150g en d&iacute;a de gym</div></div>
+    <div class="card"><div class="card-lbl">Grasas</div><div class="card-val">52 g</div><div class="card-sub">468 kcal &middot; 25% &middot; m&iacute;nimo para hormonas</div></div>
+    <div class="card b"><div class="card-lbl">D&iacute;a de gym</div><div class="card-val">&sim;2,500 kcal</div><div class="card-sub">Extra principalmente en carbos</div></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div><div class="ft-title">M&eacute;todos de c&aacute;lculo</div><div class="ft-text">BMR: Mifflin-St Jeor + Katch-McArdle (promedio)<br>% Grasa: F&oacute;rmula Naval USA<br>Pasos: ACSM Equations + Compendium of Physical Activities (Ainsworth et al., 2011)<br>Kcal ejercicio: MET &times; peso &times; 3.5 &divide; 200</div></div>
+  <div><div class="ft-title">Objetivos</div><div class="ft-text">Meta: 80 kg<br>D&eacute;ficit recomendado: &minus;500 kcal/d&iacute;a<br>Prote&iacute;na: 160&ndash;180 g/d&iacute;a<br>Ritmo: &sim;0.5&ndash;0.6 kg/semana<br>Estimaci&oacute;n: &sim;10.4 meses</div></div>
+  <div><div class="ft-title">&Uacute;ltima actualizaci&oacute;n</div><div class="ft-text">Peso: 98.3 kg &middot; 25 Jul 2026<br>Medidas: 25 Jul 2026<br>Historial: Sep 2025 &rarr; Jul 2026<br>Entradas: 14 registros de medidas</div></div>
+</div>
+
+<script>
+// Nav date
+document.getElementById('navDate').textContent = new Date().toLocaleDateString('es-MX',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+
+// Journey bar
+const peak=101.5,goal=80.0,cur=98.3;
+const pct=((peak-cur)/(peak-goal))*100;
+setTimeout(()=>{
+  document.getElementById('jFill').style.width=pct.toFixed(1)+'%';
+  document.getElementById('jPin').style.left=pct.toFixed(1)+'%';
+  let c=0,t=Math.round(pct),el=document.getElementById('pctVal');
+  const s=()=>{if(c<t){c++;el.textContent=c+'%';setTimeout(s,1700/t)}};s();
+},350);
+
+// Weight sparkline chart
+const canvas=document.getElementById('wtCanvas');
+const dpr=window.devicePixelRatio||1;
+const W=canvas.parentElement.clientWidth-40;
+const H=110;
+canvas.width=W*dpr;canvas.height=H*dpr;
+canvas.style.width=W+'px';canvas.style.height=H+'px';
+const ctx=canvas.getContext('2d');
+ctx.scale(dpr,dpr);
+
+const weights=[
+  {d:0,w:93.5,lbl:'Sep 20'},
+  {d:10,w:91.30,lbl:'Sep 30'},
+  {d:16,w:90.55,lbl:'Oct 6'},
+  {d:23,w:90.50,lbl:'Oct 13'},
+  {d:73,w:95.4,lbl:'Dic 2'},
+  {d:79,w:94.5,lbl:'Dic 8'},
+  {d:86,w:93.0,lbl:'~Dic'},
+  {d:112,w:92.0,lbl:'Ene 10'},
+  {d:219,w:101.5,lbl:'Abr 27'},
+  {d:297,w:98.34,lbl:'Jul 14'},
+  {d:301,w:98.60,lbl:'Jul 18'},
+  {d:302,w:98.34,lbl:'Jul 19'},
+  {d:303,w:99.34,lbl:'Jul 20'},
+  {d:308,w:98.3,lbl:'Jul 25'},
+];
+
+const pad={l:8,r:8,t:16,b:24};
+const cw=W-pad.l-pad.r;
+const ch=H-pad.t-pad.b;
+const minW=88,maxW=103;
+const maxD=308;
+
+function xp(d){return pad.l+((d/maxD)*cw)}
+function yp(w){return pad.t+(1-(w-minW)/(maxW-minW))*ch}
+
+// Reference lines
+ctx.strokeStyle='rgba(30,34,53,0.8)';ctx.lineWidth=1;
+[90,95,100].forEach(rw=>{
+  const ry=yp(rw);
+  ctx.beginPath();ctx.moveTo(pad.l,ry);ctx.lineTo(W-pad.r,ry);ctx.stroke();
+  ctx.fillStyle='rgba(69,75,104,0.8)';ctx.font='9px JetBrains Mono,monospace';
+  ctx.fillText(rw+'kg',pad.l+2,ry-3);
+});
+
+// Goal line
+ctx.strokeStyle='rgba(255,168,48,0.3)';ctx.setLineDash([4,4]);
+ctx.beginPath();ctx.moveTo(pad.l,yp(80));ctx.lineTo(W-pad.r,yp(80));ctx.stroke();
+ctx.setLineDash([]);
+ctx.fillStyle='rgba(255,168,48,0.6)';ctx.font='9px JetBrains Mono,monospace';
+ctx.fillText('80kg meta',pad.l+2,yp(80)-3);
+
+// Gradient fill
+const grad=ctx.createLinearGradient(0,pad.t,0,H-pad.b);
+grad.addColorStop(0,'rgba(0,201,167,0.15)');
+grad.addColorStop(1,'rgba(0,201,167,0)');
+ctx.beginPath();
+ctx.moveTo(xp(weights[0].d),yp(weights[0].w));
+weights.forEach(pt=>ctx.lineTo(xp(pt.d),yp(pt.w)));
+ctx.lineTo(xp(weights[weights.length-1].d),H-pad.b+pad.t);
+ctx.lineTo(xp(weights[0].d),H-pad.b+pad.t);
+ctx.closePath();ctx.fillStyle=grad;ctx.fill();
+
+// Line
+ctx.beginPath();ctx.moveTo(xp(weights[0].d),yp(weights[0].w));
+weights.forEach(pt=>ctx.lineTo(xp(pt.d),yp(pt.w)));
+ctx.strokeStyle='#00C9A7';ctx.lineWidth=2;ctx.lineJoin='round';ctx.stroke();
+
+// Peak dot
+const peak_pt=weights.find(p=>p.w===101.5);
+ctx.beginPath();ctx.arc(xp(peak_pt.d),yp(peak_pt.w),5,0,Math.PI*2);
+ctx.fillStyle='#FF5C5C';ctx.fill();
+
+// Current dot
+const cur_pt=weights[weights.length-1];
+ctx.beginPath();ctx.arc(xp(cur_pt.d),yp(cur_pt.w),5,0,Math.PI*2);
+ctx.fillStyle='#00C9A7';ctx.fill();
+ctx.beginPath();ctx.arc(xp(cur_pt.d),yp(cur_pt.w),9,0,Math.PI*2);
+ctx.strokeStyle='rgba(0,201,167,0.3)';ctx.lineWidth=2;ctx.stroke();
+</script>
+</body>
+</html>
