@@ -58,18 +58,27 @@
 - **Asistente**: Antigravity AI Coding Assistant
 - **Modelo**: Gemini 3.6 Flash (Nivel de Razonamiento: High)
 - **Fecha**: 27 de Julio, 2026 (22:54 UTC-6)
-- **Petición del Usuario**:
-  1. **Optimización Responsiva para Celulares**:
-     - Media queries (`@media (max-width: 640px)`) con tipografías fluidas `clamp()`, padding adaptable y layouts de grid adaptables.
-     - Scroll horizontal táctil suave (`-webkit-overflow-scrolling: touch`) en barra de pestañas y envoltorios de tablas (`.table-wrap`).
-     - Eventos táctiles (`touchstart`, `touchmove`, `touchend`) integrados en el motor de canvas para que los tooltips se desplieguen al deslizar el dedo en teléfonos inteligentes.
-  2. **Gráficos Unificados por Grupos Musculares (Serie Doble)**:
-     - 🦾 **Brazos (cm)**: Gráfico unificado comparando Brazo Izquierdo (Teal `#00C9A7`) vs Brazo Derecho (Azul `#5B9DFF`).
-     - 🏋️ **Hombros (cm)**: Gráfico unificado comparando Hombro Izquierdo (`#00C9A7`) vs Hombro Derecho (`#5B9DFF`).
-     - 🦵 **Piernas (cm)**: Gráfico unificado comparando Pierna Izquierda (`#00C9A7`) vs Pierna Derecha (`#5B9DFF`).
-  3. **Despliegue en GitHub Pages**:
-     - Sincronización completa con la rama `main` en `https://github.com/Yayometro/GymTrackerPersonal.git`.
-     - URL pública de la aplicación: `https://yayometro.github.io/GymTrackerPersonal/`.
+- **Resumen**:
+  1. Optimización responsiva con eventos táctiles para canvas (`touchstart`, `touchmove`, `touchend`).
+  2. Gráficos unificados por grupos musculares (Brazos Izq vs Der, Hombros Izq vs Der, Piernas Izq vs Der).
+  3. Publicación automática en GitHub Pages (`https://yayometro.github.io/GymTrackerPersonal/`).
+
+---
+
+### 📌 Sesión 6 — Integración de Nuevos Escenarios Calóricos (Torso vs Piernas MET)
+- **Proveedor de IA**: Google
+- **Asistente**: Antigravity AI Coding Assistant
+- **Modelo**: Gemini 3.6 Flash (Nivel de Razonamiento: High)
+- **Fecha**: 31 de Julio, 2026 (20:20 UTC-6)
+- **Petición del Usuario**: Integrar las nuevas adiciones calculadas por Claude en `yayo-panel-salud-original.html` a la versión de pestañas (`index.html`) y actualizar GitHub.
+- **Cambios Realizados**:
+  1. **Nuevos Escenarios Calóricos Agregados en Pestaña "🔥 Calorías por Escenario"**:
+     - 💪 **Torso 1h30 — Upper body · MET 4.5 (+695 kcal)**: Escenarios `#8a` (Torso + sedentario), `#8b` (+10k pasos plano), `#8c` (+10k pasos 5% incl.).
+     - 🦵 **Piernas 1h30 — Lower body · MET 6.5 (+1,005 kcal)**: Escenarios `#9a` (Piernas + sedentario), `#9b` (+10k pasos plano), `#9c` (+10k pasos 5% incl.).
+  2. **Actualización de Nota Informativa en Infobox**:
+     - Agregada comparativa técnica MET: Las piernas queman **+310 kcal más** que el torso en el mismo tiempo (MET 6.5 vs 4.5) al reclutar el 60-70% de la masa muscular total (Compendium of Physical Activities).
+  3. **Despliegue a GitHub**:
+     - Git commit y push a la rama `main` de `Yayometro/GymTrackerPersonal`.
 
 ---
 
@@ -77,7 +86,7 @@
 - **Entorno**: HTML5 / CSS3 Vanilla Responsive / JS Vanilla / 9 Gráficas HTML5 Canvas con Tooltips Táctiles y Dual-Series.
 - **Punto de Entrada**: `index.html`
 - **Pestañas**:
-  1. `🔥 Calorías por Escenario` (Default)
+  1. `🔥 Calorías por Escenario` (Incluye nuevos escenarios de Torso 1h30 MET 4.5 y Piernas 1h30 MET 6.5)
   2. `⚖️ Historial de Peso` (Tablas + Charts Masa Magra & Masa Grasa)
   3. `🧬 Composición Corporal` (Masa Magra/Grasa + Chart Dedicado Magro + Comparativa)
   4. `📏 Historial Completo de Medidas` (Tabla 14 entradas + 5 Charts: Espalda, Panza, Brazos Izq/Der, Hombros Izq/Der, Piernas Izq/Der)
