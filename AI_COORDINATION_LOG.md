@@ -58,27 +58,40 @@
 - **Asistente**: Antigravity AI Coding Assistant
 - **Modelo**: Gemini 3.6 Flash (Nivel de Razonamiento: High)
 - **Fecha**: 27 de Julio, 2026 (22:54 UTC-6)
-- **Resumen**:
-  1. Optimización responsiva con eventos táctiles para canvas (`touchstart`, `touchmove`, `touchend`).
-  2. Gráficos unificados por grupos musculares (Brazos Izq vs Der, Hombros Izq vs Der, Piernas Izq vs Der).
-  3. Publicación automática en GitHub Pages (`https://yayometro.github.io/GymTrackerPersonal/`).
+- **Resumen**: Optimización responsiva con eventos táctiles canvas y gráficos dual-series para Brazos, Hombros y Piernas.
 
 ---
 
-### 📌 Sesión 6 — Integración de Nuevos Escenarios Calóricos (Torso vs Piernas MET)
+### 📌 Sesión 6 — Integración de Escenarios Calóricos (Torso vs Piernas MET)
 - **Proveedor de IA**: Google
 - **Asistente**: Antigravity AI Coding Assistant
 - **Modelo**: Gemini 3.6 Flash (Nivel de Razonamiento: High)
 - **Fecha**: 31 de Julio, 2026 (20:20 UTC-6)
-- **Petición del Usuario**: Integrar las nuevas adiciones calculadas por Claude en `yayo-panel-salud-original.html` a la versión de pestañas (`index.html`) y actualizar GitHub.
+- **Resumen**: Adición inicial de escenarios calóricos diferenciados por grupo muscular.
+
+---
+
+### 📌 Sesión 7 — Corrección Basada en el 2024 Adult Compendium of Physical Activities
+- **Proveedor de IA**: Google
+- **Asistente**: Antigravity AI Coding Assistant
+- **Modelo**: Gemini 3.6 Flash (Nivel de Razonamiento: High)
+- **Fecha**: 31 de Julio, 2026 (20:28 UTC-6)
+- **Petición del Usuario**: Actualización de los escenarios calóricos según la investigación corregida de Claude basada en las tablas oficiales del *2024 Adult Compendium of Physical Activities*.
 - **Cambios Realizados**:
-  1. **Nuevos Escenarios Calóricos Agregados en Pestaña "🔥 Calorías por Escenario"**:
-     - 💪 **Torso 1h30 — Upper body · MET 4.5 (+695 kcal)**: Escenarios `#8a` (Torso + sedentario), `#8b` (+10k pasos plano), `#8c` (+10k pasos 5% incl.).
-     - 🦵 **Piernas 1h30 — Lower body · MET 6.5 (+1,005 kcal)**: Escenarios `#9a` (Piernas + sedentario), `#9b` (+10k pasos plano), `#9c` (+10k pasos 5% incl.).
-  2. **Actualización de Nota Informativa en Infobox**:
-     - Agregada comparativa técnica MET: Las piernas queman **+310 kcal más** que el torso en el mismo tiempo (MET 6.5 vs 4.5) al reclutar el 60-70% de la masa muscular total (Compendium of Physical Activities).
-  3. **Despliegue a GitHub**:
-     - Git commit y push a la rama `main` de `Yayometro/GymTrackerPersonal`.
+  1. **Valores Calóricos Corregidos**:
+     - 💪 **Torso 1h30 (MET 5.0 · +770 kcal)**:
+       - `#8a` Torso + sedentario: `3,118 kcal` (Maint) | `2,618 kcal` (Opt) | `2,368 kcal` (Agg)
+       - `#8b` Torso + 10k pasos plano: `3,693 kcal` (Maint) | `3,193 kcal` (Opt) | `2,943 kcal` (Agg)
+       - `#8c` Torso + 10k pasos 5% incl.: `3,973 kcal` (Maint) | `3,473 kcal` (Opt) | `3,223 kcal` (Agg)
+     - 🦵 **Piernas 1h30 (MET 5.5 · +851 kcal)**:
+       - `#9a` Piernas + sedentario: `3,199 kcal` (Maint) | `2,699 kcal` (Opt) | `2,449 kcal` (Agg)
+       - `#9b` Piernas + 10k pasos plano: `3,774 kcal` (Maint) | `3,274 kcal` (Opt) | `3,024 kcal` (Agg)
+       - `#9c` Piernas + 10k pasos 5% incl.: `4,054 kcal` (Maint) | `3,554 kcal` (Opt) | `3,304 kcal` (Agg)
+  2. **Nota Informativa Realista en Infobox**:
+     - Explicación de que la quema intra-workout difiere solo por `+81 kcal` debido a los mayores descansos en piernas, mientras que el beneficio clave radica en el **EPOC (afterburn)** post-ejercicio y la **respuesta hormonal** (Testosterona +16%, GH alta).
+  3. **Sincronización Total y Despliegue**:
+     - Actualizados `yayo-panel-salud-original.html`, `index.html`, `yayo-panel-salud-tabs.html` y `AI_COORDINATION_LOG.md`.
+     - Git commit y push a la rama `main` de GitHub.
 
 ---
 
@@ -86,7 +99,7 @@
 - **Entorno**: HTML5 / CSS3 Vanilla Responsive / JS Vanilla / 9 Gráficas HTML5 Canvas con Tooltips Táctiles y Dual-Series.
 - **Punto de Entrada**: `index.html`
 - **Pestañas**:
-  1. `🔥 Calorías por Escenario` (Incluye nuevos escenarios de Torso 1h30 MET 4.5 y Piernas 1h30 MET 6.5)
+  1. `🔥 Calorías por Escenario` (Con escenarios corregidos según 2024 Compendium: Torso MET 5.0 [+770 kcal] vs Piernas MET 5.5 [+851 kcal])
   2. `⚖️ Historial de Peso` (Tablas + Charts Masa Magra & Masa Grasa)
   3. `🧬 Composición Corporal` (Masa Magra/Grasa + Chart Dedicado Magro + Comparativa)
   4. `📏 Historial Completo de Medidas` (Tabla 14 entradas + 5 Charts: Espalda, Panza, Brazos Izq/Der, Hombros Izq/Der, Piernas Izq/Der)
