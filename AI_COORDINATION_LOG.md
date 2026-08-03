@@ -95,6 +95,26 @@
 
 ---
 
+### 📌 Sesión 8 — Nueva Pestaña de Proyección de Bajada de Peso
+- **Proveedor de IA**: Anthropic
+- **Modelo**: Claude Sonnet 5
+- **Fecha**: 3 de Agosto, 2026
+- **Petición del Usuario**: Agregar una pestaña con la proyección de cuánto peso se podría bajar en 12 meses bajo tres escenarios de déficit calórico diario (−500, −700 y −800 kcal), basada en los datos ya existentes del panel (peso actual 98.3 kg, meta 80 kg).
+- **Cambios Realizados**:
+  1. **Nueva Pestaña `📉 Proyección de Bajada`** en `index.html` y `yayo-panel-salud-tabs.html`:
+     - Tabla mes a mes (Mes 1 a Mes 12) con el peso proyectado para −500 kcal/día (seguro), −700 kcal/día y −800 kcal/día (agresivo).
+     - Metodología: 1 kg de grasa ≈ 7,700 kcal, proyección lineal (sin ajustar por la reducción gradual del TDEE al bajar de peso).
+     - Marca visual (`🎯 Meta alcanzada`) en el mes donde cada escenario llega a los 80 kg: ~mes 9.8 (−500), ~mes 6.6 (−700), ~mes 5.8 (−800).
+     - Infobox con el ritmo semanal equivalente de cada escenario (0.45 / 0.64 / 0.73 kg/semana), todos por debajo del umbral de ~1%/semana asociado a mayor riesgo de pérdida muscular (Helms et al. 2014).
+  2. **Sincronización**: Actualizados `index.html` y `yayo-panel-salud-tabs.html` (idénticos, sin tocar `yayo-panel-salud-original.html` por protocolo). JS `switchTab()` actualizado para incluir la pestaña `proyeccion`.
+  3. **Impacto Estimado en Masa Magra**: 3 tarjetas (una por escenario) con rango de cambio de m&uacute;sculo esperado, basado en el perfil real del usuario (prote&iacute;na 200&ndash;300g/d&iacute;a, entrenamiento a fallo 2x/semana por grupo muscular) y en umbrales de investigaci&oacute;n (Garthe et al. 2011: 0.7%/sem vs 1.4%/sem de p&eacute;rdida de peso en atletas de fuerza):
+     - &minus;500 kcal (0.46%/sem): Mantener &rarr; +1 kg
+     - &minus;700 kcal (0.65%/sem): &minus;0.3 &rarr; +0.7 kg
+     - &minus;800 kcal (0.74%/sem): &minus;1 &rarr; +0.3 kg
+  4. Verificado visualmente en navegador antes de publicar.
+
+---
+
 ## 📌 Estado Actual del Repositorio para la Siguiente IA
 - **Entorno**: HTML5 / CSS3 Vanilla Responsive / JS Vanilla / 9 Gráficas HTML5 Canvas con Tooltips Táctiles y Dual-Series.
 - **Punto de Entrada**: `index.html`
@@ -103,5 +123,6 @@
   2. `⚖️ Historial de Peso` (Tablas + Charts Masa Magra & Masa Grasa)
   3. `🧬 Composición Corporal` (Masa Magra/Grasa + Chart Dedicado Magro + Comparativa)
   4. `📏 Historial Completo de Medidas` (Tabla 14 entradas + 5 Charts: Espalda, Panza, Brazos Izq/Der, Hombros Izq/Der, Piernas Izq/Der)
+  5. `📉 Proyección de Bajada` (Proyección de peso a 12 meses para déficits de −500/−700/−800 kcal/día)
 - **URL Pública GitHub Pages**: `https://yayometro.github.io/GymTrackerPersonal/`
 - **Repositorio Remoto**: `https://github.com/Yayometro/GymTrackerPersonal.git`

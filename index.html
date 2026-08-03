@@ -236,6 +236,9 @@ td.hna{color:var(--t3)}
     <button class="tab-btn" onclick="switchTab('historial-medidas')" id="tab-btn-historial-medidas" role="tab" aria-selected="false">
       📏 Historial Completo de Medidas
     </button>
+    <button class="tab-btn" onclick="switchTab('proyeccion')" id="tab-btn-proyeccion" role="tab" aria-selected="false">
+      📉 Proyecci&oacute;n de Bajada
+    </button>
   </div>
 </div>
 
@@ -732,6 +735,72 @@ td.hna{color:var(--t3)}
   </div>
 </div>
 
+<!-- ==================== PESTAÑA 5: PROYECCIÓN DE BAJADA DE PESO ==================== -->
+<div id="tab-proyeccion" class="tab-content" role="tabpanel">
+  <div class="wrap">
+    <div class="sec-head"><h2>Proyecci&oacute;n de Bajada de Peso</h2><span class="badge">Base 98.3 kg &middot; Meta 80 kg &middot; &minus;18.3 kg</span></div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px;font-size:11px">
+      <span style="color:var(--teal)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:5px"></span>&minus;500 kcal/d&iacute;a &middot; Seguro</span>
+      <span style="color:var(--amber)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber);margin-right:5px"></span>&minus;700 kcal/d&iacute;a</span>
+      <span style="color:var(--coral)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--coral);margin-right:5px"></span>&minus;800 kcal/d&iacute;a &middot; Agresivo</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:16%">Mes</th>
+            <th class="c" style="color:var(--teal)">&#9679; &minus;500 kcal</th>
+            <th class="c" style="color:var(--amber)">&#9679; &minus;700 kcal</th>
+            <th class="c" style="color:var(--coral)">&#9679; &minus;800 kcal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Mes 1</td><td class="c c-opt">96.3 kg</td><td class="c" style="color:var(--amber)">95.5 kg</td><td class="c c-agg">95.1 kg</td></tr>
+          <tr><td>Mes 2</td><td class="c c-opt">94.3 kg</td><td class="c" style="color:var(--amber)">92.8 kg</td><td class="c c-agg">92.0 kg</td></tr>
+          <tr><td>Mes 3</td><td class="c c-opt">92.4 kg</td><td class="c" style="color:var(--amber)">90.0 kg</td><td class="c c-agg">88.8 kg</td></tr>
+          <tr><td>Mes 4</td><td class="c c-opt">90.4 kg</td><td class="c" style="color:var(--amber)">87.2 kg</td><td class="c c-agg">85.7 kg</td></tr>
+          <tr><td>Mes 5</td><td class="c c-opt">88.4 kg</td><td class="c" style="color:var(--amber)">84.5 kg</td><td class="c c-agg">82.5 kg</td></tr>
+          <tr><td>Mes 6</td><td class="c c-opt">86.4 kg</td><td class="c" style="color:var(--amber)">81.7 kg</td><td class="c"><span class="tag tag-cur">&#127919; 80 kg &middot; ~5.8m</span></td></tr>
+          <tr><td>Mes 7</td><td class="c c-opt">84.5 kg</td><td class="c"><span class="tag tag-cur">&#127919; 80 kg &middot; ~6.6m</span></td><td class="c" style="color:var(--t3)">Meta alcanzada</td></tr>
+          <tr><td>Mes 8</td><td class="c c-opt">82.5 kg</td><td class="c" style="color:var(--t3)">Meta alcanzada</td><td class="c" style="color:var(--t3)">Meta alcanzada</td></tr>
+          <tr><td>Mes 9</td><td class="c c-opt">80.5 kg</td><td class="c" style="color:var(--t3)">&mdash;</td><td class="c" style="color:var(--t3)">&mdash;</td></tr>
+          <tr><td>Mes 10</td><td class="c"><span class="tag tag-cur">&#127919; 80 kg &middot; ~9.8m</span></td><td class="c" style="color:var(--t3)">&mdash;</td><td class="c" style="color:var(--t3)">&mdash;</td></tr>
+          <tr><td>Mes 11</td><td class="c" style="color:var(--t3)">Meta alcanzada</td><td class="c" style="color:var(--t3)">&mdash;</td><td class="c" style="color:var(--t3)">&mdash;</td></tr>
+          <tr><td>Mes 12</td><td class="c" style="color:var(--t3)">Meta alcanzada</td><td class="c" style="color:var(--t3)">&mdash;</td><td class="c" style="color:var(--t3)">&mdash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="infobox">
+      <strong>Metodolog&iacute;a:</strong> 1 kg de grasa &asymp; 7,700 kcal. Proyecci&oacute;n lineal sobre d&eacute;ficit sostenido todos los d&iacute;as &mdash; no considera que el TDEE baja levemente a medida que bajas de peso, as&iacute; que el ritmo real tiende a frenarse un poco con el tiempo.<br>
+      <strong>Ritmo semanal:</strong> &minus;500 kcal &asymp; 0.45 kg/sem &middot; &minus;700 kcal &asymp; 0.64 kg/sem &middot; &minus;800 kcal &asymp; 0.73 kg/sem &middot; los tres se mantienen por debajo o muy cerca del umbral de ~1%/semana asociado a mayor riesgo de p&eacute;rdida muscular (Helms et al. 2014).
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-top:24px">
+    <div class="sec-head"><h2>Impacto Estimado en Masa Magra (m&uacute;sculo)</h2><span class="badge">Seg&uacute;n tu perfil: 200&ndash;300g prote&iacute;na &middot; entrenamiento a fallo 2x/semana por grupo</span></div>
+    <div class="cards">
+      <div class="card t">
+        <div class="card-lbl">&minus;500 kcal &middot; 0.46%/sem</div>
+        <div class="card-val" style="font-size:19px">Mantener &rarr; +1 kg</div>
+        <div class="card-sub">Por debajo del umbral 0.7%/sem (Garthe 2011) donde atletas entrenando fuerza <strong>ganaron</strong> masa magra en d&eacute;ficit</div>
+      </div>
+      <div class="card a">
+        <div class="card-lbl">&minus;700 kcal &middot; 0.65%/sem</div>
+        <div class="card-val" style="font-size:19px">&minus;0.3 &rarr; +0.7 kg</div>
+        <div class="card-sub">A&uacute;n por debajo del umbral 0.7%/sem &middot; perfil casi id&eacute;ntico al escenario &minus;500, resultado esperado similar</div>
+      </div>
+      <div class="card c">
+        <div class="card-lbl">&minus;800 kcal &middot; 0.74%/sem</div>
+        <div class="card-val" style="font-size:19px">&minus;1 &rarr; +0.3 kg</div>
+        <div class="card-sub">Justo en/sobre el umbral lento &middot; incluso al doble de ritmo (1.4%/sem) ese estudio no mostr&oacute; p&eacute;rdida, solo ausencia de ganancia</div>
+      </div>
+    </div>
+    <div class="infobox">
+      <strong>Por qu&eacute; estos rangos:</strong> con prote&iacute;na de 200&ndash;300g (muy por encima del m&iacute;nimo de preservaci&oacute;n muscular, ~2.3&ndash;3.1 g/kg de masa magra seg&uacute;n Helms et al. 2014) y entrenamiento de fuerza a fallo/cerca del fallo 2x por semana por grupo muscular, la p&eacute;rdida de m&uacute;sculo es poco probable en los tres escenarios. El riesgo real no es el n&uacute;mero de kcal en s&iacute;, sino meses donde el entrenamiento baje de intensidad (por rehabilitaci&oacute;n, lesi&oacute;n o pausas largas) &mdash; ah&iacute; es donde el rango se acerca m&aacute;s al extremo negativo, sobre todo en &minus;800 kcal.
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER PERSISTENTE: MÉTRICAS CLAVE MOVIDAS AQUÍ -->
 <div class="wrap no-bottom-pad" style="margin-top: 28px;">
   <div class="sec-head"><h2>M&eacute;tricas Clave</h2><span class="badge">Actualizado 25 Jul 2026</span></div>
@@ -1224,7 +1293,7 @@ window.addEventListener('resize', renderAllCharts);
 
 // Cambiar pestañas
 function switchTab(tabId) {
-  const tabs = ['calorias', 'historial-peso', 'composicion-corporal', 'historial-medidas'];
+  const tabs = ['calorias', 'historial-peso', 'composicion-corporal', 'historial-medidas', 'proyeccion'];
   tabs.forEach(t => {
     const content = document.getElementById('tab-' + t);
     const btn = document.getElementById('tab-btn-' + t);
