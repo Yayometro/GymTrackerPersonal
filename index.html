@@ -155,6 +155,8 @@ td.hna{color:var(--t3)}
   canvas{height:115px}
   .footer{grid-template-columns:1fr;gap:16px;padding:20px 16px 32px}
 }
+a{color:var(--blue);text-decoration:none;border-bottom:1px dotted rgba(91,157,255,0.45)}
+a:hover{border-bottom-style:solid}
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
@@ -740,18 +742,18 @@ td.hna{color:var(--t3)}
   <div class="wrap">
     <div class="sec-head"><h2>Proyecci&oacute;n de Bajada de Peso</h2><span class="badge">Base 98.3 kg &middot; Meta 80 kg &middot; &minus;18.3 kg</span></div>
     <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px;font-size:11px">
-      <span style="color:var(--teal)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:5px"></span>&minus;500 kcal/d&iacute;a &middot; Seguro</span>
-      <span style="color:var(--amber)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber);margin-right:5px"></span>&minus;700 kcal/d&iacute;a</span>
-      <span style="color:var(--coral)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--coral);margin-right:5px"></span>&minus;800 kcal/d&iacute;a &middot; Agresivo</span>
+      <span style="color:var(--teal)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:5px"></span>&minus;500 kcal/d&iacute;a &middot; Seguro &middot; &asymp;0.45 kg/sem</span>
+      <span style="color:var(--amber)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber);margin-right:5px"></span>&minus;700 kcal/d&iacute;a &middot; Moderado &middot; &asymp;0.64 kg/sem</span>
+      <span style="color:var(--coral)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--coral);margin-right:5px"></span>&minus;800 kcal/d&iacute;a &middot; Agresivo &middot; &asymp;0.73 kg/sem</span>
     </div>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
             <th style="width:16%">Mes</th>
-            <th class="c" style="color:var(--teal)">&#9679; &minus;500 kcal</th>
-            <th class="c" style="color:var(--amber)">&#9679; &minus;700 kcal</th>
-            <th class="c" style="color:var(--coral)">&#9679; &minus;800 kcal</th>
+            <th class="c" style="color:var(--teal)">&#9679; &minus;500 kcal<br><span style="font-size:9px;color:var(--t3);text-transform:none;letter-spacing:0">&asymp;0.45 kg/sem</span></th>
+            <th class="c" style="color:var(--amber)">&#9679; &minus;700 kcal<br><span style="font-size:9px;color:var(--t3);text-transform:none;letter-spacing:0">&asymp;0.64 kg/sem</span></th>
+            <th class="c" style="color:var(--coral)">&#9679; &minus;800 kcal<br><span style="font-size:9px;color:var(--t3);text-transform:none;letter-spacing:0">&asymp;0.73 kg/sem</span></th>
           </tr>
         </thead>
         <tbody>
@@ -780,19 +782,31 @@ td.hna{color:var(--t3)}
     <div class="sec-head"><h2>Impacto Estimado en Masa Magra (m&uacute;sculo)</h2><span class="badge">Seg&uacute;n tu perfil: 200&ndash;300g prote&iacute;na &middot; entrenamiento a fallo 2x/semana por grupo</span></div>
     <div class="cards">
       <div class="card t">
-        <div class="card-lbl">&minus;500 kcal &middot; 0.46%/sem</div>
-        <div class="card-val" style="font-size:19px">Mantener &rarr; +1 kg</div>
-        <div class="card-sub">Por debajo del umbral 0.7%/sem (Garthe 2011) donde atletas entrenando fuerza <strong>ganaron</strong> masa magra en d&eacute;ficit</div>
+        <div class="card-lbl">&minus;500 kcal/d&iacute;a &middot; Seguro</div>
+        <div class="card-val">0.45 kg<span style="font-size:12px;color:var(--t3);font-weight:500">/sem total</span></div>
+        <div class="card-sub" style="margin-bottom:8px">Peso total perdido por semana (grasa + m&uacute;sculo)</div>
+        <div style="padding-top:8px;border-top:1px solid var(--border)">
+          <div style="font-family:var(--fm);font-size:13px;color:var(--teal);font-weight:600">M&uacute;sculo: 0 a +25 g/sem</div>
+          <div class="card-sub">0.46%/sem &middot; por debajo del umbral 0.7%/sem (Garthe 2011) donde atletas entrenando fuerza <strong>ganaron</strong> masa magra &middot; total hasta meta (~9.8 meses): mantener &rarr; +1 kg</div>
+        </div>
       </div>
       <div class="card a">
-        <div class="card-lbl">&minus;700 kcal &middot; 0.65%/sem</div>
-        <div class="card-val" style="font-size:19px">&minus;0.3 &rarr; +0.7 kg</div>
-        <div class="card-sub">A&uacute;n por debajo del umbral 0.7%/sem &middot; perfil casi id&eacute;ntico al escenario &minus;500, resultado esperado similar</div>
+        <div class="card-lbl">&minus;700 kcal/d&iacute;a &middot; Moderado</div>
+        <div class="card-val">0.64 kg<span style="font-size:12px;color:var(--t3);font-weight:500">/sem total</span></div>
+        <div class="card-sub" style="margin-bottom:8px">Peso total perdido por semana (grasa + m&uacute;sculo)</div>
+        <div style="padding-top:8px;border-top:1px solid var(--border)">
+          <div style="font-family:var(--fm);font-size:13px;color:var(--amber);font-weight:600">M&uacute;sculo: &minus;10 a +25 g/sem</div>
+          <div class="card-sub">0.65%/sem &middot; a&uacute;n por debajo del umbral 0.7%/sem, perfil casi id&eacute;ntico al &minus;500 &middot; total hasta meta (~6.6 meses): &minus;0.3 &rarr; +0.7 kg</div>
+        </div>
       </div>
       <div class="card c">
-        <div class="card-lbl">&minus;800 kcal &middot; 0.74%/sem</div>
-        <div class="card-val" style="font-size:19px">&minus;1 &rarr; +0.3 kg</div>
-        <div class="card-sub">Justo en/sobre el umbral lento &middot; incluso al doble de ritmo (1.4%/sem) ese estudio no mostr&oacute; p&eacute;rdida, solo ausencia de ganancia</div>
+        <div class="card-lbl">&minus;800 kcal/d&iacute;a &middot; Agresivo</div>
+        <div class="card-val">0.73 kg<span style="font-size:12px;color:var(--t3);font-weight:500">/sem total</span></div>
+        <div class="card-sub" style="margin-bottom:8px">Peso total perdido por semana (grasa + m&uacute;sculo)</div>
+        <div style="padding-top:8px;border-top:1px solid var(--border)">
+          <div style="font-family:var(--fm);font-size:13px;color:var(--coral);font-weight:600">M&uacute;sculo: &minus;40 a +10 g/sem</div>
+          <div class="card-sub">0.74%/sem &middot; justo en/sobre el umbral lento &middot; incluso al doble de ritmo (1.4%/sem) ese estudio no mostr&oacute; p&eacute;rdida, solo ausencia de ganancia &middot; total hasta meta (~5.8 meses): &minus;1 &rarr; +0.3 kg</div>
+        </div>
       </div>
     </div>
     <div class="infobox">
@@ -831,6 +845,64 @@ td.hna{color:var(--t3)}
   <div><div class="ft-title">M&eacute;todos de c&aacute;lculo</div><div class="ft-text">BMR: Mifflin-St Jeor + Katch-McArdle (promedio)<br>% Grasa: F&oacute;rmula Naval USA<br>Pasos: ACSM Equations + Compendium of Physical Activities<br>Kcal ejercicio: MET &times; peso &times; 3.5 &divide; 200</div></div>
   <div><div class="ft-title">Objetivos</div><div class="ft-text">Meta: 80 kg<br>D&eacute;ficit recomendado: &minus;500 kcal/d&iacute;a<br>Prote&iacute;na: 160&ndash;180 g/d&iacute;a<br>Ritmo: &sim;0.5&ndash;0.6 kg/semana</div></div>
   <div><div class="ft-title">&Uacute;ltima actualizaci&oacute;n</div><div class="ft-text">Peso: 98.3 kg &middot; 25 Jul 2026<br>Medidas: 25 Jul 2026<br>Historial: Sep 2025 &rarr; Jul 2026</div></div>
+</div>
+
+<!-- ==================== FUENTES & REFERENCIAS ==================== -->
+<div class="wrap" style="margin-top:8px;padding-top:20px;border-top:1px solid var(--border)">
+  <div class="sec-head"><h2>Fuentes &amp; Referencias</h2><span class="badge">M&eacute;todos del panel + investigaci&oacute;n de proyecci&oacute;n / masa magra</span></div>
+
+  <div style="margin-bottom:22px">
+    <div class="ft-title" style="margin-bottom:10px">M&eacute;todos base del panel</div>
+    <div class="ft-text" style="line-height:1.9">
+      &bull; <strong style="color:var(--t2)">BMR:</strong> Mifflin-St Jeor + Katch-McArdle (promedio)<br>
+      &bull; <strong style="color:var(--t2)">% Grasa corporal:</strong> F&oacute;rmula Naval USA (circunferencias)<br>
+      &bull; <strong style="color:var(--t2)">Pasos / caminata:</strong> ACSM Walking Equations + Compendium of Physical Activities (Ainsworth et al., 2011/2024)<br>
+      &bull; <strong style="color:var(--t2)">Kcal de ejercicio:</strong> MET &times; peso (kg) &times; 3.5 &divide; 200
+    </div>
+  </div>
+
+  <div style="margin-bottom:22px">
+    <div class="ft-title" style="margin-bottom:10px">Proyecci&oacute;n de p&eacute;rdida de peso &middot; d&eacute;ficit cal&oacute;rico</div>
+    <div class="ft-text" style="line-height:1.9">
+      &bull; Conversi&oacute;n usada en la tabla: 1 kg de grasa &asymp; 7,700 kcal<br>
+      &bull; <a href="https://link.springer.com/article/10.1186/1550-2783-11-20" target="_blank" rel="noopener">Helms, Aragon &amp; Fitschen (2014)</a> &middot; J Int Soc Sports Nutr &middot; umbral 0.5&ndash;1%/semana y 2.3&ndash;3.1 g/kg de masa magra en prote&iacute;na para maximizar retenci&oacute;n muscular<br>
+      &bull; <a href="https://pubmed.ncbi.nlm.nih.gov/21558571/" target="_blank" rel="noopener">Garthe et al. (2011)</a> &middot; Int J Sport Nutr Exerc Metab &middot; 0.7%/sem vs. 1.4%/sem en atletas: el grupo lento gan&oacute; masa magra, el r&aacute;pido no perdi&oacute; pero tampoco gan&oacute;
+    </div>
+  </div>
+
+  <div style="margin-bottom:22px">
+    <div class="ft-title" style="margin-bottom:10px">Preservaci&oacute;n / impacto en masa magra</div>
+    <div class="ft-text" style="line-height:1.9">
+      &bull; <a href="https://ajcn.nutrition.org/article/S0002-9165(22)06559-5/fulltext" target="_blank" rel="noopener">Longland et al. (2016)</a> &middot; AJCN &middot; d&eacute;ficit del 40% + prote&iacute;na alta (2.4 g/kg) + entrenamiento intenso en j&oacute;venes con sobrepeso <em>sin entrenamiento previo</em>: ganancia neta de masa magra<br>
+      &bull; <a href="https://www.boltpharmacy.co.uk/guide/can-i-take-creatine-in-a-calorie-deficit" target="_blank" rel="noopener">Creatina en d&eacute;ficit cal&oacute;rico</a> &middot; retenci&oacute;n de ~0.5&ndash;2 kg extra de masa magra vs. placebo en programas con entrenamiento de fuerza<br>
+      &bull; <a href="https://doi.org/10.3390/nu15132926" target="_blank" rel="noopener">Omega-3 y s&iacute;ntesis proteica muscular</a> &middot; Nutrients (2023) &middot; efecto anti-catab&oacute;lico mecan&iacute;stico, resultados mixtos en s&iacute;ntesis neta<br>
+      &bull; <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9530508/" target="_blank" rel="noopener">Memoria muscular / mionucleos</a> &middot; meta-an&aacute;lisis &middot; los mionucleos ganados en entrenamientos previos se mantienen meses/a&ntilde;os aunque se pause el entrenamiento<br>
+      &bull; <a href="https://www.researchgate.net/publication/349287497_Classification_and_Determination_Model_of_Resistance_Training_Status" target="_blank" rel="noopener">Clasificaci&oacute;n de status de entrenamiento</a> &middot; criterios usados para evaluar historial de entrenamiento intermitente
+    </div>
+  </div>
+
+  <div style="margin-bottom:22px">
+    <div class="ft-title" style="margin-bottom:10px">Volumen y t&eacute;cnica de entrenamiento</div>
+    <div class="ft-text" style="line-height:1.9">
+      &bull; <a href="https://www.nutrient-metrics.com/en/hypertrophy/training-volume-for-hypertrophy/" target="_blank" rel="noopener">Volumen semanal &oacute;ptimo</a> &middot; 10&ndash;20 series/m&uacute;sculo/semana (Schoenfeld et al. 2017)<br>
+      &bull; <a href="https://pubmed.ncbi.nlm.nih.gov/28834797/" target="_blank" rel="noopener">Cargas altas vs. bajas</a> &middot; sin diferencia en hipertrofia entre 5&ndash;35 repeticiones si hay esfuerzo cercano al fallo<br>
+      &bull; <a href="https://pubmed.ncbi.nlm.nih.gov/33497853/" target="_blank" rel="noopener">Entrenar al fallo vs. no al fallo</a> &middot; sin diferencia en hipertrofia con volumen equiparado (dejar 1&ndash;3 reps en reserva funciona igual)<br>
+      &bull; <a href="https://pubmed.ncbi.nlm.nih.gov/30558493/" target="_blank" rel="noopener">Frecuencia de entrenamiento</a> &middot; Schoenfeld &amp; Grgic &middot; 2x/semana por grupo muscular es suficiente para maximizar hipertrofia<br>
+      &bull; <a href="https://www.acefitness.org/certifiednewsarticle/3008/ace-study-identifies-best-triceps-exercises/" target="_blank" rel="noopener">Estudio EMG de tr&iacute;ceps (ACE)</a> &middot; ranking de activaci&oacute;n muscular: kickback ~88%, rope pushdown ~74%
+    </div>
+  </div>
+
+  <div style="margin-bottom:8px">
+    <div class="ft-title" style="margin-bottom:10px">Seguridad articular &middot; nervio cubital / codo</div>
+    <div class="ft-text" style="line-height:1.9">
+      &bull; <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8304120/" target="_blank" rel="noopener">Subluxaci&oacute;n del nervio cubital en atletas</a> &middot; provocada com&uacute;nmente por ejercicios de cadena cerrada (fondos, push-ups, press de banca)<br>
+      &bull; <a href="https://sportdoctorlondon.com/snapping-elbow-syndrome/" target="_blank" rel="noopener">Snapping Elbow Syndrome</a> &middot; modificaciones recomendadas: agarre neutro/supino, evitar flexi&oacute;n profunda del codo
+    </div>
+  </div>
+
+  <p style="font-size:10px;color:var(--t3);margin-top:14px;line-height:1.6">
+    Esta secci&oacute;n se mantiene como referencia para confirmar o refutar los argumentos usados en las proyecciones del panel a medida que se registren datos reales o aparezca nueva evidencia.
+  </p>
 </div>
 
 <script>

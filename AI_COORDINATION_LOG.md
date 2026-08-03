@@ -112,6 +112,12 @@
      - &minus;700 kcal (0.65%/sem): &minus;0.3 &rarr; +0.7 kg
      - &minus;800 kcal (0.74%/sem): &minus;1 &rarr; +0.3 kg
   4. Verificado visualmente en navegador antes de publicar.
+  5. **Ajustes solicitados por el usuario** (misma sesi&oacute;n, antes del push):
+     - Kg/semana expl&iacute;citos agregados a la leyenda y encabezados de la tabla de proyecci&oacute;n, y a las 3 tarjetas de masa magra (antes solo mostraban %/semana).
+     - Etiqueta "Moderado" agregada al escenario &minus;700 kcal (color naranja/amber) para diferenciarlo de "Seguro" (&minus;500) y "Agresivo" (&minus;800).
+     - Gramos de m&uacute;sculo por semana agregados a cada tarjeta (adem&aacute;s del rango total hasta meta que ya exist&iacute;a).
+     - Nueva secci&oacute;n **Fuentes &amp; Referencias** al final de la p&aacute;gina (footer), con 5 categor&iacute;as y links reales a todos los estudios investigados en la sesi&oacute;n (proyecci&oacute;n de peso, preservaci&oacute;n muscular, volumen/t&eacute;cnica, seguridad articular), pensada como referencia para futuras confirmaciones o refutaciones.
+     - Estilo CSS de links (`a{}`) agregado para que se vean legibles sobre el fondo oscuro.
 
 ---
 
