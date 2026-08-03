@@ -140,6 +140,23 @@
 
 ---
 
+### 📌 Sesión 10 — Pestañas "Entrenamiento" y "Proyección de Proporciones"
+- **Proveedor de IA**: Anthropic
+- **Modelo**: Claude Sonnet 5
+- **Fecha**: 3 de Agosto, 2026
+- **Petici&oacute;n del Usuario**: Agregar (1) una pesta&ntilde;a documentando la filosof&iacute;a/metodolog&iacute;a de entrenamiento actual (Torso + Pierna, con la rutina de Pierna descrita por primera vez) y (2) una pesta&ntilde;a de proyecci&oacute;n de proporciones (cintura/espalda+pecho/hombros) por escenario de d&eacute;ficit, con una bit&aacute;cora para comparar contra mediciones reales con el tiempo.
+- **Cambios Realizados**:
+  1. **Nueva Pesta&ntilde;a `🏋️ Entrenamiento`**: infobox de filosof&iacute;a general (frecuencia, regla de progresi&oacute;n, objetivo de esfuerzo, contexto de rehabilitaci&oacute;n) + tabla completa de Torso (10 ejercicios, con las advertencias ya conocidas de la catana samur&aacute;i y el volumen "basura" del &uacute;ltimo ejercicio) + tabla completa de Pierna (6 ejercicios: desplantes est&aacute;ticos, sentadilla b&uacute;lgara, hip thrust, extensi&oacute;n de pierna, plancha, rotaci&oacute;n de tronco con cable hincado).
+  2. **Nueva Pesta&ntilde;a `📐 Proyecci&oacute;n de Proporciones`**: 3 tablas (&minus;500/&minus;700/&minus;800 kcal) con Peso/Cintura/Espalda+Pecho/Hombro deltoide/Ambos-hombros/Ratio, recalculadas con el ancla fresca del 28 Jul (waist=102, espalda=111, ambos-hombros=129) en vez del ancla vieja del 25 Jul usada en el chat. Incluye secci&oacute;n "Seguimiento: Real vs. Proyectado" con la fila base (28 Jul) lista para que se agreguen mediciones futuras.
+  3. **Ajustes en vivo pedidos por el usuario durante la sesi&oacute;n**:
+     - Se agregaron etiquetas de mes calendario a ambas tablas de proyecci&oacute;n (Bajada y Proporciones): Mes 1 = Agosto 2026 (mes en curso), Mes 2 = Septiembre, etc. Se corrigi&oacute; un desfase inicial (primera versi&oacute;n empezaba en Septiembre) tras confusi&oacute;n del usuario.
+     - Se agregaron kg totales de **grasa perdida** (adem&aacute;s del rango de m&uacute;sculo que ya exist&iacute;a) a las 3 tarjetas de "Impacto Estimado en Masa Magra y Grasa": &minus;500: 18.5&ndash;19.5kg &middot; &minus;700: 18.2&ndash;19.2kg &middot; &minus;800: 17.5&ndash;18.8kg de grasa, calculado como total perdido (18.5kg fijo) menos el rango de cambio muscular.
+     - Se agreg&oacute; un resumen equivalente en la pesta&ntilde;a de Proporciones, referenciando de vuelta a Proyecci&oacute;n de Bajada para el detalle completo.
+  4. Se agreg&oacute; un ancla `id="fuentes-referencias"` a la secci&oacute;n de Fuentes para que el link desde la nueva pesta&ntilde;a de Entrenamiento funcione correctamente.
+  5. Verificado visualmente en navegador antes de publicar.
+
+---
+
 ## 📌 Estado Actual del Repositorio para la Siguiente IA
 - **Entorno**: HTML5 / CSS3 Vanilla Responsive / JS Vanilla / 9 Gráficas HTML5 Canvas con Tooltips Táctiles y Dual-Series.
 - **Punto de Entrada**: `index.html`
@@ -148,7 +165,9 @@
   2. `⚖️ Historial de Peso` (Tablas + Charts Masa Magra & Masa Grasa)
   3. `🧬 Composición Corporal` (Masa Magra/Grasa + Chart Dedicado Magro + Comparativa, incluye medida nueva "Ambos-hombros wrap")
   4. `📏 Historial Completo de Medidas` (Tabla 15 entradas + 5 Charts: Espalda, Panza, Brazos Izq/Der, Hombros Izq/Der, Piernas Izq/Der)
-  5. `📉 Proyección de Bajada` (Proyección de peso a 12 meses para déficits de −500/−700/−800 kcal/día)
+  5. `📉 Proyección de Bajada` (Proyección de peso a 12 meses para déficits de −500/−700/−800 kcal/día, con etiquetas de mes calendario desde Ago '26 y desglose de grasa/músculo total por escenario)
+  6. `🏋️ Entrenamiento` (Filosofía/metodología + rutinas completas de Torso y Pierna)
+  7. `📐 Proyección de Proporciones` (Cintura/Espalda+Pecho/Hombros por escenario + bitácora Real vs. Proyectado)
 - **Última medición base**: 98.50 kg · 28 Jul 2026 · BMR 1,969 kcal · Mantenimiento sedentario 2,363 kcal
 - **URL Pública GitHub Pages**: `https://yayometro.github.io/GymTrackerPersonal/`
 - **Repositorio Remoto**: `https://github.com/Yayometro/GymTrackerPersonal.git`

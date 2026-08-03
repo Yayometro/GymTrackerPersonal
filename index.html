@@ -241,6 +241,12 @@ a:hover{border-bottom-style:solid}
     <button class="tab-btn" onclick="switchTab('proyeccion')" id="tab-btn-proyeccion" role="tab" aria-selected="false">
       📉 Proyecci&oacute;n de Bajada
     </button>
+    <button class="tab-btn" onclick="switchTab('entrenamiento')" id="tab-btn-entrenamiento" role="tab" aria-selected="false">
+      🏋️ Entrenamiento
+    </button>
+    <button class="tab-btn" onclick="switchTab('proporciones')" id="tab-btn-proporciones" role="tab" aria-selected="false">
+      📐 Proyecci&oacute;n de Proporciones
+    </button>
   </div>
 </div>
 
@@ -760,7 +766,7 @@ a:hover{border-bottom-style:solid}
 <!-- ==================== PESTAÑA 5: PROYECCIÓN DE BAJADA DE PESO ==================== -->
 <div id="tab-proyeccion" class="tab-content" role="tabpanel">
   <div class="wrap">
-    <div class="sec-head"><h2>Proyecci&oacute;n de Bajada de Peso</h2><span class="badge">Base 98.5 kg &middot; Meta 80 kg &middot; &minus;18.5 kg</span></div>
+    <div class="sec-head"><h2>Proyecci&oacute;n de Bajada de Peso</h2><span class="badge">Base 98.5 kg &middot; Meta 80 kg &middot; &minus;18.5 kg &middot; Inicia Ago '26</span></div>
     <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px;font-size:11px">
       <span style="color:var(--teal)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:5px"></span>&minus;500 kcal/d&iacute;a &middot; Seguro &middot; &asymp;0.45 kg/sem</span>
       <span style="color:var(--amber)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber);margin-right:5px"></span>&minus;700 kcal/d&iacute;a &middot; Moderado &middot; &asymp;0.64 kg/sem</span>
@@ -777,29 +783,30 @@ a:hover{border-bottom-style:solid}
           </tr>
         </thead>
         <tbody>
-          <tr><td>Mes 1</td><td class="c c-opt">96.3 kg</td><td class="c" style="color:var(--amber)">95.5 kg</td><td class="c c-agg">95.1 kg</td></tr>
-          <tr><td>Mes 2</td><td class="c c-opt">94.3 kg</td><td class="c" style="color:var(--amber)">92.8 kg</td><td class="c c-agg">92.0 kg</td></tr>
-          <tr><td>Mes 3</td><td class="c c-opt">92.4 kg</td><td class="c" style="color:var(--amber)">90.0 kg</td><td class="c c-agg">88.8 kg</td></tr>
-          <tr><td>Mes 4</td><td class="c c-opt">90.4 kg</td><td class="c" style="color:var(--amber)">87.2 kg</td><td class="c c-agg">85.7 kg</td></tr>
-          <tr><td>Mes 5</td><td class="c c-opt">88.4 kg</td><td class="c" style="color:var(--amber)">84.5 kg</td><td class="c c-agg">82.5 kg</td></tr>
-          <tr><td>Mes 6</td><td class="c c-opt">86.4 kg</td><td class="c" style="color:var(--amber)">81.7 kg</td><td class="c"><span class="tag tag-cur">&#127919; 80 kg &middot; ~5.8m</span></td></tr>
-          <tr><td>Mes 7</td><td class="c c-opt">84.5 kg</td><td class="c"><span class="tag tag-cur">&#127919; 80 kg &middot; ~6.6m</span></td><td class="c" style="color:var(--t3)">Meta alcanzada</td></tr>
-          <tr><td>Mes 8</td><td class="c c-opt">82.5 kg</td><td class="c" style="color:var(--t3)">Meta alcanzada</td><td class="c" style="color:var(--t3)">Meta alcanzada</td></tr>
-          <tr><td>Mes 9</td><td class="c c-opt">80.5 kg</td><td class="c" style="color:var(--t3)">&mdash;</td><td class="c" style="color:var(--t3)">&mdash;</td></tr>
-          <tr><td>Mes 10</td><td class="c"><span class="tag tag-cur">&#127919; 80 kg &middot; ~9.8m</span></td><td class="c" style="color:var(--t3)">&mdash;</td><td class="c" style="color:var(--t3)">&mdash;</td></tr>
-          <tr><td>Mes 11</td><td class="c" style="color:var(--t3)">Meta alcanzada</td><td class="c" style="color:var(--t3)">&mdash;</td><td class="c" style="color:var(--t3)">&mdash;</td></tr>
-          <tr><td>Mes 12</td><td class="c" style="color:var(--t3)">Meta alcanzada</td><td class="c" style="color:var(--t3)">&mdash;</td><td class="c" style="color:var(--t3)">&mdash;</td></tr>
+          <tr><td>Mes 1<br><span style="font-size:9px;color:var(--t3)">Ago '26</span></td><td class="c c-opt">96.3 kg</td><td class="c" style="color:var(--amber)">95.5 kg</td><td class="c c-agg">95.1 kg</td></tr>
+          <tr><td>Mes 2<br><span style="font-size:9px;color:var(--t3)">Sep '26</span></td><td class="c c-opt">94.3 kg</td><td class="c" style="color:var(--amber)">92.8 kg</td><td class="c c-agg">92.0 kg</td></tr>
+          <tr><td>Mes 3<br><span style="font-size:9px;color:var(--t3)">Oct '26</span></td><td class="c c-opt">92.4 kg</td><td class="c" style="color:var(--amber)">90.0 kg</td><td class="c c-agg">88.8 kg</td></tr>
+          <tr><td>Mes 4<br><span style="font-size:9px;color:var(--t3)">Nov '26</span></td><td class="c c-opt">90.4 kg</td><td class="c" style="color:var(--amber)">87.2 kg</td><td class="c c-agg">85.7 kg</td></tr>
+          <tr><td>Mes 5<br><span style="font-size:9px;color:var(--t3)">Dic '26</span></td><td class="c c-opt">88.4 kg</td><td class="c" style="color:var(--amber)">84.5 kg</td><td class="c c-agg">82.5 kg</td></tr>
+          <tr><td>Mes 6<br><span style="font-size:9px;color:var(--t3)">Ene '27</span></td><td class="c c-opt">86.4 kg</td><td class="c" style="color:var(--amber)">81.7 kg</td><td class="c"><span class="tag tag-cur">&#127919; 80 kg &middot; ~5.8m</span></td></tr>
+          <tr><td>Mes 7<br><span style="font-size:9px;color:var(--t3)">Feb '27</span></td><td class="c c-opt">84.5 kg</td><td class="c"><span class="tag tag-cur">&#127919; 80 kg &middot; ~6.6m</span></td><td class="c" style="color:var(--t3)">Meta alcanzada</td></tr>
+          <tr><td>Mes 8<br><span style="font-size:9px;color:var(--t3)">Mar '27</span></td><td class="c c-opt">82.5 kg</td><td class="c" style="color:var(--t3)">Meta alcanzada</td><td class="c" style="color:var(--t3)">Meta alcanzada</td></tr>
+          <tr><td>Mes 9<br><span style="font-size:9px;color:var(--t3)">Abr '27</span></td><td class="c c-opt">80.5 kg</td><td class="c" style="color:var(--t3)">&mdash;</td><td class="c" style="color:var(--t3)">&mdash;</td></tr>
+          <tr><td>Mes 10<br><span style="font-size:9px;color:var(--t3)">May '27</span></td><td class="c"><span class="tag tag-cur">&#127919; 80 kg &middot; ~9.8m</span></td><td class="c" style="color:var(--t3)">&mdash;</td><td class="c" style="color:var(--t3)">&mdash;</td></tr>
+          <tr><td>Mes 11<br><span style="font-size:9px;color:var(--t3)">Jun '27</span></td><td class="c" style="color:var(--t3)">Meta alcanzada</td><td class="c" style="color:var(--t3)">&mdash;</td><td class="c" style="color:var(--t3)">&mdash;</td></tr>
+          <tr><td>Mes 12<br><span style="font-size:9px;color:var(--t3)">Jul '27</span></td><td class="c" style="color:var(--t3)">Meta alcanzada</td><td class="c" style="color:var(--t3)">&mdash;</td><td class="c" style="color:var(--t3)">&mdash;</td></tr>
         </tbody>
       </table>
     </div>
     <div class="infobox">
+      <strong>&iquest;Qu&eacute; significa "Mes 1"?</strong> Mes 1 = Agosto 2026, el mes en curso ahora mismo (no un mes que a&uacute;n no empieza). Cada "Mes N" es aproximadamente N meses calendario contados desde hoy (3 Ago 2026) &mdash; son marcas de referencia, no fechas exactas al d&iacute;a.<br>
       <strong>Metodolog&iacute;a:</strong> 1 kg de grasa &asymp; 7,700 kcal. Proyecci&oacute;n lineal sobre d&eacute;ficit sostenido todos los d&iacute;as &mdash; no considera que el TDEE baja levemente a medida que bajas de peso, as&iacute; que el ritmo real tiende a frenarse un poco con el tiempo.<br>
       <strong>Ritmo semanal:</strong> &minus;500 kcal &asymp; 0.45 kg/sem &middot; &minus;700 kcal &asymp; 0.64 kg/sem &middot; &minus;800 kcal &asymp; 0.73 kg/sem &middot; los tres se mantienen por debajo o muy cerca del umbral de ~1%/semana asociado a mayor riesgo de p&eacute;rdida muscular (Helms et al. 2014).
     </div>
   </div>
 
   <div class="wrap" style="margin-top:24px">
-    <div class="sec-head"><h2>Impacto Estimado en Masa Magra (m&uacute;sculo)</h2><span class="badge">Seg&uacute;n tu perfil: 200&ndash;300g prote&iacute;na &middot; entrenamiento a fallo 2x/semana por grupo</span></div>
+    <div class="sec-head"><h2>Impacto Estimado en Masa Magra y Grasa</h2><span class="badge">Seg&uacute;n tu perfil: 200&ndash;300g prote&iacute;na &middot; entrenamiento a fallo 2x/semana por grupo</span></div>
     <div class="cards">
       <div class="card t">
         <div class="card-lbl">&minus;500 kcal/d&iacute;a &middot; Seguro</div>
@@ -808,6 +815,8 @@ a:hover{border-bottom-style:solid}
         <div style="padding-top:8px;border-top:1px solid var(--border)">
           <div style="font-family:var(--fm);font-size:13px;color:var(--teal);font-weight:600">M&uacute;sculo: 0 a +25 g/sem</div>
           <div class="card-sub">0.46%/sem &middot; por debajo del umbral 0.7%/sem (Garthe 2011) donde atletas entrenando fuerza <strong>ganaron</strong> masa magra &middot; total hasta meta (~9.8 meses): mantener &rarr; +1 kg</div>
+          <div style="font-family:var(--fm);font-size:13px;color:var(--amber);font-weight:600;margin-top:8px">Grasa perdida total: 18.5 a 19.5 kg</div>
+          <div class="card-sub">De los 18.5 kg netos que bajas, casi todo (o m&aacute;s, si ganas m&uacute;sculo) sale de grasa</div>
         </div>
       </div>
       <div class="card a">
@@ -817,6 +826,8 @@ a:hover{border-bottom-style:solid}
         <div style="padding-top:8px;border-top:1px solid var(--border)">
           <div style="font-family:var(--fm);font-size:13px;color:var(--amber);font-weight:600">M&uacute;sculo: &minus;10 a +25 g/sem</div>
           <div class="card-sub">0.65%/sem &middot; a&uacute;n por debajo del umbral 0.7%/sem, perfil casi id&eacute;ntico al &minus;500 &middot; total hasta meta (~6.6 meses): &minus;0.3 &rarr; +0.7 kg</div>
+          <div style="font-family:var(--fm);font-size:13px;color:var(--amber);font-weight:600;margin-top:8px">Grasa perdida total: 18.2 a 19.2 kg</div>
+          <div class="card-sub">Pr&aacute;cticamente igual que &minus;500 &mdash; el margen de m&uacute;sculo perdido/ganado es peque&ntilde;o</div>
         </div>
       </div>
       <div class="card c">
@@ -826,12 +837,169 @@ a:hover{border-bottom-style:solid}
         <div style="padding-top:8px;border-top:1px solid var(--border)">
           <div style="font-family:var(--fm);font-size:13px;color:var(--coral);font-weight:600">M&uacute;sculo: &minus;40 a +10 g/sem</div>
           <div class="card-sub">0.74%/sem &middot; justo en/sobre el umbral lento &middot; incluso al doble de ritmo (1.4%/sem) ese estudio no mostr&oacute; p&eacute;rdida, solo ausencia de ganancia &middot; total hasta meta (~5.8 meses): &minus;1 &rarr; +0.3 kg</div>
+          <div style="font-family:var(--fm);font-size:13px;color:var(--coral);font-weight:600;margin-top:8px">Grasa perdida total: 17.5 a 18.8 kg</div>
+          <div class="card-sub">El escenario con mayor rango de incertidumbre entre grasa y m&uacute;sculo perdido</div>
         </div>
       </div>
     </div>
     <div class="infobox">
-      <strong>Por qu&eacute; estos rangos:</strong> con prote&iacute;na de 200&ndash;300g (muy por encima del m&iacute;nimo de preservaci&oacute;n muscular, ~2.3&ndash;3.1 g/kg de masa magra seg&uacute;n Helms et al. 2014) y entrenamiento de fuerza a fallo/cerca del fallo 2x por semana por grupo muscular, la p&eacute;rdida de m&uacute;sculo es poco probable en los tres escenarios. El riesgo real no es el n&uacute;mero de kcal en s&iacute;, sino meses donde el entrenamiento baje de intensidad (por rehabilitaci&oacute;n, lesi&oacute;n o pausas largas) &mdash; ah&iacute; es donde el rango se acerca m&aacute;s al extremo negativo, sobre todo en &minus;800 kcal.
+      <strong>Por qu&eacute; estos rangos:</strong> con prote&iacute;na de 200&ndash;300g (muy por encima del m&iacute;nimo de preservaci&oacute;n muscular, ~2.3&ndash;3.1 g/kg de masa magra seg&uacute;n Helms et al. 2014) y entrenamiento de fuerza a fallo/cerca del fallo 2x por semana por grupo muscular, la p&eacute;rdida de m&uacute;sculo es poco probable en los tres escenarios. El riesgo real no es el n&uacute;mero de kcal en s&iacute;, sino meses donde el entrenamiento baje de intensidad (por rehabilitaci&oacute;n, lesi&oacute;n o pausas largas) &mdash; ah&iacute; es donde el rango se acerca m&aacute;s al extremo negativo, sobre todo en &minus;800 kcal.<br>
+      <strong>C&oacute;mo se calcula la grasa:</strong> peso perdido total hasta meta (18.5 kg, igual en los tres escenarios porque todos llegan a 80 kg) menos el cambio de m&uacute;sculo estimado. Si ganas m&uacute;sculo, la grasa perdida es mayor a 18.5 kg; si pierdes algo de m&uacute;sculo, es menor.
     </div>
+  </div>
+</div>
+
+<!-- ==================== PESTAÑA 6: ENTRENAMIENTO ==================== -->
+<div id="tab-entrenamiento" class="tab-content" role="tabpanel">
+  <div class="wrap">
+    <div class="sec-head"><h2>Filosof&iacute;a &amp; Metodolog&iacute;a</h2><span class="badge">4 d&iacute;as/semana &middot; Torso + Pierna</span></div>
+    <div class="infobox">
+      <strong>Frecuencia:</strong> Torso (Lunes y Jueves) &middot; Pierna (Martes y Viernes) &mdash; cada grupo muscular 2x/semana, dentro del rango que la evidencia asocia con maximizar hipertrofia (ver <a href="#fuentes-referencias">Fuentes &amp; Referencias</a> al final del panel).<br>
+      <strong>Regla de progresi&oacute;n:</strong> si no hay molestias articulares y el fisio no indica lo contrario &rarr; subir peso la siguiente sesi&oacute;n. Si aparece dolor o el fisio pide bajarle &rarr; reducir peso sin dudar, sin importar el ego.<br>
+      <strong>Objetivo de esfuerzo:</strong> terminar cada sesi&oacute;n lo m&aacute;s cansado posible &mdash; cerca del fallo en la mayor&iacute;a de series (RIR 0&ndash;2), aunque no siempre al fallo absoluto en ejercicios que comprometen articulaciones sensibles.<br>
+      <strong>Contexto actual:</strong> entrenamiento en paralelo a rehabilitaci&oacute;n con fisioterapeuta (subluxaci&oacute;n del nervio cubital) &mdash; la intensidad se ajusta priorizando cuidar articulaciones sobre maximizar carga, pensando en esto como una carrera larga, no un sprint.
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="sec-head"><h2>&#x1F4AA; Torso &mdash; Lunes y Jueves</h2><span class="badge">Prioridad: hombros anchos + espalda &middot; cintura abajo</span></div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th style="width:6%">#</th><th style="width:32%">Ejercicio</th><th>Grupo principal</th><th>Notas</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="c">1</td><td>Press banca con mancuernas</td><td>Pecho</td><td>3 series</td></tr>
+          <tr><td class="c">2</td><td>Elevaciones laterales con mancuernas</td><td>Delt. lateral</td><td>Prioridad est&eacute;tica &mdash; hombros anchos</td></tr>
+          <tr><td class="c">3</td><td>Remo a una mano con mancuerna (banco)</td><td>Espalda / dorsal</td><td>12 reps al m&aacute;ximo posible</td></tr>
+          <tr><td class="c">4</td><td>Jal&oacute;n de cable tipo face-pull</td><td>Delt. posterior</td><td>&mdash;</td></tr>
+          <tr><td class="c">5</td><td>Jal&oacute;n de cable a una mano, hincado (una rodilla en el piso)</td><td>Dorsal</td><td>Alta activaci&oacute;n dorsal seg&uacute;n el usuario</td></tr>
+          <tr><td class="c">6</td><td>"Catana samur&aacute;i" &mdash; extensi&oacute;n cruzada de tr&iacute;ceps con cable</td><td>Tr&iacute;ceps</td><td style="color:var(--coral)">&#9888; Provoca molestia por la subluxaci&oacute;n del nervio cubital &mdash; pendiente cambiar a rope pushdown / kickback con agarre neutro</td></tr>
+          <tr><td class="c">7</td><td>Curl de b&iacute;ceps con cable</td><td>B&iacute;ceps</td><td>Negativas lentas, poco peso mientras est&aacute; en rehab</td></tr>
+          <tr><td class="c">8</td><td>Elevaciones laterales con cable</td><td>Delt. lateral</td><td>Agregado despu&eacute;s &mdash; mayor activaci&oacute;n que con mancuerna</td></tr>
+          <tr><td class="c">9</td><td>Cable crossover (ambos brazos)</td><td>Pectoral inferior</td><td>&mdash;</td></tr>
+          <tr><td class="c">10</td><td>Cable extra, deltoide posterior</td><td>Delt. posterior</td><td style="color:var(--amber)">&#9888; Volumen "basura" &mdash; ya muy cansado, peso m&iacute;nimo, candidato a recortar</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="sec-head"><h2>&#x1F9B5; Pierna &mdash; Martes y Viernes</h2><span class="badge">Cargas controladas por rehabilitaci&oacute;n</span></div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th style="width:6%">#</th><th style="width:32%">Ejercicio</th><th>Grupo principal</th><th>Notas</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="c">1</td><td>Desplantes est&aacute;ticos (regresa a posici&oacute;n original, sin desplazamiento)</td><td>Cu&aacute;driceps / gl&uacute;teo</td><td>Mancuerna de 5kg + peso corporal &mdash; "devastador" seg&uacute;n el usuario</td></tr>
+          <tr><td class="c">2</td><td>Sentadilla b&uacute;lgara (pie trasero apoyado en banco)</td><td>Cu&aacute;driceps / gl&uacute;teo</td><td>&mdash;</td></tr>
+          <tr><td class="c">3</td><td>Hip thrust en m&aacute;quina</td><td>Gl&uacute;teo</td><td>&mdash;</td></tr>
+          <tr><td class="c">4</td><td>Extensi&oacute;n de pierna en m&aacute;quina</td><td>Cu&aacute;driceps</td><td>&mdash;</td></tr>
+          <tr><td class="c">5</td><td>Plancha (plank)</td><td>Core / abdomen</td><td>4 series &times; 30 segundos</td></tr>
+          <tr><td class="c">6</td><td>Rotaci&oacute;n de tronco con cable, hincado de ambas rodillas ("woodchopper" arrodillado)</td><td>Obl&iacute;cuos / abdomen alto</td><td>Agarre de cuerda a dos manos, posici&oacute;n de reverencia hacia el cable</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="infobox">
+      Misma filosof&iacute;a que Torso: el peso sube cuando no hay molestias, baja si el fisio lo indica o aparece dolor. El objetivo sigue siendo terminar al l&iacute;mite del esfuerzo posible ese d&iacute;a, sin arriesgar la rehabilitaci&oacute;n en curso.
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PESTAÑA 7: PROYECCIÓN DE PROPORCIONES ==================== -->
+<div id="tab-proporciones" class="tab-content" role="tabpanel">
+  <div class="wrap">
+    <div class="sec-head"><h2>Proyecci&oacute;n de Proporciones</h2><span class="badge">Base 28 Jul 2026 &middot; 98.5 kg &middot; Cintura 102cm &middot; Espalda+Pecho 111cm &middot; Ambos-hombros ~129cm &middot; Mes 1 = Ago '26</span></div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px;font-size:11px">
+      <span style="color:var(--teal)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:5px"></span>&minus;500 kcal/d&iacute;a &middot; Seguro</span>
+      <span style="color:var(--amber)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber);margin-right:5px"></span>&minus;700 kcal/d&iacute;a &middot; Moderado</span>
+      <span style="color:var(--coral)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--coral);margin-right:5px"></span>&minus;800 kcal/d&iacute;a &middot; Agresivo</span>
+    </div>
+
+    <div class="sec-head" style="border-bottom:none;margin-bottom:10px;padding-bottom:0"><h2 style="font-size:13px;color:var(--teal)">&#9679; &minus;500 kcal/d&iacute;a (Seguro)</h2></div>
+    <div class="table-wrap" style="margin-bottom:20px">
+      <table>
+        <thead><tr><th>Mes</th><th class="c">Peso</th><th class="c">Cintura</th><th class="c">Espalda+Pecho</th><th class="c">Hombro (delt.)</th><th class="c">Ambos-hombros</th><th class="c">Ratio Hombros:Cintura</th></tr></thead>
+        <tbody>
+          <tr><td>1 <span style="font-size:9px;color:var(--t3)">Ago'26</span></td><td class="c">96.3</td><td class="c c-opt">100.1</td><td class="c">109.8</td><td class="c">41.6</td><td class="c">127.6</td><td class="c">1.28</td></tr>
+          <tr><td>2 <span style="font-size:9px;color:var(--t3)">Sep'26</span></td><td class="c">94.3</td><td class="c c-opt">98.3</td><td class="c">108.6</td><td class="c">41.3</td><td class="c">126.3</td><td class="c">1.29</td></tr>
+          <tr><td>3 <span style="font-size:9px;color:var(--t3)">Oct'26</span></td><td class="c">92.4</td><td class="c c-opt">96.7</td><td class="c">107.6</td><td class="c">40.9</td><td class="c">125.0</td><td class="c">1.29</td></tr>
+          <tr><td>4 <span style="font-size:9px;color:var(--t3)">Nov'26</span></td><td class="c">90.4</td><td class="c c-opt">94.9</td><td class="c">106.4</td><td class="c">40.6</td><td class="c">123.7</td><td class="c">1.30</td></tr>
+          <tr><td>5 <span style="font-size:9px;color:var(--t3)">Dic'26</span></td><td class="c">88.4</td><td class="c c-opt">93.2</td><td class="c">105.3</td><td class="c">40.2</td><td class="c">122.4</td><td class="c">1.31</td></tr>
+          <tr><td>6 <span style="font-size:9px;color:var(--t3)">Ene'27</span></td><td class="c">86.4</td><td class="c c-opt">91.5</td><td class="c">104.2</td><td class="c">39.9</td><td class="c">121.1</td><td class="c">1.32</td></tr>
+          <tr><td>7 <span style="font-size:9px;color:var(--t3)">Feb'27</span></td><td class="c">84.5</td><td class="c c-opt">89.8</td><td class="c">103.1</td><td class="c">39.5</td><td class="c">119.9</td><td class="c">1.34</td></tr>
+          <tr><td>8 <span style="font-size:9px;color:var(--t3)">Mar'27</span></td><td class="c">82.5</td><td class="c c-opt">88.1</td><td class="c">102.0</td><td class="c">39.2</td><td class="c">118.5</td><td class="c">1.35</td></tr>
+          <tr><td>9 <span style="font-size:9px;color:var(--t3)">Abr'27</span></td><td class="c">80.5</td><td class="c c-opt">86.3</td><td class="c">100.9</td><td class="c">38.8</td><td class="c">117.2</td><td class="c">1.36</td></tr>
+          <tr><td>10 &#127919; <span style="font-size:9px;color:var(--t3)">May'27</span></td><td class="c">80.0</td><td class="c c-opt">85.9</td><td class="c">100.6</td><td class="c">38.7</td><td class="c">116.9</td><td class="c">1.36</td></tr>
+          <tr><td>11-12</td><td colspan="6" class="c" style="color:var(--t3)">Meta mantenida &mdash; mismos valores que Mes 10</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sec-head" style="border-bottom:none;margin-bottom:10px;padding-bottom:0"><h2 style="font-size:13px;color:var(--amber)">&#9679; &minus;700 kcal/d&iacute;a (Moderado)</h2></div>
+    <div class="table-wrap" style="margin-bottom:20px">
+      <table>
+        <thead><tr><th>Mes</th><th class="c">Peso</th><th class="c">Cintura</th><th class="c">Espalda+Pecho</th><th class="c">Hombro (delt.)</th><th class="c">Ambos-hombros</th><th class="c">Ratio Hombros:Cintura</th></tr></thead>
+        <tbody>
+          <tr><td>1 <span style="font-size:9px;color:var(--t3)">Ago'26</span></td><td class="c">95.5</td><td class="c" style="color:var(--amber)">99.4</td><td class="c">109.3</td><td class="c">41.5</td><td class="c">127.0</td><td class="c">1.28</td></tr>
+          <tr><td>2 <span style="font-size:9px;color:var(--t3)">Sep'26</span></td><td class="c">92.8</td><td class="c" style="color:var(--amber)">97.0</td><td class="c">107.8</td><td class="c">41.0</td><td class="c">125.3</td><td class="c">1.29</td></tr>
+          <tr><td>3 <span style="font-size:9px;color:var(--t3)">Oct'26</span></td><td class="c">90.0</td><td class="c" style="color:var(--amber)">94.6</td><td class="c">106.2</td><td class="c">40.5</td><td class="c">123.4</td><td class="c">1.30</td></tr>
+          <tr><td>4 <span style="font-size:9px;color:var(--t3)">Nov'26</span></td><td class="c">87.2</td><td class="c" style="color:var(--amber)">92.2</td><td class="c">104.7</td><td class="c">40.0</td><td class="c">121.6</td><td class="c">1.32</td></tr>
+          <tr><td>5 <span style="font-size:9px;color:var(--t3)">Dic'26</span></td><td class="c">84.5</td><td class="c" style="color:var(--amber)">89.8</td><td class="c">103.1</td><td class="c">39.5</td><td class="c">119.9</td><td class="c">1.34</td></tr>
+          <tr><td>6 <span style="font-size:9px;color:var(--t3)">Ene'27</span></td><td class="c">81.7</td><td class="c" style="color:var(--amber)">87.4</td><td class="c">101.6</td><td class="c">39.0</td><td class="c">118.0</td><td class="c">1.35</td></tr>
+          <tr><td>7 &#127919; <span style="font-size:9px;color:var(--t3)">Feb'27</span></td><td class="c">80.0</td><td class="c" style="color:var(--amber)">85.9</td><td class="c">100.6</td><td class="c">38.7</td><td class="c">116.9</td><td class="c">1.36</td></tr>
+          <tr><td>8-12</td><td colspan="6" class="c" style="color:var(--t3)">Meta mantenida &mdash; mismos valores que Mes 7</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sec-head" style="border-bottom:none;margin-bottom:10px;padding-bottom:0"><h2 style="font-size:13px;color:var(--coral)">&#9679; &minus;800 kcal/d&iacute;a (Agresivo)</h2></div>
+    <div class="table-wrap" style="margin-bottom:20px">
+      <table>
+        <thead><tr><th>Mes</th><th class="c">Peso</th><th class="c">Cintura</th><th class="c">Espalda+Pecho</th><th class="c">Hombro (delt.)</th><th class="c">Ambos-hombros</th><th class="c">Ratio Hombros:Cintura</th></tr></thead>
+        <tbody>
+          <tr><td>1 <span style="font-size:9px;color:var(--t3)">Ago'26</span></td><td class="c">95.1</td><td class="c c-agg">99.0</td><td class="c">109.1</td><td class="c">41.4</td><td class="c">126.8</td><td class="c">1.28</td></tr>
+          <tr><td>2 <span style="font-size:9px;color:var(--t3)">Sep'26</span></td><td class="c">92.0</td><td class="c c-agg">96.3</td><td class="c">107.3</td><td class="c">40.8</td><td class="c">124.8</td><td class="c">1.30</td></tr>
+          <tr><td>3 <span style="font-size:9px;color:var(--t3)">Oct'26</span></td><td class="c">88.8</td><td class="c c-agg">93.6</td><td class="c">105.6</td><td class="c">40.3</td><td class="c">122.7</td><td class="c">1.31</td></tr>
+          <tr><td>4 <span style="font-size:9px;color:var(--t3)">Nov'26</span></td><td class="c">85.7</td><td class="c c-agg">90.9</td><td class="c">103.8</td><td class="c">39.7</td><td class="c">120.6</td><td class="c">1.33</td></tr>
+          <tr><td>5 <span style="font-size:9px;color:var(--t3)">Dic'26</span></td><td class="c">82.5</td><td class="c c-agg">88.1</td><td class="c">102.0</td><td class="c">39.2</td><td class="c">118.5</td><td class="c">1.35</td></tr>
+          <tr><td>6 &#127919; <span style="font-size:9px;color:var(--t3)">Ene'27</span></td><td class="c">80.0</td><td class="c c-agg">85.9</td><td class="c">100.6</td><td class="c">38.7</td><td class="c">116.9</td><td class="c">1.36</td></tr>
+          <tr><td>7-12</td><td colspan="6" class="c" style="color:var(--t3)">Meta mantenida &mdash; mismos valores que Mes 6</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="infobox">
+      <strong>&iquest;Qu&eacute; significa "Mes 1"?</strong> Mes 1 = Agosto 2026, el mes en curso ahora mismo. Cada "Mes N" es aproximadamente N meses calendario desde hoy (3 Ago 2026) &mdash; ver tabla en la pesta&ntilde;a <em>Proyecci&oacute;n de Bajada</em> para el detalle mes-a-mes en calendario.<br>
+      <strong>Grasa y m&uacute;sculo totales:</strong> los 18.5 kg de peso que se pierden hasta la meta se reparten en &sim;18.5&ndash;19.5 kg de grasa (&minus;500), &sim;18.2&ndash;19.2 kg (&minus;700) o &sim;17.5&ndash;18.8 kg (&minus;800), seg&uacute;n el rango de m&uacute;sculo estimado en la pesta&ntilde;a <em>Proyecci&oacute;n de Bajada</em>.<br>
+      <strong>Metodolog&iacute;a:</strong> regresi&oacute;n propia peso&harr;cintura (R&sup2;=0.93), peso&harr;espalda+pecho (R&sup2;=0.87) y peso&harr;deltoide (R&sup2;=0.45) sobre el historial real del usuario. "Ambos-hombros" se escala proporcionalmente a Espalda+Pecho (sin historial propio a&uacute;n, ancla &uacute;nica del 28 Jul).<br>
+      <strong>Importante:</strong> esta proyecci&oacute;n asume que hombros/espalda solo cambian por el peso perdido. Como el usuario entrena deltoide lateral y espalda espec&iacute;ficamente para crecer, los valores reales de hombros probablemente sean mejores (m&aacute;s grandes / ratio m&aacute;s alto) que esta proyecci&oacute;n conservadora, si el entrenamiento sigue dando resultado.
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="sec-head"><h2>Seguimiento: Real vs. Proyectado</h2><span class="badge">Se actualiza con cada nueva medici&oacute;n</span></div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Fecha</th><th class="c">Peso Real</th><th class="c">Cintura Real</th><th class="c">Cintura Proyectada*</th><th class="c">Diferencia</th><th>Notas</th></tr>
+        </thead>
+        <tbody>
+          <tr class="work-row">
+            <td style="color:var(--teal)">28 Jul 2026 &#9733;</td>
+            <td class="c hcur">98.5 kg</td>
+            <td class="c hcur">102 cm</td>
+            <td class="c" style="color:var(--t3)">102 cm (ancla)</td>
+            <td class="c" style="color:var(--t3)">&mdash;</td>
+            <td style="color:var(--teal);font-size:10px">Punto de partida del modelo &mdash; sin diferencia posible a&uacute;n</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:11px;color:var(--t3);margin-top:10px;line-height:1.6">
+      *Cintura Proyectada = lo que el modelo hubiera predicho para ese peso real, interpolando entre los tres escenarios de arriba. Cada vez que se registre un peso y cintura nuevos, agrega una fila aqu&iacute; comparando contra la proyecci&oacute;n &mdash; as&iacute; con el tiempo se ve si el modelo se qued&oacute; corto, se pas&oacute;, o le atin&oacute;.
+    </p>
   </div>
 </div>
 
@@ -870,7 +1038,7 @@ a:hover{border-bottom-style:solid}
 
 <!-- ==================== FUENTES & REFERENCIAS ==================== -->
 <div class="wrap" style="margin-top:8px;padding-top:20px;border-top:1px solid var(--border)">
-  <div class="sec-head"><h2>Fuentes &amp; Referencias</h2><span class="badge">M&eacute;todos del panel + investigaci&oacute;n de proyecci&oacute;n / masa magra</span></div>
+  <div class="sec-head" id="fuentes-referencias"><h2>Fuentes &amp; Referencias</h2><span class="badge">M&eacute;todos del panel + investigaci&oacute;n de proyecci&oacute;n / masa magra</span></div>
 
   <div style="margin-bottom:22px">
     <div class="ft-title" style="margin-bottom:10px">M&eacute;todos base del panel</div>
@@ -1398,7 +1566,7 @@ window.addEventListener('resize', renderAllCharts);
 
 // Cambiar pestañas
 function switchTab(tabId) {
-  const tabs = ['calorias', 'historial-peso', 'composicion-corporal', 'historial-medidas', 'proyeccion'];
+  const tabs = ['calorias', 'historial-peso', 'composicion-corporal', 'historial-medidas', 'proyeccion', 'entrenamiento', 'proporciones'];
   tabs.forEach(t => {
     const content = document.getElementById('tab-' + t);
     const btn = document.getElementById('tab-btn-' + t);
