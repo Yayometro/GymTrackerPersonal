@@ -102,8 +102,8 @@ canvas{width:100%;height:130px;display:block;cursor:crosshair;touch-action:none}
 .bc-sub{font-size:11px;color:var(--t3)}
 .bc-bar{height:5px;border-radius:99px;margin-top:14px}
 .bc-card.lean{border-color:rgba(0,201,167,0.25)}.bc-card.lean .bc-val{color:var(--teal)}
-.bc-card.lean .bc-bar{background:linear-gradient(90deg,var(--teal),#00B8A9);width:74.3%}
-.bc-card.fat .bc-val{color:var(--amber)}.bc-card.fat .bc-bar{background:linear-gradient(90deg,var(--amber),#FF8C00);width:25.7%}
+.bc-card.lean .bc-bar{background:linear-gradient(90deg,var(--teal),#00B8A9);width:75.4%}
+.bc-card.fat .bc-val{color:var(--amber)}.bc-card.fat .bc-bar{background:linear-gradient(90deg,var(--amber),#FF8C00);width:24.7%}
 
 /* Meas comparison */
 .meas-val{color:var(--t2)}.meas-cur{color:var(--teal);font-weight:600}
@@ -125,7 +125,7 @@ td.hna{color:var(--t3)}
 .scen-n{font-size:10px;color:var(--t3);display:block;margin-bottom:2px}
 .scen-name{font-family:var(--fb);font-size:12px;color:var(--t1);display:block}
 .scen-det{font-family:var(--fm);font-size:10px;color:var(--t3);margin-top:2px;display:block}
-.c-maint{color:var(--t2);font-family:var(--fm)}.c-opt{color:var(--teal);font-weight:600;font-family:var(--fm)}.c-agg{color:var(--coral);font-family:var(--fm)}
+.c-maint{color:var(--t2);font-family:var(--fm)}.c-opt{color:var(--teal);font-weight:600;font-family:var(--fm)}.c-mod{color:var(--amber);font-weight:600;font-family:var(--fm)}.c-agg{color:var(--coral);font-family:var(--fm)}
 .infobox{margin-top:14px;padding:12px 14px;background:var(--teal-a);border:1px solid rgba(0,201,167,0.18);border-radius:var(--r2);font-size:11px;color:var(--t2);line-height:1.6}
 .infobox strong{color:var(--teal)}
 .macros-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
@@ -172,18 +172,18 @@ a:hover{border-bottom-style:solid}
 
 <!-- HERO PERSISTENTE (PESO CONFIRMADO + RECORRIDO DE KILOS) -->
 <div class="hero">
-  <div class="eyebrow">&#9655; Peso confirmado &middot; 25 Julio 2026</div>
+  <div class="eyebrow">&#9655; Peso confirmado &middot; 28 Julio 2026</div>
   <div class="hero-row">
-    <span class="hero-num">98.3</span>
+    <span class="hero-num">98.5</span>
     <span class="hero-unit">kg</span>
   </div>
-  <div class="hero-cap">Registrado 25 Jul &middot; Altura 179 cm &middot; 29 a&ntilde;os &middot; Meta: 80 kg</div>
+  <div class="hero-cap">Registrado 28 Jul &middot; Altura 179 cm &middot; 29 a&ntilde;os &middot; Meta: 80 kg</div>
 
   <div class="journey">
     <div class="journey-header">Recorrido &middot; M&aacute;ximo &rarr; Meta</div>
     <div class="j-stats">
       <div class="j-stat c-coral"><span class="j-val">101.5 kg</span><span class="j-lbl">M&aacute;ximo &middot; Abr '26</span></div>
-      <div class="j-stat c-teal"><span class="j-val">98.3 kg</span><span class="j-lbl">Actual &middot; 25 Jul '26</span></div>
+      <div class="j-stat c-teal"><span class="j-val">98.5 kg</span><span class="j-lbl">Actual &middot; 28 Jul '26</span></div>
       <div class="j-stat c-amber"><span class="j-val">80.0 kg</span><span class="j-lbl">Meta</span></div>
       <div class="j-stat c-blue"><span class="j-val" id="pctVal">0%</span><span class="j-lbl">Completado</span></div>
     </div>
@@ -199,25 +199,25 @@ a:hover{border-bottom-style:solid}
 <div class="wrap">
   <div class="sec-head"><h2>Tendencia de Peso Total</h2><span class="badge">Sep 2025 &rarr; Jul 2026 &middot; Toca / Hover</span></div>
   <div class="chart-wrap" style="margin-bottom: 0;">
-    <div class="chart-title"><span>Gr&aacute;fica de peso (kg)</span><span style="color:var(--teal)">● Actual 98.3 kg</span></div>
+    <div class="chart-title"><span>Gr&aacute;fica de peso (kg)</span><span style="color:var(--teal)">● Actual 98.5 kg</span></div>
     <canvas id="wtCanvas"></canvas>
   </div>
 </div>
 
 <!-- COMPOSICIÓN CORPORAL EN HEADER PERSISTENTE -->
 <div class="wrap">
-  <div class="sec-head"><h2>Composici&oacute;n Corporal Actual</h2><span class="badge">25 Jul 2026 &middot; Naval USA</span></div>
+  <div class="sec-head"><h2>Composici&oacute;n Corporal Actual</h2><span class="badge">28 Jul 2026 &middot; Naval USA</span></div>
   <div class="bodycomp">
     <div class="bc-card lean">
       <div class="bc-lbl">Masa Magra &mdash; proteger siempre</div>
-      <div class="bc-val">73.0 kg</div>
-      <div class="bc-sub">74.3% del peso total &middot; m&uacute;sculo, hueso, &oacute;rganos, agua</div>
+      <div class="bc-val">74.2 kg</div>
+      <div class="bc-sub">75.4% del peso total &middot; m&uacute;sculo, hueso, &oacute;rganos, agua</div>
       <div class="bc-bar"></div>
     </div>
     <div class="bc-card fat">
       <div class="bc-lbl">Masa Grasa &mdash; objetivo reducir</div>
-      <div class="bc-val">25.3 kg</div>
-      <div class="bc-sub">25.7% del peso total &middot; meta: llegar a 14&ndash;16%</div>
+      <div class="bc-val">24.3 kg</div>
+      <div class="bc-sub">24.7% del peso total &middot; meta: llegar a 14&ndash;16%</div>
       <div class="bc-bar"></div>
     </div>
   </div>
@@ -247,49 +247,51 @@ a:hover{border-bottom-style:solid}
 <!-- ==================== PESTAÑA 1: CALORÍAS POR ESCENARIO ==================== -->
 <div id="tab-calorias" class="tab-content active" role="tabpanel">
   <div class="wrap">
-    <div class="sec-head"><h2>Calor&iacute;as por Escenario</h2><span class="badge">Base 98.3 kg &middot; BMR 1,957 kcal</span></div>
+    <div class="sec-head"><h2>Calor&iacute;as por Escenario</h2><span class="badge">Base 98.50 kg &middot; BMR 1,969 kcal</span></div>
     <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px;font-size:11px">
       <span style="color:var(--t2)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--t2);margin-right:5px"></span>Mantenimiento</span>
-      <span style="color:var(--teal)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:5px"></span>&Oacute;ptimo &minus;500 kcal</span>
-      <span style="color:var(--coral)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--coral);margin-right:5px"></span>Agresivo &minus;750 kcal</span>
+      <span style="color:var(--teal)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:5px"></span>Seguro &minus;500 kcal</span>
+      <span style="color:var(--amber)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber);margin-right:5px"></span>Moderado &minus;700 kcal</span>
+      <span style="color:var(--coral)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--coral);margin-right:5px"></span>Agresivo &minus;800 kcal</span>
     </div>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th style="width:44%">Escenario</th>
+            <th style="width:36%">Escenario</th>
             <th class="c" style="color:var(--t2)">Mantenimiento</th>
-            <th class="c" style="color:var(--teal)">&#9679; &Oacute;ptimo</th>
+            <th class="c" style="color:var(--teal)">&#9679; Seguro</th>
+            <th class="c" style="color:var(--amber)">&#9679; Moderado</th>
             <th class="c" style="color:var(--coral)">&#9679; Agresivo</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="grp-row"><td colspan="4">Sin ejercicio</td></tr>
-          <tr><td><span class="scen-n">#1</span><span class="scen-name">Cama &rarr; sof&aacute; &rarr; series</span><span class="scen-det">Sedentario puro</span></td><td class="c c-maint">2,348</td><td class="c c-opt">1,848</td><td class="c c-agg">1,598</td></tr>
-          <tr><td><span class="scen-n">#2</span><span class="scen-name">Sedentario + tareas del hogar</span><span class="scen-det">Limpiar, lavar, cocinar</span></td><td class="c c-maint">2,484</td><td class="c c-opt">1,984</td><td class="c c-agg">1,734</td></tr>
-          <tr class="grp-row"><td colspan="4">Walking pad &middot; 10k pasos</td></tr>
-          <tr><td><span class="scen-n">#3a</span><span class="scen-name">Trabajo + 10k pasos plano / calle</span><span class="scen-det">0&ndash;2% &middot; +575 kcal</span></td><td class="c c-maint">2,923</td><td class="c c-opt">2,423</td><td class="c c-agg">2,173</td></tr>
-          <tr><td><span class="scen-n">#3b</span><span class="scen-name">Trabajo + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+855 kcal &middot; sweet spot</span></td><td class="c c-maint">3,203</td><td class="c c-opt">2,703</td><td class="c c-agg">2,453</td></tr>
-          <tr class="grp-row"><td colspan="4">Gym 2 horas (+720 kcal)</td></tr>
-          <tr><td><span class="scen-n">#4</span><span class="scen-name">Gym 2h + sedentario</span><span class="scen-det">Solo gym, resto inactivo</span></td><td class="c c-maint">3,068</td><td class="c c-opt">2,568</td><td class="c c-agg">2,318</td></tr>
-          <tr><td><span class="scen-n">#5a</span><span class="scen-name">Gym 2h + 10k pasos plano</span><span class="scen-det">+1,295 kcal total</span></td><td class="c c-maint">3,643</td><td class="c c-opt">3,143</td><td class="c c-agg">2,893</td></tr>
-          <tr><td><span class="scen-n">#5b</span><span class="scen-name">Gym 2h + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,575 kcal total</span></td><td class="c c-maint">3,923</td><td class="c c-opt">3,423</td><td class="c c-agg">3,173</td></tr>
-          <tr><td><span class="scen-n">#5c</span><span class="scen-name">Gym 2h + 10k pasos 12% inclinaci&oacute;n</span><span class="scen-det">Modo beast &middot; +2,040 kcal</span></td><td class="c c-maint">4,388</td><td class="c c-opt">3,888</td><td class="c c-agg">3,638</td></tr>
-          <tr class="grp-row"><td colspan="4">Gym 1h 10min (+440 kcal)</td></tr>
-          <tr><td><span class="scen-n">#6</span><span class="scen-name">Gym 1h10 + sedentario</span><span class="scen-det">Solo gym, resto inactivo</span></td><td class="c c-maint">2,788</td><td class="c c-opt">2,288</td><td class="c c-agg">2,038</td></tr>
-          <tr><td><span class="scen-n">#7a</span><span class="scen-name">Gym 1h10 + 10k pasos plano</span><span class="scen-det">+1,015 kcal total</span></td><td class="c c-maint">3,363</td><td class="c c-opt">2,863</td><td class="c c-agg">2,613</td></tr>
-          <tr><td><span class="scen-n">#7b</span><span class="scen-name">Gym 1h10 + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,295 kcal total</span></td><td class="c c-maint">3,643</td><td class="c c-opt">3,143</td><td class="c c-agg">2,893</td></tr>
+          <tr class="grp-row"><td colspan="5">Sin ejercicio</td></tr>
+          <tr><td><span class="scen-n">#1</span><span class="scen-name">Cama &rarr; sof&aacute; &rarr; series</span><span class="scen-det">Sedentario puro</span></td><td class="c c-maint">2,363</td><td class="c c-opt">1,863</td><td class="c c-mod">1,663</td><td class="c c-agg">1,563</td></tr>
+          <tr><td><span class="scen-n">#2</span><span class="scen-name">Sedentario + tareas del hogar</span><span class="scen-det">Limpiar, lavar, cocinar</span></td><td class="c c-maint">2,499</td><td class="c c-opt">1,999</td><td class="c c-mod">1,799</td><td class="c c-agg">1,699</td></tr>
+          <tr class="grp-row"><td colspan="5">Walking pad &middot; 10k pasos</td></tr>
+          <tr><td><span class="scen-n">#3a</span><span class="scen-name">Trabajo + 10k pasos plano / calle</span><span class="scen-det">0&ndash;2% &middot; +575 kcal</span></td><td class="c c-maint">2,938</td><td class="c c-opt">2,438</td><td class="c c-mod">2,238</td><td class="c c-agg">2,138</td></tr>
+          <tr><td><span class="scen-n">#3b</span><span class="scen-name">Trabajo + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+855 kcal &middot; sweet spot</span></td><td class="c c-maint">3,218</td><td class="c c-opt">2,718</td><td class="c c-mod">2,518</td><td class="c c-agg">2,418</td></tr>
+          <tr class="grp-row"><td colspan="5">Gym 2 horas (+720 kcal)</td></tr>
+          <tr><td><span class="scen-n">#4</span><span class="scen-name">Gym 2h + sedentario</span><span class="scen-det">Solo gym, resto inactivo</span></td><td class="c c-maint">3,083</td><td class="c c-opt">2,583</td><td class="c c-mod">2,383</td><td class="c c-agg">2,283</td></tr>
+          <tr><td><span class="scen-n">#5a</span><span class="scen-name">Gym 2h + 10k pasos plano</span><span class="scen-det">+1,295 kcal total</span></td><td class="c c-maint">3,658</td><td class="c c-opt">3,158</td><td class="c c-mod">2,958</td><td class="c c-agg">2,858</td></tr>
+          <tr><td><span class="scen-n">#5b</span><span class="scen-name">Gym 2h + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,575 kcal total</span></td><td class="c c-maint">3,938</td><td class="c c-opt">3,438</td><td class="c c-mod">3,238</td><td class="c c-agg">3,138</td></tr>
+          <tr><td><span class="scen-n">#5c</span><span class="scen-name">Gym 2h + 10k pasos 12% inclinaci&oacute;n</span><span class="scen-det">Modo beast &middot; +2,040 kcal</span></td><td class="c c-maint">4,403</td><td class="c c-opt">3,903</td><td class="c c-mod">3,703</td><td class="c c-agg">3,603</td></tr>
+          <tr class="grp-row"><td colspan="5">Gym 1h 10min (+440 kcal)</td></tr>
+          <tr><td><span class="scen-n">#6</span><span class="scen-name">Gym 1h10 + sedentario</span><span class="scen-det">Solo gym, resto inactivo</span></td><td class="c c-maint">2,803</td><td class="c c-opt">2,303</td><td class="c c-mod">2,103</td><td class="c c-agg">2,003</td></tr>
+          <tr><td><span class="scen-n">#7a</span><span class="scen-name">Gym 1h10 + 10k pasos plano</span><span class="scen-det">+1,015 kcal total</span></td><td class="c c-maint">3,378</td><td class="c c-opt">2,878</td><td class="c c-mod">2,678</td><td class="c c-agg">2,578</td></tr>
+          <tr><td><span class="scen-n">#7b</span><span class="scen-name">Gym 1h10 + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,295 kcal total</span></td><td class="c c-maint">3,658</td><td class="c c-opt">3,158</td><td class="c c-mod">2,958</td><td class="c c-agg">2,858</td></tr>
 
           <!-- ESCENARIOS CORREGIDOS 2024 COMPENDIUM: TORSO Y PIERNAS -->
-          <tr class="grp-row"><td colspan="4">&#x1F4AA; Torso 1h30 &mdash; Upper body &middot; MET 5.0 &middot; +770 kcal</td></tr>
-          <tr><td><span class="scen-n">#8a</span><span class="scen-name">Torso 1h30 + sedentario</span><span class="scen-det">Pecho, espalda, hombros, brazos &middot; +770 kcal</span></td><td class="c c-maint">3,118</td><td class="c c-opt">2,618</td><td class="c c-agg">2,368</td></tr>
-          <tr><td><span class="scen-n">#8b</span><span class="scen-name">Torso 1h30 + 10k pasos plano</span><span class="scen-det">+1,345 kcal total</span></td><td class="c c-maint">3,693</td><td class="c c-opt">3,193</td><td class="c c-agg">2,943</td></tr>
-          <tr><td><span class="scen-n">#8c</span><span class="scen-name">Torso 1h30 + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,625 kcal total</span></td><td class="c c-maint">3,973</td><td class="c c-opt">3,473</td><td class="c c-agg">3,223</td></tr>
+          <tr class="grp-row"><td colspan="5">&#x1F4AA; Torso 1h30 &mdash; Upper body &middot; MET 5.0 &middot; +770 kcal</td></tr>
+          <tr><td><span class="scen-n">#8a</span><span class="scen-name">Torso 1h30 + sedentario</span><span class="scen-det">Pecho, espalda, hombros, brazos &middot; +770 kcal</span></td><td class="c c-maint">3,133</td><td class="c c-opt">2,633</td><td class="c c-mod">2,433</td><td class="c c-agg">2,333</td></tr>
+          <tr><td><span class="scen-n">#8b</span><span class="scen-name">Torso 1h30 + 10k pasos plano</span><span class="scen-det">+1,345 kcal total</span></td><td class="c c-maint">3,708</td><td class="c c-opt">3,208</td><td class="c c-mod">3,008</td><td class="c c-agg">2,908</td></tr>
+          <tr><td><span class="scen-n">#8c</span><span class="scen-name">Torso 1h30 + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,625 kcal total</span></td><td class="c c-maint">3,988</td><td class="c c-opt">3,488</td><td class="c c-mod">3,288</td><td class="c c-agg">3,188</td></tr>
 
-          <tr class="grp-row"><td colspan="4">&#x1F9B5; Piernas 1h30 &mdash; Lower body &middot; MET 5.5 &middot; +851 kcal</td></tr>
-          <tr><td><span class="scen-n">#9a</span><span class="scen-name">Piernas 1h30 + sedentario</span><span class="scen-det">Sentadilla, peso muerto, prensa &middot; +851 kcal</span></td><td class="c c-maint">3,199</td><td class="c c-opt">2,699</td><td class="c c-agg">2,449</td></tr>
-          <tr><td><span class="scen-n">#9b</span><span class="scen-name">Piernas 1h30 + 10k pasos plano</span><span class="scen-det">+1,426 kcal total</span></td><td class="c c-maint">3,774</td><td class="c c-opt">3,274</td><td class="c c-agg">3,024</td></tr>
-          <tr><td><span class="scen-n">#9c</span><span class="scen-name">Piernas 1h30 + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,706 kcal total</span></td><td class="c c-maint">4,054</td><td class="c c-opt">3,554</td><td class="c c-agg">3,304</td></tr>
+          <tr class="grp-row"><td colspan="5">&#x1F9B5; Piernas 1h30 &mdash; Lower body &middot; MET 5.5 &middot; +851 kcal</td></tr>
+          <tr><td><span class="scen-n">#9a</span><span class="scen-name">Piernas 1h30 + sedentario</span><span class="scen-det">Sentadilla, peso muerto, prensa &middot; +851 kcal</span></td><td class="c c-maint">3,214</td><td class="c c-opt">2,714</td><td class="c c-mod">2,514</td><td class="c c-agg">2,414</td></tr>
+          <tr><td><span class="scen-n">#9b</span><span class="scen-name">Piernas 1h30 + 10k pasos plano</span><span class="scen-det">+1,426 kcal total</span></td><td class="c c-maint">3,789</td><td class="c c-opt">3,289</td><td class="c c-mod">3,089</td><td class="c c-agg">2,989</td></tr>
+          <tr><td><span class="scen-n">#9c</span><span class="scen-name">Piernas 1h30 + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,706 kcal total</span></td><td class="c c-maint">4,069</td><td class="c c-opt">3,569</td><td class="c c-mod">3,369</td><td class="c c-agg">3,269</td></tr>
         </tbody>
       </table>
     </div>
@@ -318,7 +320,7 @@ a:hover{border-bottom-style:solid}
   </div>
 
   <div class="wrap">
-    <div class="sec-head"><h2>Historial de Peso</h2><span class="badge">14 registros con peso &middot; M&aacute;s nuevos arriba</span></div>
+    <div class="sec-head"><h2>Historial de Peso</h2><span class="badge">15 registros con peso &middot; M&aacute;s nuevos arriba</span></div>
     <div class="table-wrap">
       <table>
         <thead>
@@ -328,10 +330,17 @@ a:hover{border-bottom-style:solid}
         </thead>
         <tbody>
           <tr class="work-row">
-            <td style="color:var(--teal)">25 Jul 2026 &#9733; HOY</td>
-            <td><span class="wh-kg" style="color:var(--teal)">98.3 kg</span></td>
-            <td class="r"><span class="dneg">&minus;3.2 kg desde pico</span></td>
+            <td style="color:var(--teal)">28 Jul 2026 &#9733; HOY</td>
+            <td><span class="wh-kg" style="color:var(--teal)">98.5 kg</span></td>
+            <td class="r"><span class="dneg">&minus;3.0 kg desde pico</span></td>
             <td><span class="tag tag-cur">Actual confirmado</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:87%;background:var(--teal)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">25 Jul 2026</td>
+            <td><span class="wh-kg">98.3 kg</span></td>
+            <td class="r"><span class="dneg">&minus;1.0 kg</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Confirmado</span></td>
             <td><div class="bar"><div class="bar-f" style="width:86%;background:var(--teal)"></div></div></td>
           </tr>
           <tr>
@@ -456,18 +465,18 @@ a:hover{border-bottom-style:solid}
 <div id="tab-composicion-corporal" class="tab-content" role="tabpanel">
   <!-- COMPOSICIÓN CORPORAL CARDS -->
   <div class="wrap">
-    <div class="sec-head"><h2>Composici&oacute;n Corporal Actual</h2><span class="badge">25 Jul 2026 &middot; Naval USA</span></div>
+    <div class="sec-head"><h2>Composici&oacute;n Corporal Actual</h2><span class="badge">28 Jul 2026 &middot; Naval USA</span></div>
     <div class="bodycomp">
       <div class="bc-card lean">
         <div class="bc-lbl">Masa Magra &mdash; proteger siempre</div>
-        <div class="bc-val">73.0 kg</div>
-        <div class="bc-sub">74.3% del peso total &middot; m&uacute;sculo, hueso, &oacute;rganos, agua</div>
+        <div class="bc-val">74.2 kg</div>
+        <div class="bc-sub">75.4% del peso total &middot; m&uacute;sculo, hueso, &oacute;rganos, agua</div>
         <div class="bc-bar"></div>
       </div>
       <div class="bc-card fat">
         <div class="bc-lbl">Masa Grasa &mdash; objetivo reducir</div>
-        <div class="bc-val">25.3 kg</div>
-        <div class="bc-sub">25.7% del peso total &middot; meta: llegar a 14&ndash;16%</div>
+        <div class="bc-val">24.3 kg</div>
+        <div class="bc-sub">24.7% del peso total &middot; meta: llegar a 14&ndash;16%</div>
         <div class="bc-bar"></div>
       </div>
     </div>
@@ -477,7 +486,7 @@ a:hover{border-bottom-style:solid}
   <div class="wrap" style="margin-bottom: 24px;">
     <div class="sec-head"><h2>Gr&aacute;fico Espec&iacute;fico de Masa Magra</h2><span class="badge">Modelo Naval USA</span></div>
     <div class="chart-wrap" style="margin-bottom:0">
-      <div class="chart-title"><span>Masa Magra (kg) &mdash; Cuello + Cintura + Altura 179cm</span><span style="color:var(--teal)">● Actual 73.0 kg</span></div>
+      <div class="chart-title"><span>Masa Magra (kg) &mdash; Cuello + Cintura + Altura 179cm</span><span style="color:var(--teal)">● Actual 74.2 kg</span></div>
       <canvas id="compLeanCanvas"></canvas>
     </div>
   </div>
@@ -490,24 +499,25 @@ a:hover{border-bottom-style:solid}
         <thead>
           <tr>
             <th style="width:24%">Medida</th>
-            <th class="c" style="font-size:9px;color:var(--teal)">Jul 25 '26 &#9733;<br><span style="color:var(--t3)">Actual</span></th>
+            <th class="c" style="font-size:9px;color:var(--teal)">Jul 28 '26 &#9733;<br><span style="color:var(--t3)">Actual</span></th>
             <th class="c" style="font-size:9px;color:var(--coral)">Abr 27 '26<br><span style="color:var(--t3)">Pico m&aacute;x.</span></th>
             <th class="c" style="font-size:9px;color:var(--blue)">Sep 5 '25<br><span style="color:var(--t3)">Inicio</span></th>
             <th class="c" style="font-size:9px">&Delta; Inicio&rarr;Actual</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Peso</td><td class="c meas-cur">98.3 kg</td><td class="c" style="color:var(--coral)">101.5 kg</td><td class="c" style="color:var(--blue)">— kg</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+          <tr><td>Peso</td><td class="c meas-cur">98.5 kg</td><td class="c" style="color:var(--coral)">101.5 kg</td><td class="c" style="color:var(--blue)">— kg</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
           <tr><td>Cuello</td><td class="c meas-cur">43.0 cm</td><td class="c meas-val">44.5 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
-          <tr><td>Panza (ombligo)</td><td class="c meas-cur">103.5 cm</td><td class="c" style="color:var(--coral)">107 cm</td><td class="c" style="color:var(--blue)">97.5 cm</td><td class="c"><span class="d-better">&minus;4 cm &darr;</span></td></tr>
-          <tr><td>Espalda + pecho</td><td class="c meas-cur">112 cm</td><td class="c meas-val">115 cm</td><td class="c" style="color:var(--blue)">105 cm</td><td class="c"><span class="d-worse">+7 cm &uarr;</span></td></tr>
+          <tr><td>Panza (ombligo)</td><td class="c meas-cur">102 cm</td><td class="c" style="color:var(--coral)">107 cm</td><td class="c" style="color:var(--blue)">97.5 cm</td><td class="c"><span class="d-worse">+4.5 cm &uarr;</span></td></tr>
+          <tr><td>Espalda + pecho</td><td class="c meas-cur">111 cm</td><td class="c meas-val">115 cm</td><td class="c" style="color:var(--blue)">105 cm</td><td class="c"><span class="d-worse">+6 cm &uarr;</span></td></tr>
           <tr><td>Brazo Izquierdo</td><td class="c meas-cur">38.5 cm</td><td class="c meas-val">39.0 cm</td><td class="c" style="color:var(--blue)">36.5 cm</td><td class="c"><span class="d-worse">+2 cm &uarr;</span></td></tr>
           <tr><td>Brazo Derecho</td><td class="c meas-cur">38.5 cm</td><td class="c meas-val">39.0 cm</td><td class="c" style="color:var(--blue)">36.5 cm</td><td class="c"><span class="d-worse">+2 cm &uarr;</span></td></tr>
           <tr><td>Hombro Izq</td><td class="c meas-cur">42 cm</td><td class="c meas-val">43 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
           <tr><td>Hombro Der</td><td class="c meas-cur">42 cm</td><td class="c meas-val">43 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
-          <tr><td>Cadera (m&aacute;s ancha)</td><td class="c meas-cur">110 cm</td><td class="c" style="color:var(--coral)">115 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
-          <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Piernas (m&aacute;s anchas)</td><td class="c meas-cur">72.5 cm</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--teal)">nueva medida</span></td></tr>
+          <tr><td>Cadera (m&aacute;s ancha)</td><td class="c meas-cur">112 cm</td><td class="c" style="color:var(--coral)">115 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+          <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Piernas (m&aacute;s anchas)</td><td class="c meas-cur">71 cm</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--teal)">&minus;1.5 cm vs 25 Jul</span></td></tr>
           <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Amplitud pecho (ax&ndash;ax)</td><td class="c meas-cur">44 cm</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--teal)">nueva medida</span></td></tr>
+          <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Ambos-hombros (wrap)</td><td class="c meas-cur">&sim;129 cm</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--teal)">nueva medida</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -520,7 +530,7 @@ a:hover{border-bottom-style:solid}
 <!-- ==================== PESTAÑA 4: HISTORIAL COMPLETO DE MEDIDAS + CHARTS GRUPALES ==================== -->
 <div id="tab-historial-medidas" class="tab-content" role="tabpanel">
   <div class="wrap">
-    <div class="sec-head"><h2>Historial Completo de Medidas</h2><span class="badge">14 entradas &middot; M&aacute;s nuevos arriba</span></div>
+    <div class="sec-head"><h2>Historial Completo de Medidas</h2><span class="badge">15 entradas &middot; M&aacute;s nuevos arriba</span></div>
     <div class="hist-scroll">
       <table class="hist-table">
         <thead>
@@ -543,14 +553,24 @@ a:hover{border-bottom-style:solid}
         </thead>
         <tbody>
           <tr style="background:var(--teal-a)">
-            <td style="color:var(--teal)">25 Jul '26 &#9733;</td>
-            <td class="c hcur">98.3</td><td class="c hcur">43</td>
-            <td class="c hcur">103.5</td><td class="c hcur">112</td>
+            <td style="color:var(--teal)">28 Jul '26 &#9733;</td>
+            <td class="c hcur">98.5</td><td class="c hcur">43</td>
+            <td class="c hcur">102</td><td class="c hcur">111</td>
             <td class="c hcur">38.5</td><td class="c hcur">38.5</td>
             <td class="c hcur">42</td><td class="c hcur">42</td>
-            <td class="c hcur">110</td><td class="c hna">&mdash;</td>
-            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
-            <td style="color:var(--teal);font-size:10px">Piernas 72.5 &middot; Ampl.pecho 44</td>
+            <td class="c hcur">112</td><td class="c hna">&mdash;</td>
+            <td class="c hcur">71</td><td class="c hcur">71</td>
+            <td style="color:var(--teal);font-size:10px">Ambos-hombros (wrap) &sim;129 &middot; Ampl.pecho 44</td>
+          </tr>
+          <tr>
+            <td>25 Jul '26</td>
+            <td class="c hv">98.3</td><td class="c hv">43</td>
+            <td class="c hv">103.5</td><td class="c hv">112</td>
+            <td class="c hv">38.5</td><td class="c hv">38.5</td>
+            <td class="c hv">42</td><td class="c hv">42</td>
+            <td class="c hv">110</td><td class="c hna">&mdash;</td>
+            <td class="c hv">72.5</td><td class="c hv">72.5</td>
+            <td style="color:var(--t3);font-size:10px">Piernas 72.5 &middot; Ampl.pecho 44</td>
           </tr>
           <tr>
             <td>14 Jul '26</td>
@@ -694,11 +714,11 @@ a:hover{border-bottom-style:solid}
       <!-- Fila 1: Espalda y Panza -->
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:14px">
         <div class="chart-wrap" style="margin-bottom:0">
-          <div class="chart-title"><span>Progreso de Espalda + Pecho (cm)</span><span style="color:var(--teal)">● Actual 112 cm</span></div>
+          <div class="chart-title"><span>Progreso de Espalda + Pecho (cm)</span><span style="color:var(--teal)">● Actual 111 cm</span></div>
           <canvas id="backCanvas"></canvas>
         </div>
         <div class="chart-wrap" style="margin-bottom:0">
-          <div class="chart-title"><span>Progreso de Panza / Ombligo (cm)</span><span style="color:var(--teal)">● Actual 103.5 cm</span></div>
+          <div class="chart-title"><span>Progreso de Panza / Ombligo (cm)</span><span style="color:var(--teal)">● Actual 102 cm</span></div>
           <canvas id="waistCanvas"></canvas>
         </div>
       </div>
@@ -726,7 +746,7 @@ a:hover{border-bottom-style:solid}
         <div class="chart-wrap" style="margin-bottom:0">
           <div class="chart-title">
             <span>Progreso de Piernas (cm) &mdash; Muslo m&aacute;s ancho</span>
-            <span style="font-size:9px"><em style="font-style:normal;color:var(--teal)">● Izq (72.5cm)</em> &middot; <em style="font-style:normal;color:var(--blue)">● Der (72.5cm)</em></span>
+            <span style="font-size:9px"><em style="font-style:normal;color:var(--teal)">● Izq (71cm)</em> &middot; <em style="font-style:normal;color:var(--blue)">● Der (71cm)</em></span>
           </div>
           <canvas id="legsCanvas"></canvas>
         </div>
@@ -740,7 +760,7 @@ a:hover{border-bottom-style:solid}
 <!-- ==================== PESTAÑA 5: PROYECCIÓN DE BAJADA DE PESO ==================== -->
 <div id="tab-proyeccion" class="tab-content" role="tabpanel">
   <div class="wrap">
-    <div class="sec-head"><h2>Proyecci&oacute;n de Bajada de Peso</h2><span class="badge">Base 98.3 kg &middot; Meta 80 kg &middot; &minus;18.3 kg</span></div>
+    <div class="sec-head"><h2>Proyecci&oacute;n de Bajada de Peso</h2><span class="badge">Base 98.5 kg &middot; Meta 80 kg &middot; &minus;18.5 kg</span></div>
     <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px;font-size:11px">
       <span style="color:var(--teal)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:5px"></span>&minus;500 kcal/d&iacute;a &middot; Seguro &middot; &asymp;0.45 kg/sem</span>
       <span style="color:var(--amber)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber);margin-right:5px"></span>&minus;700 kcal/d&iacute;a &middot; Moderado &middot; &asymp;0.64 kg/sem</span>
@@ -817,34 +837,35 @@ a:hover{border-bottom-style:solid}
 
 <!-- FOOTER PERSISTENTE: MÉTRICAS CLAVE MOVIDAS AQUÍ -->
 <div class="wrap no-bottom-pad" style="margin-top: 28px;">
-  <div class="sec-head"><h2>M&eacute;tricas Clave</h2><span class="badge">Actualizado 25 Jul 2026</span></div>
+  <div class="sec-head"><h2>M&eacute;tricas Clave</h2><span class="badge">Actualizado 28 Jul 2026</span></div>
   <div class="cards">
-    <div class="card"><div class="card-lbl">BMR &middot; Solo existir</div><div class="card-val">1,957</div><div class="card-sub">kcal &middot; sin mover un dedo</div></div>
-    <div class="card a"><div class="card-lbl">Mantenimiento sedentario</div><div class="card-val">2,348</div><div class="card-sub">kcal &middot; cama &rarr; sof&aacute; &rarr; series</div></div>
-    <div class="card t"><div class="card-lbl">&Oacute;ptimo &minus;500 kcal</div><div class="card-val">1,848</div><div class="card-sub">kcal &middot; d&iacute;a sedentario</div></div>
-    <div class="card c"><div class="card-lbl">Agresivo &minus;750 kcal</div><div class="card-val">1,598</div><div class="card-sub">kcal &middot; riesgo muscular</div></div>
-    <div class="card"><div class="card-lbl">% Grasa corporal</div><div class="card-val">25.7%</div><div class="card-sub">F&oacute;rmula Naval USA</div></div>
-    <div class="card t"><div class="card-lbl">Masa magra</div><div class="card-val">73.0 kg</div><div class="card-sub">proteger siempre</div></div>
-    <div class="card"><div class="card-lbl">Grasa total</div><div class="card-val">25.3 kg</div><div class="card-sub">kg a eliminar</div></div>
-    <div class="card b"><div class="card-lbl">Kg para meta</div><div class="card-val">18.3 kg</div><div class="card-sub">&sim;10.4 meses al ritmo &oacute;ptimo</div></div>
+    <div class="card"><div class="card-lbl">BMR &middot; Solo existir</div><div class="card-val">1,969</div><div class="card-sub">kcal &middot; sin mover un dedo</div></div>
+    <div class="card a"><div class="card-lbl">Mantenimiento sedentario</div><div class="card-val">2,363</div><div class="card-sub">kcal &middot; cama &rarr; sof&aacute; &rarr; series</div></div>
+    <div class="card t"><div class="card-lbl">Seguro &minus;500 kcal</div><div class="card-val">1,863</div><div class="card-sub">kcal &middot; d&iacute;a sedentario</div></div>
+    <div class="card" style="border-color:rgba(255,168,48,0.3)"><div class="card-lbl">Moderado &minus;700 kcal</div><div class="card-val" style="color:var(--amber)">1,663</div><div class="card-sub">kcal &middot; d&iacute;a sedentario</div></div>
+    <div class="card c"><div class="card-lbl">Agresivo &minus;800 kcal</div><div class="card-val">1,563</div><div class="card-sub">kcal &middot; riesgo muscular</div></div>
+    <div class="card"><div class="card-lbl">% Grasa corporal</div><div class="card-val">24.7%</div><div class="card-sub">F&oacute;rmula Naval USA</div></div>
+    <div class="card t"><div class="card-lbl">Masa magra</div><div class="card-val">74.2 kg</div><div class="card-sub">proteger siempre</div></div>
+    <div class="card"><div class="card-lbl">Grasa total</div><div class="card-val">24.3 kg</div><div class="card-sub">kg a eliminar</div></div>
+    <div class="card b"><div class="card-lbl">Kg para meta</div><div class="card-val">18.5 kg</div><div class="card-sub">&sim;9.4 meses al ritmo seguro</div></div>
   </div>
 </div>
 
 <!-- MACROS OBJETIVO PERSISTENTE -->
 <div class="wrap" style="margin-top: 20px;">
-  <div class="sec-head"><h2>Macros Objetivo</h2><span class="badge">D&iacute;a sedentario &middot; 1,848 kcal</span></div>
+  <div class="sec-head"><h2>Macros Objetivo</h2><span class="badge">D&iacute;a sedentario &middot; 1,863 kcal</span></div>
   <div class="macros-grid">
-    <div class="card t"><div class="card-lbl">Prote&iacute;na</div><div class="card-val">160&ndash;180 g</div><div class="card-sub">720 kcal &middot; 39% &middot; 2.2g/kg masa magra</div></div>
-    <div class="card a"><div class="card-lbl">Carbohidratos</div><div class="card-val">165 g</div><div class="card-sub">660 kcal &middot; 36% &middot; +150g en d&iacute;a de gym</div></div>
-    <div class="card"><div class="card-lbl">Grasas</div><div class="card-val">52 g</div><div class="card-sub">468 kcal &middot; 25% &middot; m&iacute;nimo para hormonas</div></div>
+    <div class="card t"><div class="card-lbl">Prote&iacute;na</div><div class="card-val">163&ndash;180 g</div><div class="card-sub">720 kcal &middot; 39% &middot; 2.2g/kg masa magra</div></div>
+    <div class="card a"><div class="card-lbl">Carbohidratos</div><div class="card-val">169 g</div><div class="card-sub">677 kcal &middot; 36% &middot; +150g en d&iacute;a de gym</div></div>
+    <div class="card"><div class="card-lbl">Grasas</div><div class="card-val">52 g</div><div class="card-sub">466 kcal &middot; 25% &middot; m&iacute;nimo para hormonas</div></div>
     <div class="card b"><div class="card-lbl">D&iacute;a de gym</div><div class="card-val">&sim;2,500 kcal</div><div class="card-sub">Extra principalmente en carbos</div></div>
   </div>
 </div>
 
 <div class="footer">
   <div><div class="ft-title">M&eacute;todos de c&aacute;lculo</div><div class="ft-text">BMR: Mifflin-St Jeor + Katch-McArdle (promedio)<br>% Grasa: F&oacute;rmula Naval USA<br>Pasos: ACSM Equations + Compendium of Physical Activities<br>Kcal ejercicio: MET &times; peso &times; 3.5 &divide; 200</div></div>
-  <div><div class="ft-title">Objetivos</div><div class="ft-text">Meta: 80 kg<br>D&eacute;ficit recomendado: &minus;500 kcal/d&iacute;a<br>Prote&iacute;na: 160&ndash;180 g/d&iacute;a<br>Ritmo: &sim;0.5&ndash;0.6 kg/semana</div></div>
-  <div><div class="ft-title">&Uacute;ltima actualizaci&oacute;n</div><div class="ft-text">Peso: 98.3 kg &middot; 25 Jul 2026<br>Medidas: 25 Jul 2026<br>Historial: Sep 2025 &rarr; Jul 2026</div></div>
+  <div><div class="ft-title">Objetivos</div><div class="ft-text">Meta: 80 kg<br>D&eacute;ficit recomendado: &minus;500 kcal/d&iacute;a (Seguro)<br>Prote&iacute;na: 163&ndash;180 g/d&iacute;a<br>Ritmo: &sim;0.5&ndash;0.6 kg/semana</div></div>
+  <div><div class="ft-title">&Uacute;ltima actualizaci&oacute;n</div><div class="ft-text">Peso: 98.5 kg &middot; 28 Jul 2026<br>Medidas: 28 Jul 2026<br>Historial: Sep 2025 &rarr; Jul 2026</div></div>
 </div>
 
 <!-- ==================== FUENTES & REFERENCIAS ==================== -->
@@ -910,7 +931,7 @@ a:hover{border-bottom-style:solid}
 document.getElementById('navDate').textContent = new Date().toLocaleDateString('es-MX',{weekday:'short',year:'numeric',month:'short',day:'numeric'});
 
 // Journey bar animation
-const peak=101.5,goal=80.0,cur=98.3;
+const peak=101.5,goal=80.0,cur=98.5;
 const pct=((peak-cur)/(peak-goal))*100;
 setTimeout(()=>{
   document.getElementById('jFill').style.width=pct.toFixed(1)+'%';
@@ -934,7 +955,8 @@ const chartConfigs = {
       { d: 112, v: 92.0, lbl: "10 Ene 26" },
       { d: 219, v: 101.5, lbl: "27 Abr 26", note: "Pico Máximo (101.5 kg)" },
       { d: 297, v: 98.34, lbl: "14 Jul 26" },
-      { d: 308, v: 98.3, lbl: "25 Jul 26", note: "Actual (98.3 kg)" }
+      { d: 308, v: 98.3, lbl: "25 Jul 26" },
+      { d: 311, v: 98.5, lbl: "28 Jul 26", note: "Actual (98.5 kg)" }
     ]
   },
   leanWeightCanvas: {
@@ -950,7 +972,8 @@ const chartConfigs = {
       { d: 112, v: 71.0, lbl: "10 Ene 26" },
       { d: 219, v: 74.5, lbl: "27 Abr 26", note: "Pico Magro (74.5 kg)" },
       { d: 297, v: 72.7, lbl: "14 Jul 26" },
-      { d: 308, v: 73.0, lbl: "25 Jul 26", note: "Actual (74.3% peso)" }
+      { d: 308, v: 73.0, lbl: "25 Jul 26" },
+      { d: 311, v: 74.2, lbl: "28 Jul 26", note: "Actual (75.4% peso)" }
     ]
   },
   fatWeightCanvas: {
@@ -966,7 +989,8 @@ const chartConfigs = {
       { d: 112, v: 21.0, lbl: "10 Ene 26" },
       { d: 219, v: 27.0, lbl: "27 Abr 26", note: "Pico Grasa (27.0 kg)" },
       { d: 297, v: 25.6, lbl: "14 Jul 26" },
-      { d: 308, v: 25.3, lbl: "25 Jul 26", note: "Actual (25.7% grasa)" }
+      { d: 308, v: 25.3, lbl: "25 Jul 26" },
+      { d: 311, v: 24.3, lbl: "28 Jul 26", note: "Actual (24.7% grasa)" }
     ]
   },
   compLeanCanvas: {
@@ -982,7 +1006,8 @@ const chartConfigs = {
       { d: 112, v: 71.0, lbl: "10 Ene 26" },
       { d: 219, v: 74.5, lbl: "27 Abr 26", note: "Máximo Magro (74.5 kg)" },
       { d: 297, v: 72.7, lbl: "14 Jul 26" },
-      { d: 308, v: 73.0, lbl: "25 Jul 26", note: "Actual (73.0 kg / 74.3%)" }
+      { d: 308, v: 73.0, lbl: "25 Jul 26" },
+      { d: 311, v: 74.2, lbl: "28 Jul 26", note: "Actual (74.2 kg / 75.4%)" }
     ]
   },
   backCanvas: {
@@ -1001,7 +1026,8 @@ const chartConfigs = {
       { d: 127, v: 109.5, lbl: "10 Ene 26" },
       { d: 234, v: 115, lbl: "27 Abr 26", note: "Pico (115 cm)" },
       { d: 312, v: 112, lbl: "14 Jul 26" },
-      { d: 323, v: 112, lbl: "25 Jul 26", note: "Actual (112 cm)" }
+      { d: 323, v: 112, lbl: "25 Jul 26" },
+      { d: 326, v: 111, lbl: "28 Jul 26", note: "Actual (111 cm)" }
     ]
   },
   waistCanvas: {
@@ -1020,7 +1046,8 @@ const chartConfigs = {
       { d: 127, v: 98, lbl: "10 Ene 26" },
       { d: 234, v: 107, lbl: "27 Abr 26", note: "Pico (107 cm)" },
       { d: 312, v: 104, lbl: "14 Jul 26" },
-      { d: 323, v: 103.5, lbl: "25 Jul 26", note: "Actual (103.5 cm)" }
+      { d: 323, v: 103.5, lbl: "25 Jul 26" },
+      { d: 326, v: 102, lbl: "28 Jul 26", note: "Actual (102 cm)" }
     ]
   },
   // BRAZOS (Serie 1: Izquierda #00C9A7, Serie 2: Derecha #5B9DFF)
@@ -1040,7 +1067,8 @@ const chartConfigs = {
       { d: 127, v: 37, lbl: "10 Ene 26" },
       { d: 234, v: 39, lbl: "27 Abr 26", note: "Pico Izq (39 cm)" },
       { d: 312, v: 38, lbl: "14 Jul 26" },
-      { d: 323, v: 38.5, lbl: "25 Jul 26", note: "Actual Izq (38.5 cm)" }
+      { d: 323, v: 38.5, lbl: "25 Jul 26" },
+      { d: 326, v: 38.5, lbl: "28 Jul 26", note: "Actual Izq (38.5 cm)" }
     ],
     data2: [
       { d: 0, v: 36.5, lbl: "5 Sep 25" },
@@ -1056,7 +1084,8 @@ const chartConfigs = {
       { d: 127, v: 37.5, lbl: "10 Ene 26" },
       { d: 234, v: 39, lbl: "27 Abr 26", note: "Pico Der (39 cm)" },
       { d: 312, v: 38.5, lbl: "14 Jul 26" },
-      { d: 323, v: 38.5, lbl: "25 Jul 26", note: "Actual Der (38.5 cm)" }
+      { d: 323, v: 38.5, lbl: "25 Jul 26" },
+      { d: 326, v: 38.5, lbl: "28 Jul 26", note: "Actual Der (38.5 cm)" }
     ]
   },
   // HOMBROS (Serie 1: Izquierda #00C9A7, Serie 2: Derecha #5B9DFF)
@@ -1075,7 +1104,8 @@ const chartConfigs = {
       { d: 127, v: 40, lbl: "10 Ene 26" },
       { d: 234, v: 43, lbl: "27 Abr 26", note: "Pico Izq (43 cm)" },
       { d: 312, v: 41.5, lbl: "14 Jul 26" },
-      { d: 323, v: 42, lbl: "25 Jul 26", note: "Actual Izq (42 cm)" }
+      { d: 323, v: 42, lbl: "25 Jul 26" },
+      { d: 326, v: 42, lbl: "28 Jul 26", note: "Actual Izq (42 cm)" }
     ],
     data2: [
       { d: 15, v: 42, lbl: "20 Sep 25" },
@@ -1090,7 +1120,8 @@ const chartConfigs = {
       { d: 127, v: 41.5, lbl: "10 Ene 26" },
       { d: 234, v: 43, lbl: "27 Abr 26", note: "Pico Der (43 cm)" },
       { d: 312, v: 41.5, lbl: "14 Jul 26" },
-      { d: 323, v: 42, lbl: "25 Jul 26", note: "Actual Der (42 cm)" }
+      { d: 323, v: 42, lbl: "25 Jul 26" },
+      { d: 326, v: 42, lbl: "28 Jul 26", note: "Actual Der (42 cm)" }
     ]
   },
   // PIERNAS (Serie 1: Izquierda #00C9A7, Serie 2: Derecha #5B9DFF)
@@ -1102,7 +1133,8 @@ const chartConfigs = {
       { d: 88, v: 68, lbl: "2 Dic 25" },
       { d: 94, v: 67, lbl: "8 Dic 25" },
       { d: 101, v: 68, lbl: "Med Dic 25" },
-      { d: 323, v: 72.5, lbl: "25 Jul 26", note: "Actual Izq (72.5 cm)" }
+      { d: 323, v: 72.5, lbl: "25 Jul 26" },
+      { d: 326, v: 71, lbl: "28 Jul 26", note: "Actual Izq (71 cm)" }
     ],
     data2: [
       { d: 25, v: 69, lbl: "30 Sep 25" },
@@ -1110,7 +1142,8 @@ const chartConfigs = {
       { d: 88, v: 69, lbl: "2 Dic 25" },
       { d: 94, v: 68, lbl: "8 Dic 25" },
       { d: 101, v: 69.5, lbl: "Med Dic 25" },
-      { d: 323, v: 72.5, lbl: "25 Jul 26", note: "Actual Der (72.5 cm)" }
+      { d: 323, v: 72.5, lbl: "25 Jul 26" },
+      { d: 326, v: 71, lbl: "28 Jul 26", note: "Actual Der (71 cm)" }
     ]
   }
 };

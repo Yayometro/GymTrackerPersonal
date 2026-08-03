@@ -121,14 +121,34 @@
 
 ---
 
+### 📌 Sesión 9 — Actualizaci&oacute;n de Datos (28 Jul 2026) y Esquema de 3 Niveles en Calor&iacute;as por Escenario
+- **Proveedor de IA**: Anthropic
+- **Modelo**: Claude Sonnet 5
+- **Fecha**: 3 de Agosto, 2026
+- **Petici&oacute;n del Usuario**: Incorporar nueva medici&oacute;n (foto de nota escrita a mano, 28 Jul 2026) y reconstruir la pesta&ntilde;a `Calor&iacute;as por Escenario` para usar el mismo esquema Seguro(&minus;500)/Moderado(&minus;700)/Agresivo(&minus;800) en vez de Óptimo(&minus;500)/Agresivo(&minus;750).
+- **Nuevos datos incorporados (28 Jul 2026)**: Peso 98.50 kg &middot; Cuello 43 cm &middot; Panza 102 cm &middot; Espalda+pecho 111 cm &middot; Brazo Izq/Der 38.5/38.5 &middot; Hombro Izq/Der 42/42 &middot; Pecho amplitud 44 cm &middot; Cadera 112 cm &middot; Piernas 71/71 cm &middot; Ambos-hombros (wrap, medida nueva) &sim;129 cm.
+- **Cambios Realizados**:
+  1. **Recalculo completo de composici&oacute;n corporal** (F&oacute;rmula Naval con waist=102, neck=43, height=179): BMR 1,969 kcal (Mifflin-St Jeor + Katch-McArdle promedio), Mantenimiento sedentario 2,363 kcal, % Grasa 24.7%, Masa magra 74.2 kg, Masa grasa 24.3 kg.
+  2. **Tabla "Calor&iacute;as por Escenario" reconstruida completa** (17 filas) con 4 columnas: Mantenimiento / Seguro &minus;500 / Moderado &minus;700 (nueva, color &aacute;mbar, clase CSS `.c-mod`) / Agresivo &minus;800 (antes &minus;750).
+  3. **Hero, composici&oacute;n corporal (2 instancias), tarjetas de M&eacute;tricas Clave (+1 tarjeta Moderado), Macros Objetivo, footer**: todos actualizados a 98.50 kg / 28 Jul 2026. Kg para meta: 18.5 kg (~9.4 meses a ritmo seguro).
+  4. **Historial de Peso**: nueva fila 28 Jul como HOY; 25 Jul degradado a fila hist&oacute;rica normal con delta recalculado.
+  5. **Historial Completo de Medidas**: nueva fila 28 Jul con las 12 medidas; se corrigi&oacute; de paso una inconsistencia previa (fila 25 Jul no ten&iacute;a Pierna I/D cargada pese a que Comparativa s&iacute; mostraba 72.5cm).
+  6. **Comparativa de Medidas**: columna "Actual" movida de 25&rarr;28 Jul con deltas recalculados; nueva fila **Ambos-hombros (wrap)** (&sim;129 cm, sin hist&oacute;rico previo &mdash; primera vez que se registra este tipo de medida).
+  7. **Charts**: nuevos puntos agregados en los 8 arrays de datos (peso, masa magra, masa grasa, espalda, panza, brazos x2, hombros x2, piernas x2); se corrigieron 3 etiquetas de `chart-title` con valores hardcodeados que hab&iacute;an quedado obsoletos (masa magra, espalda+pecho, panza, piernas).
+  8. **Pesta&ntilde;a Proyecci&oacute;n de Bajada**: solo se actualiz&oacute; el badge base (98.5kg / &minus;18.5kg) sin recalcular la tabla completa de 12 meses, ya que la diferencia de 0.2kg no mueve ninguna celda de forma perceptible.
+  9. Verificado visualmente en navegador (todas las pesta&ntilde;as) antes de publicar.
+
+---
+
 ## 📌 Estado Actual del Repositorio para la Siguiente IA
 - **Entorno**: HTML5 / CSS3 Vanilla Responsive / JS Vanilla / 9 Gráficas HTML5 Canvas con Tooltips Táctiles y Dual-Series.
 - **Punto de Entrada**: `index.html`
 - **Pestañas**:
-  1. `🔥 Calorías por Escenario` (Con escenarios corregidos según 2024 Compendium: Torso MET 5.0 [+770 kcal] vs Piernas MET 5.5 [+851 kcal])
+  1. `🔥 Calorías por Escenario` (4 columnas: Mantenimiento / Seguro −500 / Moderado −700 / Agresivo −800; escenarios de ejercicio según 2024 Compendium: Torso MET 5.0 [+770 kcal] vs Piernas MET 5.5 [+851 kcal])
   2. `⚖️ Historial de Peso` (Tablas + Charts Masa Magra & Masa Grasa)
-  3. `🧬 Composición Corporal` (Masa Magra/Grasa + Chart Dedicado Magro + Comparativa)
-  4. `📏 Historial Completo de Medidas` (Tabla 14 entradas + 5 Charts: Espalda, Panza, Brazos Izq/Der, Hombros Izq/Der, Piernas Izq/Der)
+  3. `🧬 Composición Corporal` (Masa Magra/Grasa + Chart Dedicado Magro + Comparativa, incluye medida nueva "Ambos-hombros wrap")
+  4. `📏 Historial Completo de Medidas` (Tabla 15 entradas + 5 Charts: Espalda, Panza, Brazos Izq/Der, Hombros Izq/Der, Piernas Izq/Der)
   5. `📉 Proyección de Bajada` (Proyección de peso a 12 meses para déficits de −500/−700/−800 kcal/día)
+- **Última medición base**: 98.50 kg · 28 Jul 2026 · BMR 1,969 kcal · Mantenimiento sedentario 2,363 kcal
 - **URL Pública GitHub Pages**: `https://yayometro.github.io/GymTrackerPersonal/`
 - **Repositorio Remoto**: `https://github.com/Yayometro/GymTrackerPersonal.git`
