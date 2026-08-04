@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Guía de alimentos · Colon irritable (bajo en FODMAP)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#EEF2EC;
+    --surface:#FFFFFF;
+    --ink:#17251E;
+    --muted:#5C6B62;
+    --green:#2F7D57;
+    --green-soft:#E3F0E8;
+    --amber:#B26B24;
+    --amber-soft:#F6E8D6;
+    --red:#B24438;
+    --red-soft:#F6DED9;
+    --line:#DCE3DA;
+    --deep:#143C2B;
+    --shadow:0 1px 2px rgba(20,60,43,.05),0 8px 24px rgba(20,60,43,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:3rem;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 16px}
+
+  /* Header */
+  header{
+    background:var(--deep);
+    color:#EAF3ED;
+    padding:34px 0 30px;
+    border-bottom:3px solid var(--green);
+  }
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+    color:#8FBCA3;font-weight:600;margin-bottom:10px;
+  }
+  header h1{
+    font-family:'Fraunces',serif;font-weight:500;
+    font-size:clamp(1.7rem,6vw,2.5rem);line-height:1.08;
+    letter-spacing:-.01em;color:#F4FAF6;
+  }
+  header p{color:#B9D3C4;margin-top:12px;font-size:.95rem;max-width:52ch}
+
+  /* Legend */
+  .legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:20px}
+  .legend span{display:flex;align-items:center;gap:8px;font-size:.83rem;color:#CFE3D7}
+  .dot{width:11px;height:11px;border-radius:50%;flex:none;box-shadow:0 0 0 3px rgba(255,255,255,.08)}
+  .dot.g{background:#57C88C}
+  .dot.a{background:#E7A34E}
+  .dot.r{background:#DA6A5C}
+
+  /* Controls */
+  .controls{
+    position:sticky;top:0;z-index:20;background:var(--bg);
+    padding:14px 0 10px;margin-bottom:6px;
+    border-bottom:1px solid var(--line);
+  }
+  .search{position:relative;margin-bottom:11px}
+  .search input{
+    width:100%;padding:12px 14px 12px 40px;border:1px solid var(--line);
+    border-radius:12px;font-size:.95rem;font-family:inherit;background:var(--surface);
+    color:var(--ink);box-shadow:var(--shadow);
+  }
+  .search input:focus{outline:2px solid var(--green);outline-offset:1px;border-color:transparent}
+  .search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);opacity:.4}
+  .tabs{display:flex;gap:7px;overflow-x:auto;padding-bottom:3px;-webkit-overflow-scrolling:touch}
+  .tabs::-webkit-scrollbar{height:0}
+  .tab{
+    flex:none;border:1px solid var(--line);background:var(--surface);
+    color:var(--muted);padding:7px 13px;border-radius:999px;font-size:.82rem;
+    font-weight:500;cursor:pointer;white-space:nowrap;font-family:inherit;transition:.15s;
+  }
+  .tab:hover{border-color:var(--green)}
+  .tab.active{background:var(--deep);color:#fff;border-color:var(--deep)}
+
+  /* Sections */
+  section{margin-top:22px}
+  .sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+  .sec-head .ic{font-size:1.15rem;line-height:1}
+  .sec-head h2{
+    font-family:'Fraunces',serif;font-weight:600;font-size:1.32rem;letter-spacing:-.01em;
+  }
+  .sec-note{
+    font-size:.83rem;color:var(--muted);margin:2px 0 12px;
+    border-left:2px solid var(--green);padding-left:10px;
+  }
+
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  .col-head{
+    display:grid;grid-template-columns:1fr 92px 58px 52px;gap:8px;
+    padding:9px 16px;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;border-bottom:1px solid var(--line);background:#FAFBF9;
+  }
+  .row{
+    display:grid;grid-template-columns:1fr 92px 58px 52px;gap:8px;align-items:center;
+    padding:11px 16px;border-bottom:1px solid var(--line);
+  }
+  .row:last-child{border-bottom:0}
+  .fname{font-weight:500;font-size:.92rem}
+  .chip{
+    display:inline-block;font-size:.73rem;font-weight:600;padding:3px 8px;border-radius:7px;
+    text-align:center;white-space:nowrap;
+  }
+  .chip.g{background:var(--green-soft);color:var(--green)}
+  .chip.a{background:var(--amber-soft);color:var(--amber)}
+  .chip.r{background:var(--red-soft);color:var(--red)}
+  .num{font-variant-numeric:tabular-nums;font-size:.86rem;text-align:right;color:#33453B}
+  .num.p{font-weight:600;color:var(--green)}
+  .col-head .num{text-align:right}
+
+  .empty{padding:26px 16px;text-align:center;color:var(--muted);font-size:.9rem;display:none}
+
+  /* Footer */
+  footer{margin-top:32px}
+  .fnote{
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;
+    padding:18px 18px;box-shadow:var(--shadow);margin-bottom:14px;
+  }
+  .fnote h3{
+    font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;margin-bottom:8px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .fnote ul{list-style:none;display:grid;gap:8px}
+  .fnote li{font-size:.86rem;color:#33453B;padding-left:16px;position:relative}
+  .fnote li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--green)}
+  .fnote a{color:var(--green);text-decoration:none;border-bottom:1px solid var(--green-soft)}
+  .src{font-size:.8rem;color:var(--muted);line-height:1.7}
+  .src b{color:var(--ink);font-weight:600}
+  .disc{font-size:.76rem;color:var(--muted);text-align:center;margin-top:18px;line-height:1.6}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px">
+      <div class="eyebrow" style="margin-bottom:0">Referencia de cocina &middot; Bajo en FODMAP</div>
+      <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.12);color:#EAF3ED;text-decoration:none;font-size:0.82rem;font-weight:600;padding:6px 14px;border-radius:999px;border:1px solid rgba(255,255,255,0.25);transition:all 0.2s">
+        &larr; Volver a GymTracker (Panel de Salud)
+      </a>
+    </div>
+    <h1>Qu&eacute; comer con colon irritable</h1>
+    <p>Porci&oacute;n verde de Monash <b>por comida</b>, con calor&iacute;as y prote&iacute;na por 100&nbsp;g. Pensado para volumen y saciedad sin disparar el intestino.</p>
+    <div class="legend">
+      <span><i class="dot g"></i> Libre / porci&oacute;n amplia</span>
+      <span><i class="dot a"></i> Cuida la porci&oacute;n</span>
+      <span><i class="dot r"></i> Evita en el brote</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="controls">
+    <div class="search">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#17251E" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="q" type="search" placeholder="Buscar alimento…" autocomplete="off" />
+    </div>
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-cat="all">Todo</button>
+      <button class="tab" data-cat="prot">Proteínas</button>
+      <button class="tab" data-cat="verd">Verduras</button>
+      <button class="tab" data-cat="gras">Grasas</button>
+      <button class="tab" data-cat="frut">Frutas</button>
+      <button class="tab" data-cat="lact">Lácteos</button>
+      <button class="tab" data-cat="carb">Carbohidratos</button>
+      <button class="tab" data-cat="lech">Leches vegetales</button>
+      <button class="tab" data-cat="bebi">Bebidas</button>
+      <button class="tab" data-cat="prod">Productos verificados</button>
+      <button class="tab" data-cat="supl">Suplementos</button>
+      <button class="tab" data-cat="cond">Hierbas y condimentos</button>
+    </div>
+  </div>
+
+  <div id="results"></div>
+  <div class="empty" id="empty">Sin resultados para tu búsqueda.</div>
+
+  <footer>
+    <div class="fnote">
+      <h3>🧭 Cómo leer esta guía</h3>
+      <ul>
+        <li>Las porciones son el límite <b>verde de Monash por comida</b>. Puedes repetir la misma porción en otra comida separada ~3–4 h.</li>
+        <li>Calorías y proteína son por <b>100 g</b> (las leches, por 100&nbsp;ml) — valores aproximados de referencia.</li>
+        <li>Es una dieta <b>por fases</b>: la eliminación dura 2–6 semanas; luego se reintroduce para hallar TU tolerancia. La tolerancia individual manda sobre cualquier tabla.</li>
+        <li>Durante el brote, <b>pausa frijoles y lentejas</b> (altos en FODMAP); solo de lata, enjuagados y en porción mínima.</li>
+        <li>Evita siempre: ajo, cebolla, jarabe de maíz de alta fructosa, inulina y agave.</li>
+        <li>*Omega-3: el mg de EPA+DHA por cápsula varía por marca — confirma en tu etiqueta específica; 300mg/cáp es un valor estándar de referencia.</li>
+        <li>El jarabe D'Gari no tiene polioles (sorbitol/maltitol), pero sí carboximetilcelulosa — segura en general, pero con SII conviene no abusar a diario.</li>
+      </ul>
+    </div>
+    <div class="fnote">
+      <h3>📚 Fuentes</h3>
+      <p class="src">
+        <b>Monash University FODMAP</b> (autoridad original del método) · <b>Canadian Digestive Health Foundation</b> (porciones de granos y semillas) · <b>The IBS Dietitian</b>, <b>A Little Bit Yummy</b>, <b>Casa de Sante</b> (quesos y panela) · <b>Noisy Guts</b>, <b>Healthy Food Guide</b>, <b>Spoonful</b>, <b>Green Health Dietetics</b> (leches vegetales) · <b>Dr. Rachel Pauls Food</b> (alimentos libres) · <b>George Eats</b> (frutas, datos nov. 2025). Datos nutricionales por 100 g: referencias tipo USDA. Todo deriva del laboratorio de Monash / FODMAP Friendly, que reevalúan seguido — la app de Monash es la referencia viva más confiable.
+      </p>
+    </div>
+    <p class="disc">Guía orientativa, no diagnóstico médico. Si los síntomas son intensos o persistentes, valóralo con un gastroenterólogo y lleva la reintroducción con un nutriólogo.</p>
+  </footer>
+
+</div>
+
+<script>
+const DATA = {
+  prot:{icon:"🥩",title:"Proteínas",note:"Carnes, pescado, huevo y mariscos simples no tienen FODMAPs. Sin marinar con ajo/cebolla y sin embutidos. Valores por 100 g cocido (huevo y tofu según indicación).",
+    items:[
+      ["Pechuga de pollo","Libre","g",165,31],
+      ["Pechuga de pavo","Libre","g",135,29],
+      ["Res magra","Libre","g",217,26],
+      ["Pescado blanco","Libre","g",105,23],
+      ["Salmón","Libre","g",208,22],
+      ["Atún (en agua)","Libre","g",116,26],
+      ["Camarón","Libre","g",99,24],
+      ["Huevo entero","Libre","g",155,13],
+      ["Claras de huevo","Libre","g",52,11],
+      ["Tofu firme","160 g","a",144,15],
+    ]},
+  verd:{icon:"🥦",title:"Verduras",note:"Zanahoria, pepino, lechuga y jitomate se comen libremente. El resto, cuida el gramaje. Valores por 100 g en crudo.",
+    items:[
+      ["Zanahoria","Libre","g",41,0.9],
+      ["Pepino","Libre","g",15,0.7],
+      ["Lechuga","Libre","g",15,1.4],
+      ["Jitomate","Libre","g",18,0.9],
+      ["Espinaca baby","75 g","a",23,2.9],
+      ["Calabacita","75 g","a",17,1.2],
+      ["Ejotes","75 g","a",31,1.8],
+      ["Berenjena","75 g","a",25,1.0],
+      ["Pimiento rojo","43 g","a",31,1.0],
+      ["Brócoli (floretes)","75 g","a",34,2.8],
+    ]},
+  gras:{icon:"🥑",title:"Grasas",note:"Los aceites puros no tienen FODMAPs. Ojo: la grasa alta puede afectar la motilidad — modera el total. Valores por 100 g.",
+    items:[
+      ["Aceite de oliva","Libre*","g",884,0],
+      ["Mantequilla","Libre*","g",717,0.9],
+      ["Aguacate","30 g","a",160,2.0],
+      ["Aceitunas","~15 pzas","a",115,0.8],
+      ["Cacahuate","32 pzas","a",567,26],
+      ["Nuez de Castilla","15 mitades","a",654,15],
+      ["Macadamia","~15 pzas","a",718,8],
+      ["Semilla de calabaza","3 cdas","a",559,30],
+      ["Chía","2 cdas","a",486,17],
+      ["Crema de cacahuate","2 cdas","a",588,25],
+    ]},
+  frut:{icon:"🍓",title:"Frutas",note:"El plátano, mejor firme (maduro sube por fructanos). Evita manzana, pera, mango, sandía, cereza, durazno y ciruela. Valores por 100 g.",
+    items:[
+      ["Papaya madura","~500 g","g",43,0.5],
+      ["Arándano","500 g","g",57,0.7],
+      ["Fresa","Generosa","g",32,0.7],
+      ["Plátano (firme)","~99 g","a",89,1.1],
+      ["Uva","150 g","a",69,0.7],
+      ["Naranja","~151 g","a",47,0.9],
+      ["Mandarina","2 chicas","a",53,0.8],
+      ["Kiwi","2 medianos","a",61,1.1],
+      ["Piña","140 g","a",50,0.5],
+      ["Melón cantaloupe","149 g","a",34,0.8],
+    ]},
+  lact:{icon:"🧀",title:"Lácteos y quesos",note:"Los añejos casi no traen lactosa. *Fage con lactosa: Monash certifica solo 23g como bajo en FODMAP, pero FODMAP Friendly (otro laboratorio) aprueba hasta 200g — discrepancia real entre certificadoras. Cottage cheese: bajo solo hasta 40g, moderado a 60g — cuidado si comes porciones grandes. Valores por 100 g.",
+    items:[
+      ["Panela / fresco","40 g","a",290,20],
+      ["Cottage cheese","40 g (mod. 60 g)","a",98,11],
+      ["Cheddar","40 g","a",403,25],
+      ["Parmesano","40 g","a",431,38],
+      ["Suizo / gruyère","40 g","a",380,27],
+      ["Brie","40 g","a",334,21],
+      ["Camembert","40 g","a",300,20],
+      ["Feta","40 g","a",264,14],
+      ["Mozzarella","40 g","a",280,22],
+      ["Queso de cabra","30 g","a",364,22],
+      ["Ricotta","40 g","a",174,11],
+      ["Fage Total 0% (con lactosa)","23–200g*","a",59,10],
+      ["Fage sin lactosa (BestSelf)","Libre","g",59,10],
+    ]},
+  carb:{icon:"🥔",title:"Carbohidratos",note:"Tu triángulo de saciedad: papa + arroz + palomitas, de lo más libre que hay. Valores por 100 g cocido (salvo palomitas, en seco).",
+    items:[
+      ["Papa","Libre","g",87,2.0],
+      ["Arroz blanco","1 taza","g",130,2.7],
+      ["Palomitas naturales","Libre","g",387,13],
+      ["Avena (cocida)","½ taza","a",71,2.5],
+      ["Quinoa","1 taza","a",120,4.4],
+      ["Tortilla de maíz","2 chicas","a",218,5.7],
+      ["Polenta","Estándar","a",70,1.5],
+      ["Pasta sin gluten","~124 g","a",150,3.0],
+      ["Trigo sarraceno","½ taza","a",92,3.4],
+      ["Camote","75 g","a",90,2.0],
+    ]},
+  lech:{icon:"🥛",title:"Leches vegetales",note:"Busca versiones SIN azúcar y sin inulina/agave. Valores por 100 ml. La de avena se evita: solo es baja hasta ~104 ml.",
+    items:[
+      ["Almendra sin azúcar","250 ml","g",14,0.5],
+      ["Linaza sin azúcar","~250 ml","g",12,0.3],
+      ["Macadamia sin azúcar","250 ml","g",25,0.4],
+      ["Cáñamo (hemp)","125–250 ml","a",40,1.5],
+      ["Soya de proteína ⭐","250 ml","g",35,3.3],
+      ["Arroz","200 ml","a",47,0.3],
+      ["Coco (bebida)","125 ml","a",20,0.2],
+    ]},
+  bebi:{icon:"🥤",title:"Bebidas",note:"Aquí manda algo más que los FODMAPs: la carbonatación y la cafeína pueden inflamar aunque la bebida sea baja en FODMAP. Refrescos Zero/de dieta son bajos en FODMAP (aspartame/sucralosa), pero llevan gas + cafeína: modéralos. El refresco normal se evita por el jarabe de maíz. Café y té: máx. 1–3 al día. Energéticas azucaradas: evita. Valores por 100 ml.",
+    items:[
+      ["Agua natural","Libre","g",0,0],
+      ["Café negro","1–3/día","g",2,0.1],
+      ["Café descafeinado","1–3/día","g",2,0.1],
+      ["Espresso","30–60 ml","g",9,0.1],
+      ["Té verde / negro suave","Libre*","g",1,0],
+      ["Té de menta","Libre","g",1,0],
+      ["Té de manzanilla","Modera","a",1,0],
+      ["Agua mineral / gasificada","Con cuidado","a",0,0],
+      ["Refresco Zero / de dieta","Con cuidado","a",0,0],
+      ["Jugo de naranja","~90 ml","a",45,0.7],
+      ["Jugo de arándano","250 ml","a",46,0],
+      ["Refresco normal","Evita","r",42,0],
+      ["Jugo de manzana / pera","Evita","r",46,0],
+    ]},
+  prod:{icon:"🔎",title:"Productos verificados",note:"Marcas específicas que revisamos etiqueta por etiqueta. Valores reales por 100 g/ml según el empaque.",
+    items:[
+      ["Jarabe D'Gari maple s/azúcar","2–3x/sem","a",0,0],
+      ["Leche almendra Nature's Heart","Libre","g",21,0.7],
+    ]},
+  supl:{icon:"💊",title:"Suplementos",note:"Dosis orientativas para tu peso (~97.5 kg) y objetivo de recomposición. Siempre con alimento, nunca en ayunas si tienes SII — reduce el riesgo de molestia digestiva.",
+    col1:"Suplemento", col2:"Dosis rec.", cols:["Presentación","Activo/día"], unit4:"",
+    items:[
+      ["Omega-3 (EPA+DHA)","2–3 cáps/día","a","1g/cáp (~300mg EPA+DHA c/u)","~600–900mg*"],
+      ["Magnesio glicinato","4 cáps/día","a","0.6g/cáp (compuesto)","~336mg Mg elemental"],
+      ["Creatina monohidratada","5–6g/día","g","Polvo puro, con comida","6g (tu dosis actual)"],
+    ]},
+  cond:{icon:"🌿",title:"Hierbas, especias y condimentos",note:"Ajo y cebolla en polvo NO tienen porción segura — la deshidratación concentra los fructanos aún más que en fresco. Usa aceite con infusión de ajo/cebolla: el sabor sí se disuelve en grasa, los fructanos no. Valores por 100 g.",
+    items:[
+      ["Cilantro","Libre","g",23,2.1],
+      ["Perejil","Libre","g",36,3.0],
+      ["Limón (jugo/ralladura)","Libre","g",29,1.1],
+      ["Aceite con infusión de ajo","Libre","g",884,0],
+      ["Cebollín (solo parte verde)","Libre","g",32,1.9],
+      ["Ajo en polvo","Evita","r",331,16.6],
+      ["Cebolla (bulbo, fresca o en polvo)","Evita","r",40,1.1],
+    ]},
+};
+
+const ORDER = ["prot","verd","gras","frut","lact","carb","lech","bebi","prod","supl","cond"];
+const results = document.getElementById('results');
+const emptyEl = document.getElementById('empty');
+let activeCat = "all";
+let query = "";
+
+function render(){
+  results.innerHTML = "";
+  let anyShown = false;
+  const cats = activeCat === "all" ? ORDER : [activeCat];
+
+  cats.forEach(cat=>{
+    const d = DATA[cat];
+    const matches = d.items.filter(it => it[0].toLowerCase().includes(query));
+    if(matches.length === 0) return;
+    anyShown = true;
+
+    const c3 = (d.cols && d.cols[0]) || "Kcal";
+    const c4 = (d.cols && d.cols[1]) || "Prot";
+    const u4 = (d.unit4 !== undefined) ? d.unit4 : "g";
+    const sec = document.createElement('section');
+    sec.innerHTML = `
+      <div class="sec-head"><span class="ic">${d.icon}</span><h2>${d.title}</h2></div>
+      <p class="sec-note">${d.note}</p>
+      <div class="card">
+        <div class="col-head">
+          <span>${d.col1 || "Alimento"}</span><span>${d.col2 || "Porción"}</span><span class="num">${c3}</span><span class="num">${c4}</span>
+        </div>
+        ${matches.map(it=>`
+          <div class="row">
+            <span class="fname">${it[0]}</span>
+            <span><span class="chip ${it[2]}">${it[1]}</span></span>
+            <span class="num">${it[3]}</span>
+            <span class="num p">${it[4]}${u4}</span>
+          </div>`).join('')}
+      </div>`;
+    results.appendChild(sec);
+  });
+
+  emptyEl.style.display = anyShown ? "none" : "block";
+}
+
+document.getElementById('q').addEventListener('input', e=>{
+  query = e.target.value.trim().toLowerCase();
+  render();
+});
+
+document.getElementById('tabs').addEventListener('click', e=>{
+  const btn = e.target.closest('.tab');
+  if(!btn) return;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  activeCat = btn.dataset.cat;
+  render();
+});
+
+render();
+</script>
+</body>
+</html>

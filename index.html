@@ -128,6 +128,16 @@ td.hna{color:var(--t3)}
 .c-maint{color:var(--t2);font-family:var(--fm)}.c-opt{color:var(--teal);font-weight:600;font-family:var(--fm)}.c-mod{color:var(--amber);font-weight:600;font-family:var(--fm)}.c-agg{color:var(--coral);font-family:var(--fm)}
 .infobox{margin-top:14px;padding:12px 14px;background:var(--teal-a);border:1px solid rgba(0,201,167,0.18);border-radius:var(--r2);font-size:11px;color:var(--t2);line-height:1.6}
 .infobox strong{color:var(--teal)}
+.control-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+.control{background:var(--surf);border:1px solid var(--border);border-radius:var(--r2);padding:10px 12px}
+.control label{display:block;font-family:var(--fm);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);margin-bottom:6px}
+.control input,.control select{width:100%;background:var(--surf2);color:var(--t1);border:1px solid var(--border);border-radius:7px;padding:8px;font-family:var(--fm);font-size:12px}
+.alert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.alert-card{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:14px}
+.alert-card.warn{border-color:rgba(255,168,48,.35);background:var(--amber-a)}
+.alert-card.danger{border-color:rgba(255,92,92,.35);background:var(--coral-a)}
+.alert-title{font-family:var(--fm);font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
+.alert-card.warn .alert-title{color:var(--amber)}.alert-card.danger .alert-title{color:var(--coral)}
 .macros-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
 .footer{border-top:1px solid var(--border);max-width:1080px;margin:0 auto;padding:24px 24px 36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px}
 .ft-title{font-family:var(--fm);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--t3);margin-bottom:8px}
@@ -167,7 +177,12 @@ a:hover{border-bottom-style:solid}
 <!-- NAV PERSISTENTE -->
 <nav>
   <div class="nav-brand">Yayo &middot; <em>Panel de Salud</em></div>
-  <div class="nav-date" id="navDate"></div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <a href="guia-alimentos-colon-irritable.html" style="display:inline-flex;align-items:center;gap:6px;background:rgba(0,201,167,0.12);color:var(--teal);border:1px solid rgba(0,201,167,0.3);padding:5px 12px;border-radius:99px;font-family:var(--fd);font-size:12px;font-weight:600;text-decoration:none;transition:all 0.2s">
+      🌿 Gu&iacute;a FODMAP &rarr;
+    </a>
+    <div class="nav-date" id="navDate"></div>
+  </div>
 </nav>
 
 <!-- HERO PERSISTENTE (PESO CONFIRMADO + RECORRIDO DE KILOS) -->
@@ -209,15 +224,15 @@ a:hover{border-bottom-style:solid}
   <div class="sec-head"><h2>Composici&oacute;n Corporal Actual</h2><span class="badge">28 Jul 2026 &middot; Naval USA</span></div>
   <div class="bodycomp">
     <div class="bc-card lean">
-      <div class="bc-lbl">Masa Magra &mdash; proteger siempre</div>
+      <div class="bc-lbl">Masa libre de grasa estimada</div>
       <div class="bc-val">74.2 kg</div>
-      <div class="bc-sub">75.4% del peso total &middot; m&uacute;sculo, hueso, &oacute;rganos, agua</div>
+      <div class="bc-sub">75.4% &middot; incluye agua, gluc&oacute;geno, m&uacute;sculo, hueso y &oacute;rganos</div>
       <div class="bc-bar"></div>
     </div>
     <div class="bc-card fat">
       <div class="bc-lbl">Masa Grasa &mdash; objetivo reducir</div>
       <div class="bc-val">24.3 kg</div>
-      <div class="bc-sub">24.7% del peso total &middot; meta: llegar a 14&ndash;16%</div>
+      <div class="bc-sub">24.7% del peso total &middot; Naval es una estimaci&oacute;n, no una medici&oacute;n directa</div>
       <div class="bc-bar"></div>
     </div>
   </div>
@@ -247,63 +262,72 @@ a:hover{border-bottom-style:solid}
     <button class="tab-btn" onclick="switchTab('proporciones')" id="tab-btn-proporciones" role="tab" aria-selected="false">
       📐 Proyecci&oacute;n de Proporciones
     </button>
+    <a href="guia-alimentos-colon-irritable.html" class="tab-btn" style="color:var(--teal);border:1px solid rgba(0,201,167,0.35);background:rgba(0,201,167,0.1);text-decoration:none;display:inline-flex;align-items:center;gap:6px" title="Abrir Guía de Alimentos FODMAP (Colon Irritable)">
+      🌿 Gu&iacute;a Colon Irritable ↗
+    </a>
   </div>
 </div>
 
 <!-- ==================== PESTAÑA 1: CALORÍAS POR ESCENARIO ==================== -->
 <div id="tab-calorias" class="tab-content active" role="tabpanel">
   <div class="wrap">
-    <div class="sec-head"><h2>Calor&iacute;as por Escenario</h2><span class="badge">Base 98.50 kg &middot; BMR 1,969 kcal</span></div>
-    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px;font-size:11px">
-      <span style="color:var(--t2)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--t2);margin-right:5px"></span>Mantenimiento</span>
-      <span style="color:var(--teal)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:5px"></span>Seguro &minus;500 kcal</span>
-      <span style="color:var(--amber)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber);margin-right:5px"></span>Moderado &minus;700 kcal</span>
-      <span style="color:var(--coral)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--coral);margin-right:5px"></span>Agresivo &minus;800 kcal</span>
+    <div class="sec-head"><h2>Calor&iacute;as por Tipo de D&iacute;a</h2><span class="badge">Estimaci&oacute;n inicial &middot; se calibra con 3&ndash;4 semanas reales</span></div>
+    <div class="cards" style="margin-bottom:16px">
+      <div class="card a"><div class="card-lbl">Fase actual</div><div class="card-val">&minus;700</div><div class="card-sub">kcal/d&iacute;a en promedio semanal</div></div>
+      <div class="card t"><div class="card-lbl">Cambio planeado</div><div class="card-val">~90 kg</div><div class="card-sub">pasar a &minus;500 kcal/d&iacute;a</div></div>
+      <div class="card b"><div class="card-lbl">D&eacute;ficit semanal actual</div><div class="card-val">4,900</div><div class="card-sub">kcal te&oacute;ricas por semana</div></div>
+      <div class="card"><div class="card-lbl">Prote&iacute;na</div><div class="card-val">170&ndash;190 g</div><div class="card-sub">todos los tipos de d&iacute;a</div></div>
     </div>
+
+    <div class="infobox" style="margin-bottom:16px">
+      <strong>Variar calor&iacute;as no es malo:</strong> puedes comer m&aacute;s en torso/pierna y menos en descanso si el promedio semanal conserva el d&eacute;ficit. La precauci&oacute;n es no reembolsar autom&aacute;ticamente el 100% de una quema estimada. Cuando ya exista un TDEE observado con tu rutina habitual, torso, pierna y pasos normales ya estar&aacute;n incluidos y no deben sumarse otra vez.
+    </div>
+
+    <div class="sec-head"><h2>Calculadora combinada: pesas + pasos</h2><span class="badge">Suma actividades netas del mismo d&iacute;a</span></div>
+    <div class="control-grid">
+      <div class="control"><label for="calcActivity">Sesi&oacute;n de fuerza</label><select id="calcActivity"><option value="5" selected>Torso / pesas (MET 5.0)</option><option value="5.5">Piernas / pesas (MET 5.5)</option><option value="1">Sin pesas</option></select></div>
+      <div class="control"><label for="calcMinutes">Minutos de fuerza</label><input id="calcMinutes" type="number" min="0" max="360" step="5" value="90"></div>
+      <div class="control"><label for="calcSteps">Pasos adicionales</label><input id="calcSteps" type="number" min="0" max="50000" step="500" value="0"></div>
+      <div class="control"><label for="calcCadence">Cadencia (pasos/min)</label><input id="calcCadence" type="number" min="40" max="180" step="5" value="100"></div>
+      <div class="control"><label for="calcWalkMet">Tipo de caminata</label><select id="calcWalkMet"><option value="3.3" selected>Plana moderada (MET 3.3)</option><option value="4.8">Vigorosa / inclinada (MET 4.8)</option></select></div>
+      <div class="control"><label for="calcWeight">Peso actual (kg)</label><input id="calcWeight" type="number" min="40" max="250" step="0.1" value="98.5"></div>
+      <div class="control"><label for="calcBase">Mantenimiento base</label><input id="calcBase" type="number" min="1200" max="5000" step="10" value="2363"></div>
+      <div class="control"><label for="calcDeficit">D&eacute;ficit del d&iacute;a</label><select id="calcDeficit"><option value="700" selected>&minus;700 kcal (fase actual)</option><option value="500">&minus;500 kcal (segunda fase)</option></select></div>
+    </div>
+    <div class="cards" style="margin-bottom:18px">
+      <div class="card b"><div class="card-lbl">Fuerza neta</div><div class="card-val" id="calcStrengthNet">621</div><div class="card-sub">kcal adicionales estimadas</div></div>
+      <div class="card b"><div class="card-lbl">Caminata neta</div><div class="card-val" id="calcWalkNet">0</div><div class="card-sub">kcal por pasos adicionales</div></div>
+      <div class="card a"><div class="card-lbl">Actividad neta total</div><div class="card-val" id="calcNet">621</div><div class="card-sub">fuerza + caminata</div></div>
+      <div class="card"><div class="card-lbl">Mantenimiento del d&iacute;a</div><div class="card-val" id="calcMaintenance">2,984</div><div class="card-sub">base + actividad neta</div></div>
+      <div class="card t"><div class="card-lbl">Objetivo del d&iacute;a</div><div class="card-val" id="calcTarget">2,284</div><div class="card-sub">mantenimiento estimado &minus; d&eacute;ficit</div></div>
+      <div class="card a"><div class="card-lbl">D&eacute;ficit semanal equivalente</div><div class="card-val" id="calcWeeklyDeficit">4,900</div><div class="card-sub">si el promedio diario se cumple</div></div>
+    </div>
+
+    <div class="sec-head"><h2>Referencias r&aacute;pidas con 98.5 kg</h2><span class="badge">No reemplazan el TDEE observado</span></div>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th style="width:36%">Escenario</th>
+            <th style="width:34%">Tipo de d&iacute;a</th>
+            <th class="c" style="color:var(--blue)">Actividad neta</th>
             <th class="c" style="color:var(--t2)">Mantenimiento</th>
-            <th class="c" style="color:var(--teal)">&#9679; Seguro</th>
-            <th class="c" style="color:var(--amber)">&#9679; Moderado</th>
-            <th class="c" style="color:var(--coral)">&#9679; Agresivo</th>
+            <th class="c" style="color:var(--teal)">&minus;500</th>
+            <th class="c" style="color:var(--amber)">&minus;700</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="grp-row"><td colspan="5">Sin ejercicio</td></tr>
-          <tr><td><span class="scen-n">#1</span><span class="scen-name">Cama &rarr; sof&aacute; &rarr; series</span><span class="scen-det">Sedentario puro</span></td><td class="c c-maint">2,363</td><td class="c c-opt">1,863</td><td class="c c-mod">1,663</td><td class="c c-agg">1,563</td></tr>
-          <tr><td><span class="scen-n">#2</span><span class="scen-name">Sedentario + tareas del hogar</span><span class="scen-det">Limpiar, lavar, cocinar</span></td><td class="c c-maint">2,499</td><td class="c c-opt">1,999</td><td class="c c-mod">1,799</td><td class="c c-agg">1,699</td></tr>
-          <tr class="grp-row"><td colspan="5">Walking pad &middot; 10k pasos</td></tr>
-          <tr><td><span class="scen-n">#3a</span><span class="scen-name">Trabajo + 10k pasos plano / calle</span><span class="scen-det">0&ndash;2% &middot; +575 kcal</span></td><td class="c c-maint">2,938</td><td class="c c-opt">2,438</td><td class="c c-mod">2,238</td><td class="c c-agg">2,138</td></tr>
-          <tr><td><span class="scen-n">#3b</span><span class="scen-name">Trabajo + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+855 kcal &middot; sweet spot</span></td><td class="c c-maint">3,218</td><td class="c c-opt">2,718</td><td class="c c-mod">2,518</td><td class="c c-agg">2,418</td></tr>
-          <tr class="grp-row"><td colspan="5">Gym 2 horas (+720 kcal)</td></tr>
-          <tr><td><span class="scen-n">#4</span><span class="scen-name">Gym 2h + sedentario</span><span class="scen-det">Solo gym, resto inactivo</span></td><td class="c c-maint">3,083</td><td class="c c-opt">2,583</td><td class="c c-mod">2,383</td><td class="c c-agg">2,283</td></tr>
-          <tr><td><span class="scen-n">#5a</span><span class="scen-name">Gym 2h + 10k pasos plano</span><span class="scen-det">+1,295 kcal total</span></td><td class="c c-maint">3,658</td><td class="c c-opt">3,158</td><td class="c c-mod">2,958</td><td class="c c-agg">2,858</td></tr>
-          <tr><td><span class="scen-n">#5b</span><span class="scen-name">Gym 2h + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,575 kcal total</span></td><td class="c c-maint">3,938</td><td class="c c-opt">3,438</td><td class="c c-mod">3,238</td><td class="c c-agg">3,138</td></tr>
-          <tr><td><span class="scen-n">#5c</span><span class="scen-name">Gym 2h + 10k pasos 12% inclinaci&oacute;n</span><span class="scen-det">Modo beast &middot; +2,040 kcal</span></td><td class="c c-maint">4,403</td><td class="c c-opt">3,903</td><td class="c c-mod">3,703</td><td class="c c-agg">3,603</td></tr>
-          <tr class="grp-row"><td colspan="5">Gym 1h 10min (+440 kcal)</td></tr>
-          <tr><td><span class="scen-n">#6</span><span class="scen-name">Gym 1h10 + sedentario</span><span class="scen-det">Solo gym, resto inactivo</span></td><td class="c c-maint">2,803</td><td class="c c-opt">2,303</td><td class="c c-mod">2,103</td><td class="c c-agg">2,003</td></tr>
-          <tr><td><span class="scen-n">#7a</span><span class="scen-name">Gym 1h10 + 10k pasos plano</span><span class="scen-det">+1,015 kcal total</span></td><td class="c c-maint">3,378</td><td class="c c-opt">2,878</td><td class="c c-mod">2,678</td><td class="c c-agg">2,578</td></tr>
-          <tr><td><span class="scen-n">#7b</span><span class="scen-name">Gym 1h10 + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,295 kcal total</span></td><td class="c c-maint">3,658</td><td class="c c-opt">3,158</td><td class="c c-mod">2,958</td><td class="c c-agg">2,858</td></tr>
-
-          <!-- ESCENARIOS CORREGIDOS 2024 COMPENDIUM: TORSO Y PIERNAS -->
-          <tr class="grp-row"><td colspan="5">&#x1F4AA; Torso 1h30 &mdash; Upper body &middot; MET 5.0 &middot; +770 kcal</td></tr>
-          <tr><td><span class="scen-n">#8a</span><span class="scen-name">Torso 1h30 + sedentario</span><span class="scen-det">Pecho, espalda, hombros, brazos &middot; +770 kcal</span></td><td class="c c-maint">3,133</td><td class="c c-opt">2,633</td><td class="c c-mod">2,433</td><td class="c c-agg">2,333</td></tr>
-          <tr><td><span class="scen-n">#8b</span><span class="scen-name">Torso 1h30 + 10k pasos plano</span><span class="scen-det">+1,345 kcal total</span></td><td class="c c-maint">3,708</td><td class="c c-opt">3,208</td><td class="c c-mod">3,008</td><td class="c c-agg">2,908</td></tr>
-          <tr><td><span class="scen-n">#8c</span><span class="scen-name">Torso 1h30 + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,625 kcal total</span></td><td class="c c-maint">3,988</td><td class="c c-opt">3,488</td><td class="c c-mod">3,288</td><td class="c c-agg">3,188</td></tr>
-
-          <tr class="grp-row"><td colspan="5">&#x1F9B5; Piernas 1h30 &mdash; Lower body &middot; MET 5.5 &middot; +851 kcal</td></tr>
-          <tr><td><span class="scen-n">#9a</span><span class="scen-name">Piernas 1h30 + sedentario</span><span class="scen-det">Sentadilla, peso muerto, prensa &middot; +851 kcal</span></td><td class="c c-maint">3,214</td><td class="c c-opt">2,714</td><td class="c c-mod">2,514</td><td class="c c-agg">2,414</td></tr>
-          <tr><td><span class="scen-n">#9b</span><span class="scen-name">Piernas 1h30 + 10k pasos plano</span><span class="scen-det">+1,426 kcal total</span></td><td class="c c-maint">3,789</td><td class="c c-opt">3,289</td><td class="c c-mod">3,089</td><td class="c c-agg">2,989</td></tr>
-          <tr><td><span class="scen-n">#9c</span><span class="scen-name">Piernas 1h30 + 10k pasos 5% inclinaci&oacute;n</span><span class="scen-det">+1,706 kcal total</span></td><td class="c c-maint">4,069</td><td class="c c-opt">3,569</td><td class="c c-mod">3,369</td><td class="c c-agg">3,269</td></tr>
+          <tr><td><span class="scen-name">Descanso sedentario</span><span class="scen-det">Sin actividad estructurada adicional</span></td><td class="c c-maint">0</td><td class="c c-maint">2,363</td><td class="c c-opt">1,863</td><td class="c c-mod">1,663</td></tr>
+          <tr><td><span class="scen-name">Torso &middot; 90 min</span><span class="scen-det">MET 5.0 provisional</span></td><td class="c" style="color:var(--blue)">621</td><td class="c c-maint">2,984</td><td class="c c-opt">2,484</td><td class="c c-mod">2,284</td></tr>
+          <tr><td><span class="scen-name">Torso 90 min + 5k pasos planos</span><span class="scen-det">100 pasos/min &middot; 50 min de caminata estimada</span></td><td class="c" style="color:var(--blue)">819</td><td class="c c-maint">3,182</td><td class="c c-opt">2,682</td><td class="c c-mod">2,482</td></tr>
+          <tr><td><span class="scen-name">Torso 90 min + 10k pasos planos</span><span class="scen-det">100 pasos/min &middot; 100 min de caminata estimada</span></td><td class="c" style="color:var(--blue)">1,017</td><td class="c c-maint">3,380</td><td class="c c-opt">2,880</td><td class="c c-mod">2,680</td></tr>
+          <tr><td><span class="scen-name">Piernas &middot; 90 min</span><span class="scen-det">MET 5.5 provisional</span></td><td class="c" style="color:var(--blue)">698</td><td class="c c-maint">3,061</td><td class="c c-opt">2,561</td><td class="c c-mod">2,361</td></tr>
+          <tr><td><span class="scen-name">Pesas gen&eacute;ricas &middot; 120 min</span><span class="scen-det">MET 5.0 provisional</span></td><td class="c" style="color:var(--blue)">827</td><td class="c c-maint">3,190</td><td class="c c-opt">2,690</td><td class="c c-mod">2,490</td></tr>
+          <tr><td><span class="scen-name">Otras combinaciones</span><span class="scen-det">Seleccionar pesas, pasos, cadencia e inclinaci&oacute;n arriba</span></td><td colspan="4" class="c" style="color:var(--t3)">La calculadora suma ambos componentes netos</td></tr>
         </tbody>
       </table>
     </div>
     <div class="infobox">
-      <strong>Pasos &amp; inclinaci&oacute;n:</strong> Plano / 0&ndash;2% &asymp; 575 kcal &middot; 5% &asymp; 855 kcal &middot; 12% &asymp; 1,320 kcal &middot; Margen: &plusmn;15&ndash;20% &middot; No agarrarse del pasamanos<br>
-      <strong>Torso vs Piernas (2024 Compendium Real):</strong> Durante el workout la diferencia es moderada (<strong style="color:var(--teal)">+81 kcal</strong> &middot; MET 5.0 vs 5.5) por descansos largos. La ventaja real de piernas es el <strong style="color:var(--teal)">EPOC (afterburn)</strong> elevado post-ejercicio y la <strong style="color:var(--teal)">respuesta hormonal</strong> (Testosterona +16%, GH alta) &middot; Fuente: 2024 Adult Compendium of Physical Activities (Ainsworth et al.)
+      <strong>Pasos y pesas s&iacute; se pueden combinar:</strong> pasos &divide; cadencia estima minutos de caminata; la calculadora suma caminata neta + fuerza neta. Usa s&oacute;lo pasos adicionales al mantenimiento base. Si tu TDEE observado ya incluye 10k pasos habituales y cuatro entrenamientos, no vuelvas a sumarlos; agrega &uacute;nicamente actividad fuera de esa rutina.
     </div>
   </div>
 </div>
@@ -312,10 +336,10 @@ a:hover{border-bottom-style:solid}
 <div id="tab-historial-peso" class="tab-content" role="tabpanel">
   <!-- CHARTS DE MASA MAGRA Y MASA GRASA -->
   <div class="wrap" style="margin-bottom: 24px;">
-    <div class="sec-head"><h2>Desglose de Composici&oacute;n Corporal (kg)</h2><span class="badge">Masa Magra vs. Masa Grasa</span></div>
+    <div class="sec-head"><h2>Desglose de Composici&oacute;n Corporal (kg)</h2><span class="badge">Masa libre de grasa vs. masa grasa</span></div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
       <div class="chart-wrap" style="margin-bottom:0">
-        <div class="chart-title"><span>Evoluci&oacute;n Masa Magra (kg)</span><span style="color:var(--teal)">● M&uacute;sculo</span></div>
+        <div class="chart-title"><span>Evoluci&oacute;n masa libre de grasa estimada (kg)</span><span style="color:var(--teal)">● No equivale a m&uacute;sculo</span></div>
         <canvas id="leanWeightCanvas"></canvas>
       </div>
       <div class="chart-wrap" style="margin-bottom:0">
@@ -474,7 +498,7 @@ a:hover{border-bottom-style:solid}
     <div class="sec-head"><h2>Composici&oacute;n Corporal Actual</h2><span class="badge">28 Jul 2026 &middot; Naval USA</span></div>
     <div class="bodycomp">
       <div class="bc-card lean">
-        <div class="bc-lbl">Masa Magra &mdash; proteger siempre</div>
+        <div class="bc-lbl">Masa libre de grasa estimada</div>
         <div class="bc-val">74.2 kg</div>
         <div class="bc-sub">75.4% del peso total &middot; m&uacute;sculo, hueso, &oacute;rganos, agua</div>
         <div class="bc-bar"></div>
@@ -482,7 +506,7 @@ a:hover{border-bottom-style:solid}
       <div class="bc-card fat">
         <div class="bc-lbl">Masa Grasa &mdash; objetivo reducir</div>
         <div class="bc-val">24.3 kg</div>
-        <div class="bc-sub">24.7% del peso total &middot; meta: llegar a 14&ndash;16%</div>
+        <div class="bc-sub">24.7% del peso total &middot; Naval tiene incertidumbre individual</div>
         <div class="bc-bar"></div>
       </div>
     </div>
@@ -490,9 +514,9 @@ a:hover{border-bottom-style:solid}
 
   <!-- CHART DEDICADO DE MASA MAGRA EN COMPOSICIÓN CORPORAL -->
   <div class="wrap" style="margin-bottom: 24px;">
-    <div class="sec-head"><h2>Gr&aacute;fico Espec&iacute;fico de Masa Magra</h2><span class="badge">Modelo Naval USA</span></div>
+    <div class="sec-head"><h2>Gr&aacute;fico de Masa Libre de Grasa Estimada</h2><span class="badge">Modelo Naval USA &middot; no mide m&uacute;sculo directamente</span></div>
     <div class="chart-wrap" style="margin-bottom:0">
-      <div class="chart-title"><span>Masa Magra (kg) &mdash; Cuello + Cintura + Altura 179cm</span><span style="color:var(--teal)">● Actual 74.2 kg</span></div>
+      <div class="chart-title"><span>Masa libre de grasa (kg) &mdash; Cuello + Cintura + Altura 179cm</span><span style="color:var(--teal)">● Actual 74.2 kg estimados</span></div>
       <canvas id="compLeanCanvas"></canvas>
     </div>
   </div>
@@ -766,85 +790,79 @@ a:hover{border-bottom-style:solid}
 <!-- ==================== PESTAÑA 5: PROYECCIÓN DE BAJADA DE PESO ==================== -->
 <div id="tab-proyeccion" class="tab-content" role="tabpanel">
   <div class="wrap">
-    <div class="sec-head"><h2>Proyecci&oacute;n de Bajada de Peso</h2><span class="badge">Base 98.5 kg &middot; Meta 80 kg &middot; &minus;18.5 kg &middot; Inicia Ago '26</span></div>
-    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px;font-size:11px">
-      <span style="color:var(--teal)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:5px"></span>&minus;500 kcal/d&iacute;a &middot; Seguro &middot; &asymp;0.45 kg/sem</span>
-      <span style="color:var(--amber)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber);margin-right:5px"></span>&minus;700 kcal/d&iacute;a &middot; Moderado &middot; &asymp;0.64 kg/sem</span>
-      <span style="color:var(--coral)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--coral);margin-right:5px"></span>&minus;800 kcal/d&iacute;a &middot; Agresivo &middot; &asymp;0.73 kg/sem</span>
+    <div class="sec-head"><h2>Proyecci&oacute;n Consensuada a 12 Meses</h2><span class="badge">Base 98.5 kg &middot; 3 Ago 2026 &rarr; 3 Ago 2027</span></div>
+    <div class="cards" style="margin-bottom:18px">
+      <div class="card a"><div class="card-lbl">Fase 1</div><div class="card-val">&minus;700</div><div class="card-sub">hasta acercarse a 90 kg</div></div>
+      <div class="card t"><div class="card-lbl">Fase 2</div><div class="card-val">&minus;500</div><div class="card-sub">desde ~4&ndash;5 Nov hasta 31 Dic</div></div>
+      <div class="card b"><div class="card-lbl">Plan al 31 Dic</div><div class="card-val">86.3 kg</div><div class="card-sub">rango pr&aacute;ctico inicial 86&ndash;89 kg</div></div>
+      <div class="card"><div class="card-lbl">Piso del modelo</div><div class="card-val">80 kg</div><div class="card-sub">al llegar, asume mantenimiento</div></div>
     </div>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th style="width:16%">Mes</th>
-            <th class="c" style="color:var(--teal)">&#9679; &minus;500 kcal<br><span style="font-size:9px;color:var(--t3);text-transform:none;letter-spacing:0">&asymp;0.45 kg/sem</span></th>
-            <th class="c" style="color:var(--amber)">&#9679; &minus;700 kcal<br><span style="font-size:9px;color:var(--t3);text-transform:none;letter-spacing:0">&asymp;0.64 kg/sem</span></th>
-            <th class="c" style="color:var(--coral)">&#9679; &minus;800 kcal<br><span style="font-size:9px;color:var(--t3);text-transform:none;letter-spacing:0">&asymp;0.73 kg/sem</span></th>
+            <th>Fecha</th>
+            <th class="c" style="color:var(--teal)">&minus;500 hasta meta</th>
+            <th class="c" style="color:var(--amber)">&minus;700 hasta meta</th>
+            <th class="c" style="color:var(--blue)">Plan &minus;700 &rarr; &minus;500</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Mes 1<br><span style="font-size:9px;color:var(--t3)">Ago '26</span></td><td class="c c-opt">96.3 kg</td><td class="c" style="color:var(--amber)">95.5 kg</td><td class="c c-agg">95.1 kg</td></tr>
-          <tr><td>Mes 2<br><span style="font-size:9px;color:var(--t3)">Sep '26</span></td><td class="c c-opt">94.3 kg</td><td class="c" style="color:var(--amber)">92.8 kg</td><td class="c c-agg">92.0 kg</td></tr>
-          <tr><td>Mes 3<br><span style="font-size:9px;color:var(--t3)">Oct '26</span></td><td class="c c-opt">92.4 kg</td><td class="c" style="color:var(--amber)">90.0 kg</td><td class="c c-agg">88.8 kg</td></tr>
-          <tr><td>Mes 4<br><span style="font-size:9px;color:var(--t3)">Nov '26</span></td><td class="c c-opt">90.4 kg</td><td class="c" style="color:var(--amber)">87.2 kg</td><td class="c c-agg">85.7 kg</td></tr>
-          <tr><td>Mes 5<br><span style="font-size:9px;color:var(--t3)">Dic '26</span></td><td class="c c-opt">88.4 kg</td><td class="c" style="color:var(--amber)">84.5 kg</td><td class="c c-agg">82.5 kg</td></tr>
-          <tr><td>Mes 6<br><span style="font-size:9px;color:var(--t3)">Ene '27</span></td><td class="c c-opt">86.4 kg</td><td class="c" style="color:var(--amber)">81.7 kg</td><td class="c"><span class="tag tag-cur">&#127919; 80 kg &middot; ~5.8m</span></td></tr>
-          <tr><td>Mes 7<br><span style="font-size:9px;color:var(--t3)">Feb '27</span></td><td class="c c-opt">84.5 kg</td><td class="c"><span class="tag tag-cur">&#127919; 80 kg &middot; ~6.6m</span></td><td class="c" style="color:var(--t3)">Meta alcanzada</td></tr>
-          <tr><td>Mes 8<br><span style="font-size:9px;color:var(--t3)">Mar '27</span></td><td class="c c-opt">82.5 kg</td><td class="c" style="color:var(--t3)">Meta alcanzada</td><td class="c" style="color:var(--t3)">Meta alcanzada</td></tr>
-          <tr><td>Mes 9<br><span style="font-size:9px;color:var(--t3)">Abr '27</span></td><td class="c c-opt">80.5 kg</td><td class="c" style="color:var(--t3)">&mdash;</td><td class="c" style="color:var(--t3)">&mdash;</td></tr>
-          <tr><td>Mes 10<br><span style="font-size:9px;color:var(--t3)">May '27</span></td><td class="c"><span class="tag tag-cur">&#127919; 80 kg &middot; ~9.8m</span></td><td class="c" style="color:var(--t3)">&mdash;</td><td class="c" style="color:var(--t3)">&mdash;</td></tr>
-          <tr><td>Mes 11<br><span style="font-size:9px;color:var(--t3)">Jun '27</span></td><td class="c" style="color:var(--t3)">Meta alcanzada</td><td class="c" style="color:var(--t3)">&mdash;</td><td class="c" style="color:var(--t3)">&mdash;</td></tr>
-          <tr><td>Mes 12<br><span style="font-size:9px;color:var(--t3)">Jul '27</span></td><td class="c" style="color:var(--t3)">Meta alcanzada</td><td class="c" style="color:var(--t3)">&mdash;</td><td class="c" style="color:var(--t3)">&mdash;</td></tr>
+          <tr><td>31 Ago 2026</td><td class="c c-opt">96.7 kg</td><td class="c c-mod">96.0 kg</td><td class="c" style="color:var(--blue);font-weight:600">96.0 kg</td></tr>
+          <tr><td>30 Sep 2026</td><td class="c c-opt">94.7 kg</td><td class="c c-mod">93.2 kg</td><td class="c" style="color:var(--blue);font-weight:600">93.2 kg</td></tr>
+          <tr><td>31 Oct 2026</td><td class="c c-opt">92.7 kg</td><td class="c c-mod">90.4 kg</td><td class="c" style="color:var(--blue);font-weight:600">90.4 kg</td></tr>
+          <tr><td>30 Nov 2026</td><td class="c c-opt">90.8 kg</td><td class="c c-mod">87.7 kg</td><td class="c" style="color:var(--blue);font-weight:600">88.3 kg</td></tr>
+          <tr class="work-row"><td>31 Dic 2026</td><td class="c c-opt">88.8 kg</td><td class="c c-mod">84.9 kg</td><td class="c" style="color:var(--blue);font-weight:700">86.3 kg te&oacute;rico<br><span style="font-size:9px;color:var(--t3)">86&ndash;89 kg pr&aacute;ctico</span></td></tr>
+          <tr><td>31 Ene 2027</td><td class="c c-opt">86.7 kg</td><td class="c c-mod">82.0 kg</td><td class="c" style="color:var(--blue);font-weight:600">84.3 kg</td></tr>
+          <tr><td>28 Feb 2027</td><td class="c c-opt">84.9 kg</td><td class="c c-mod">80.0 kg &#127919;</td><td class="c" style="color:var(--blue);font-weight:600">82.5 kg</td></tr>
+          <tr><td>31 Mar 2027</td><td class="c c-opt">82.9 kg</td><td class="c c-mod">80.0 kg</td><td class="c" style="color:var(--blue);font-weight:600">80.5 kg</td></tr>
+          <tr><td>30 Abr 2027</td><td class="c c-opt">81.0 kg</td><td class="c c-mod">80.0 kg</td><td class="c" style="color:var(--blue);font-weight:600">80.0 kg &#127919;</td></tr>
+          <tr><td>31 May 2027</td><td class="c c-opt">80.0 kg &#127919;</td><td class="c c-mod">80.0 kg</td><td class="c" style="color:var(--blue);font-weight:600">80.0 kg</td></tr>
+          <tr><td>30 Jun 2027</td><td class="c c-opt">80.0 kg</td><td class="c c-mod">80.0 kg</td><td class="c" style="color:var(--blue);font-weight:600">80.0 kg</td></tr>
+          <tr><td>31 Jul 2027</td><td class="c c-opt">80.0 kg</td><td class="c c-mod">80.0 kg</td><td class="c" style="color:var(--blue);font-weight:600">80.0 kg</td></tr>
         </tbody>
       </table>
     </div>
     <div class="infobox">
-      <strong>&iquest;Qu&eacute; significa "Mes 1"?</strong> Mes 1 = Agosto 2026, el mes en curso ahora mismo (no un mes que a&uacute;n no empieza). Cada "Mes N" es aproximadamente N meses calendario contados desde hoy (3 Ago 2026) &mdash; son marcas de referencia, no fechas exactas al d&iacute;a.<br>
-      <strong>Metodolog&iacute;a:</strong> 1 kg de grasa &asymp; 7,700 kcal. Proyecci&oacute;n lineal sobre d&eacute;ficit sostenido todos los d&iacute;as &mdash; no considera que el TDEE baja levemente a medida que bajas de peso, as&iacute; que el ritmo real tiende a frenarse un poco con el tiempo.<br>
-      <strong>Ritmo semanal:</strong> &minus;500 kcal &asymp; 0.45 kg/sem &middot; &minus;700 kcal &asymp; 0.64 kg/sem &middot; &minus;800 kcal &asymp; 0.73 kg/sem &middot; los tres se mantienen por debajo o muy cerca del umbral de ~1%/semana asociado a mayor riesgo de p&eacute;rdida muscular (Helms et al. 2014).
+      <strong>Metodolog&iacute;a solicitada:</strong> comparaci&oacute;n usando 7,700 kcal/kg y un <em>d&eacute;ficit real sostenido</em>. Esto exige recalibrar la ingesta cada cuatro semanas, porque al bajar de peso tambi&eacute;n baja el gasto. El plan escalonado alcanza 90 kg a inicios de noviembre y cambia entonces a &minus;500. Las tres columnas se detienen en 80 kg y desde ah&iacute; asumen mantenimiento; con calor&iacute;as fijas, sin recalibraci&oacute;n, la bajada normalmente ser&iacute;a m&aacute;s lenta que esta tabla por adaptaci&oacute;n fisiol&oacute;gica. Fechas te&oacute;ricas de 80 kg: &minus;700, ~22 Feb; plan, ~8 Abr; &minus;500, ~15 May.
+      <br><strong>Comparaci&oacute;n matem&aacute;tica sin piso (no recomendada ni usada para medidas):</strong> forzar la resta lineal durante 365 d&iacute;as dar&iacute;a 74.8 kg con &minus;500, 65.3 kg con &minus;700 y 72.4 kg con el plan. Esas cifras chocan con la masa libre de grasa estimada y omiten la desaceleraci&oacute;n din&aacute;mica; por eso el panel operativo muestra mantenimiento al alcanzar 80 kg.
     </div>
   </div>
 
   <div class="wrap" style="margin-top:24px">
-    <div class="sec-head"><h2>Impacto Estimado en Masa Magra y Grasa</h2><span class="badge">Seg&uacute;n tu perfil: 200&ndash;300g prote&iacute;na &middot; entrenamiento a fallo 2x/semana por grupo</span></div>
+    <div class="sec-head"><h2>Grasa y M&uacute;sculo: Cuantificaci&oacute;n Aproximada Solicitada</h2><span class="badge">Bandas de planificaci&oacute;n &middot; no medici&oacute;n</span></div>
     <div class="cards">
       <div class="card t">
-        <div class="card-lbl">&minus;500 kcal/d&iacute;a &middot; Seguro</div>
-        <div class="card-val">0.45 kg<span style="font-size:12px;color:var(--t3);font-weight:500">/sem total</span></div>
-        <div class="card-sub" style="margin-bottom:8px">Peso total perdido por semana (grasa + m&uacute;sculo)</div>
-        <div style="padding-top:8px;border-top:1px solid var(--border)">
-          <div style="font-family:var(--fm);font-size:13px;color:var(--teal);font-weight:600">M&uacute;sculo: 0 a +25 g/sem</div>
-          <div class="card-sub">0.46%/sem &middot; por debajo del umbral 0.7%/sem (Garthe 2011) donde atletas entrenando fuerza <strong>ganaron</strong> masa magra &middot; total hasta meta (~9.8 meses): mantener &rarr; +1 kg</div>
-          <div style="font-family:var(--fm);font-size:13px;color:var(--amber);font-weight:600;margin-top:8px">Grasa perdida total: 18.5 a 19.5 kg</div>
-          <div class="card-sub">De los 18.5 kg netos que bajas, casi todo (o m&aacute;s, si ganas m&uacute;sculo) sale de grasa</div>
-        </div>
+        <div class="card-lbl">&minus;500 constante</div>
+        <div class="card-val">88.8 &rarr; 86.6 &rarr; 80 kg</div>
+        <div class="card-sub"><strong>31 Dic:</strong> grasa 8.2&ndash;9.2 &middot; m&uacute;sculo 0&ndash;0.5 kg<br><strong>6 meses (3 Feb):</strong> grasa 10.0&ndash;11.3 &middot; m&uacute;sculo 0&ndash;0.6 kg<br><strong>12 meses:</strong> grasa 15.5&ndash;17.5 &middot; m&uacute;sculo 0&ndash;1.0 kg</div>
       </div>
       <div class="card a">
-        <div class="card-lbl">&minus;700 kcal/d&iacute;a &middot; Moderado</div>
-        <div class="card-val">0.64 kg<span style="font-size:12px;color:var(--t3);font-weight:500">/sem total</span></div>
-        <div class="card-sub" style="margin-bottom:8px">Peso total perdido por semana (grasa + m&uacute;sculo)</div>
-        <div style="padding-top:8px;border-top:1px solid var(--border)">
-          <div style="font-family:var(--fm);font-size:13px;color:var(--amber);font-weight:600">M&uacute;sculo: &minus;10 a +25 g/sem</div>
-          <div class="card-sub">0.65%/sem &middot; a&uacute;n por debajo del umbral 0.7%/sem, perfil casi id&eacute;ntico al &minus;500 &middot; total hasta meta (~6.6 meses): &minus;0.3 &rarr; +0.7 kg</div>
-          <div style="font-family:var(--fm);font-size:13px;color:var(--amber);font-weight:600;margin-top:8px">Grasa perdida total: 18.2 a 19.2 kg</div>
-          <div class="card-sub">Pr&aacute;cticamente igual que &minus;500 &mdash; el margen de m&uacute;sculo perdido/ganado es peque&ntilde;o</div>
-        </div>
+        <div class="card-lbl">&minus;700 constante</div>
+        <div class="card-val">84.9 &rarr; 81.8 &rarr; 80 kg</div>
+        <div class="card-sub"><strong>31 Dic:</strong> grasa 10.7&ndash;12.9 &middot; m&uacute;sculo 0&ndash;1.1 kg<br><strong>6 meses (3 Feb):</strong> grasa 13.1&ndash;15.8 &middot; m&uacute;sculo 0&ndash;1.4 kg<br><strong>12 meses:</strong> grasa 14.5&ndash;17.5 &middot; m&uacute;sculo 0&ndash;1.5 kg</div>
       </div>
-      <div class="card c">
-        <div class="card-lbl">&minus;800 kcal/d&iacute;a &middot; Agresivo</div>
-        <div class="card-val">0.73 kg<span style="font-size:12px;color:var(--t3);font-weight:500">/sem total</span></div>
-        <div class="card-sub" style="margin-bottom:8px">Peso total perdido por semana (grasa + m&uacute;sculo)</div>
-        <div style="padding-top:8px;border-top:1px solid var(--border)">
-          <div style="font-family:var(--fm);font-size:13px;color:var(--coral);font-weight:600">M&uacute;sculo: &minus;40 a +10 g/sem</div>
-          <div class="card-sub">0.74%/sem &middot; justo en/sobre el umbral lento &middot; incluso al doble de ritmo (1.4%/sem) ese estudio no mostr&oacute; p&eacute;rdida, solo ausencia de ganancia &middot; total hasta meta (~5.8 meses): &minus;1 &rarr; +0.3 kg</div>
-          <div style="font-family:var(--fm);font-size:13px;color:var(--coral);font-weight:600;margin-top:8px">Grasa perdida total: 17.5 a 18.8 kg</div>
-          <div class="card-sub">El escenario con mayor rango de incertidumbre entre grasa y m&uacute;sculo perdido</div>
-        </div>
+      <div class="card b">
+        <div class="card-lbl">Plan &minus;700 &rarr; &minus;500</div>
+        <div class="card-val">86.3 &rarr; 84.1 &rarr; 80 kg</div>
+        <div class="card-sub"><strong>31 Dic:</strong> grasa 9.9&ndash;11.5 &middot; m&uacute;sculo 0&ndash;1.0 kg<br><strong>6 meses (3 Feb):</strong> grasa 11.7&ndash;13.6 &middot; m&uacute;sculo 0&ndash;1.2 kg<br><strong>12 meses:</strong> grasa 15.0&ndash;17.5 &middot; m&uacute;sculo 0&ndash;1.5 kg</div>
       </div>
     </div>
     <div class="infobox">
-      <strong>Por qu&eacute; estos rangos:</strong> con prote&iacute;na de 200&ndash;300g (muy por encima del m&iacute;nimo de preservaci&oacute;n muscular, ~2.3&ndash;3.1 g/kg de masa magra seg&uacute;n Helms et al. 2014) y entrenamiento de fuerza a fallo/cerca del fallo 2x por semana por grupo muscular, la p&eacute;rdida de m&uacute;sculo es poco probable en los tres escenarios. El riesgo real no es el n&uacute;mero de kcal en s&iacute;, sino meses donde el entrenamiento baje de intensidad (por rehabilitaci&oacute;n, lesi&oacute;n o pausas largas) &mdash; ah&iacute; es donde el rango se acerca m&aacute;s al extremo negativo, sobre todo en &minus;800 kcal.<br>
-      <strong>C&oacute;mo se calcula la grasa:</strong> peso perdido total hasta meta (18.5 kg, igual en los tres escenarios porque todos llegan a 80 kg) menos el cambio de m&uacute;sculo estimado. Si ganas m&uacute;sculo, la grasa perdida es mayor a 18.5 kg; si pierdes algo de m&uacute;sculo, es menor.
+      <strong>C&oacute;mo leer estas bandas:</strong> son una cuantificaci&oacute;n aproximada incluida porque el usuario la solicita; no existe una prueba que pueda predecir sus kilos individuales de m&uacute;sculo. &ldquo;M&uacute;sculo&rdquo; se refiere a tejido contr&aacute;ctil estimado, no a toda la masa libre de grasa. La diferencia restante en la b&aacute;scula puede ser agua, gluc&oacute;geno, contenido gastrointestinal u otro tejido magro. Al acercarse a 80 kg, el porcentaje Naval implicar&iacute;a un nivel de grasa potencialmente bajo: se debe confirmar con cintura, fotos, rendimiento y una medici&oacute;n profesional antes de insistir en esa meta.
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-top:24px">
+    <div class="sec-head"><h2>Alarmas obligatorias de seguimiento</h2><span class="badge">La IA debe avisar al actualizar registros</span></div>
+    <div class="alert-grid">
+      <div class="alert-card warn"><div class="alert-title">Velocidad &middot; amarilla</div><div class="card-sub">M&aacute;s de 0.8 kg/semana en un promedio completo de siete d&iacute;as, despu&eacute;s de las primeras dos semanas.</div></div>
+      <div class="alert-card danger"><div class="alert-title">Velocidad &middot; roja</div><div class="card-sub">M&aacute;s de 0.8 kg/semana durante dos semanas consecutivas: recalibrar TDEE y considerar pasar a &minus;500.</div></div>
+      <div class="alert-card warn"><div class="alert-title">Rendimiento / recuperaci&oacute;n</div><div class="card-sub">Ca&iacute;da aproximada &ge;5% en dos ejercicios ancla o empeoramiento sostenido de sue&ntilde;o, fatiga o recuperaci&oacute;n durante 7&ndash;14 d&iacute;as.</div></div>
+      <div class="alert-card danger"><div class="alert-title">Rehabilitaci&oacute;n inmediata</div><div class="card-sub">Hormigueo/adormecimiento de anular o me&ntilde;ique, debilidad o dolor persistente: detener el ejercicio desencadenante y seguir indicaciones profesionales.</div></div>
+    </div>
+    <div class="infobox">
+      <strong>Cadencia:</strong> peso/calor&iacute;as/prote&iacute;na/sue&ntilde;o a diario; ejercicios ancla en cada sesi&oacute;n; promedio de peso semanal; cintura y fotos cada dos semanas; TDEE, proyecci&oacute;n y medidas completas cada cuatro semanas.
     </div>
   </div>
 </div>
@@ -909,6 +927,30 @@ a:hover{border-bottom-style:solid}
 
 <!-- ==================== PESTAÑA 7: PROYECCIÓN DE PROPORCIONES ==================== -->
 <div id="tab-proporciones" class="tab-content" role="tabpanel">
+  <div class="wrap">
+    <div class="sec-head"><h2>Proyecci&oacute;n Mensual de Peso, Composici&oacute;n y Proporciones</h2><span class="badge">Aproximaci&oacute;n solicitada &middot; reemplazar con datos reales</span></div>
+    <div class="cards" style="margin-bottom:18px">
+      <div class="card"><div class="card-lbl">Peso base</div><div class="card-val">98.5 kg</div><div class="card-sub">28 Jul 2026</div></div>
+      <div class="card a"><div class="card-lbl">Cintura base</div><div class="card-val">102 cm</div><div class="card-sub">medida al ombligo</div></div>
+      <div class="card b"><div class="card-lbl">Ambos hombros</div><div class="card-val">~129 cm</div><div class="card-sub">primera medici&oacute;n; sin tendencia todav&iacute;a</div></div>
+    </div>
+    <div class="control-grid" style="margin-bottom:16px">
+      <div class="control"><label for="forecastScenario">Escenario mostrado</label><select id="forecastScenario"><option value="stepped" selected>Plan &minus;700 &rarr; &minus;500</option><option value="500">&minus;500 constante</option><option value="700">&minus;700 constante</option></select></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Fecha</th><th class="c">Peso</th><th class="c">Bajada total</th><th class="c">Grasa perdida*</th><th class="c">M&uacute;sculo perdido*</th><th class="c">Cintura*</th><th class="c">Espalda + pecho*</th><th class="c">Ambos hombros*</th><th class="c">Ratio H:C*</th></tr></thead>
+        <tbody id="projectionMeasuresBody"></tbody>
+      </table>
+    </div>
+    <div class="infobox">
+      <strong>*Cuantificaci&oacute;n aproximada solicitada:</strong> peso usa el mismo modelo energ&eacute;tico de la pesta&ntilde;a anterior; grasa y m&uacute;sculo interpolan las bandas de planificaci&oacute;n hasta 80 kg. Las circunferencias usan las regresiones hist&oacute;ricas internas: cintura &minus;0.87 cm, espalda+pecho &minus;0.56 cm y ambos hombros &minus;0.65 cm por kg de peso perdido. Son hip&oacute;tesis para comparar, no promesas biol&oacute;gicas; hombros s&oacute;lo tienen un ancla y son la variable menos confiable. Cintura real cada dos semanas y medidas completas cada cuatro semanas reemplazan estas cifras.
+    </div>
+  </div>
+</div>
+
+<!-- MODELO ANTERIOR CONSERVADO SÓLO COMO HISTORIAL; NO SE MUESTRA NI SE USA -->
+<div id="tab-proporciones-legacy" class="tab-content" role="tabpanel" hidden aria-hidden="true">
   <div class="wrap">
     <div class="sec-head"><h2>Proyecci&oacute;n de Proporciones</h2><span class="badge">Base 28 Jul 2026 &middot; 98.5 kg &middot; Cintura 102cm &middot; Espalda+Pecho 111cm &middot; Ambos-hombros ~129cm &middot; Mes 1 = Ago '26</span></div>
     <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px;font-size:11px">
@@ -1008,31 +1050,32 @@ a:hover{border-bottom-style:solid}
   <div class="sec-head"><h2>M&eacute;tricas Clave</h2><span class="badge">Actualizado 28 Jul 2026</span></div>
   <div class="cards">
     <div class="card"><div class="card-lbl">BMR &middot; Solo existir</div><div class="card-val">1,969</div><div class="card-sub">kcal &middot; sin mover un dedo</div></div>
-    <div class="card a"><div class="card-lbl">Mantenimiento sedentario</div><div class="card-val">2,363</div><div class="card-sub">kcal &middot; cama &rarr; sof&aacute; &rarr; series</div></div>
-    <div class="card t"><div class="card-lbl">Seguro &minus;500 kcal</div><div class="card-val">1,863</div><div class="card-sub">kcal &middot; d&iacute;a sedentario</div></div>
-    <div class="card" style="border-color:rgba(255,168,48,0.3)"><div class="card-lbl">Moderado &minus;700 kcal</div><div class="card-val" style="color:var(--amber)">1,663</div><div class="card-sub">kcal &middot; d&iacute;a sedentario</div></div>
-    <div class="card c"><div class="card-lbl">Agresivo &minus;800 kcal</div><div class="card-val">1,563</div><div class="card-sub">kcal &middot; riesgo muscular</div></div>
+    <div class="card a"><div class="card-lbl">Mantenimiento sedentario estimado</div><div class="card-val">2,363</div><div class="card-sub">provisional hasta calibrar TDEE observado</div></div>
+    <div class="card" style="border-color:rgba(255,168,48,0.3)"><div class="card-lbl">Fase actual</div><div class="card-val" style="color:var(--amber)">&minus;700</div><div class="card-sub">promedio diario &middot; 4,900 kcal/sem</div></div>
+    <div class="card t"><div class="card-lbl">Segunda fase</div><div class="card-val">&minus;500</div><div class="card-sub">alrededor de 90 kg o antes por alarma</div></div>
+    <div class="card b"><div class="card-lbl">Final pr&aacute;ctico 31 Dic</div><div class="card-val">86&ndash;89 kg</div><div class="card-sub">86.3 kg en el modelo te&oacute;rico</div></div>
+    <div class="card a"><div class="card-lbl">Proyecci&oacute;n a 12 meses</div><div class="card-val">80 kg</div><div class="card-sub">piso del modelo; mantenimiento desde la meta</div></div>
     <div class="card"><div class="card-lbl">% Grasa corporal</div><div class="card-val">24.7%</div><div class="card-sub">F&oacute;rmula Naval USA</div></div>
-    <div class="card t"><div class="card-lbl">Masa magra</div><div class="card-val">74.2 kg</div><div class="card-sub">proteger siempre</div></div>
-    <div class="card"><div class="card-lbl">Grasa total</div><div class="card-val">24.3 kg</div><div class="card-sub">kg a eliminar</div></div>
-    <div class="card b"><div class="card-lbl">Kg para meta</div><div class="card-val">18.5 kg</div><div class="card-sub">&sim;9.4 meses al ritmo seguro</div></div>
+    <div class="card t"><div class="card-lbl">Masa libre de grasa estimada</div><div class="card-val">74.2 kg</div><div class="card-sub">no equivale a m&uacute;sculo contr&aacute;ctil</div></div>
+    <div class="card"><div class="card-lbl">Grasa estimada actual</div><div class="card-val">24.3 kg</div><div class="card-sub">Naval; contiene incertidumbre</div></div>
+    <div class="card b"><div class="card-lbl">Grasa a perder hasta 31 Dic</div><div class="card-val">9.5&ndash;11.5 kg</div><div class="card-sub">banda de planificaci&oacute;n</div></div>
   </div>
 </div>
 
 <!-- MACROS OBJETIVO PERSISTENTE -->
 <div class="wrap" style="margin-top: 20px;">
-  <div class="sec-head"><h2>Macros Objetivo</h2><span class="badge">D&iacute;a sedentario &middot; 1,863 kcal</span></div>
+  <div class="sec-head"><h2>Macros Objetivo</h2><span class="badge">La energ&iacute;a var&iacute;a; la prote&iacute;na se mantiene</span></div>
   <div class="macros-grid">
-    <div class="card t"><div class="card-lbl">Prote&iacute;na</div><div class="card-val">163&ndash;180 g</div><div class="card-sub">720 kcal &middot; 39% &middot; 2.2g/kg masa magra</div></div>
-    <div class="card a"><div class="card-lbl">Carbohidratos</div><div class="card-val">169 g</div><div class="card-sub">677 kcal &middot; 36% &middot; +150g en d&iacute;a de gym</div></div>
-    <div class="card"><div class="card-lbl">Grasas</div><div class="card-val">52 g</div><div class="card-sub">466 kcal &middot; 25% &middot; m&iacute;nimo para hormonas</div></div>
-    <div class="card b"><div class="card-lbl">D&iacute;a de gym</div><div class="card-val">&sim;2,500 kcal</div><div class="card-sub">Extra principalmente en carbos</div></div>
+    <div class="card t"><div class="card-lbl">Prote&iacute;na</div><div class="card-val">170&ndash;190 g</div><div class="card-sub">objetivo diario pr&aacute;ctico; 200 g aceptable, 300 g innecesario</div></div>
+    <div class="card a"><div class="card-lbl">Carbohidratos</div><div class="card-val">Variables</div><div class="card-sub">priorizar el extra alrededor de torso/pierna</div></div>
+    <div class="card"><div class="card-lbl">Grasas</div><div class="card-val">60&ndash;80 g</div><div class="card-sub">ajustar sin desplazar prote&iacute;na ni energ&iacute;a total</div></div>
+    <div class="card b"><div class="card-lbl">Calor&iacute;as del d&iacute;a</div><div class="card-val">Calculadas</div><div class="card-sub">tipo de d&iacute;a + control del promedio semanal</div></div>
   </div>
 </div>
 
 <div class="footer">
-  <div><div class="ft-title">M&eacute;todos de c&aacute;lculo</div><div class="ft-text">BMR: Mifflin-St Jeor + Katch-McArdle (promedio)<br>% Grasa: F&oacute;rmula Naval USA<br>Pasos: ACSM Equations + Compendium of Physical Activities<br>Kcal ejercicio: MET &times; peso &times; 3.5 &divide; 200</div></div>
-  <div><div class="ft-title">Objetivos</div><div class="ft-text">Meta: 80 kg<br>D&eacute;ficit recomendado: &minus;500 kcal/d&iacute;a (Seguro)<br>Prote&iacute;na: 163&ndash;180 g/d&iacute;a<br>Ritmo: &sim;0.5&ndash;0.6 kg/semana</div></div>
+  <div><div class="ft-title">M&eacute;todos de c&aacute;lculo</div><div class="ft-text">BMR: Mifflin-St Jeor + Katch-McArdle (promedio)<br>% Grasa: F&oacute;rmula Naval USA<br>Actividad adicional: (MET &minus; 1) &times; 3.5 &times; kg &divide; 200 &times; minutos<br>Autoridad pr&aacute;ctica: TDEE observado en 3&ndash;4 semanas</div></div>
+  <div><div class="ft-title">Objetivos</div><div class="ft-text">Plan: &minus;700 &rarr; &minus;500 cerca de 90 kg<br>Prote&iacute;na: 170&ndash;190 g/d&iacute;a<br>Alarma: &gt;0.8 kg/sem sostenido<br>31 Dic: 86&ndash;89 kg pr&aacute;cticos &middot; piso del modelo: 80 kg</div></div>
   <div><div class="ft-title">&Uacute;ltima actualizaci&oacute;n</div><div class="ft-text">Peso: 98.5 kg &middot; 28 Jul 2026<br>Medidas: 28 Jul 2026<br>Historial: Sep 2025 &rarr; Jul 2026</div></div>
 </div>
 
@@ -1046,14 +1089,27 @@ a:hover{border-bottom-style:solid}
       &bull; <strong style="color:var(--t2)">BMR:</strong> Mifflin-St Jeor + Katch-McArdle (promedio)<br>
       &bull; <strong style="color:var(--t2)">% Grasa corporal:</strong> F&oacute;rmula Naval USA (circunferencias)<br>
       &bull; <strong style="color:var(--t2)">Pasos / caminata:</strong> ACSM Walking Equations + Compendium of Physical Activities (Ainsworth et al., 2011/2024)<br>
-      &bull; <strong style="color:var(--t2)">Kcal de ejercicio:</strong> MET &times; peso (kg) &times; 3.5 &divide; 200
+      &bull; <strong style="color:var(--t2)">Actividad adicional neta:</strong> (MET &minus; 1) &times; 3.5 &times; peso (kg) &divide; 200 &times; minutos; despu&eacute;s se sustituye por TDEE observado
+    </div>
+  </div>
+
+  <div style="margin-bottom:22px">
+    <div class="ft-title" style="margin-bottom:10px">Calor&iacute;as variables, medici&oacute;n de actividad y compensaci&oacute;n</div>
+    <div class="ft-text" style="line-height:1.9">
+      &bull; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7739314/" target="_blank" rel="noopener">Campbell et al. (2020)</a> &middot; d&iacute;as de restricci&oacute;n y dos refeeds a mantenimiento funcionaron con el mismo objetivo semanal; variar calor&iacute;as no es perjudicial por s&iacute; mismo<br>
+      &bull; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5491979/" target="_blank" rel="noopener">Shcherbina et al. (2017)</a> &middot; siete wearables midieron razonablemente el pulso, pero ninguno estim&oacute; bien el gasto energ&eacute;tico; no usar el reloj como reembolso exacto<br>
+      &bull; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8551017/" target="_blank" rel="noopener">Careau et al. (2021)</a> &middot; el gasto total puede compensar parcialmente aumentos de actividad; las kcal de ejercicio no siempre se suman 1:1 al TDEE<br>
+      &bull; <a href="https://pubmed.ncbi.nlm.nih.gov/26832439/" target="_blank" rel="noopener">Pontzer et al. (2016)</a> &middot; gasto total medido con agua doblemente marcada frente a actividad en 332 adultos; base del modelo de gasto parcialmente restringido
     </div>
   </div>
 
   <div style="margin-bottom:22px">
     <div class="ft-title" style="margin-bottom:10px">Proyecci&oacute;n de p&eacute;rdida de peso &middot; d&eacute;ficit cal&oacute;rico</div>
     <div class="ft-text" style="line-height:1.9">
-      &bull; Conversi&oacute;n usada en la tabla: 1 kg de grasa &asymp; 7,700 kcal<br>
+      &bull; Conversi&oacute;n operativa usada en la tabla solicitada: 1 kg de cambio de peso &asymp; 7,700 kcal; sirve como escenario, no como ley fisiol&oacute;gica de largo plazo<br>
+      &bull; <a href="https://www.niddk.nih.gov/research-funding/at-niddk/labs-branches/laboratory-biological-modeling/integrative-physiology-section/research/body-weight-planner" target="_blank" rel="noopener">NIDDK Body Weight Planner</a> &middot; modelo din&aacute;mico oficial que incorpora cambios de metabolismo, apetito y gasto conforme cambia el peso<br>
+      &bull; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3880593/" target="_blank" rel="noopener">Hall et al. (2011)</a> &middot; demuestra por qu&eacute; la regla lineal est&aacute;tica sobrestima la p&eacute;rdida de largo plazo cuando la ingesta permanece fija; fundamenta recalibrar cada cuatro semanas<br>
+      &bull; <a href="https://mediatum.ub.tum.de/doc/1632530/1632530.pdf" target="_blank" rel="noopener">Murphy &amp; Koehler (2022)</a> &middot; metaan&aacute;lisis: la recomendaci&oacute;n prudente para priorizar masa magra es limitar el d&eacute;ficit a &le;500 kcal/d&iacute;a; no convierte el riesgo a kg individuales<br>
       &bull; <a href="https://link.springer.com/article/10.1186/1550-2783-11-20" target="_blank" rel="noopener">Helms, Aragon &amp; Fitschen (2014)</a> &middot; J Int Soc Sports Nutr &middot; umbral 0.5&ndash;1%/semana y 2.3&ndash;3.1 g/kg de masa magra en prote&iacute;na para maximizar retenci&oacute;n muscular<br>
       &bull; <a href="https://pubmed.ncbi.nlm.nih.gov/21558571/" target="_blank" rel="noopener">Garthe et al. (2011)</a> &middot; Int J Sport Nutr Exerc Metab &middot; 0.7%/sem vs. 1.4%/sem en atletas: el grupo lento gan&oacute; masa magra, el r&aacute;pido no perdi&oacute; pero tampoco gan&oacute;
     </div>
@@ -1062,11 +1118,9 @@ a:hover{border-bottom-style:solid}
   <div style="margin-bottom:22px">
     <div class="ft-title" style="margin-bottom:10px">Preservaci&oacute;n / impacto en masa magra</div>
     <div class="ft-text" style="line-height:1.9">
-      &bull; <a href="https://ajcn.nutrition.org/article/S0002-9165(22)06559-5/fulltext" target="_blank" rel="noopener">Longland et al. (2016)</a> &middot; AJCN &middot; d&eacute;ficit del 40% + prote&iacute;na alta (2.4 g/kg) + entrenamiento intenso en j&oacute;venes con sobrepeso <em>sin entrenamiento previo</em>: ganancia neta de masa magra<br>
-      &bull; <a href="https://www.boltpharmacy.co.uk/guide/can-i-take-creatine-in-a-calorie-deficit" target="_blank" rel="noopener">Creatina en d&eacute;ficit cal&oacute;rico</a> &middot; retenci&oacute;n de ~0.5&ndash;2 kg extra de masa magra vs. placebo en programas con entrenamiento de fuerza<br>
-      &bull; <a href="https://doi.org/10.3390/nu15132926" target="_blank" rel="noopener">Omega-3 y s&iacute;ntesis proteica muscular</a> &middot; Nutrients (2023) &middot; efecto anti-catab&oacute;lico mecan&iacute;stico, resultados mixtos en s&iacute;ntesis neta<br>
-      &bull; <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9530508/" target="_blank" rel="noopener">Memoria muscular / mionucleos</a> &middot; meta-an&aacute;lisis &middot; los mionucleos ganados en entrenamientos previos se mantienen meses/a&ntilde;os aunque se pause el entrenamiento<br>
-      &bull; <a href="https://www.researchgate.net/publication/349287497_Classification_and_Determination_Model_of_Resistance_Training_Status" target="_blank" rel="noopener">Clasificaci&oacute;n de status de entrenamiento</a> &middot; criterios usados para evaluar historial de entrenamiento intermitente
+      &bull; <a href="https://pubmed.ncbi.nlm.nih.gov/26817506/" target="_blank" rel="noopener">Longland et al. (2016)</a> &middot; hombres con l&iacute;nea base muy parecida; protocolo corto y extraordinariamente controlado, por lo que no se extrapola a cinco meses<br>
+      &bull; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7739314/" target="_blank" rel="noopener">Campbell et al. (2020)</a> &middot; personas entrenadas, siete semanas, 1.8 g/kg de prote&iacute;na y fuerza supervisada; la masa libre de grasa vari&oacute; seg&uacute;n el grupo<br>
+      &bull; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4422265/" target="_blank" rel="noopener">Robinson et al. (2015)</a> &middot; caso individual m&aacute;s delgado, ~0.84 kg/sem y p&eacute;rdida desfavorable de masa libre de grasa; justifica la alarma prudente de velocidad
     </div>
   </div>
 
@@ -1097,6 +1151,116 @@ a:hover{border-bottom-style:solid}
 <script>
 // Nav date
 document.getElementById('navDate').textContent = new Date().toLocaleDateString('es-MX',{weekday:'short',year:'numeric',month:'short',day:'numeric'});
+
+// Calculadora provisional de gasto neto por tipo de día.
+// Resta 1 MET porque el mantenimiento base ya contiene el gasto de reposo.
+function updateCalorieCalculator() {
+  const activity = document.getElementById('calcActivity');
+  const minutesInput = document.getElementById('calcMinutes');
+  const stepsInput = document.getElementById('calcSteps');
+  const cadenceInput = document.getElementById('calcCadence');
+  const walkMetInput = document.getElementById('calcWalkMet');
+  const weightInput = document.getElementById('calcWeight');
+  const baseInput = document.getElementById('calcBase');
+  const deficitInput = document.getElementById('calcDeficit');
+  if (!activity || !minutesInput || !stepsInput || !cadenceInput || !walkMetInput || !weightInput || !baseInput || !deficitInput) return;
+
+  const met = Number(activity.value) || 1;
+  const minutes = Math.max(0, Number(minutesInput.value) || 0);
+  const steps = Math.max(0, Number(stepsInput.value) || 0);
+  const cadence = Math.max(1, Number(cadenceInput.value) || 100);
+  const walkMet = Number(walkMetInput.value) || 1;
+  const weight = Math.max(0, Number(weightInput.value) || 0);
+  const base = Math.max(0, Number(baseInput.value) || 0);
+  const deficit = Math.max(0, Number(deficitInput.value) || 0);
+  const strengthNet = Math.max(0, (met - 1) * 3.5 * weight / 200 * minutes);
+  const walkMinutes = steps / cadence;
+  const walkNet = Math.max(0, (walkMet - 1) * 3.5 * weight / 200 * walkMinutes);
+  const netActivity = strengthNet + walkNet;
+  const maintenance = base + netActivity;
+  const target = maintenance - deficit;
+  const format = value => Math.round(value).toLocaleString('es-MX');
+
+  document.getElementById('calcStrengthNet').textContent = format(strengthNet);
+  document.getElementById('calcWalkNet').textContent = format(walkNet);
+  document.getElementById('calcNet').textContent = format(netActivity);
+  document.getElementById('calcMaintenance').textContent = format(maintenance);
+  document.getElementById('calcTarget').textContent = format(target);
+  document.getElementById('calcWeeklyDeficit').textContent = format(deficit * 7);
+}
+
+['calcActivity','calcMinutes','calcSteps','calcCadence','calcWalkMet','calcWeight','calcBase','calcDeficit'].forEach(id => {
+  const input = document.getElementById(id);
+  if (input) {
+    input.addEventListener('input', updateCalorieCalculator);
+    input.addEventListener('change', updateCalorieCalculator);
+  }
+});
+updateCalorieCalculator();
+
+// Proyección exploratoria solicitada: se recalcula al cambiar de escenario.
+// Se detiene en 80 kg y asume mantenimiento; no extrapola un déficit indefinido.
+const forecastDates = [
+  { label: '3 Ago 2026 (base)', days: 0 },
+  { label: '31 Ago 2026', days: 28 },
+  { label: '30 Sep 2026', days: 58 },
+  { label: '31 Oct 2026', days: 89 },
+  { label: '30 Nov 2026', days: 119 },
+  { label: '31 Dic 2026', days: 150 },
+  { label: '31 Ene 2027', days: 181 },
+  { label: '28 Feb 2027', days: 209 },
+  { label: '31 Mar 2027', days: 240 },
+  { label: '30 Abr 2027', days: 270 },
+  { label: '31 May 2027', days: 301 },
+  { label: '30 Jun 2027', days: 331 },
+  { label: '31 Jul 2027', days: 362 }
+];
+
+const forecastScenarios = {
+  '500': { fat: [15.5, 17.5], muscleMax: 1.0 },
+  '700': { fat: [14.5, 17.5], muscleMax: 1.5 },
+  stepped: { fat: [15.0, 17.5], muscleMax: 1.5 }
+};
+
+function forecastWeight(days, scenario) {
+  const start = 98.5;
+  const floor = 80;
+  if (scenario === '500') return Math.max(floor, start - days * 500 / 7700);
+  if (scenario === '700') return Math.max(floor, start - days * 700 / 7700);
+  const phaseOneDays = (start - 90) * 7700 / 700;
+  const weight = days <= phaseOneDays
+    ? start - days * 700 / 7700
+    : 90 - (days - phaseOneDays) * 500 / 7700;
+  return Math.max(floor, weight);
+}
+
+function renderMeasurementProjection() {
+  const selector = document.getElementById('forecastScenario');
+  const body = document.getElementById('projectionMeasuresBody');
+  if (!selector || !body) return;
+  const scenario = selector.value;
+  const config = forecastScenarios[scenario] || forecastScenarios.stepped;
+  body.innerHTML = forecastDates.map((point, index) => {
+    const weight = forecastWeight(point.days, scenario);
+    const lost = 98.5 - weight;
+    const progress = Math.min(1, Math.max(0, lost / 18.5));
+    const fatLow = config.fat[0] * progress;
+    const fatHigh = config.fat[1] * progress;
+    const muscleHigh = config.muscleMax * progress;
+    const waist = 102 - 0.87 * lost;
+    const torso = 111 - 0.56 * lost;
+    const shoulders = 129 - 0.65 * lost;
+    const ratio = shoulders / waist;
+    const rowClass = index === 0 ? ' class="work-row"' : '';
+    const approx = index === 0 ? '&mdash;' : `${fatLow.toFixed(1)}&ndash;${fatHigh.toFixed(1)} kg`;
+    const muscle = index === 0 ? '&mdash;' : `0&ndash;${muscleHigh.toFixed(1)} kg`;
+    return `<tr${rowClass}><td>${point.label}</td><td class="c" style="color:var(--blue);font-weight:600">${weight.toFixed(1)} kg</td><td class="c">${lost.toFixed(1)} kg</td><td class="c c-opt">${approx}</td><td class="c c-mod">${muscle}</td><td class="c">${waist.toFixed(1)} cm</td><td class="c">${torso.toFixed(1)} cm</td><td class="c">${shoulders.toFixed(1)} cm</td><td class="c">${ratio.toFixed(2)}</td></tr>`;
+  }).join('');
+}
+
+const forecastScenarioInput = document.getElementById('forecastScenario');
+if (forecastScenarioInput) forecastScenarioInput.addEventListener('change', renderMeasurementProjection);
+renderMeasurementProjection();
 
 // Journey bar animation
 const peak=101.5,goal=80.0,cur=98.5;
