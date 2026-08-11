@@ -13,6 +13,7 @@
 >    - **Petición del Usuario**: (Resumen del prompt recibido)
 >    - **Cambios Realizados**: (Archivos modificados/creados y decisiones técnicas)
 >    - **Estado del Proyecto**: (Archivos actuales y punto de partida para la siguiente IA)
+> 4. **Regla obligatoria de actualización corporal**: cada vez que el usuario proporcione un peso o medidas de cinta nuevos, actualizar en la misma sesión ambos HTML (`index.html` y `yayo-panel-salud-tabs.html`): fecha y peso actuales, historial y gráficas, tabla completa de medidas, composición corporal estimada, BMR/mantenimiento sedentario, peso/base de la calculadora, tablas de calorías y proyecciones dependientes. Registrar el cambio aquí e incluirlo en el siguiente commit/push solicitado. Las mediciones reales nuevas sustituyen inmediatamente cualquier proyección para esa fecha.
 
 ---
 

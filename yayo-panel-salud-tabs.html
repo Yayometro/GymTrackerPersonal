@@ -177,28 +177,23 @@ a:hover{border-bottom-style:solid}
 <!-- NAV PERSISTENTE -->
 <nav>
   <div class="nav-brand">Yayo &middot; <em>Panel de Salud</em></div>
-  <div style="display:flex;align-items:center;gap:10px">
-    <a href="guia-alimentos-colon-irritable.html" style="display:inline-flex;align-items:center;gap:6px;background:rgba(0,201,167,0.12);color:var(--teal);border:1px solid rgba(0,201,167,0.3);padding:5px 12px;border-radius:99px;font-family:var(--fd);font-size:12px;font-weight:600;text-decoration:none;transition:all 0.2s">
-      🌿 Gu&iacute;a FODMAP &rarr;
-    </a>
-    <div class="nav-date" id="navDate"></div>
-  </div>
+  <div class="nav-date" id="navDate"></div>
 </nav>
 
 <!-- HERO PERSISTENTE (PESO CONFIRMADO + RECORRIDO DE KILOS) -->
 <div class="hero">
-  <div class="eyebrow">&#9655; Peso confirmado &middot; 28 Julio 2026</div>
+  <div class="eyebrow">&#9655; Peso confirmado &middot; 10 Agosto 2026</div>
   <div class="hero-row">
-    <span class="hero-num">98.5</span>
+    <span class="hero-num">98.1</span>
     <span class="hero-unit">kg</span>
   </div>
-  <div class="hero-cap">Registrado 28 Jul &middot; Altura 179 cm &middot; 29 a&ntilde;os &middot; Meta: 80 kg</div>
+  <div class="hero-cap">Registrado 10 Ago &middot; Altura 179 cm &middot; 29 a&ntilde;os &middot; Meta: 80 kg</div>
 
   <div class="journey">
     <div class="journey-header">Recorrido &middot; M&aacute;ximo &rarr; Meta</div>
     <div class="j-stats">
       <div class="j-stat c-coral"><span class="j-val">101.5 kg</span><span class="j-lbl">M&aacute;ximo &middot; Abr '26</span></div>
-      <div class="j-stat c-teal"><span class="j-val">98.5 kg</span><span class="j-lbl">Actual &middot; 28 Jul '26</span></div>
+      <div class="j-stat c-teal"><span class="j-val">98.1 kg</span><span class="j-lbl">Actual &middot; 10 Ago '26</span></div>
       <div class="j-stat c-amber"><span class="j-val">80.0 kg</span><span class="j-lbl">Meta</span></div>
       <div class="j-stat c-blue"><span class="j-val" id="pctVal">0%</span><span class="j-lbl">Completado</span></div>
     </div>
@@ -214,25 +209,25 @@ a:hover{border-bottom-style:solid}
 <div class="wrap">
   <div class="sec-head"><h2>Tendencia de Peso Total</h2><span class="badge">Sep 2025 &rarr; Jul 2026 &middot; Toca / Hover</span></div>
   <div class="chart-wrap" style="margin-bottom: 0;">
-    <div class="chart-title"><span>Gr&aacute;fica de peso (kg)</span><span style="color:var(--teal)">● Actual 98.5 kg</span></div>
+    <div class="chart-title"><span>Gr&aacute;fica de peso (kg)</span><span style="color:var(--teal)">● Actual 98.1 kg</span></div>
     <canvas id="wtCanvas"></canvas>
   </div>
 </div>
 
 <!-- COMPOSICIÓN CORPORAL EN HEADER PERSISTENTE -->
 <div class="wrap">
-  <div class="sec-head"><h2>Composici&oacute;n Corporal Actual</h2><span class="badge">28 Jul 2026 &middot; Naval USA</span></div>
+  <div class="sec-head"><h2>Composici&oacute;n Corporal Actual</h2><span class="badge">10 Ago 2026 &middot; Naval USA</span></div>
   <div class="bodycomp">
     <div class="bc-card lean">
       <div class="bc-lbl">Masa libre de grasa estimada</div>
-      <div class="bc-val">74.2 kg</div>
-      <div class="bc-sub">75.4% &middot; incluye agua, gluc&oacute;geno, m&uacute;sculo, hueso y &oacute;rganos</div>
+      <div class="bc-val">73.8 kg</div>
+      <div class="bc-sub">75.2% &middot; incluye agua, gluc&oacute;geno, m&uacute;sculo, hueso y &oacute;rganos</div>
       <div class="bc-bar"></div>
     </div>
     <div class="bc-card fat">
       <div class="bc-lbl">Masa Grasa &mdash; objetivo reducir</div>
       <div class="bc-val">24.3 kg</div>
-      <div class="bc-sub">24.7% del peso total &middot; Naval es una estimaci&oacute;n, no una medici&oacute;n directa</div>
+      <div class="bc-sub">24.8% del peso total &middot; Naval es una estimaci&oacute;n, no una medici&oacute;n directa</div>
       <div class="bc-bar"></div>
     </div>
   </div>
@@ -262,9 +257,6 @@ a:hover{border-bottom-style:solid}
     <button class="tab-btn" onclick="switchTab('proporciones')" id="tab-btn-proporciones" role="tab" aria-selected="false">
       📐 Proyecci&oacute;n de Proporciones
     </button>
-    <a href="guia-alimentos-colon-irritable.html" class="tab-btn" style="color:var(--teal);border:1px solid rgba(0,201,167,0.35);background:rgba(0,201,167,0.1);text-decoration:none;display:inline-flex;align-items:center;gap:6px" title="Abrir Guía de Alimentos FODMAP (Colon Irritable)">
-      🌿 Gu&iacute;a Colon Irritable ↗
-    </a>
   </div>
 </div>
 
@@ -283,27 +275,35 @@ a:hover{border-bottom-style:solid}
       <strong>Variar calor&iacute;as no es malo:</strong> puedes comer m&aacute;s en torso/pierna y menos en descanso si el promedio semanal conserva el d&eacute;ficit. La precauci&oacute;n es no reembolsar autom&aacute;ticamente el 100% de una quema estimada. Cuando ya exista un TDEE observado con tu rutina habitual, torso, pierna y pasos normales ya estar&aacute;n incluidos y no deben sumarse otra vez.
     </div>
 
-    <div class="sec-head"><h2>Calculadora combinada: pesas + pasos</h2><span class="badge">Suma actividades netas del mismo d&iacute;a</span></div>
+    <div class="sec-head"><h2>Calculadora del d&iacute;a: pesas + caminadora + pasos</h2><span class="badge">Ingresa los pasos TOTALES del Apple Watch</span></div>
     <div class="control-grid">
       <div class="control"><label for="calcActivity">Sesi&oacute;n de fuerza</label><select id="calcActivity"><option value="5" selected>Torso / pesas (MET 5.0)</option><option value="5.5">Piernas / pesas (MET 5.5)</option><option value="1">Sin pesas</option></select></div>
-      <div class="control"><label for="calcMinutes">Minutos de fuerza</label><input id="calcMinutes" type="number" min="0" max="360" step="5" value="90"></div>
-      <div class="control"><label for="calcSteps">Pasos adicionales</label><input id="calcSteps" type="number" min="0" max="50000" step="500" value="0"></div>
-      <div class="control"><label for="calcCadence">Cadencia (pasos/min)</label><input id="calcCadence" type="number" min="40" max="180" step="5" value="100"></div>
-      <div class="control"><label for="calcWalkMet">Tipo de caminata</label><select id="calcWalkMet"><option value="3.3" selected>Plana moderada (MET 3.3)</option><option value="4.8">Vigorosa / inclinada (MET 4.8)</option></select></div>
-      <div class="control"><label for="calcWeight">Peso actual (kg)</label><input id="calcWeight" type="number" min="40" max="250" step="0.1" value="98.5"></div>
-      <div class="control"><label for="calcBase">Mantenimiento base</label><input id="calcBase" type="number" min="1200" max="5000" step="10" value="2363"></div>
+      <div class="control"><label for="calcMinutes">Minutos reales de fuerza</label><input id="calcMinutes" type="number" min="0" max="360" step="5" value="60"></div>
+      <div class="control"><label for="calcInclineMinutes">Caminadora al 15%</label><select id="calcInclineMinutes"><option value="0">No hice</option><option value="12">12 min</option><option value="15" selected>15 min</option></select></div>
+      <div class="control"><label for="calcSteps">Pasos TOTALES del Apple Watch</label><input id="calcSteps" type="number" min="0" max="50000" step="500" value="6500"></div>
+      <div class="control"><label for="calcWeight">Peso actual (kg)</label><input id="calcWeight" type="number" min="40" max="250" step="0.1" value="98.1"></div>
       <div class="control"><label for="calcDeficit">D&eacute;ficit del d&iacute;a</label><select id="calcDeficit"><option value="700" selected>&minus;700 kcal (fase actual)</option><option value="500">&minus;500 kcal (segunda fase)</option></select></div>
     </div>
+    <details style="margin:0 0 16px">
+      <summary style="cursor:pointer;color:var(--t2);font-size:12px">Ajustes avanzados (normalmente no necesitas tocarlos)</summary>
+      <div class="control-grid" style="margin-top:12px">
+        <div class="control"><label for="calcBase">Base sedentaria</label><input id="calcBase" type="number" min="1200" max="5000" step="10" value="2352"></div>
+        <div class="control"><label for="calcBaselineSteps">Pasos cotidianos ya incluidos</label><input id="calcBaselineSteps" type="number" min="0" max="10000" step="500" value="3000"></div>
+        <div class="control"><label for="calcCadence">Cadencia estimada</label><input id="calcCadence" type="number" min="40" max="180" step="5" value="100"></div>
+        <div class="control"><label for="calcWalkMet">Pasos planos</label><select id="calcWalkMet"><option value="3.3" selected>Moderados (MET 3.3)</option><option value="2.8">Lentos (MET 2.8)</option><option value="4.3">R&aacute;pidos (MET 4.3)</option></select></div>
+      </div>
+    </details>
     <div class="cards" style="margin-bottom:18px">
-      <div class="card b"><div class="card-lbl">Fuerza neta</div><div class="card-val" id="calcStrengthNet">621</div><div class="card-sub">kcal adicionales estimadas</div></div>
-      <div class="card b"><div class="card-lbl">Caminata neta</div><div class="card-val" id="calcWalkNet">0</div><div class="card-sub">kcal por pasos adicionales</div></div>
-      <div class="card a"><div class="card-lbl">Actividad neta total</div><div class="card-val" id="calcNet">621</div><div class="card-sub">fuerza + caminata</div></div>
-      <div class="card"><div class="card-lbl">Mantenimiento del d&iacute;a</div><div class="card-val" id="calcMaintenance">2,984</div><div class="card-sub">base + actividad neta</div></div>
-      <div class="card t"><div class="card-lbl">Objetivo del d&iacute;a</div><div class="card-val" id="calcTarget">2,284</div><div class="card-sub">mantenimiento estimado &minus; d&eacute;ficit</div></div>
+      <div class="card b"><div class="card-lbl">Fuerza neta</div><div class="card-val" id="calcStrengthNet">412</div><div class="card-sub">kcal adicionales estimadas</div></div>
+      <div class="card b"><div class="card-lbl">Caminadora inclinada</div><div class="card-val" id="calcInclineNet">163</div><div class="card-sub">2.5&ndash;4 km/h &middot; inclinaci&oacute;n 15%</div></div>
+      <div class="card b"><div class="card-lbl">Pasos planos extra</div><div class="card-val" id="calcWalkNet">79</div><div class="card-sub"><span id="calcExtraSteps">2,000</span> pasos tras evitar duplicados</div></div>
+      <div class="card a"><div class="card-lbl">Actividad neta total</div><div class="card-val" id="calcNet">654</div><div class="card-sub">fuerza + caminadora + pasos</div></div>
+      <div class="card"><div class="card-lbl">Mantenimiento del d&iacute;a</div><div class="card-val" id="calcMaintenance">3,006</div><div class="card-sub">base + actividad neta</div></div>
+      <div class="card t"><div class="card-lbl">Objetivo del d&iacute;a</div><div class="card-val" id="calcTarget">2,306</div><div class="card-sub">mantenimiento estimado &minus; d&eacute;ficit</div></div>
       <div class="card a"><div class="card-lbl">D&eacute;ficit semanal equivalente</div><div class="card-val" id="calcWeeklyDeficit">4,900</div><div class="card-sub">si el promedio diario se cumple</div></div>
     </div>
 
-    <div class="sec-head"><h2>Referencias r&aacute;pidas con 98.5 kg</h2><span class="badge">No reemplazan el TDEE observado</span></div>
+    <div class="sec-head"><h2>Referencias r&aacute;pidas con 98.1 kg</h2><span class="badge">No reemplazan el TDEE observado</span></div>
     <div class="table-wrap">
       <table>
         <thead>
@@ -316,18 +316,19 @@ a:hover{border-bottom-style:solid}
           </tr>
         </thead>
         <tbody>
-          <tr><td><span class="scen-name">Descanso sedentario</span><span class="scen-det">Sin actividad estructurada adicional</span></td><td class="c c-maint">0</td><td class="c c-maint">2,363</td><td class="c c-opt">1,863</td><td class="c c-mod">1,663</td></tr>
-          <tr><td><span class="scen-name">Torso &middot; 90 min</span><span class="scen-det">MET 5.0 provisional</span></td><td class="c" style="color:var(--blue)">621</td><td class="c c-maint">2,984</td><td class="c c-opt">2,484</td><td class="c c-mod">2,284</td></tr>
-          <tr><td><span class="scen-name">Torso 90 min + 5k pasos planos</span><span class="scen-det">100 pasos/min &middot; 50 min de caminata estimada</span></td><td class="c" style="color:var(--blue)">819</td><td class="c c-maint">3,182</td><td class="c c-opt">2,682</td><td class="c c-mod">2,482</td></tr>
-          <tr><td><span class="scen-name">Torso 90 min + 10k pasos planos</span><span class="scen-det">100 pasos/min &middot; 100 min de caminata estimada</span></td><td class="c" style="color:var(--blue)">1,017</td><td class="c c-maint">3,380</td><td class="c c-opt">2,880</td><td class="c c-mod">2,680</td></tr>
-          <tr><td><span class="scen-name">Piernas &middot; 90 min</span><span class="scen-det">MET 5.5 provisional</span></td><td class="c" style="color:var(--blue)">698</td><td class="c c-maint">3,061</td><td class="c c-opt">2,561</td><td class="c c-mod">2,361</td></tr>
-          <tr><td><span class="scen-name">Pesas gen&eacute;ricas &middot; 120 min</span><span class="scen-det">MET 5.0 provisional</span></td><td class="c" style="color:var(--blue)">827</td><td class="c c-maint">3,190</td><td class="c c-opt">2,690</td><td class="c c-mod">2,490</td></tr>
-          <tr><td><span class="scen-name">Otras combinaciones</span><span class="scen-det">Seleccionar pesas, pasos, cadencia e inclinaci&oacute;n arriba</span></td><td colspan="4" class="c" style="color:var(--t3)">La calculadora suma ambos componentes netos</td></tr>
+          <tr><td><span class="scen-name">Descanso sedentario</span><span class="scen-det">Base provisional; hasta ~3,000 pasos cotidianos</span></td><td class="c c-maint">0</td><td class="c c-maint">2,352</td><td class="c c-opt">1,852</td><td class="c c-mod">1,652</td></tr>
+          <tr><td><span class="scen-name">Torso 60 min + caminadora 15 min</span><span class="scen-det">2.5&ndash;4 km/h &middot; inclinaci&oacute;n 15% &middot; sin pasos extra</span></td><td class="c" style="color:var(--blue)">575</td><td class="c c-maint">2,927</td><td class="c c-opt">2,427</td><td class="c c-mod">2,227</td></tr>
+          <tr><td><span class="scen-name">Piernas 60 min + caminadora 15 min</span><span class="scen-det">2.5&ndash;4 km/h &middot; inclinaci&oacute;n 15% &middot; sin pasos extra</span></td><td class="c" style="color:var(--blue)">627</td><td class="c c-maint">2,979</td><td class="c c-opt">2,479</td><td class="c c-mod">2,279</td></tr>
+          <tr><td><span class="scen-name">Torso 60 min + caminadora + 6,500 pasos totales</span><span class="scen-det">Tu ejemplo: descuenta 3k cotidianos y ~1.5k de caminadora</span></td><td class="c" style="color:var(--blue)">654</td><td class="c c-maint">3,006</td><td class="c c-opt">2,506</td><td class="c c-mod">2,306</td></tr>
+          <tr><td><span class="scen-name">Torso 90 min + caminadora 15 min</span><span class="scen-det">MET 5.0 provisional &middot; sin pasos extra</span></td><td class="c" style="color:var(--blue)">781</td><td class="c c-maint">3,133</td><td class="c c-opt">2,633</td><td class="c c-mod">2,433</td></tr>
+          <tr><td><span class="scen-name">Piernas 90 min + caminadora 15 min</span><span class="scen-det">MET 5.5 provisional &middot; sin pasos extra</span></td><td class="c" style="color:var(--blue)">859</td><td class="c c-maint">3,211</td><td class="c c-opt">2,711</td><td class="c c-mod">2,511</td></tr>
+          <tr><td><span class="scen-name">Torso 90 min + caminadora + 10,000 pasos totales</span><span class="scen-det">Descuenta 3k cotidianos y ~1.5k ya hechos en caminadora</span></td><td class="c" style="color:var(--blue)">999</td><td class="c c-maint">3,351</td><td class="c c-opt">2,851</td><td class="c c-mod">2,651</td></tr>
+          <tr><td><span class="scen-name">Si la caminadora dura 12 min</span><span class="scen-det">Usa la calculadora o resta ~36 kcal al escenario equivalente de 15 min</span></td><td colspan="4" class="c" style="color:var(--t3)">La duraci&oacute;n ya se puede seleccionar arriba</td></tr>
         </tbody>
       </table>
     </div>
     <div class="infobox">
-      <strong>Pasos y pesas s&iacute; se pueden combinar:</strong> pasos &divide; cadencia estima minutos de caminata; la calculadora suma caminata neta + fuerza neta. Usa s&oacute;lo pasos adicionales al mantenimiento base. Si tu TDEE observado ya incluye 10k pasos habituales y cuatro entrenamientos, no vuelvas a sumarlos; agrega &uacute;nicamente actividad fuera de esa rutina.
+      <strong>C&oacute;mo usarla sin hacer cuentas raras:</strong> elige torso o piernas, escribe los minutos reales de fuerza, selecciona 12 o 15 minutos de caminadora y copia los <em>pasos totales</em> del Apple Watch. No cambies la cadencia: 100 pasos/min es una conversi&oacute;n razonable, no algo que necesites medir. La calculadora resta autom&aacute;ticamente 3,000 pasos cotidianos ya representados en la base y los pasos estimados de la caminadora, para no contarlos dos veces. Ese umbral es provisional: cuando tengamos tu promedio personal de pasos en d&iacute;as de descanso y un TDEE observado de 3&ndash;4 semanas, se reemplaza.
     </div>
   </div>
 </div>
@@ -350,7 +351,7 @@ a:hover{border-bottom-style:solid}
   </div>
 
   <div class="wrap">
-    <div class="sec-head"><h2>Historial de Peso</h2><span class="badge">15 registros con peso &middot; M&aacute;s nuevos arriba</span></div>
+    <div class="sec-head"><h2>Historial de Peso</h2><span class="badge">17 registros con peso &middot; M&aacute;s nuevos arriba</span></div>
     <div class="table-wrap">
       <table>
         <thead>
@@ -360,10 +361,24 @@ a:hover{border-bottom-style:solid}
         </thead>
         <tbody>
           <tr class="work-row">
-            <td style="color:var(--teal)">28 Jul 2026 &#9733; HOY</td>
-            <td><span class="wh-kg" style="color:var(--teal)">98.5 kg</span></td>
-            <td class="r"><span class="dneg">&minus;3.0 kg desde pico</span></td>
+            <td style="color:var(--teal)">10 Ago 2026 &#9733; HOY</td>
+            <td><span class="wh-kg" style="color:var(--teal)">98.10 kg</span></td>
+            <td class="r"><span class="dpos">+0.30 kg vs ayer</span></td>
             <td><span class="tag tag-cur">Actual confirmado</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:85%;background:var(--teal)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">9 Ago 2026</td>
+            <td><span class="wh-kg">97.80 kg</span></td>
+            <td class="r"><span class="dneg">&minus;0.70 kg vs 28 Jul</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Pesada diaria</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:84%;background:var(--teal)"></div></div></td>
+          </tr>
+          <tr class="work-row">
+            <td style="color:var(--t2)">28 Jul 2026</td>
+            <td><span class="wh-kg">98.5 kg</span></td>
+            <td class="r"><span class="dneg">&minus;3.0 kg desde pico</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Confirmado</span></td>
             <td><div class="bar"><div class="bar-f" style="width:87%;background:var(--teal)"></div></div></td>
           </tr>
           <tr>
@@ -495,18 +510,18 @@ a:hover{border-bottom-style:solid}
 <div id="tab-composicion-corporal" class="tab-content" role="tabpanel">
   <!-- COMPOSICIÓN CORPORAL CARDS -->
   <div class="wrap">
-    <div class="sec-head"><h2>Composici&oacute;n Corporal Actual</h2><span class="badge">28 Jul 2026 &middot; Naval USA</span></div>
+    <div class="sec-head"><h2>Composici&oacute;n Corporal Actual</h2><span class="badge">10 Ago 2026 &middot; Naval USA</span></div>
     <div class="bodycomp">
       <div class="bc-card lean">
         <div class="bc-lbl">Masa libre de grasa estimada</div>
-        <div class="bc-val">74.2 kg</div>
-        <div class="bc-sub">75.4% del peso total &middot; m&uacute;sculo, hueso, &oacute;rganos, agua</div>
+        <div class="bc-val">73.8 kg</div>
+        <div class="bc-sub">75.2% del peso total &middot; m&uacute;sculo, hueso, &oacute;rganos, agua</div>
         <div class="bc-bar"></div>
       </div>
       <div class="bc-card fat">
         <div class="bc-lbl">Masa Grasa &mdash; objetivo reducir</div>
         <div class="bc-val">24.3 kg</div>
-        <div class="bc-sub">24.7% del peso total &middot; Naval tiene incertidumbre individual</div>
+        <div class="bc-sub">24.8% del peso total &middot; Naval tiene incertidumbre individual</div>
         <div class="bc-bar"></div>
       </div>
     </div>
@@ -516,7 +531,7 @@ a:hover{border-bottom-style:solid}
   <div class="wrap" style="margin-bottom: 24px;">
     <div class="sec-head"><h2>Gr&aacute;fico de Masa Libre de Grasa Estimada</h2><span class="badge">Modelo Naval USA &middot; no mide m&uacute;sculo directamente</span></div>
     <div class="chart-wrap" style="margin-bottom:0">
-      <div class="chart-title"><span>Masa libre de grasa (kg) &mdash; Cuello + Cintura + Altura 179cm</span><span style="color:var(--teal)">● Actual 74.2 kg estimados</span></div>
+      <div class="chart-title"><span>Masa libre de grasa (kg) &mdash; Cuello + Panza + Altura 179cm</span><span style="color:var(--teal)">● Actual 73.8 kg estimados</span></div>
       <canvas id="compLeanCanvas"></canvas>
     </div>
   </div>
@@ -529,25 +544,25 @@ a:hover{border-bottom-style:solid}
         <thead>
           <tr>
             <th style="width:24%">Medida</th>
-            <th class="c" style="font-size:9px;color:var(--teal)">Jul 28 '26 &#9733;<br><span style="color:var(--t3)">Actual</span></th>
+            <th class="c" style="font-size:9px;color:var(--teal)">Ago 10 '26 &#9733;<br><span style="color:var(--t3)">Actual</span></th>
             <th class="c" style="font-size:9px;color:var(--coral)">Abr 27 '26<br><span style="color:var(--t3)">Pico m&aacute;x.</span></th>
             <th class="c" style="font-size:9px;color:var(--blue)">Sep 5 '25<br><span style="color:var(--t3)">Inicio</span></th>
             <th class="c" style="font-size:9px">&Delta; Inicio&rarr;Actual</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Peso</td><td class="c meas-cur">98.5 kg</td><td class="c" style="color:var(--coral)">101.5 kg</td><td class="c" style="color:var(--blue)">— kg</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+          <tr><td>Peso</td><td class="c meas-cur">98.10 kg</td><td class="c" style="color:var(--coral)">101.5 kg</td><td class="c" style="color:var(--blue)">— kg</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
           <tr><td>Cuello</td><td class="c meas-cur">43.0 cm</td><td class="c meas-val">44.5 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
           <tr><td>Panza (ombligo)</td><td class="c meas-cur">102 cm</td><td class="c" style="color:var(--coral)">107 cm</td><td class="c" style="color:var(--blue)">97.5 cm</td><td class="c"><span class="d-worse">+4.5 cm &uarr;</span></td></tr>
-          <tr><td>Espalda + pecho</td><td class="c meas-cur">111 cm</td><td class="c meas-val">115 cm</td><td class="c" style="color:var(--blue)">105 cm</td><td class="c"><span class="d-worse">+6 cm &uarr;</span></td></tr>
-          <tr><td>Brazo Izquierdo</td><td class="c meas-cur">38.5 cm</td><td class="c meas-val">39.0 cm</td><td class="c" style="color:var(--blue)">36.5 cm</td><td class="c"><span class="d-worse">+2 cm &uarr;</span></td></tr>
-          <tr><td>Brazo Derecho</td><td class="c meas-cur">38.5 cm</td><td class="c meas-val">39.0 cm</td><td class="c" style="color:var(--blue)">36.5 cm</td><td class="c"><span class="d-worse">+2 cm &uarr;</span></td></tr>
+          <tr><td>Espalda + pecho (pezones)</td><td class="c meas-cur">110 cm</td><td class="c meas-val">115 cm</td><td class="c" style="color:var(--blue)">105 cm</td><td class="c"><span class="d-worse">+5 cm &uarr;</span></td></tr>
+          <tr><td>Espalda + pecho (axilas)</td><td class="c meas-cur">113&ndash;114 cm</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">nuevo sitio</span></td></tr>
+          <tr><td>Brazo Izquierdo</td><td class="c meas-cur">38.3 cm</td><td class="c meas-val">39.0 cm</td><td class="c" style="color:var(--blue)">36.5 cm</td><td class="c"><span class="d-worse">+1.8 cm &uarr;</span></td></tr>
+          <tr><td>Brazo Derecho</td><td class="c meas-cur">38.3 cm</td><td class="c meas-val">39.0 cm</td><td class="c" style="color:var(--blue)">36.5 cm</td><td class="c"><span class="d-worse">+1.8 cm &uarr;</span></td></tr>
           <tr><td>Hombro Izq</td><td class="c meas-cur">42 cm</td><td class="c meas-val">43 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
           <tr><td>Hombro Der</td><td class="c meas-cur">42 cm</td><td class="c meas-val">43 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
-          <tr><td>Cadera (m&aacute;s ancha)</td><td class="c meas-cur">112 cm</td><td class="c" style="color:var(--coral)">115 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
-          <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Piernas (m&aacute;s anchas)</td><td class="c meas-cur">71 cm</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--teal)">&minus;1.5 cm vs 25 Jul</span></td></tr>
-          <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Amplitud pecho (ax&ndash;ax)</td><td class="c meas-cur">44 cm</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--teal)">nueva medida</span></td></tr>
-          <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Ambos-hombros (wrap)</td><td class="c meas-cur">&sim;129 cm</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--teal)">nueva medida</span></td></tr>
+          <tr><td>Cadera / nalgas (m&aacute;s ancha)</td><td class="c meas-cur">113 cm</td><td class="c" style="color:var(--coral)">115 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+          <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Piernas (m&aacute;s anchas)</td><td class="c meas-cur">70 cm</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--teal)">&minus;2.5 cm vs 25 Jul</span></td></tr>
+          <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Ambos-hombros / torso (wrap)</td><td class="c meas-cur">129 cm</td><td class="c meas-val">130 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--amber)">135 cm del 14 Jul marcado at&iacute;pico</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -560,7 +575,7 @@ a:hover{border-bottom-style:solid}
 <!-- ==================== PESTAÑA 4: HISTORIAL COMPLETO DE MEDIDAS + CHARTS GRUPALES ==================== -->
 <div id="tab-historial-medidas" class="tab-content" role="tabpanel">
   <div class="wrap">
-    <div class="sec-head"><h2>Historial Completo de Medidas</h2><span class="badge">15 entradas &middot; M&aacute;s nuevos arriba</span></div>
+    <div class="sec-head"><h2>Historial Completo de Medidas</h2><span class="badge">16 entradas &middot; M&aacute;s nuevos arriba</span></div>
     <div class="hist-scroll">
       <table class="hist-table">
         <thead>
@@ -582,6 +597,16 @@ a:hover{border-bottom-style:solid}
           </tr>
         </thead>
         <tbody>
+          <tr style="background:var(--teal-a)">
+            <td style="color:var(--teal)">10 Ago '26 &#9733;</td>
+            <td class="c hcur">98.10</td><td class="c hcur">43</td>
+            <td class="c hcur">102</td><td class="c hcur">110</td>
+            <td class="c hcur">38.3</td><td class="c hcur">38.3</td>
+            <td class="c hcur">42</td><td class="c hcur">42</td>
+            <td class="c hcur">113</td><td class="c hna">&mdash;</td>
+            <td class="c hcur">70</td><td class="c hcur">70</td>
+            <td style="color:var(--teal);font-size:10px">Panza: promedio de 101&ndash;103 &middot; Pecho/axilas 113&ndash;114 &middot; Wrap torso 129</td>
+          </tr>
           <tr style="background:var(--teal-a)">
             <td style="color:var(--teal)">28 Jul '26 &#9733;</td>
             <td class="c hcur">98.5</td><td class="c hcur">43</td>
@@ -610,7 +635,7 @@ a:hover{border-bottom-style:solid}
             <td class="c hv">41.5</td><td class="c hv">41.5</td>
             <td class="c hv">113</td><td class="c hna">&mdash;</td>
             <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
-            <td style="color:var(--t3);font-size:10px">Anchura 135</td>
+            <td style="color:var(--amber);font-size:10px">Anchura 135 &middot; probable at&iacute;pico por t&eacute;cnica</td>
           </tr>
           <tr>
             <td>27 Abr '26</td>
@@ -744,11 +769,11 @@ a:hover{border-bottom-style:solid}
       <!-- Fila 1: Espalda y Panza -->
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:14px">
         <div class="chart-wrap" style="margin-bottom:0">
-          <div class="chart-title"><span>Progreso de Espalda + Pecho (cm)</span><span style="color:var(--teal)">● Actual 111 cm</span></div>
+          <div class="chart-title"><span>Progreso de Espalda + Pecho en pezones (cm)</span><span style="color:var(--teal)">● Actual 110 cm</span></div>
           <canvas id="backCanvas"></canvas>
         </div>
         <div class="chart-wrap" style="margin-bottom:0">
-          <div class="chart-title"><span>Progreso de Panza / Ombligo (cm)</span><span style="color:var(--teal)">● Actual 102 cm</span></div>
+          <div class="chart-title"><span>Progreso de Panza / punto m&aacute;s prominente (cm)</span><span style="color:var(--teal)">● Actual 102 cm</span></div>
           <canvas id="waistCanvas"></canvas>
         </div>
       </div>
@@ -1029,6 +1054,14 @@ a:hover{border-bottom-style:solid}
         </thead>
         <tbody>
           <tr class="work-row">
+            <td style="color:var(--teal)">10 Ago 2026 &#9733;</td>
+            <td class="c hcur">98.1 kg</td>
+            <td class="c hcur">102 cm</td>
+            <td class="c" style="color:var(--t3)">~101.4 cm</td>
+            <td class="c" style="color:var(--amber)">+0.6 cm</td>
+            <td style="color:var(--amber);font-size:10px">Una sola fecha; no recalibrar hasta contar con promedio de 7 d&iacute;as y protocolo uniforme</td>
+          </tr>
+          <tr class="work-row">
             <td style="color:var(--teal)">28 Jul 2026 &#9733;</td>
             <td class="c hcur">98.5 kg</td>
             <td class="c hcur">102 cm</td>
@@ -1047,15 +1080,15 @@ a:hover{border-bottom-style:solid}
 
 <!-- FOOTER PERSISTENTE: MÉTRICAS CLAVE MOVIDAS AQUÍ -->
 <div class="wrap no-bottom-pad" style="margin-top: 28px;">
-  <div class="sec-head"><h2>M&eacute;tricas Clave</h2><span class="badge">Actualizado 28 Jul 2026</span></div>
+  <div class="sec-head"><h2>M&eacute;tricas Clave</h2><span class="badge">Actualizado 10 Ago 2026</span></div>
   <div class="cards">
-    <div class="card"><div class="card-lbl">BMR &middot; Solo existir</div><div class="card-val">1,969</div><div class="card-sub">kcal &middot; sin mover un dedo</div></div>
-    <div class="card a"><div class="card-lbl">Mantenimiento sedentario estimado</div><div class="card-val">2,363</div><div class="card-sub">provisional hasta calibrar TDEE observado</div></div>
+    <div class="card"><div class="card-lbl">BMR &middot; Solo existir</div><div class="card-val">~1,960</div><div class="card-sub">kcal &middot; Mifflin-St Jeor aproximado</div></div>
+    <div class="card a"><div class="card-lbl">Mantenimiento sedentario estimado</div><div class="card-val">~2,352</div><div class="card-sub">provisional hasta calibrar TDEE observado</div></div>
     <div class="card" style="border-color:rgba(255,168,48,0.3)"><div class="card-lbl">Fase actual</div><div class="card-val" style="color:var(--amber)">&minus;700</div><div class="card-sub">promedio diario &middot; 4,900 kcal/sem</div></div>
     <div class="card t"><div class="card-lbl">Segunda fase</div><div class="card-val">&minus;500</div><div class="card-sub">alrededor de 90 kg o antes por alarma</div></div>
     <div class="card b"><div class="card-lbl">Final pr&aacute;ctico 31 Dic</div><div class="card-val">86&ndash;89 kg</div><div class="card-sub">86.3 kg en el modelo te&oacute;rico</div></div>
     <div class="card a"><div class="card-lbl">Proyecci&oacute;n a 12 meses</div><div class="card-val">80 kg</div><div class="card-sub">piso del modelo; mantenimiento desde la meta</div></div>
-    <div class="card"><div class="card-lbl">% Grasa corporal</div><div class="card-val">24.7%</div><div class="card-sub">F&oacute;rmula Naval USA</div></div>
+    <div class="card"><div class="card-lbl">% Grasa corporal</div><div class="card-val">24.8%</div><div class="card-sub">F&oacute;rmula Naval USA &middot; no mide m&uacute;sculo</div></div>
     <div class="card t"><div class="card-lbl">Masa libre de grasa estimada</div><div class="card-val">74.2 kg</div><div class="card-sub">no equivale a m&uacute;sculo contr&aacute;ctil</div></div>
     <div class="card"><div class="card-lbl">Grasa estimada actual</div><div class="card-val">24.3 kg</div><div class="card-sub">Naval; contiene incertidumbre</div></div>
     <div class="card b"><div class="card-lbl">Grasa a perder hasta 31 Dic</div><div class="card-val">9.5&ndash;11.5 kg</div><div class="card-sub">banda de planificaci&oacute;n</div></div>
@@ -1157,39 +1190,59 @@ document.getElementById('navDate').textContent = new Date().toLocaleDateString('
 function updateCalorieCalculator() {
   const activity = document.getElementById('calcActivity');
   const minutesInput = document.getElementById('calcMinutes');
+  const inclineMinutesInput = document.getElementById('calcInclineMinutes');
   const stepsInput = document.getElementById('calcSteps');
+  const baselineStepsInput = document.getElementById('calcBaselineSteps');
   const cadenceInput = document.getElementById('calcCadence');
   const walkMetInput = document.getElementById('calcWalkMet');
   const weightInput = document.getElementById('calcWeight');
   const baseInput = document.getElementById('calcBase');
   const deficitInput = document.getElementById('calcDeficit');
-  if (!activity || !minutesInput || !stepsInput || !cadenceInput || !walkMetInput || !weightInput || !baseInput || !deficitInput) return;
+  if (!activity || !minutesInput || !inclineMinutesInput || !stepsInput || !baselineStepsInput || !cadenceInput || !walkMetInput || !weightInput || !baseInput || !deficitInput) return;
 
   const met = Number(activity.value) || 1;
   const minutes = Math.max(0, Number(minutesInput.value) || 0);
+  const inclineMinutes = Math.max(0, Number(inclineMinutesInput.value) || 0);
   const steps = Math.max(0, Number(stepsInput.value) || 0);
+  const baselineSteps = Math.max(0, Number(baselineStepsInput.value) || 0);
   const cadence = Math.max(1, Number(cadenceInput.value) || 100);
   const walkMet = Number(walkMetInput.value) || 1;
   const weight = Math.max(0, Number(weightInput.value) || 0);
   const base = Math.max(0, Number(baseInput.value) || 0);
   const deficit = Math.max(0, Number(deficitInput.value) || 0);
   const strengthNet = Math.max(0, (met - 1) * 3.5 * weight / 200 * minutes);
-  const walkMinutes = steps / cadence;
+  // Rutina real: primeros 4 min a 2.5 km/h y el resto a 4 km/h, ambos al 15%.
+  // Ecuación de caminata ACSM: VO2 = 0.1*velocidad + 1.8*velocidad*pendiente + 3.5.
+  const slowMinutes = Math.min(4, inclineMinutes);
+  const fastMinutes = Math.max(0, inclineMinutes - slowMinutes);
+  const treadmillMet = speedKmh => {
+    const speedMMin = speedKmh * 1000 / 60;
+    return (0.1 * speedMMin + 1.8 * speedMMin * 0.15 + 3.5) / 3.5;
+  };
+  const inclineNet = Math.max(0,
+    (treadmillMet(2.5) - 1) * 3.5 * weight / 200 * slowMinutes +
+    (treadmillMet(4) - 1) * 3.5 * weight / 200 * fastMinutes
+  );
+  const treadmillSteps = inclineMinutes * cadence;
+  const extraSteps = Math.max(0, steps - baselineSteps - treadmillSteps);
+  const walkMinutes = extraSteps / cadence;
   const walkNet = Math.max(0, (walkMet - 1) * 3.5 * weight / 200 * walkMinutes);
-  const netActivity = strengthNet + walkNet;
+  const netActivity = strengthNet + inclineNet + walkNet;
   const maintenance = base + netActivity;
   const target = maintenance - deficit;
   const format = value => Math.round(value).toLocaleString('es-MX');
 
   document.getElementById('calcStrengthNet').textContent = format(strengthNet);
+  document.getElementById('calcInclineNet').textContent = format(inclineNet);
   document.getElementById('calcWalkNet').textContent = format(walkNet);
+  document.getElementById('calcExtraSteps').textContent = format(extraSteps);
   document.getElementById('calcNet').textContent = format(netActivity);
   document.getElementById('calcMaintenance').textContent = format(maintenance);
   document.getElementById('calcTarget').textContent = format(target);
   document.getElementById('calcWeeklyDeficit').textContent = format(deficit * 7);
 }
 
-['calcActivity','calcMinutes','calcSteps','calcCadence','calcWalkMet','calcWeight','calcBase','calcDeficit'].forEach(id => {
+['calcActivity','calcMinutes','calcInclineMinutes','calcSteps','calcBaselineSteps','calcCadence','calcWalkMet','calcWeight','calcBase','calcDeficit'].forEach(id => {
   const input = document.getElementById(id);
   if (input) {
     input.addEventListener('input', updateCalorieCalculator);
@@ -1263,7 +1316,7 @@ if (forecastScenarioInput) forecastScenarioInput.addEventListener('change', rend
 renderMeasurementProjection();
 
 // Journey bar animation
-const peak=101.5,goal=80.0,cur=98.5;
+const peak=101.5,goal=80.0,cur=98.1;
 const pct=((peak-cur)/(peak-goal))*100;
 setTimeout(()=>{
   document.getElementById('jFill').style.width=pct.toFixed(1)+'%';
@@ -1288,7 +1341,9 @@ const chartConfigs = {
       { d: 219, v: 101.5, lbl: "27 Abr 26", note: "Pico Máximo (101.5 kg)" },
       { d: 297, v: 98.34, lbl: "14 Jul 26" },
       { d: 308, v: 98.3, lbl: "25 Jul 26" },
-      { d: 311, v: 98.5, lbl: "28 Jul 26", note: "Actual (98.5 kg)" }
+      { d: 311, v: 98.5, lbl: "28 Jul 26" },
+      { d: 323, v: 97.8, lbl: "9 Ago 26" },
+      { d: 324, v: 98.1, lbl: "10 Ago 26", note: "Actual (98.1 kg)" }
     ]
   },
   leanWeightCanvas: {
@@ -1305,7 +1360,8 @@ const chartConfigs = {
       { d: 219, v: 74.5, lbl: "27 Abr 26", note: "Pico Magro (74.5 kg)" },
       { d: 297, v: 72.7, lbl: "14 Jul 26" },
       { d: 308, v: 73.0, lbl: "25 Jul 26" },
-      { d: 311, v: 74.2, lbl: "28 Jul 26", note: "Actual (75.4% peso)" }
+      { d: 311, v: 74.2, lbl: "28 Jul 26" },
+      { d: 324, v: 73.8, lbl: "10 Ago 26", note: "Actual estimado (75.2% peso)" }
     ]
   },
   fatWeightCanvas: {
@@ -1322,7 +1378,8 @@ const chartConfigs = {
       { d: 219, v: 27.0, lbl: "27 Abr 26", note: "Pico Grasa (27.0 kg)" },
       { d: 297, v: 25.6, lbl: "14 Jul 26" },
       { d: 308, v: 25.3, lbl: "25 Jul 26" },
-      { d: 311, v: 24.3, lbl: "28 Jul 26", note: "Actual (24.7% grasa)" }
+      { d: 311, v: 24.3, lbl: "28 Jul 26" },
+      { d: 324, v: 24.3, lbl: "10 Ago 26", note: "Actual estimado (24.8% grasa)" }
     ]
   },
   compLeanCanvas: {
@@ -1339,7 +1396,8 @@ const chartConfigs = {
       { d: 219, v: 74.5, lbl: "27 Abr 26", note: "Máximo Magro (74.5 kg)" },
       { d: 297, v: 72.7, lbl: "14 Jul 26" },
       { d: 308, v: 73.0, lbl: "25 Jul 26" },
-      { d: 311, v: 74.2, lbl: "28 Jul 26", note: "Actual (74.2 kg / 75.4%)" }
+      { d: 311, v: 74.2, lbl: "28 Jul 26" },
+      { d: 324, v: 73.8, lbl: "10 Ago 26", note: "Actual estimado (73.8 kg / 75.2%)" }
     ]
   },
   backCanvas: {
@@ -1359,7 +1417,8 @@ const chartConfigs = {
       { d: 234, v: 115, lbl: "27 Abr 26", note: "Pico (115 cm)" },
       { d: 312, v: 112, lbl: "14 Jul 26" },
       { d: 323, v: 112, lbl: "25 Jul 26" },
-      { d: 326, v: 111, lbl: "28 Jul 26", note: "Actual (111 cm)" }
+      { d: 326, v: 111, lbl: "28 Jul 26" },
+      { d: 339, v: 110, lbl: "10 Ago 26", note: "Actual en pezones (110 cm)" }
     ]
   },
   waistCanvas: {
@@ -1379,7 +1438,8 @@ const chartConfigs = {
       { d: 234, v: 107, lbl: "27 Abr 26", note: "Pico (107 cm)" },
       { d: 312, v: 104, lbl: "14 Jul 26" },
       { d: 323, v: 103.5, lbl: "25 Jul 26" },
-      { d: 326, v: 102, lbl: "28 Jul 26", note: "Actual (102 cm)" }
+      { d: 326, v: 102, lbl: "28 Jul 26" },
+      { d: 339, v: 102, lbl: "10 Ago 26", note: "Actual promedio 101-103 cm" }
     ]
   },
   // BRAZOS (Serie 1: Izquierda #00C9A7, Serie 2: Derecha #5B9DFF)
@@ -1400,7 +1460,8 @@ const chartConfigs = {
       { d: 234, v: 39, lbl: "27 Abr 26", note: "Pico Izq (39 cm)" },
       { d: 312, v: 38, lbl: "14 Jul 26" },
       { d: 323, v: 38.5, lbl: "25 Jul 26" },
-      { d: 326, v: 38.5, lbl: "28 Jul 26", note: "Actual Izq (38.5 cm)" }
+      { d: 326, v: 38.5, lbl: "28 Jul 26" },
+      { d: 339, v: 38.3, lbl: "10 Ago 26", note: "Actual Izq (38.3 cm)" }
     ],
     data2: [
       { d: 0, v: 36.5, lbl: "5 Sep 25" },
@@ -1417,7 +1478,8 @@ const chartConfigs = {
       { d: 234, v: 39, lbl: "27 Abr 26", note: "Pico Der (39 cm)" },
       { d: 312, v: 38.5, lbl: "14 Jul 26" },
       { d: 323, v: 38.5, lbl: "25 Jul 26" },
-      { d: 326, v: 38.5, lbl: "28 Jul 26", note: "Actual Der (38.5 cm)" }
+      { d: 326, v: 38.5, lbl: "28 Jul 26" },
+      { d: 339, v: 38.3, lbl: "10 Ago 26", note: "Actual Der (38.3 cm)" }
     ]
   },
   // HOMBROS (Serie 1: Izquierda #00C9A7, Serie 2: Derecha #5B9DFF)
@@ -1437,7 +1499,8 @@ const chartConfigs = {
       { d: 234, v: 43, lbl: "27 Abr 26", note: "Pico Izq (43 cm)" },
       { d: 312, v: 41.5, lbl: "14 Jul 26" },
       { d: 323, v: 42, lbl: "25 Jul 26" },
-      { d: 326, v: 42, lbl: "28 Jul 26", note: "Actual Izq (42 cm)" }
+      { d: 326, v: 42, lbl: "28 Jul 26" },
+      { d: 339, v: 42, lbl: "10 Ago 26", note: "Actual Izq (42 cm)" }
     ],
     data2: [
       { d: 15, v: 42, lbl: "20 Sep 25" },
@@ -1453,7 +1516,8 @@ const chartConfigs = {
       { d: 234, v: 43, lbl: "27 Abr 26", note: "Pico Der (43 cm)" },
       { d: 312, v: 41.5, lbl: "14 Jul 26" },
       { d: 323, v: 42, lbl: "25 Jul 26" },
-      { d: 326, v: 42, lbl: "28 Jul 26", note: "Actual Der (42 cm)" }
+      { d: 326, v: 42, lbl: "28 Jul 26" },
+      { d: 339, v: 42, lbl: "10 Ago 26", note: "Actual Der (42 cm)" }
     ]
   },
   // PIERNAS (Serie 1: Izquierda #00C9A7, Serie 2: Derecha #5B9DFF)
@@ -1466,7 +1530,8 @@ const chartConfigs = {
       { d: 94, v: 67, lbl: "8 Dic 25" },
       { d: 101, v: 68, lbl: "Med Dic 25" },
       { d: 323, v: 72.5, lbl: "25 Jul 26" },
-      { d: 326, v: 71, lbl: "28 Jul 26", note: "Actual Izq (71 cm)" }
+      { d: 326, v: 71, lbl: "28 Jul 26" },
+      { d: 339, v: 70, lbl: "10 Ago 26", note: "Actual Izq (70 cm)" }
     ],
     data2: [
       { d: 25, v: 69, lbl: "30 Sep 25" },
@@ -1475,7 +1540,8 @@ const chartConfigs = {
       { d: 94, v: 68, lbl: "8 Dic 25" },
       { d: 101, v: 69.5, lbl: "Med Dic 25" },
       { d: 323, v: 72.5, lbl: "25 Jul 26" },
-      { d: 326, v: 71, lbl: "28 Jul 26", note: "Actual Der (71 cm)" }
+      { d: 326, v: 71, lbl: "28 Jul 26" },
+      { d: 339, v: 70, lbl: "10 Ago 26", note: "Actual Der (70 cm)" }
     ]
   }
 };
@@ -1487,7 +1553,8 @@ const timeMilestones = [
   { d: 88, lbl: "Dic '25" },
   { d: 127, lbl: "Ene '26" },
   { d: 234, lbl: "Abr '26" },
-  { d: 323, lbl: "Jul '26" }
+  { d: 323, lbl: "Jul '26" },
+  { d: 339, lbl: "Ago '26" }
 ];
 
 const activeHoverPoints = {};
@@ -1516,7 +1583,7 @@ function drawChart(canvasId) {
   const pad = { l: 28, r: 14, t: 14, b: 22 };
   const cw = W - pad.l - pad.r;
   const ch = H - pad.t - pad.b;
-  const maxD = 323;
+  const maxD = 339;
 
   function xp(d) { return pad.l + ((d / maxD) * cw); }
   function yp(v) { return pad.t + (1 - (v - cfg.minVal) / (cfg.maxVal - cfg.minVal)) * ch; }
@@ -1666,7 +1733,7 @@ function bindCanvasEvents(canvasId) {
     const mouseX = clientX - rect.left;
     const pad = { l: 28, r: 14 };
     const cw = canvas.clientWidth - pad.l - pad.r;
-    const maxD = 323;
+    const maxD = 339;
 
     const dataList = cfg.dualSeries ? cfg.data1 : cfg.data;
     let closestPt = null;
