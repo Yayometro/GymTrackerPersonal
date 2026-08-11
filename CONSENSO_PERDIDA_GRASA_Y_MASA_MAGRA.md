@@ -462,3 +462,27 @@ Las circunferencias exploratorias usan las regresiones históricas ya documentad
 - El consenso científico sigue cerrado.
 - La nueva cuantificación es una capa de escenario solicitada por el usuario, no una nueva conclusión de Claude o Codex.
 - Cada cuatro semanas se reanclan peso, TDEE y proyección; las medidas reales sustituyen inmediatamente las estimadas.
+
+## Ronda 7 — Revisión de evidencia y modelo de masa balanceado (11 de agosto de 2026)
+
+La revisión adicional confirmó que ningún ensayo permite convertir un déficit individual de 500 o 700 kcal/día en kilos personales exactos de músculo. Los trabajos de Mero, Mettler, Pasiakos, Garthe, Longland, Campbell y la evidencia reciente permiten orientar velocidad, proteína y entrenamiento, pero sus poblaciones, duraciones y métodos de composición son distintos. Por ello se elimina el modelo anterior de bandas independientes, que podía producir sumas ambiguas, y se adopta un escenario central que conserva masa:
+
+| Escenario | Grasa | Músculo contráctil | Otros componentes | Total |
+|---|---:|---:|---:|---:|
+| −500 constante | 85% | 2.5% | 12.5% | 100% |
+| −700 constante | 83% | 3.0% | 14.0% | 100% |
+| −700→−500 | 84% | 3.0% | 13.0% | 100% |
+
+“Otros” comprende principalmente agua, glucógeno, contenido gastrointestinal y otros tejidos magros. Estos porcentajes son supuestos de planificación informados por evidencia grupal, no probabilidades personales ni resultados garantizados.
+
+La base se reancla a 98.1 kg y 24.3 kg de grasa estimada por Naval el 10 de agosto de 2026. En cada fecha:
+
+- peso = máximo de 80 kg o peso inicial − déficit acumulado ÷ 7,700;
+- grasa perdida = pérdida total × proporción de grasa del escenario;
+- músculo perdido = pérdida total × proporción de músculo del escenario;
+- otros = pérdida total × proporción de otros;
+- porcentaje de grasa = (24.3426 − grasa perdida) ÷ peso × 100.
+
+El resultado central al 31 de diciembre es 88.8 kg y ~18.5% con −500; 85.1 kg y ~15.9% con −700; y 86.5 kg y ~16.9% con el plan escalonado. Los valores cercanos a 80 kg arrojan ~11–12% sólo porque el modelo conserva una cantidad alta de masa libre de grasa. Esa región no debe tratarse como pronóstico fiable: exige DEXA, cintura, fotografías y rendimiento antes de mantener el déficit.
+
+Fuentes añadidas a la revisión: Mero et al. (2010), Mettler et al. (2010), Pasiakos et al. (2013), Pearson et al. (2021), Refalo et al. (2023), un estudio de individualización de volumen en hombres entrenados (2022) y la revisión de Nait-Yahia et al. (2026). El resultado práctico permanece: −700 puede utilizarse bajo vigilancia, pero −500 ofrece mayor margen cuando la velocidad, recuperación o rendimiento se deterioran.
