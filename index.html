@@ -139,6 +139,37 @@ td.hna{color:var(--t3)}
 .alert-title{font-family:var(--fm);font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
 .alert-card.warn .alert-title{color:var(--amber)}.alert-card.danger .alert-title{color:var(--coral)}
 .macros-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.plan-compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:14px}
+.plan-panel{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:16px}
+.plan-panel.current{border-color:rgba(91,157,255,.3);background:var(--blue-a)}
+.plan-panel.clinical{border-color:rgba(0,201,167,.3);background:var(--teal-a)}
+.plan-kicker{font-family:var(--fm);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:5px}
+.plan-title{font-family:var(--fd);font-size:17px;font-weight:700;letter-spacing:-.02em;margin-bottom:11px}
+.plan-total{font-family:var(--fd);font-size:30px;font-weight:700;line-height:1;color:var(--teal);margin-bottom:8px}
+.plan-formula{font-family:var(--fm);font-size:10px;color:var(--t3);line-height:1.7;margin-top:10px}
+.micro-status{font-family:var(--fm);font-size:9px;padding:3px 7px;border-radius:99px;white-space:nowrap;display:inline-block}
+.micro-ok{color:var(--teal);background:var(--teal-a);border:1px solid rgba(0,201,167,.22)}
+.micro-watch{color:var(--amber);background:var(--amber-a);border:1px solid rgba(255,168,48,.22)}
+.micro-low{color:var(--coral);background:var(--coral-a);border:1px solid rgba(255,92,92,.22)}
+.micro-var{color:var(--blue);background:var(--blue-a);border:1px solid rgba(91,157,255,.22)}
+.pro-note{font-size:11px;color:var(--t2);line-height:1.7;margin-bottom:14px}
+.pro-note strong{color:var(--teal)}
+.pro-block{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);margin-bottom:14px;overflow:hidden}
+.pro-block>summary{cursor:pointer;list-style:none;padding:14px 16px;font-family:var(--fd);font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px;background:var(--surf2)}
+.pro-block>summary::-webkit-details-marker{display:none}
+.pro-block>summary::after{content:'+';margin-left:auto;color:var(--teal);font-family:var(--fm);font-size:18px;font-weight:400}
+.pro-block[open]>summary::after{content:'\2212'}
+.pro-body{padding:14px 16px 16px}
+.pro-source{font-family:var(--fm);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-left:auto}
+.macro-ring{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
+.macro-slice{background:var(--surf2);border:1px solid var(--border);border-radius:var(--r2);padding:12px;text-align:center}
+.macro-slice strong{display:block;font-family:var(--fd);font-size:22px;line-height:1.1;margin-bottom:4px}
+.macro-slice span{font-family:var(--fm);font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em}
+.macro-slice.protein strong{color:var(--teal)}.macro-slice.carb strong{color:var(--blue)}.macro-slice.fat strong{color:var(--amber)}
+.meal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:10px}
+.meal-card{background:var(--surf2);border:1px solid var(--border);border-radius:var(--r2);padding:13px}
+.meal-card h3{font-family:var(--fd);font-size:13px;margin-bottom:8px;color:var(--teal)}
+.meal-card ul{padding-left:18px;color:var(--t2);font-size:11px;line-height:1.75}
 .footer{border-top:1px solid var(--border);max-width:1080px;margin:0 auto;padding:24px 24px 36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px}
 .ft-title{font-family:var(--fm);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--t3);margin-bottom:8px}
 .ft-text{font-size:11px;color:var(--t3);line-height:1.7}
@@ -160,8 +191,13 @@ td.hna{color:var(--t3)}
   .bodycomp{grid-template-columns:1fr}
   .bc-card{padding:16px}
   .bc-val{font-size:32px}
+  .sec-head{align-items:flex-start;flex-wrap:wrap}
+  .badge{white-space:normal;max-width:100%;line-height:1.35}
   .cards{grid-template-columns:repeat(2,1fr)}
   .macros-grid{grid-template-columns:repeat(2,1fr)}
+  .plan-compare{grid-template-columns:1fr}
+  .macro-ring{grid-template-columns:1fr}
+  .pro-source{display:none}
   canvas{height:115px}
   .footer{grid-template-columns:1fr;gap:16px;padding:20px 16px 32px}
 }
@@ -182,18 +218,18 @@ a:hover{border-bottom-style:solid}
 
 <!-- HERO PERSISTENTE (PESO CONFIRMADO + RECORRIDO DE KILOS) -->
 <div class="hero">
-  <div class="eyebrow">&#9655; Peso confirmado &middot; 10 Agosto 2026</div>
+  <div class="eyebrow">&#9655; &Uacute;ltimo peso registrado &middot; 18 Septiembre 2026</div>
   <div class="hero-row">
-    <span class="hero-num">98.1</span>
+    <span class="hero-num">95.95</span>
     <span class="hero-unit">kg</span>
   </div>
-  <div class="hero-cap">Registrado 10 Ago &middot; Altura 179 cm &middot; 29 a&ntilde;os &middot; Meta: 80 kg</div>
+  <div class="hero-cap">Medici&oacute;n profesional despu&eacute;s de comer; hoja redondeada a 96.0 kg. &Uacute;ltimo promedio matutino disponible: 98.83 kg (11&ndash;17 Ago, 6 pesadas) &middot; Meta: 80 kg</div>
 
   <div class="journey">
     <div class="journey-header">Recorrido &middot; M&aacute;ximo &rarr; Meta</div>
     <div class="j-stats">
       <div class="j-stat c-coral"><span class="j-val">101.5 kg</span><span class="j-lbl">M&aacute;ximo &middot; Abr '26</span></div>
-      <div class="j-stat c-teal"><span class="j-val">98.1 kg</span><span class="j-lbl">Actual &middot; 10 Ago '26</span></div>
+      <div class="j-stat c-teal"><span class="j-val">95.95 kg</span><span class="j-lbl">&Uacute;ltimo medido &middot; 18 Sep '26*</span></div>
       <div class="j-stat c-amber"><span class="j-val">80.0 kg</span><span class="j-lbl">Meta</span></div>
       <div class="j-stat c-blue"><span class="j-val" id="pctVal">0%</span><span class="j-lbl">Completado</span></div>
     </div>
@@ -207,27 +243,28 @@ a:hover{border-bottom-style:solid}
 
 <!-- CHART HISTORIAL DE PESO PERSISTENTE -->
 <div class="wrap">
-  <div class="sec-head"><h2>Tendencia de Peso Total</h2><span class="badge">Sep 2025 &rarr; Jul 2026 &middot; Toca / Hover</span></div>
+  <div class="sec-head"><h2>Tendencia de Peso Total</h2><span class="badge">Sep 2025 &rarr; Sep 2026 &middot; Toca / Hover</span></div>
   <div class="chart-wrap" style="margin-bottom: 0;">
-    <div class="chart-title"><span>Gr&aacute;fica de peso (kg)</span><span style="color:var(--teal)">● Actual 98.1 kg</span></div>
+    <div class="chart-title"><span>Gr&aacute;fica de peso (kg)</span><span style="color:var(--teal)">● &Uacute;ltimo: 95.95 kg (profesional, 18 Sep)*</span></div>
     <canvas id="wtCanvas"></canvas>
   </div>
+  <p style="font-size:11px;color:var(--t3);margin-top:8px;line-height:1.6">*La consulta report&oacute; 95.95 kg (96.0 kg redondeados en la hoja), despu&eacute;s de comer. Se conserva separado de la serie matutina; no compares directamente ambas condiciones ni uses esa lectura aislada para recalibrar el gasto.</p>
 </div>
 
 <!-- COMPOSICIÓN CORPORAL EN HEADER PERSISTENTE -->
 <div class="wrap">
-  <div class="sec-head"><h2>Composici&oacute;n Corporal Actual</h2><span class="badge">10 Ago 2026 &middot; Naval USA</span></div>
+  <div class="sec-head"><h2>&Uacute;ltima estimaci&oacute;n de composici&oacute;n corporal</h2><span class="badge">Base provisional del 17 Ago &middot; no recalculada con el peso profesional</span></div>
   <div class="bodycomp">
     <div class="bc-card lean">
       <div class="bc-lbl">Masa libre de grasa estimada</div>
-      <div class="bc-val">73.8 kg</div>
-      <div class="bc-sub">75.2% &middot; incluye agua, gluc&oacute;geno, m&uacute;sculo, hueso y &oacute;rganos</div>
+      <div class="bc-val">74.5 kg</div>
+      <div class="bc-sub">Estimaci&oacute;n provisional del 17 Ago; incluye agua, gluc&oacute;geno, m&uacute;sculo, hueso y &oacute;rganos</div>
       <div class="bc-bar"></div>
     </div>
     <div class="bc-card fat">
       <div class="bc-lbl">Masa Grasa &mdash; objetivo reducir</div>
-      <div class="bc-val">24.3 kg</div>
-      <div class="bc-sub">24.8% del peso total &middot; Naval es una estimaci&oacute;n, no una medici&oacute;n directa</div>
+      <div class="bc-val">24.6 kg</div>
+      <div class="bc-sub">24.8% provisional del 17 Ago &middot; no es el porcentaje DEXA ni una medici&oacute;n del 18 Sep</div>
       <div class="bc-bar"></div>
     </div>
   </div>
@@ -244,6 +281,9 @@ a:hover{border-bottom-style:solid}
     </button>
     <button class="tab-btn" onclick="switchTab('composicion-corporal')" id="tab-btn-composicion-corporal" role="tab" aria-selected="false">
       🧬 Composici&oacute;n Corporal
+    </button>
+    <button class="tab-btn" onclick="switchTab('nutriologo')" id="tab-btn-nutriologo" role="tab" aria-selected="false">
+      🩺 Datos del Nutri&oacute;logo
     </button>
     <button class="tab-btn" onclick="switchTab('historial-medidas')" id="tab-btn-historial-medidas" role="tab" aria-selected="false">
       📏 Historial Completo de Medidas
@@ -281,13 +321,13 @@ a:hover{border-bottom-style:solid}
       <div class="control"><label for="calcMinutes">Minutos reales de fuerza</label><input id="calcMinutes" type="number" min="0" max="360" step="5" value="60"></div>
       <div class="control"><label for="calcInclineMinutes">Caminadora al 15%</label><select id="calcInclineMinutes"><option value="0">No hice</option><option value="12">12 min</option><option value="15" selected>15 min</option></select></div>
       <div class="control"><label for="calcSteps">Pasos TOTALES del Apple Watch</label><input id="calcSteps" type="number" min="0" max="50000" step="500" value="6500"></div>
-      <div class="control"><label for="calcWeight">Peso actual (kg)</label><input id="calcWeight" type="number" min="40" max="250" step="0.1" value="98.1"></div>
+      <div class="control"><label for="calcWeight">Peso matutino de referencia (kg)</label><input id="calcWeight" type="number" min="40" max="250" step="0.05" value="99.05"></div>
       <div class="control"><label for="calcDeficit">D&eacute;ficit del d&iacute;a</label><select id="calcDeficit"><option value="700" selected>&minus;700 kcal (fase actual)</option><option value="500">&minus;500 kcal (segunda fase)</option></select></div>
     </div>
     <details style="margin:0 0 16px">
       <summary style="cursor:pointer;color:var(--t2);font-size:12px">Ajustes avanzados (normalmente no necesitas tocarlos)</summary>
       <div class="control-grid" style="margin-top:12px">
-        <div class="control"><label for="calcBase">Base sedentaria</label><input id="calcBase" type="number" min="1200" max="5000" step="10" value="2352"></div>
+        <div class="control"><label for="calcBase">Base sedentaria</label><input id="calcBase" type="number" min="1200" max="5000" step="1" value="2363"></div>
         <div class="control"><label for="calcBaselineSteps">Pasos cotidianos ya incluidos</label><input id="calcBaselineSteps" type="number" min="0" max="10000" step="500" value="3000"></div>
         <div class="control"><label for="calcCadence">Cadencia estimada</label><input id="calcCadence" type="number" min="40" max="180" step="5" value="100"></div>
         <div class="control"><label for="calcWalkMet">Pasos planos</label><select id="calcWalkMet"><option value="3.3" selected>Moderados (MET 3.3)</option><option value="2.8">Lentos (MET 2.8)</option><option value="4.3">R&aacute;pidos (MET 4.3)</option></select></div>
@@ -302,8 +342,9 @@ a:hover{border-bottom-style:solid}
       <div class="card t"><div class="card-lbl">Objetivo del d&iacute;a</div><div class="card-val" id="calcTarget">2,306</div><div class="card-sub">mantenimiento estimado &minus; d&eacute;ficit</div></div>
       <div class="card a"><div class="card-lbl">D&eacute;ficit semanal equivalente</div><div class="card-val" id="calcWeeklyDeficit">4,900</div><div class="card-sub">si el promedio diario se cumple</div></div>
     </div>
+    <div class="infobox"><strong>Referencia del c&aacute;lculo:</strong> se conserva 99.05 kg, &uacute;ltima pesada matutina disponible (17 Ago). Los 95.95 kg de la evaluaci&oacute;n profesional del 18 Sep fueron despu&eacute;s de comer; hasta contar con una nueva serie matutina comparable, no se usa esa lectura aislada para recalibrar el gasto.</div>
 
-    <div class="sec-head"><h2>Referencias r&aacute;pidas con 98.1 kg</h2><span class="badge">No reemplazan el TDEE observado</span></div>
+    <div class="sec-head"><h2>Referencias r&aacute;pidas con la &uacute;ltima pesada matutina (99.05 kg)</h2><span class="badge">No reemplazan el TDEE observado</span></div>
     <div class="table-wrap">
       <table>
         <thead>
@@ -316,13 +357,13 @@ a:hover{border-bottom-style:solid}
           </tr>
         </thead>
         <tbody>
-          <tr><td><span class="scen-name">Descanso sedentario</span><span class="scen-det">Base provisional; hasta ~3,000 pasos cotidianos</span></td><td class="c c-maint">0</td><td class="c c-maint">2,352</td><td class="c c-opt">1,852</td><td class="c c-mod">1,652</td></tr>
-          <tr><td><span class="scen-name">Torso 60 min + caminadora 15 min</span><span class="scen-det">2.5&ndash;4 km/h &middot; inclinaci&oacute;n 15% &middot; sin pasos extra</span></td><td class="c" style="color:var(--blue)">575</td><td class="c c-maint">2,927</td><td class="c c-opt">2,427</td><td class="c c-mod">2,227</td></tr>
-          <tr><td><span class="scen-name">Piernas 60 min + caminadora 15 min</span><span class="scen-det">2.5&ndash;4 km/h &middot; inclinaci&oacute;n 15% &middot; sin pasos extra</span></td><td class="c" style="color:var(--blue)">627</td><td class="c c-maint">2,979</td><td class="c c-opt">2,479</td><td class="c c-mod">2,279</td></tr>
-          <tr><td><span class="scen-name">Torso 60 min + caminadora + 6,500 pasos totales</span><span class="scen-det">Tu ejemplo: descuenta 3k cotidianos y ~1.5k de caminadora</span></td><td class="c" style="color:var(--blue)">654</td><td class="c c-maint">3,006</td><td class="c c-opt">2,506</td><td class="c c-mod">2,306</td></tr>
-          <tr><td><span class="scen-name">Torso 90 min + caminadora 15 min</span><span class="scen-det">MET 5.0 provisional &middot; sin pasos extra</span></td><td class="c" style="color:var(--blue)">781</td><td class="c c-maint">3,133</td><td class="c c-opt">2,633</td><td class="c c-mod">2,433</td></tr>
-          <tr><td><span class="scen-name">Piernas 90 min + caminadora 15 min</span><span class="scen-det">MET 5.5 provisional &middot; sin pasos extra</span></td><td class="c" style="color:var(--blue)">859</td><td class="c c-maint">3,211</td><td class="c c-opt">2,711</td><td class="c c-mod">2,511</td></tr>
-          <tr><td><span class="scen-name">Torso 90 min + caminadora + 10,000 pasos totales</span><span class="scen-det">Descuenta 3k cotidianos y ~1.5k ya hechos en caminadora</span></td><td class="c" style="color:var(--blue)">999</td><td class="c c-maint">3,351</td><td class="c c-opt">2,851</td><td class="c c-mod">2,651</td></tr>
+          <tr><td><span class="scen-name">Descanso sedentario</span><span class="scen-det">Base provisional; hasta ~3,000 pasos cotidianos</span></td><td class="c c-maint">0</td><td class="c c-maint">2,363</td><td class="c c-opt">1,863</td><td class="c c-mod">1,663</td></tr>
+          <tr><td><span class="scen-name">Torso 60 min + caminadora 15 min</span><span class="scen-det">2.5&ndash;4 km/h &middot; inclinaci&oacute;n 15% &middot; sin pasos extra</span></td><td class="c" style="color:var(--blue)">581</td><td class="c c-maint">2,944</td><td class="c c-opt">2,444</td><td class="c c-mod">2,244</td></tr>
+          <tr><td><span class="scen-name">Piernas 60 min + caminadora 15 min</span><span class="scen-det">2.5&ndash;4 km/h &middot; inclinaci&oacute;n 15% &middot; sin pasos extra</span></td><td class="c" style="color:var(--blue)">632</td><td class="c c-maint">2,995</td><td class="c c-opt">2,495</td><td class="c c-mod">2,295</td></tr>
+          <tr><td><span class="scen-name">Torso 60 min + caminadora + 6,500 pasos totales</span><span class="scen-det">Tu ejemplo: descuenta 3k cotidianos y ~1.5k de caminadora</span></td><td class="c" style="color:var(--blue)">661</td><td class="c c-maint">3,024</td><td class="c c-opt">2,524</td><td class="c c-mod">2,324</td></tr>
+          <tr><td><span class="scen-name">Torso 90 min + caminadora 15 min</span><span class="scen-det">MET 5.0 provisional &middot; sin pasos extra</span></td><td class="c" style="color:var(--blue)">789</td><td class="c c-maint">3,152</td><td class="c c-opt">2,652</td><td class="c c-mod">2,452</td></tr>
+          <tr><td><span class="scen-name">Piernas 90 min + caminadora 15 min</span><span class="scen-det">MET 5.5 provisional &middot; sin pasos extra</span></td><td class="c" style="color:var(--blue)">865</td><td class="c c-maint">3,228</td><td class="c c-opt">2,728</td><td class="c c-mod">2,528</td></tr>
+          <tr><td><span class="scen-name">Torso 90 min + caminadora + 10,000 pasos totales</span><span class="scen-det">Descuenta 3k cotidianos y ~1.5k ya hechos en caminadora</span></td><td class="c" style="color:var(--blue)">1,009</td><td class="c c-maint">3,372</td><td class="c c-opt">2,872</td><td class="c c-mod">2,672</td></tr>
           <tr><td><span class="scen-name">Si la caminadora dura 12 min</span><span class="scen-det">Usa la calculadora o resta ~36 kcal al escenario equivalente de 15 min</span></td><td colspan="4" class="c" style="color:var(--t3)">La duraci&oacute;n ya se puede seleccionar arriba</td></tr>
         </tbody>
       </table>
@@ -340,18 +381,18 @@ a:hover{border-bottom-style:solid}
     <div class="sec-head"><h2>Desglose de Composici&oacute;n Corporal (kg)</h2><span class="badge">Masa libre de grasa vs. masa grasa</span></div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
       <div class="chart-wrap" style="margin-bottom:0">
-        <div class="chart-title"><span>Evoluci&oacute;n masa libre de grasa estimada (kg)</span><span style="color:var(--teal)">● No equivale a m&uacute;sculo</span></div>
+        <div class="chart-title"><span>Evoluci&oacute;n masa libre de grasa estimada (kg)</span><span style="color:var(--teal)">● &Uacute;ltimo c&aacute;lculo: Ago 17; no equivale a m&uacute;sculo</span></div>
         <canvas id="leanWeightCanvas"></canvas>
       </div>
       <div class="chart-wrap" style="margin-bottom:0">
-        <div class="chart-title"><span>Evoluci&oacute;n Masa Grasa (kg)</span><span style="color:var(--amber)">● Adiposo</span></div>
+        <div class="chart-title"><span>Evoluci&oacute;n Masa Grasa (kg)</span><span style="color:var(--amber)">● &Uacute;ltimo c&aacute;lculo: Ago 17; estimaci&oacute;n</span></div>
         <canvas id="fatWeightCanvas"></canvas>
       </div>
     </div>
   </div>
 
   <div class="wrap">
-    <div class="sec-head"><h2>Historial de Peso</h2><span class="badge">17 registros con peso &middot; M&aacute;s nuevos arriba</span></div>
+    <div class="sec-head"><h2>Historial de Peso</h2><span class="badge">25 registros con peso &middot; M&aacute;s nuevos arriba</span></div>
     <div class="table-wrap">
       <table>
         <thead>
@@ -361,10 +402,66 @@ a:hover{border-bottom-style:solid}
         </thead>
         <tbody>
           <tr class="work-row">
-            <td style="color:var(--teal)">10 Ago 2026 &#9733; HOY</td>
-            <td><span class="wh-kg" style="color:var(--teal)">98.10 kg</span></td>
+            <td style="color:var(--teal)">18 Sep 2026 &#9733;</td>
+            <td><span class="wh-kg" style="color:var(--teal)">95.95 kg</span></td>
+            <td class="r"><span class="dna">&mdash;</span></td>
+            <td><span style="font-size:11px;color:var(--blue)">Evaluaci&oacute;n profesional despu&eacute;s de comer (hoja: 96.0 kg)</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:82%;background:var(--blue)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">20 Ago 2026</td>
+            <td><span class="wh-kg">99.50 kg</span></td>
+            <td class="r"><span class="dna">&mdash;</span></td>
+            <td><span style="font-size:11px;color:var(--blue)">Evaluaci&oacute;n profesional; inicio del seguimiento</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:89%;background:var(--blue)"></div></div></td>
+          </tr>
+          <tr class="work-row">
+            <td style="color:var(--teal)">17 Ago 2026</td>
+            <td><span class="wh-kg" style="color:var(--teal)">99.05 kg</span></td>
+            <td class="r"><span class="dpos">+1.15 kg vs 16 Ago</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">&Uacute;ltima pesada matutina disponible</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:89%;background:var(--teal)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">16 Ago 2026</td>
+            <td><span class="wh-kg">97.90 kg</span></td>
+            <td class="r"><span class="dneg">&minus;1.30 kg vs 14 Ago</span></td>
+            <td><span style="font-size:11px;color:var(--amber)">Valor aislado; creatina omitida 15 Ago</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:84%;background:var(--amber)"></div></div></td>
+          </tr>
+          <tr class="work-row">
+            <td style="color:var(--t2)">14 Ago 2026</td>
+            <td><span class="wh-kg">99.20 kg</span></td>
+            <td class="r"><span class="dna">0.00 kg</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Pesada matutina</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:90%;background:var(--teal)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">13 Ago 2026</td>
+            <td><span class="wh-kg">99.20 kg</span></td>
+            <td class="r"><span class="dpos">+0.35 kg</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Pesada matutina</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:90%;background:var(--teal)"></div></div></td>
+          </tr>
+          <tr class="work-row">
+            <td style="color:var(--t2)">12 Ago 2026</td>
+            <td><span class="wh-kg">98.85 kg</span></td>
+            <td class="r"><span class="dpos">+0.05 kg</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Pesada matutina</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:88%;background:var(--teal)"></div></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--t2)">11 Ago 2026</td>
+            <td><span class="wh-kg">98.80 kg</span></td>
+            <td class="r"><span class="dpos">+0.70 kg</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">98.50 kg despu&eacute;s de evacuar</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:88%;background:var(--teal)"></div></div></td>
+          </tr>
+          <tr class="work-row">
+            <td style="color:var(--t2)">10 Ago 2026</td>
+            <td><span class="wh-kg">98.10 kg</span></td>
             <td class="r"><span class="dpos">+0.30 kg vs ayer</span></td>
-            <td><span class="tag tag-cur">Actual confirmado</span></td>
+            <td><span style="font-size:11px;color:var(--t3)">Base anterior</span></td>
             <td><div class="bar"><div class="bar-f" style="width:85%;background:var(--teal)"></div></div></td>
           </tr>
           <tr>
@@ -510,17 +607,17 @@ a:hover{border-bottom-style:solid}
 <div id="tab-composicion-corporal" class="tab-content" role="tabpanel">
   <!-- COMPOSICIÓN CORPORAL CARDS -->
   <div class="wrap">
-    <div class="sec-head"><h2>Composici&oacute;n Corporal Actual</h2><span class="badge">10 Ago 2026 &middot; Naval USA</span></div>
+    <div class="sec-head"><h2>&Uacute;ltima estimaci&oacute;n de composici&oacute;n corporal</h2><span class="badge">Provisional del 17 Ago; la evaluaci&oacute;n profesional del 18 Sep no midi&oacute; composici&oacute;n</span></div>
     <div class="bodycomp">
       <div class="bc-card lean">
         <div class="bc-lbl">Masa libre de grasa estimada</div>
-        <div class="bc-val">73.8 kg</div>
+        <div class="bc-val">74.5 kg</div>
         <div class="bc-sub">75.2% del peso total &middot; m&uacute;sculo, hueso, &oacute;rganos, agua</div>
         <div class="bc-bar"></div>
       </div>
       <div class="bc-card fat">
         <div class="bc-lbl">Masa Grasa &mdash; objetivo reducir</div>
-        <div class="bc-val">24.3 kg</div>
+        <div class="bc-val">24.6 kg</div>
         <div class="bc-sub">24.8% del peso total &middot; Naval tiene incertidumbre individual</div>
         <div class="bc-bar"></div>
       </div>
@@ -531,43 +628,45 @@ a:hover{border-bottom-style:solid}
   <div class="wrap" style="margin-bottom: 24px;">
     <div class="sec-head"><h2>Gr&aacute;fico de Masa Libre de Grasa Estimada</h2><span class="badge">Modelo Naval USA &middot; no mide m&uacute;sculo directamente</span></div>
     <div class="chart-wrap" style="margin-bottom:0">
-      <div class="chart-title"><span>Masa libre de grasa (kg) &mdash; Cuello + Panza + Altura 179cm</span><span style="color:var(--teal)">● Actual 73.8 kg estimados</span></div>
+      <div class="chart-title"><span>Masa libre de grasa (kg) &mdash; Cuello + Panza + Altura 179cm</span><span style="color:var(--teal)">● Provisional 74.5 kg</span></div>
       <canvas id="compLeanCanvas"></canvas>
     </div>
   </div>
 
   <!-- COMPARATIVA DE MEDIDAS -->
   <div class="wrap">
-    <div class="sec-head"><h2>Comparativa de Medidas</h2><span class="badge">3 fechas clave &middot; M&aacute;s nuevos a la izquierda</span></div>
+    <div class="sec-head"><h2>Comparativa de Medidas</h2><span class="badge">&Uacute;ltimo dato de cada medida &middot; fechas/protocolos indicados abajo</span></div>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
             <th style="width:24%">Medida</th>
-            <th class="c" style="font-size:9px;color:var(--teal)">Ago 10 '26 &#9733;<br><span style="color:var(--t3)">Actual</span></th>
+            <th class="c" style="font-size:9px;color:var(--teal)">&Uacute;ltimo dato*<br><span style="color:var(--t3)">por medida</span></th>
             <th class="c" style="font-size:9px;color:var(--coral)">Abr 27 '26<br><span style="color:var(--t3)">Pico m&aacute;x.</span></th>
             <th class="c" style="font-size:9px;color:var(--blue)">Sep 5 '25<br><span style="color:var(--t3)">Inicio</span></th>
-            <th class="c" style="font-size:9px">&Delta; Inicio&rarr;Actual</th>
+            <th class="c" style="font-size:9px">&Delta; seg&uacute;n origen</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Peso</td><td class="c meas-cur">98.10 kg</td><td class="c" style="color:var(--coral)">101.5 kg</td><td class="c" style="color:var(--blue)">— kg</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+          <tr><td>Peso</td><td class="c meas-cur">95.95 kg*</td><td class="c" style="color:var(--coral)">101.5 kg</td><td class="c" style="color:var(--blue)">— kg</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
           <tr><td>Cuello</td><td class="c meas-cur">43.0 cm</td><td class="c meas-val">44.5 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
           <tr><td>Panza (ombligo)</td><td class="c meas-cur">102 cm</td><td class="c" style="color:var(--coral)">107 cm</td><td class="c" style="color:var(--blue)">97.5 cm</td><td class="c"><span class="d-worse">+4.5 cm &uarr;</span></td></tr>
-          <tr><td>Espalda + pecho (pezones)</td><td class="c meas-cur">110 cm</td><td class="c meas-val">115 cm</td><td class="c" style="color:var(--blue)">105 cm</td><td class="c"><span class="d-worse">+5 cm &uarr;</span></td></tr>
-          <tr><td>Espalda + pecho (axilas)</td><td class="c meas-cur">113&ndash;114 cm</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">nuevo sitio</span></td></tr>
-          <tr><td>Brazo Izquierdo</td><td class="c meas-cur">38.3 cm</td><td class="c meas-val">39.0 cm</td><td class="c" style="color:var(--blue)">36.5 cm</td><td class="c"><span class="d-worse">+1.8 cm &uarr;</span></td></tr>
-          <tr><td>Brazo Derecho</td><td class="c meas-cur">38.3 cm</td><td class="c meas-val">39.0 cm</td><td class="c" style="color:var(--blue)">36.5 cm</td><td class="c"><span class="d-worse">+1.8 cm &uarr;</span></td></tr>
-          <tr><td>Hombro Izq</td><td class="c meas-cur">42 cm</td><td class="c meas-val">43 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
-          <tr><td>Hombro Der</td><td class="c meas-cur">42 cm</td><td class="c meas-val">43 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
-          <tr><td>Cadera / nalgas (m&aacute;s ancha)</td><td class="c meas-cur">113 cm</td><td class="c" style="color:var(--coral)">115 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
-          <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Piernas (m&aacute;s anchas)</td><td class="c meas-cur">70 cm</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--teal)">&minus;2.5 cm vs 25 Jul</span></td></tr>
-          <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Ambos-hombros / torso (wrap)</td><td class="c meas-cur">129 cm</td><td class="c meas-val">130 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--amber)">135 cm del 14 Jul marcado at&iacute;pico</span></td></tr>
+          <tr><td>Espalda + pecho (pezones)</td><td class="c meas-cur">111 cm</td><td class="c meas-val">115 cm</td><td class="c" style="color:var(--blue)">105 cm</td><td class="c"><span class="d-worse">+6 cm &uarr;</span></td></tr>
+          <tr><td>Espalda + pecho (axilas)</td><td class="c meas-cur">113 cm</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">nuevo sitio</span></td></tr>
+          <tr><td>Brazo Izquierdo</td><td class="c meas-cur">38.5 cm*</td><td class="c meas-val">39.0 cm</td><td class="c" style="color:var(--blue)">36.5 cm</td><td class="c"><span class="d-worse">+2.0 cm &uarr;</span></td></tr>
+          <tr><td>Brazo Derecho</td><td class="c meas-cur">38.5 cm*</td><td class="c meas-val">39.0 cm</td><td class="c" style="color:var(--blue)">36.5 cm</td><td class="c"><span class="d-worse">+2.0 cm &uarr;</span></td></tr>
+          <tr><td>Hombro Izq</td><td class="c meas-cur">42.5 cm*</td><td class="c meas-val">43 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+          <tr><td>Hombro Der</td><td class="c meas-cur">42.5 cm*</td><td class="c meas-val">43 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+          <tr><td>Cadera / nalgas (autorreporte)</td><td class="c meas-cur">113 cm</td><td class="c" style="color:var(--coral)">115 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+          <tr><td>Cadera (profesional)</td><td class="c meas-cur">111.4 cm*</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">nuevo protocolo</span></td></tr>
+          <tr><td>Cintura (profesional)</td><td class="c meas-cur">93.2 cm*</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">nuevo protocolo</span></td></tr>
+          <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Piernas (m&aacute;s anchas)</td><td class="c meas-cur">70.5 cm*</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--teal)">&minus;2.0 cm vs 25 Jul</span></td></tr>
+          <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Ambos-hombros / torso (wrap)</td><td class="c meas-cur">130 cm*</td><td class="c meas-val">130 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--amber)">Medido 14 Ago; 135 cm del 14 Jul sigue at&iacute;pico</span></td></tr>
         </tbody>
       </table>
     </div>
     <p style="font-size:11px;color:var(--t3);margin-top:10px;line-height:1.6">
-      &#8593; Brazos/espalda m&aacute;s grandes vs inicio (Sep '25): refleja que en Abr '26 se lleg&oacute; al m&aacute;ximo y desde entonces bajan.
+      * El peso (95.95 kg) y cintura/cadera profesionales son del 18 Sep. Las dem&aacute;s cintas son los &uacute;ltimos autorreportes disponibles, principalmente del 16&ndash;17 Ago; no son mediciones simult&aacute;neas ni necesariamente el mismo protocolo. Los 92&ndash;92.5 cm de panza del 11&ndash;14 Ago siguen excluidos de tendencias por sitio no comparable.
     </p>
   </div>
 </div>
@@ -575,7 +674,7 @@ a:hover{border-bottom-style:solid}
 <!-- ==================== PESTAÑA 4: HISTORIAL COMPLETO DE MEDIDAS + CHARTS GRUPALES ==================== -->
 <div id="tab-historial-medidas" class="tab-content" role="tabpanel">
   <div class="wrap">
-    <div class="sec-head"><h2>Historial Completo de Medidas</h2><span class="badge">16 entradas &middot; M&aacute;s nuevos arriba</span></div>
+    <div class="sec-head"><h2>Historial Completo de Medidas</h2><span class="badge">24 entradas &middot; M&aacute;s nuevos arriba</span></div>
     <div class="hist-scroll">
       <table class="hist-table">
         <thead>
@@ -597,6 +696,86 @@ a:hover{border-bottom-style:solid}
           </tr>
         </thead>
         <tbody>
+          <tr style="background:var(--teal-a)">
+            <td style="color:var(--teal)">18 Sep '26 &#9733;</td>
+            <td class="c hcur">95.95*</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hv">111.4</td><td class="c hv">93.2</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td style="color:var(--teal);font-size:10px">Smart Nutrition; peso despu&eacute;s de comer, hoja: 96.0 kg. Suma 6 pliegues 104.8 mm; detalle en pesta&ntilde;a Nutri&oacute;logo.</td>
+          </tr>
+          <tr>
+            <td>20 Ago '26</td>
+            <td class="c hv">99.50</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hv">113.4</td><td class="c hv">96.2</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td style="color:var(--blue);font-size:10px">Smart Nutrition; l&iacute;nea base profesional de agosto.</td>
+          </tr>
+          <tr style="background:var(--teal-a)">
+            <td style="color:var(--teal)">17 Ago '26</td>
+            <td class="c hcur">99.05</td><td class="c hna">&mdash;</td>
+            <td class="c hcur">102</td><td class="c hcur">111</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td style="color:var(--teal);font-size:10px">&Uacute;ltimas cintas caseras antes del seguimiento profesional; axilas 113 cm</td>
+          </tr>
+          <tr>
+            <td>16 Ago '26</td>
+            <td class="c hv">97.90</td><td class="c hna">&mdash;</td>
+            <td class="c hv">101</td><td class="c hv">110</td>
+            <td class="c hv">38.5</td><td class="c hv">38.5</td>
+            <td class="c hv">42.5</td><td class="c hv">42.5</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hv">70.5</td><td class="c hv">70.5</td>
+            <td style="color:var(--amber);font-size:10px">Axilas 114 &middot; pantorrillas D/I 44/42.7 &middot; 15 Ago sin creatina</td>
+          </tr>
+          <tr>
+            <td>14 Ago '26</td>
+            <td class="c hv">99.20</td><td class="c hna">&mdash;</td>
+            <td class="c" style="color:var(--amber)">92*</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td style="color:var(--amber);font-size:10px">Wrap torso 130 &middot; *sitio de panza no comparable; excluido de tendencia</td>
+          </tr>
+          <tr>
+            <td>13 Ago '26</td>
+            <td class="c hv">99.20</td><td class="c hna">&mdash;</td>
+            <td class="c" style="color:var(--amber)">92*</td><td class="c hv">111</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td style="color:var(--amber);font-size:10px">Axilas 114 &middot; *sitio no comparable; excluido de tendencia</td>
+          </tr>
+          <tr>
+            <td>12 Ago '26</td>
+            <td class="c hv">98.85</td><td class="c hna">&mdash;</td>
+            <td class="c" style="color:var(--amber)">92*</td><td class="c hv">111</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td style="color:var(--amber);font-size:10px">Axilas 113 &middot; *sitio no comparable; excluido de tendencia</td>
+          </tr>
+          <tr>
+            <td>11 Ago '26</td>
+            <td class="c hv">98.80</td><td class="c hna">&mdash;</td>
+            <td class="c" style="color:var(--amber)">92.5*</td><td class="c hv">111</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td style="color:var(--amber);font-size:10px">Axilas 113 &middot; post-evacuaci&oacute;n 98.50 kg &middot; *sitio no comparable</td>
+          </tr>
           <tr style="background:var(--teal-a)">
             <td style="color:var(--teal)">10 Ago '26 &#9733;</td>
             <td class="c hcur">98.10</td><td class="c hcur">43</td>
@@ -769,11 +948,11 @@ a:hover{border-bottom-style:solid}
       <!-- Fila 1: Espalda y Panza -->
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:14px">
         <div class="chart-wrap" style="margin-bottom:0">
-          <div class="chart-title"><span>Progreso de Espalda + Pecho en pezones (cm)</span><span style="color:var(--teal)">● Actual 110 cm</span></div>
+          <div class="chart-title"><span>Progreso de Espalda + Pecho en pezones (cm)</span><span style="color:var(--teal)">● &Uacute;ltimo autorreporte: 111 cm (17 Ago)</span></div>
           <canvas id="backCanvas"></canvas>
         </div>
         <div class="chart-wrap" style="margin-bottom:0">
-          <div class="chart-title"><span>Progreso de Panza / punto m&aacute;s prominente (cm)</span><span style="color:var(--teal)">● Actual 102 cm</span></div>
+          <div class="chart-title"><span>Progreso de Panza / punto m&aacute;s prominente (cm)</span><span style="color:var(--teal)">● &Uacute;ltimo autorreporte: 102 cm (17 Ago)</span></div>
           <canvas id="waistCanvas"></canvas>
         </div>
       </div>
@@ -801,7 +980,7 @@ a:hover{border-bottom-style:solid}
         <div class="chart-wrap" style="margin-bottom:0">
           <div class="chart-title">
             <span>Progreso de Piernas (cm) &mdash; Muslo m&aacute;s ancho</span>
-            <span style="font-size:9px"><em style="font-style:normal;color:var(--teal)">● Izq (71cm)</em> &middot; <em style="font-style:normal;color:var(--blue)">● Der (71cm)</em></span>
+            <span style="font-size:9px"><em style="font-style:normal;color:var(--teal)">● Izq (70.5cm)</em> &middot; <em style="font-style:normal;color:var(--blue)">● Der (70.5cm)</em></span>
           </div>
           <canvas id="legsCanvas"></canvas>
         </div>
@@ -850,7 +1029,7 @@ a:hover{border-bottom-style:solid}
       </table>
     </div>
     <div class="infobox">
-      <strong>Metodolog&iacute;a solicitada:</strong> comparaci&oacute;n usando 7,700 kcal/kg y un <em>d&eacute;ficit real sostenido</em>, reanclada a 98.1 kg el 10 de agosto. Esto exige recalibrar la ingesta cada cuatro semanas. El plan escalonado alcanza 90 kg a inicios de noviembre y cambia entonces a &minus;500. Las tres columnas se detienen en 80 kg y desde ah&iacute; asumen mantenimiento. Fechas te&oacute;ricas aproximadas de 80 kg: &minus;700, 25 Feb; plan, 10 Abr; &minus;500, 16 May.
+      <strong>Metodolog&iacute;a solicitada:</strong> comparaci&oacute;n usando 7,700 kcal/kg y un <em>d&eacute;ficit real sostenido</em>, reanclada a 98.1 kg el 10 de agosto. Esto exige recalibrar la ingesta cada cuatro semanas. El peso profesional del 18 Sep (95.95 kg) fue despu&eacute;s de comer y no reemplaza una tendencia matutina estandarizada; por eso no se reancl&oacute; esta proyecci&oacute;n. El plan escalonado alcanza 90 kg a inicios de noviembre y cambia entonces a &minus;500. Las tres columnas se detienen en 80 kg y desde ah&iacute; asumen mantenimiento. Fechas te&oacute;ricas aproximadas de 80 kg: &minus;700, 25 Feb; plan, 10 Abr; &minus;500, 16 May.
       <br><strong>El porcentaje de grasa no es una segunda medici&oacute;n:</strong> parte de 24.3 kg de grasa estimada por Naval (24.8%) y reparte cada kg perdido con el escenario central descrito abajo. Sirve para visualizar una trayectoria, no para diagnosticar composici&oacute;n. Las cifras de 11&ndash;12% cerca de 80 kg son especialmente inciertas y obligan a recalibrar con DEXA, cintura, fotos y rendimiento antes de continuar.
       <br><strong>Comparaci&oacute;n matem&aacute;tica sin piso (no recomendada ni usada para medidas):</strong> forzar la resta lineal durante 365 d&iacute;as dar&iacute;a 74.4 kg con &minus;500, 64.9 kg con &minus;700 y 72.1 kg con el plan. El panel no usa esas cifras.
     </div>
@@ -876,7 +1055,7 @@ a:hover{border-bottom-style:solid}
       </div>
     </div>
     <div class="infobox">
-      <strong>C&oacute;mo leer el reparto central:</strong> cada kg perdido suma exactamente 1 kg: &minus;500 = 85% grasa, 2.5% m&uacute;sculo contr&aacute;ctil y 12.5% otros; &minus;700 = 83%, 3% y 14%; plan escalonado = 84%, 3% y 13%. Son supuestos de planificaci&oacute;n informados por estudios grupales, no probabilidades personales ni una predicci&oacute;n cl&iacute;nica. &ldquo;Otros&rdquo; incluye agua, gluc&oacute;geno, contenido gastrointestinal y otros tejidos magros. Un DEXA inicial sustituir&aacute; la base Naval; cada DEXA, cintura y tendencia real deber&aacute;n sustituir esta proyecci&oacute;n.
+      <strong>C&oacute;mo leer el reparto central:</strong> cada kg perdido suma exactamente 1 kg: &minus;500 = 85% grasa, 2.5% m&uacute;sculo contr&aacute;ctil y 12.5% otros; &minus;700 = 83%, 3% y 14%; plan escalonado = 84%, 3% y 13%. Son supuestos de planificaci&oacute;n informados por estudios grupales, no probabilidades personales ni una predicci&oacute;n cl&iacute;nica. &ldquo;Otros&rdquo; incluye agua, gluc&oacute;geno, contenido gastrointestinal y otros tejidos magros. El DEXA se realiz&oacute; el 20 Ago; estas proyecciones y la base Naval a&uacute;n no se recalculan con ese estudio. Cada medici&oacute;n comparable de cintura y tendencia real debe servir para actualizar el modelo.
     </div>
   </div>
 
@@ -971,7 +1150,211 @@ a:hover{border-bottom-style:solid}
       </table>
     </div>
     <div class="infobox">
-      <strong>*Cuantificaci&oacute;n aproximada solicitada:</strong> peso usa el mismo modelo energ&eacute;tico; grasa, m&uacute;sculo y otros usan el reparto central balanceado de la pesta&ntilde;a anterior. El porcentaje parte de 24.3 kg de grasa Naval y descuenta la grasa proyectada. Las circunferencias usan las regresiones hist&oacute;ricas internas: cintura &minus;0.87 cm, espalda+pecho &minus;0.56 cm y ambos hombros &minus;0.65 cm por kg perdido. No son promesas biol&oacute;gicas. Cintura real cada dos semanas, medidas completas cada cuatro semanas y DEXA cuando exista reemplazan estas cifras.
+      <strong>*Cuantificaci&oacute;n aproximada solicitada:</strong> peso usa el mismo modelo energ&eacute;tico; grasa, m&uacute;sculo y otros usan el reparto central balanceado de la pesta&ntilde;a anterior. El porcentaje parte de 24.3 kg de grasa Naval y descuenta la grasa proyectada. Las circunferencias usan las regresiones hist&oacute;ricas internas: cintura &minus;0.87 cm, espalda+pecho &minus;0.56 cm y ambos hombros &minus;0.65 cm por kg perdido. No son promesas biol&oacute;gicas. Cintura real cada dos semanas y medidas completas cada cuatro semanas reemplazan estas cifras; el DEXA del 20 Ago est&aacute; realizado, pero a&uacute;n no se ha integrado en este modelo.
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PESTAÑA: DATOS DEL NUTRIÓLOGO ==================== -->
+<div id="tab-nutriologo" class="tab-content" role="tabpanel">
+  <div class="wrap">
+    <div class="sec-head"><h2>Expediente del Nutri&oacute;logo</h2><span class="badge">Smart Nutrition &middot; seguimiento 18 Sep 2026</span></div>
+    <p class="pro-note"><strong>Esta pesta&ntilde;a conserva cada evaluaci&oacute;n profesional sin mezclarla con DEXA o con el modelo GymTracker.</strong> La segunda medici&oacute;n fue 29 d&iacute;as despu&eacute;s de la primera. Las 2,200 kcal fueron comunicadas verbalmente; la hoja nueva especifica alimentos y porciones, pero no imprime calor&iacute;as ni macros totales. Los macros mostrados abajo mantienen provisionalmente la distribuci&oacute;n anterior, tal como fue referido en consulta.</p>
+
+    <div class="cards" style="margin-bottom:16px">
+      <div class="card t"><div class="card-lbl">Peso medido</div><div class="card-val">96.0 kg</div><div class="card-sub">18 Sep 2026 &middot; 95.95 kg en b&aacute;scula, redondeado en hoja</div></div>
+      <div class="card"><div class="card-lbl">Talla</div><div class="card-val">177.70 cm</div><div class="card-sub">talla sentado 92.30 cm</div></div>
+      <div class="card a"><div class="card-lbl">Suma de 6 pliegues</div><div class="card-val">105.0 mm</div><div class="card-sub">&minus;13.4 mm (&minus;11.3%) desde 20 Ago</div></div>
+      <div class="card b"><div class="card-lbl">Cintura profesional</div><div class="card-val">93.2 cm</div><div class="card-sub">&minus;3.0 cm desde 20 Ago</div></div>
+      <div class="card"><div class="card-lbl">Cambio de peso</div><div class="card-val">&minus;3.5 kg</div><div class="card-sub">&minus;0.84 kg/sem &middot; &minus;0.85% del peso/sem</div></div>
+      <div class="card"><div class="card-lbl">Plan profesional actual</div><div class="card-val">2,200 kcal</div><div class="card-sub">+100 kcal/d&iacute;a para proteger recuperaci&oacute;n y masa magra</div></div>
+    </div>
+
+    <details class="pro-block" open>
+      <summary>Seguimiento antropom&eacute;trico &middot; 20 Ago &rarr; 18 Sep <span class="pro-source">29 d&iacute;as &middot; misma hoja profesional</span></summary>
+      <div class="pro-body">
+        <div class="table-wrap"><table><thead><tr><th>Medida</th><th class="c">20 Ago</th><th class="c">18 Sep</th><th class="c">Cambio</th><th>Lectura</th></tr></thead><tbody>
+          <tr><td>Peso</td><td class="c">99.5 kg</td><td class="c c-opt"><strong>96.0 kg</strong></td><td class="c">&minus;3.5 kg</td><td>&minus;3.5% en 29 d&iacute;as; la nueva pesada fue despu&eacute;s de comer, por lo que no es directamente comparable con el peso matutino dom&eacute;stico.</td></tr>
+          <tr><td>IMC</td><td class="c">31.5</td><td class="c">30.4</td><td class="c">&minus;1.1</td><td>Consecuencia matem&aacute;tica del cambio de peso; no describe por s&iacute; solo la composici&oacute;n.</td></tr>
+          <tr><td>Cintura</td><td class="c">96.2 cm</td><td class="c c-opt"><strong>93.2 cm</strong></td><td class="c">&minus;3.0 cm</td><td>Cambio favorable y coherente con p&eacute;rdida central.</td></tr>
+          <tr><td>Cadera</td><td class="c">113.4 cm</td><td class="c">111.4 cm</td><td class="c">&minus;2.0 cm</td><td>El cociente cintura/cadera pasa aproximadamente de 0.848 a 0.837.</td></tr>
+          <tr><td>Pliegue tr&iacute;ceps</td><td class="c">16.8 mm</td><td class="c">14.8 mm</td><td class="c">&minus;2.0 mm</td><td rowspan="6">Los seis pliegues bajaron. En conjunto, esto respalda p&eacute;rdida de grasa subcut&aacute;nea; cada sitio aislado conserva error de medici&oacute;n.</td></tr>
+          <tr><td>Pliegue subescapular</td><td class="c">21.0 mm</td><td class="c">20.0 mm</td><td class="c">&minus;1.0 mm</td></tr>
+          <tr><td>Pliegue supraespinal</td><td class="c">18.8 mm</td><td class="c">15.8 mm</td><td class="c">&minus;3.0 mm</td></tr>
+          <tr><td>Pliegue abdominal</td><td class="c">28.2 mm</td><td class="c">24.4 mm</td><td class="c">&minus;3.8 mm</td></tr>
+          <tr><td>Pliegue muslo medial</td><td class="c">20.2 mm</td><td class="c">17.8 mm</td><td class="c">&minus;2.4 mm</td></tr>
+          <tr><td>Pliegue pantorrilla</td><td class="c">13.4 mm</td><td class="c">12.0 mm</td><td class="c">&minus;1.4 mm</td></tr>
+          <tr class="work-row"><td><strong>Suma de 6 pliegues</strong></td><td class="c"><strong>118.0 mm</strong></td><td class="c"><strong>105.0 mm</strong></td><td class="c"><strong>&minus;13.0 mm (&minus;11.0%)</strong></td><td>La hoja de seguimiento redondea la primera suma a 118; el informe completo anterior sumaba 118.4 mm, por lo que la comparaci&oacute;n exacta con aquel archivo es &minus;13.4 mm (&minus;11.3%).</td></tr>
+        </tbody></table></div>
+        <div class="infobox"><strong>Lo que a&uacute;n no se puede cuantificar:</strong> la hoja del 18 de septiembre no imprime un nuevo fraccionamiento Kerr de cinco masas ni per&iacute;metros de brazo, t&oacute;rax o muslo. Por eso no se adjudican los 3.5 kg a grasa y m&uacute;sculo con falsa exactitud. La combinaci&oacute;n de peso, cintura, cadera y seis pliegues s&iacute; muestra una tendencia favorable de grasa subcut&aacute;nea.</div>
+      </div>
+    </details>
+
+    <details class="pro-block" open>
+      <summary>Composici&oacute;n corporal basal &middot; modelo Kerr de 5 masas <span class="pro-source">20 Ago &middot; nueva descomposici&oacute;n pendiente</span></summary>
+      <div class="pro-body">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Componente</th><th class="c">Kilogramos</th><th class="c">% del modelo</th><th class="c">Score-Z</th><th>Qu&eacute; representa</th></tr></thead>
+            <tbody>
+              <tr><td>Masa adiposa</td><td class="c">27.191</td><td class="c c-mod">27.31%</td><td class="c">&minus;0.09</td><td>Tejido adiposo estimado antropom&eacute;tricamente</td></tr>
+              <tr><td>Masa muscular</td><td class="c">47.638</td><td class="c c-opt">47.85%</td><td class="c">3.60</td><td>Masa muscular del fraccionamiento Kerr</td></tr>
+              <tr><td>Masa residual</td><td class="c">11.882</td><td class="c">11.94%</td><td class="c">4.39</td><td>&Oacute;rganos, v&iacute;sceras y otros tejidos residuales</td></tr>
+              <tr><td>Masa &oacute;sea</td><td class="c">8.570</td><td class="c">8.61%</td><td class="c">0.19</td><td>Componente &oacute;seo estimado</td></tr>
+              <tr><td>Masa de la piel</td><td class="c">4.269</td><td class="c">4.29%</td><td class="c">&mdash;</td><td>Componente cut&aacute;neo estimado</td></tr>
+              <tr class="work-row"><td><strong>Total estructurado</strong></td><td class="c"><strong>99.550</strong></td><td class="c"><strong>100%</strong></td><td class="c">2.66</td><td>Diferencia peso estructurado/bruto reportada: 5.06%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="infobox"><strong>Estos valores siguen siendo la l&iacute;nea base del 20 de agosto, no la composici&oacute;n actual.</strong> La hoja del 18 de septiembre no trae el rec&aacute;lculo Kerr. Adem&aacute;s, Kerr reparte el cuerpo en cinco tejidos y DEXA en grasa, tejido magro blando y mineral &oacute;seo; 27.31% Kerr y 32.4% DEXA no son conversiones directas.</div>
+      </div>
+    </details>
+
+    <details class="pro-block" open>
+      <summary>Antropometr&iacute;a completa <span class="pro-source">Protocolo ISAK &middot; Harpenden / Rosscraft / Lufkin</span></summary>
+      <div class="pro-body">
+        <div class="sec-head" style="border-bottom:none;margin-bottom:8px;padding-bottom:0"><h2 style="font-size:13px">Di&aacute;metros</h2></div>
+        <div class="table-wrap" style="margin-bottom:14px"><table><thead><tr><th>Medida</th><th class="c">cm</th><th class="c">Score-Z</th></tr></thead><tbody>
+          <tr><td>Biacromial</td><td class="c">41.60</td><td class="c">0.94</td></tr>
+          <tr><td>T&oacute;rax transverso</td><td class="c">32.40</td><td class="c">1.79</td></tr>
+          <tr><td>T&oacute;rax anteroposterior</td><td class="c">24.40</td><td class="c">4.25</td></tr>
+          <tr><td>Bi-iliocrest&iacute;deo</td><td class="c">28.10</td><td class="c">&minus;1.10</td></tr>
+          <tr><td>Humeral (biepicondilar)</td><td class="c">7.00</td><td class="c">0.64</td></tr>
+          <tr><td>Femoral (biepicondilar)</td><td class="c">10.30</td><td class="c">0.72</td></tr>
+        </tbody></table></div>
+
+        <div class="sec-head" style="border-bottom:none;margin-bottom:8px;padding-bottom:0"><h2 style="font-size:13px">Per&iacute;metros</h2></div>
+        <div class="table-wrap" style="margin-bottom:14px"><table><thead><tr><th>Medida</th><th class="c">cm</th><th class="c">Score-Z</th></tr></thead><tbody>
+          <tr><td>Cabeza</td><td class="c">55.10</td><td class="c">&minus;2.24</td></tr>
+          <tr><td>Brazo relajado</td><td class="c">37.50</td><td class="c">3.87</td></tr>
+          <tr><td>Brazo flexionado en tensi&oacute;n</td><td class="c">39.50</td><td class="c">3.55</td></tr>
+          <tr><td>Antebrazo</td><td class="c">29.00</td><td class="c">1.87</td></tr>
+          <tr><td>T&oacute;rax mesoesternal</td><td class="c">109.00</td><td class="c">3.19</td></tr>
+          <tr><td>Cintura m&iacute;nima</td><td class="c">96.20</td><td class="c">4.54</td></tr>
+          <tr><td>Caderas m&aacute;xima</td><td class="c">113.40</td><td class="c">2.50</td></tr>
+          <tr><td>Muslo superior</td><td class="c">70.50</td><td class="c">2.77</td></tr>
+          <tr><td>Muslo medial</td><td class="c">64.20</td><td class="c">2.41</td></tr>
+          <tr><td>Pantorrilla m&aacute;xima</td><td class="c">44.50</td><td class="c">3.20</td></tr>
+        </tbody></table></div>
+
+        <div class="sec-head" style="border-bottom:none;margin-bottom:8px;padding-bottom:0"><h2 style="font-size:13px">Pliegues cut&aacute;neos</h2></div>
+        <div class="table-wrap"><table><thead><tr><th>Pliegue</th><th class="c">mm</th><th class="c">Score-Z</th></tr></thead><tbody>
+          <tr><td>Tr&iacute;ceps</td><td class="c">16.80</td><td class="c">0.15</td></tr>
+          <tr><td>Subescapular</td><td class="c">21.00</td><td class="c">0.57</td></tr>
+          <tr><td>Supraespinal</td><td class="c">18.80</td><td class="c">0.58</td></tr>
+          <tr><td>Abdominal</td><td class="c">28.20</td><td class="c">0.21</td></tr>
+          <tr><td>Muslo medial</td><td class="c">20.20</td><td class="c">&minus;0.92</td></tr>
+          <tr><td>Pantorrilla</td><td class="c">13.40</td><td class="c">&minus;0.68</td></tr>
+          <tr class="work-row"><td><strong>Suma de 6 pliegues</strong></td><td class="c"><strong>118.40</strong></td><td class="c">&mdash;</td></tr>
+        </tbody></table></div>
+        <div class="infobox"><strong>Registro del informe:</strong> antropometrista Roberto Hidalgo; protocolo ISAK; balanza Cam, calibres y segm&oacute;metros Rosscraft, plic&oacute;metro Harpenden y cinta Lufkin.</div>
+      </div>
+    </details>
+
+    <details class="pro-block">
+      <summary>&Iacute;ndices, somatotipo y gasto estimado <span class="pro-source">Resultados profesionales</span></summary>
+      <div class="pro-body">
+        <div class="cards" style="margin-bottom:14px">
+          <div class="card"><div class="card-lbl">Metabolismo basal</div><div class="card-val">1,837.6</div><div class="card-sub">kcal &middot; Harris-Benedict 1919</div></div>
+          <div class="card a"><div class="card-lbl">Factor de actividad</div><div class="card-val">1.70</div><div class="card-sub">clasificado como moderado en el informe</div></div>
+          <div class="card t"><div class="card-lbl">Gasto total estimado</div><div class="card-val">3,123.9</div><div class="card-sub">kcal/d&iacute;a &middot; no es un gasto observado</div></div>
+          <div class="card"><div class="card-lbl">IMC</div><div class="card-val">31.526</div><div class="card-sub">kg/m&sup2;</div></div>
+        </div>
+        <div class="table-wrap" style="margin-bottom:14px"><table><thead><tr><th>&Iacute;ndice</th><th class="c">Resultado</th><th>Lectura</th></tr></thead><tbody>
+          <tr><td>Cintura / cadera</td><td class="c">0.848</td><td>96.2 cm &divide; 113.4 cm</td></tr>
+          <tr><td>M&uacute;sculo / &oacute;seo</td><td class="c">5.559</td><td>Masa muscular Kerr relativa a masa &oacute;sea Kerr</td></tr>
+          <tr><td>Adiposo / muscular</td><td class="c">0.571</td><td>Masa adiposa Kerr relativa a masa muscular Kerr</td></tr>
+          <tr><td>Talla sentado / talla</td><td class="c">51.94%</td><td>Proporci&oacute;n tronco-estatura</td></tr>
+          <tr><td>Superficie corporal (BSA)</td><td class="c">2.172 m&sup2;</td><td>BSA / masa corporal: 218.182 cm&sup2;/kg</td></tr>
+          <tr><td>Peso ideal OMS mostrado</td><td class="c">72.628 kg</td><td>Rango impreso 65.365&ndash;79.891 kg; no sustituye los objetivos por composici&oacute;n</td></tr>
+        </tbody></table></div>
+        <div class="cards">
+          <div class="card a"><div class="card-lbl">Endomorfia</div><div class="card-val">5.4</div><div class="card-sub">adiposidad relativa</div></div>
+          <div class="card t"><div class="card-lbl">Mesomorfia</div><div class="card-val">7.5</div><div class="card-sub">desarrollo m&uacute;sculo-esquel&eacute;tico relativo</div></div>
+          <div class="card b"><div class="card-lbl">Ectomorfia</div><div class="card-val">0.1</div><div class="card-sub">linealidad relativa</div></div>
+        </div>
+        <div class="infobox"><strong>Lectura pr&aacute;ctica:</strong> el gasto de 3,123.9 kcal depende completamente del factor 1.70. Debe conservarse como estimaci&oacute;n del nutri&oacute;logo y comprobarse contra varias semanas de ingesta y cambio de peso; no equivale a una medici&oacute;n metab&oacute;lica directa.</div>
+      </div>
+    </details>
+
+    <details class="pro-block" open>
+      <summary>Objetivo diario, macros y porcentaje cal&oacute;rico <span class="pro-source">Actualizado 18 Sep &middot; reconstrucci&oacute;n provisional</span></summary>
+      <div class="pro-body">
+        <div class="plan-compare">
+          <div class="plan-panel current">
+            <div class="plan-kicker">Marco construido en GymTracker</div>
+            <div class="plan-title">Modelo adaptable por actividad</div>
+            <div class="macros-grid">
+              <div class="card"><div class="card-lbl">Prote&iacute;na</div><div class="card-val">170&ndash;190 g</div></div>
+              <div class="card"><div class="card-lbl">Carbohidrato</div><div class="card-val">Variable</div></div>
+              <div class="card"><div class="card-lbl">Grasa</div><div class="card-val">60&ndash;80 g</div></div>
+              <div class="card"><div class="card-lbl">Calor&iacute;as</div><div class="card-val">Por d&iacute;a</div></div>
+            </div>
+          </div>
+          <div class="plan-panel clinical">
+            <div class="plan-kicker">Objetivo actual del nutri&oacute;logo</div>
+            <div class="plan-title">Meta fija todos los d&iacute;as</div>
+            <div class="plan-total">2,200 kcal</div>
+            <div class="plan-formula">Aumento indicado de 100 kcal/d&iacute;a. Si se conserva la distribuci&oacute;n previa, equivale aproximadamente a 177 g de prote&iacute;na, 197 g de carbohidrato y 78 g de grasa.</div>
+          </div>
+        </div>
+        <div class="macro-ring">
+          <div class="macro-slice protein"><strong>~177 g</strong><span>Prote&iacute;na &middot; 708 kcal &middot; 32.2%</span></div>
+          <div class="macro-slice carb"><strong>~197 g</strong><span>Carbohidrato &middot; 788 kcal &middot; 35.9%</span></div>
+          <div class="macro-slice fat"><strong>~78 g</strong><span>Grasa &middot; 702 kcal &middot; 31.9%</span></div>
+        </div>
+        <div class="table-wrap" style="margin-bottom:12px"><table><thead><tr><th>Prescripci&oacute;n</th><th class="c">kcal</th><th class="c">Prote&iacute;na</th><th class="c">Carbohidrato</th><th class="c">Grasa</th><th class="c">Distribuci&oacute;n</th></tr></thead><tbody>
+          <tr><td>25 Ago &middot; anterior</td><td class="c">2,100</td><td class="c">169 g</td><td class="c">188 g</td><td class="c">75 g</td><td class="c">32.1 / 35.8 / 32.1%</td></tr>
+          <tr class="work-row"><td><strong>18 Sep &middot; actual</strong></td><td class="c"><strong>2,200</strong></td><td class="c"><strong>~177 g</strong></td><td class="c"><strong>~197 g</strong></td><td class="c"><strong>~78 g</strong></td><td class="c"><strong>32.2 / 35.9 / 31.9%</strong></td></tr>
+          <tr><td>Cambio reconstruido</td><td class="c">+100</td><td class="c">+8 g</td><td class="c">+9 g</td><td class="c">+3 g</td><td class="c">Pr&aacute;cticamente igual</td></tr>
+        </tbody></table></div>
+        <div class="cards" style="margin-bottom:12px">
+          <div class="card t"><div class="card-lbl">Plan / TDEE basal del informe</div><div class="card-val">70.4%</div><div class="card-sub">2,200 &divide; 3,123.9 kcal; solo comparaci&oacute;n con la estimaci&oacute;n anterior</div></div>
+          <div class="card a"><div class="card-lbl">D&eacute;ficit te&oacute;rico del informe</div><div class="card-val">29.6%</div><div class="card-sub">&minus;923.9 kcal/d&iacute;a si aquel TDEE 1.70 siguiera siendo correcto</div></div>
+        </div>
+        <div class="infobox"><strong>Control de consistencia:</strong> 708 + 788 + 702 = 2,198 kcal; la diferencia de 2 kcal frente a 2,200 es redondeo. La hoja no imprime estos gramos: son una reconstrucci&oacute;n de 2,200 kcal manteniendo el reparto anterior. Las porciones nuevas admiten pollo, queso, pescado o res, por lo que el total real cambia con la elecci&oacute;n y debe confirmarse con Rodrigo.</div>
+      </div>
+    </details>
+
+    <details class="pro-block" open>
+      <summary>Plan alimenticio actual &middot; 18 Sep 2026 <span class="pro-source">Porciones textuales</span></summary>
+      <div class="pro-body">
+        <div class="meal-grid">
+          <div class="meal-card"><h3>Desayuno &middot; 2 entomatadas</h3><ul><li>2 tortillas de ma&iacute;z sin fre&iacute;r: 26 g c/u</li><li>Pollo o queso: 120 g</li><li>Salsa de tomate: 120 g / &frac12; taza</li><li>Sand&iacute;a o pi&ntilde;a: 150 g / 1 taza</li></ul></div>
+          <div class="meal-card"><h3>Colaci&oacute;n mediod&iacute;a &middot; licuado</h3><ul><li>Leche deslactosada: 240 ml / 1 taza</li><li>Avena cocida con agua: 120 g / &frac12; taza</li><li>Frutos rojos: 90 g / &frac34; taza</li><li>Almendras: 15 g / 8 piezas</li></ul></div>
+          <div class="meal-card"><h3>Comida</h3><ul><li>Pescado, pechuga de pollo o res: 180 g</li><li>Papa cocida o pur&eacute; de papa: 140 g / 1 taza</li><li>Hongos, ejotes o zanahoria: 120 g / 1 taza</li><li>Vinagreta (vinagre y aceite de oliva): 5 g c/u / 3 cucharadas</li><li>Aguacate: 40 g / &frac12; pieza</li></ul></div>
+          <div class="meal-card"><h3>Colaci&oacute;n tarde</h3><ul><li>Yogur griego: 190 g</li><li>Pera: 150 g / 1 pieza</li><li>Nueces: 20 g / 10 piezas</li></ul></div>
+          <div class="meal-card"><h3>Cena &middot; 3 tacos</h3><ul><li>Carne de res o pollo: 150 g</li><li>3 tortillas de ma&iacute;z: 24 g c/u</li><li>Nopales cocidos o pimientos: 100 g / &frac34; taza</li><li>Aguacate: 40 g / ⅓ pieza</li></ul></div>
+        </div>
+        <div class="infobox"><strong>Variaci&oacute;n real del men&uacute;:</strong> queso frente a pollo, res frente a pescado y el tipo de leche o yogur cambian de forma importante prote&iacute;na, grasa y calor&iacute;as. Para usar los macros reconstruidos en MyFitnessPal hay que registrar la opci&oacute;n y la marca efectivamente consumidas; la foto no define si los pesos de las carnes son crudos o cocidos.</div>
+      </div>
+    </details>
+
+    <details class="pro-block">
+      <summary>Plan anterior &middot; 25 Ago 2026 <span class="pro-source">Historial conservado</span></summary>
+      <div class="pro-body"><div class="meal-grid">
+        <div class="meal-card"><h3>Desayuno</h3><ul><li>2 huevos medianos y/o 120 g de claras</li><li>Espinaca o pimientos: 60 g</li><li>Pan de masa madre: 60 g</li><li>Papaya o mel&oacute;n: 150 g</li><li>Leche o bebida vegetal: 240 ml</li></ul></div>
+        <div class="meal-card"><h3>Colaci&oacute;n mediod&iacute;a</h3><ul><li>Frutos rojos: 150 g</li><li>Queso cottage: 80 g</li></ul></div>
+        <div class="meal-card"><h3>Comida</h3><ul><li>Pollo o res: 180 g</li><li>Arroz integral: 90 g</li><li>Calabaza o chayote: 120 g</li><li>Aceite de oliva: 3 g</li><li>Aguacate: 20 g o 7 aceitunas</li><li>2 tortillas de ma&iacute;z</li></ul></div>
+        <div class="meal-card"><h3>Colaci&oacute;n tarde</h3><ul><li>Yogur griego: 190 g</li><li>2 mandarinas o 2 kiwis</li><li>Nueces: 20 g</li></ul></div>
+        <div class="meal-card"><h3>Cena</h3><ul><li>Salpic&oacute;n de at&uacute;n o pollo: 150 g</li><li>Vegetales al gusto</li><li>Aguacate: 40 g</li><li>2 tostadas de ma&iacute;z</li></ul></div>
+      </div></div>
+    </details>
+
+    <details class="pro-block">
+      <summary>Proyecciones profesionales de peso <span class="pro-source">Escenarios del informe</span></summary>
+      <div class="pro-body">
+        <div class="table-wrap"><table><thead><tr><th>Escenario</th><th class="c">Suma objetivo de pliegues</th><th class="c">Masa adiposa objetivo</th><th class="c">Adiposa a bajar</th><th class="c">Masa muscular objetivo</th><th class="c">Peso objetivo</th></tr></thead><tbody>
+          <tr><td>Intermedio</td><td class="c">80.0 mm</td><td class="c">21.5 kg</td><td class="c">5.7 kg</td><td class="c">47.1 kg</td><td class="c c-opt"><strong>93.4 kg</strong></td></tr>
+          <tr><td>Bajo</td><td class="c">60.0 mm</td><td class="c">17.9 kg</td><td class="c">9.3 kg</td><td class="c">47.1 kg</td><td class="c c-opt"><strong>89.7 kg</strong></td></tr>
+        </tbody></table></div>
+        <div class="infobox"><strong>Interpretaci&oacute;n:</strong> ambos escenarios parten de 47.6 kg de masa muscular Kerr actual y muestran 47.1 kg como objetivo matem&aacute;tico (&minus;0.5 kg). Son escenarios de composici&oacute;n producidos por la hoja, no una predicci&oacute;n garantizada de cu&aacute;nto tejido muscular perder&aacute;s.</div>
+      </div>
+    </details>
+
+    <div class="alert-grid">
+      <div class="alert-card"><div class="alert-title" style="color:var(--blue)">Regla de actualizaci&oacute;n</div>Cada nueva consulta crea una fecha nueva; no se reemplaza la medici&oacute;n anterior. Se actualizan pliegues, per&iacute;metros, masas Kerr, objetivos y plan alimenticio como series hist&oacute;ricas.</div>
+      <div class="alert-card warn"><div class="alert-title">Datos pendientes de confirmar</div>Nueva descomposici&oacute;n Kerr, macros escritos por Rodrigo, si los pesos de las carnes son crudos o cocidos y si la meta fija de 2,200 kcal cambia con entrenamiento o descanso.</div>
     </div>
   </div>
 </div>
@@ -1082,36 +1465,89 @@ a:hover{border-bottom-style:solid}
 
 <!-- FOOTER PERSISTENTE: MÉTRICAS CLAVE MOVIDAS AQUÍ -->
 <div class="wrap no-bottom-pad" style="margin-top: 28px;">
-  <div class="sec-head"><h2>M&eacute;tricas Clave</h2><span class="badge">Actualizado 10 Ago 2026</span></div>
+  <div class="sec-head"><h2>M&eacute;tricas Clave</h2><span class="badge">Peso y medidas profesionales: 18 Sep &middot; c&aacute;lculos de gasto: base anterior</span></div>
   <div class="cards">
-    <div class="card"><div class="card-lbl">BMR &middot; Solo existir</div><div class="card-val">~1,960</div><div class="card-sub">kcal &middot; Mifflin-St Jeor aproximado</div></div>
-    <div class="card a"><div class="card-lbl">Mantenimiento sedentario estimado</div><div class="card-val">~2,352</div><div class="card-sub">provisional hasta calibrar TDEE observado</div></div>
+    <div class="card"><div class="card-lbl">BMR &middot; Solo existir</div><div class="card-val">~1,969</div><div class="card-sub">kcal &middot; Mifflin-St Jeor aproximado</div></div>
+    <div class="card a"><div class="card-lbl">Mantenimiento sedentario estimado</div><div class="card-val">~2,363</div><div class="card-sub">provisional hasta calibrar TDEE observado</div></div>
     <div class="card" style="border-color:rgba(255,168,48,0.3)"><div class="card-lbl">Fase actual</div><div class="card-val" style="color:var(--amber)">&minus;700</div><div class="card-sub">promedio diario &middot; 4,900 kcal/sem</div></div>
     <div class="card t"><div class="card-lbl">Segunda fase</div><div class="card-val">&minus;500</div><div class="card-sub">alrededor de 90 kg o antes por alarma</div></div>
     <div class="card b"><div class="card-lbl">Final pr&aacute;ctico 31 Dic</div><div class="card-val">86&ndash;89 kg</div><div class="card-sub">86.5 kg en el modelo te&oacute;rico</div></div>
     <div class="card a"><div class="card-lbl">Proyecci&oacute;n a 12 meses</div><div class="card-val">80 kg</div><div class="card-sub">piso del modelo; mantenimiento desde la meta</div></div>
-    <div class="card"><div class="card-lbl">% Grasa corporal</div><div class="card-val">24.8%</div><div class="card-sub">F&oacute;rmula Naval USA &middot; no mide m&uacute;sculo</div></div>
-    <div class="card t"><div class="card-lbl">Masa libre de grasa estimada</div><div class="card-val">73.8 kg</div><div class="card-sub">no equivale a m&uacute;sculo contr&aacute;ctil</div></div>
-    <div class="card"><div class="card-lbl">Grasa estimada actual</div><div class="card-val">24.3 kg</div><div class="card-sub">Naval; contiene incertidumbre</div></div>
+    <div class="card"><div class="card-lbl">% Grasa corporal (hist&oacute;rico)</div><div class="card-val">24.8%</div><div class="card-sub">Naval del 17 Ago; no es el resultado DEXA</div></div>
+    <div class="card t"><div class="card-lbl">Masa libre de grasa estimada (17 Ago)</div><div class="card-val">74.5 kg</div><div class="card-sub">provisional; no equivale a m&uacute;sculo contr&aacute;ctil</div></div>
+    <div class="card"><div class="card-lbl">Grasa estimada en modelo (17 Ago)</div><div class="card-val">24.6 kg</div><div class="card-sub">Naval provisional; DEXA del 20 Ago realizado, a&uacute;n no integrado en esta proyecci&oacute;n</div></div>
     <div class="card b"><div class="card-lbl">Grasa a perder hasta 31 Dic</div><div class="card-val">~9.7 kg</div><div class="card-sub">plan escalonado central &middot; no medici&oacute;n</div></div>
   </div>
 </div>
 
 <!-- MACROS OBJETIVO PERSISTENTE -->
 <div class="wrap" style="margin-top: 20px;">
-  <div class="sec-head"><h2>Macros Objetivo</h2><span class="badge">La energ&iacute;a var&iacute;a; la prote&iacute;na se mantiene</span></div>
-  <div class="macros-grid">
-    <div class="card t"><div class="card-lbl">Prote&iacute;na</div><div class="card-val">170&ndash;190 g</div><div class="card-sub">objetivo diario pr&aacute;ctico; 200 g aceptable, 300 g innecesario</div></div>
-    <div class="card a"><div class="card-lbl">Carbohidratos</div><div class="card-val">Variables</div><div class="card-sub">priorizar el extra alrededor de torso/pierna</div></div>
-    <div class="card"><div class="card-lbl">Grasas</div><div class="card-val">60&ndash;80 g</div><div class="card-sub">ajustar sin desplazar prote&iacute;na ni energ&iacute;a total</div></div>
-    <div class="card b"><div class="card-lbl">Calor&iacute;as del d&iacute;a</div><div class="card-val">Calculadas</div><div class="card-sub">tipo de d&iacute;a + control del promedio semanal</div></div>
+  <div class="sec-head"><h2>Macros Objetivo</h2><span class="badge">Comparativa activa &middot; no reemplaza el plan anterior</span></div>
+  <div class="plan-compare">
+    <section class="plan-panel current">
+      <div class="plan-kicker">Marco construido en GymTracker</div>
+      <div class="plan-title">Objetivos anteriores conservados</div>
+      <div class="macros-grid">
+        <div class="card t"><div class="card-lbl">Prote&iacute;na</div><div class="card-val">170&ndash;190 g</div><div class="card-sub">200 g aceptable; 300 g innecesario</div></div>
+        <div class="card a"><div class="card-lbl">Carbohidratos</div><div class="card-val">Variables</div><div class="card-sub">el extra se concentra alrededor del entrenamiento</div></div>
+        <div class="card"><div class="card-lbl">Grasas</div><div class="card-val">60&ndash;80 g</div><div class="card-sub">sin desplazar prote&iacute;na ni energ&iacute;a total</div></div>
+        <div class="card b"><div class="card-lbl">Calor&iacute;as</div><div class="card-val">Por d&iacute;a</div><div class="card-sub">actividad + control del promedio semanal</div></div>
+      </div>
+    </section>
+    <section class="plan-panel clinical">
+      <div class="plan-kicker">Prescripci&oacute;n actual &middot; 18 Sep 2026</div>
+      <div class="plan-title">Macros del nutri&oacute;logo</div>
+      <div class="plan-total">2,200 kcal/d&iacute;a</div>
+      <div class="macros-grid">
+        <div class="card t"><div class="card-lbl">Prote&iacute;na</div><div class="card-val">~177 g</div><div class="card-sub">~32.2% de la energ&iacute;a</div></div>
+        <div class="card a"><div class="card-lbl">Carbohidratos</div><div class="card-val">~197 g</div><div class="card-sub">~35.9% de la energ&iacute;a</div></div>
+        <div class="card"><div class="card-lbl">Grasas</div><div class="card-val">~78 g</div><div class="card-sub">~31.9% de la energ&iacute;a</div></div>
+      </div>
+      <div class="plan-formula">Reconstrucci&oacute;n provisional escalando la distribuci&oacute;n anterior a 2,200 kcal. La nueva hoja imprime porciones, pero no totales de macros; confirmar gramos exactos con Rodrigo.</div>
+    </section>
+  </div>
+  <div class="infobox"><strong>Uso en MyFitnessPal:</strong> mientras Rodrigo confirma el desglose, usa 2,200 kcal, ~177 g de prote&iacute;na, ~197 g de carbohidratos y ~78 g de grasa como tablero provisional. No son cifras impresas en la hoja y las elecciones de queso/pollo, pescado/res y las marcas reales pueden moverlas.</div>
+</div>
+
+<!-- MICRONUTRIENTES DEL PLAN DEL NUTRIOLOGO -->
+<div class="wrap" style="margin-top: 4px;">
+  <div class="sec-head"><h2>Micronutrientes &middot; auditor&iacute;a anterior</h2><span class="badge">Plan 25 Ago &middot; recalcular para men&uacute; 18 Sep</span></div>
+  <div class="infobox" style="margin-bottom:12px"><strong>No usar esta tabla como cuantificaci&oacute;n del men&uacute; nuevo.</strong> Se conserva como historial del plan del 25 de agosto. El plan del 18 de septiembre cambia huevo, cottage, hojas verdes y arroz por entomatadas, avena, papa, pera y otras opciones; sus micronutrientes requieren marcas, tipo de queso/pescado/carne y aclarar pesos crudos o cocidos.</div>
+  <div class="table-wrap">
+    <table style="min-width:900px">
+      <thead><tr><th>Nutriente</th><th class="c">Referencia diaria</th><th class="c">Plan estimado</th><th class="c">Lectura</th><th>Qu&eacute; determina el resultado / c&oacute;mo conservarlo</th></tr></thead>
+      <tbody>
+        <tr><td>Fibra</td><td class="c">38 g</td><td class="c">~25&ndash;35 g</td><td class="c"><span class="micro-status micro-watch">Vigilar</span></td><td>Frutos rojos, papaya/kiwi, arroz integral, verduras y tortilla. Sube con m&aacute;s verdura tolerada; aj&uacute;stala gradualmente si hay s&iacute;ntomas gastrointestinales.</td></tr>
+        <tr><td>Calcio</td><td class="c">1,000 mg</td><td class="c">~800&ndash;1,200 mg</td><td class="c"><span class="micro-status micro-var">Depende de marca</span></td><td>Yogur, cottage y sobre todo leche/bebida vegetal fortificada. Si la bebida no aporta ~300 mg por taza, el total puede quedar corto.</td></tr>
+        <tr><td>Potasio</td><td class="c">3,400 mg</td><td class="c">~3,000&ndash;4,000 mg</td><td class="c"><span class="micro-status micro-watch">Cerca / variable</span></td><td>Fruta, verduras, aguacate, l&aacute;cteos y carnes. Mant&eacute;n al menos las porciones vegetales del plan cuando cambies platillos.</td></tr>
+        <tr><td>Magnesio</td><td class="c">400&ndash;420 mg</td><td class="c">~300&ndash;420 mg de comida</td><td class="c"><span class="micro-status micro-var">Suplementado</span></td><td>Nueces, arroz integral, espinaca y aguacate; adem&aacute;s tomas glicinato. En la etiqueta cuenta <em>magnesio elemental</em>, no el peso total del compuesto.</td></tr>
+        <tr><td>Hierro</td><td class="c">8 mg</td><td class="c">~8&ndash;14 mg</td><td class="c"><span class="micro-status micro-ok">Probable cobertura</span></td><td>La res aporta m&aacute;s hierro hemo que pollo o at&uacute;n; huevo, espinaca y granos completan. No hace falta suplementarlo sin indicaci&oacute;n/laboratorio.</td></tr>
+        <tr><td>Zinc</td><td class="c">11 mg</td><td class="c">~8&ndash;14 mg</td><td class="c"><span class="micro-status micro-watch">Variable</span></td><td>Mejor cobertura los d&iacute;as de res; pollo, l&aacute;cteos, huevo y nueces ayudan el resto de la semana.</td></tr>
+        <tr><td>Vitamina A</td><td class="c">900 &micro;g RAE</td><td class="c">~700&ndash;1,300 &micro;g</td><td class="c"><span class="micro-status micro-ok">Buena si hay espinaca</span></td><td>Espinaca y papaya elevan mucho la cobertura. Pimiento o mel&oacute;n cambian el perfil, por eso conviene rotar y no repetir siempre la misma opci&oacute;n.</td></tr>
+        <tr><td>Vitamina C</td><td class="c">90 mg</td><td class="c">~130&ndash;250 mg</td><td class="c"><span class="micro-status micro-ok">Cobertura alta</span></td><td>Papaya, kiwi/mandarina, frutos rojos, pimiento y jitomate. Es uno de los puntos fuertes del men&uacute;.</td></tr>
+        <tr><td>Vitamina D</td><td class="c">15 &micro;g / 600 UI</td><td class="c">~3&ndash;8 &micro;g</td><td class="c"><span class="micro-status micro-low">Probable hueco</span></td><td>Depende de leche/bebida fortificada, huevo y tipo de pescado. Omega-3 no equivale a vitamina D; verificar etiqueta y, si procede, 25-OH-D con el m&eacute;dico.</td></tr>
+        <tr><td>Vitamina E</td><td class="c">15 mg</td><td class="c">~6&ndash;10 mg</td><td class="c"><span class="micro-status micro-watch">Probablemente baja</span></td><td>Nueces, aguacate, aceite de oliva y algunas bebidas vegetales fortificadas. Preserva esas grasas al hacer sustituciones.</td></tr>
+        <tr><td>Folato</td><td class="c">400 &micro;g DFE</td><td class="c">~300&ndash;500 &micro;g</td><td class="c"><span class="micro-status micro-var">Depende de verduras</span></td><td>Espinaca, aguacate, papaya, kiwi y granos. El extremo bajo aparece si se eligen pocas hojas verdes.</td></tr>
+        <tr><td>Vitamina B12</td><td class="c">2.4 &micro;g</td><td class="c">~3&ndash;6 &micro;g</td><td class="c"><span class="micro-status micro-ok">Probable cobertura</span></td><td>Huevo, l&aacute;cteos, res, pollo y at&uacute;n. Las bebidas vegetales solo cuentan si est&aacute;n fortificadas.</td></tr>
+        <tr><td>Colina</td><td class="c">550 mg</td><td class="c">~450&ndash;650 mg</td><td class="c"><span class="micro-status micro-watch">Cerca / probable</span></td><td>Los huevos enteros son la pieza clave; claras solas no sustituyen su colina. Pollo y res completan.</td></tr>
+        <tr><td>Selenio</td><td class="c">55 &micro;g</td><td class="c">~100&ndash;180 &micro;g</td><td class="c"><span class="micro-status micro-ok">Cobertura alta</span></td><td>Pollo, at&uacute;n, huevo, l&aacute;cteos y res. No parece un nutriente que requiera suplemento adicional.</td></tr>
+        <tr><td>Yodo</td><td class="c">150 &micro;g</td><td class="c">No cuantificable</td><td class="c"><span class="micro-status micro-watch">Vigilar</span></td><td>Depende de sal yodada, l&aacute;cteos y tipo de pescado. La hoja no especifica sal ni marcas, as&iacute; que no se puede afirmar cobertura.</td></tr>
+        <tr><td>Sodio</td><td class="c">&lt;2,300 mg</td><td class="c">~1,500&ndash;2,500+ mg</td><td class="c"><span class="micro-status micro-var">Muy variable</span></td><td>Cottage, at&uacute;n enlatado, tostadas, pan, sal y salsas dominan el total. MyFitnessPal debe usar las etiquetas reales.</td></tr>
+        <tr><td>Omega-3</td><td class="c">ALA 1.6 g; EPA/DHA sin RDA</td><td class="c">Comida variable + suplemento</td><td class="c"><span class="micro-status micro-var">Suplementado</span></td><td>Nueces y at&uacute;n aportan algo; revisa en tu suplemento los mg reales de EPA + DHA, no solo los mg de &ldquo;aceite de pescado&rdquo;.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="infobox"><strong>Suplementos registrados:</strong> omega-3, glicinato de magnesio y creatina. La creatina no aporta vitaminas ni minerales relevantes y no &ldquo;cierra&rdquo; huecos del men&uacute;. Los rangos de esta tabla son una auditor&iacute;a orientativa del patr&oacute;n de alimentos, no un an&aacute;lisis de laboratorio: cambian con marcas, preparaci&oacute;n, peso crudo/cocido y las alternativas elegidas.</div>
+  <div class="alert-grid" style="margin-top:10px">
+    <div class="alert-card warn"><div class="alert-title">Prioridad al personalizar</div>Conservar diario fruta + verduras + una fuente de calcio; durante la semana rotar hojas verdes, pimiento, papaya/mel&oacute;n, kiwi/mandarina, pollo/res y at&uacute;n/pollo.</div>
+    <div class="alert-card"><div class="alert-title" style="color:var(--blue)">Lo que falta para exactitud</div>Marcas y etiquetas, si los pesos son crudos o cocidos, tipo de at&uacute;n, tipo de nuez y bebida vegetal exacta. Con eso se puede convertir esta estimaci&oacute;n en un total cuantitativo reproducible.</div>
   </div>
 </div>
 
 <div class="footer">
   <div><div class="ft-title">M&eacute;todos de c&aacute;lculo</div><div class="ft-text">BMR: Mifflin-St Jeor + Katch-McArdle (promedio)<br>% Grasa: F&oacute;rmula Naval USA<br>Actividad adicional: (MET &minus; 1) &times; 3.5 &times; kg &divide; 200 &times; minutos<br>Autoridad pr&aacute;ctica: TDEE observado en 3&ndash;4 semanas</div></div>
   <div><div class="ft-title">Objetivos</div><div class="ft-text">Plan: &minus;700 &rarr; &minus;500 cerca de 90 kg<br>Prote&iacute;na: 170&ndash;190 g/d&iacute;a<br>Alarma: &gt;0.8 kg/sem sostenido<br>31 Dic: 86&ndash;89 kg pr&aacute;cticos &middot; piso del modelo: 80 kg</div></div>
-  <div><div class="ft-title">&Uacute;ltima actualizaci&oacute;n</div><div class="ft-text">Peso: 98.1 kg &middot; 10 Ago 2026<br>Medidas: 10 Ago 2026<br>Historial: Sep 2025 &rarr; Ago 2026</div></div>
+  <div><div class="ft-title">&Uacute;ltima actualizaci&oacute;n</div><div class="ft-text">Evaluaci&oacute;n profesional: 95.95 kg &middot; 18 Sep 2026 (despu&eacute;s de comer)<br>Cintura 93.2 cm &middot; cadera 111.4 cm &middot; suma 6 pliegues 104.8 mm<br>&Uacute;ltima pesada matutina: 99.05 kg &middot; 17 Ago 2026. El DEXA se realiz&oacute; el 20 Ago; esta actualizaci&oacute;n no recalcula composici&oacute;n.</div></div>
 </div>
 
 <!-- ==================== FUENTES & REFERENCIAS ==================== -->
@@ -1125,6 +1561,18 @@ a:hover{border-bottom-style:solid}
       &bull; <strong style="color:var(--t2)">% Grasa corporal:</strong> F&oacute;rmula Naval USA (circunferencias)<br>
       &bull; <strong style="color:var(--t2)">Pasos / caminata:</strong> ACSM Walking Equations + Compendium of Physical Activities (Ainsworth et al., 2011/2024)<br>
       &bull; <strong style="color:var(--t2)">Actividad adicional neta:</strong> (MET &minus; 1) &times; 3.5 &times; peso (kg) &divide; 200 &times; minutos; despu&eacute;s se sustituye por TDEE observado
+    </div>
+  </div>
+
+  <div style="margin-bottom:22px">
+    <div class="ft-title" style="margin-bottom:10px">Plan del nutri&oacute;logo y auditor&iacute;a de micronutrientes</div>
+    <div class="ft-text" style="line-height:1.9">
+      &bull; <strong style="color:var(--t2)">Smart Nutrition (20 Ago y 18 Sep 2026):</strong> evaluaciones antropom&eacute;tricas de seguimiento; la segunda registra 96.0 kg, cintura 93.2 cm, cadera 111.4 cm y suma de seis pliegues de 105 mm<br>
+      &bull; <strong style="color:var(--t2)">Smart Nutrition (25 Ago y 18 Sep 2026):</strong> planes alimenticios individuales; las hojas especifican alimentos y porciones, pero no imprimen calor&iacute;as ni totales de macros<br>
+      &bull; <a href="https://ods.od.nih.gov/healthinformation/nutrientrecommendations.aspx" target="_blank" rel="noopener">NIH Office of Dietary Supplements &middot; DRI</a> &middot; referencias por edad y sexo para vitaminas, minerales, fibra y otros nutrientes<br>
+      &bull; <a href="https://www.nal.usda.gov/human-nutrition-and-food-safety/dri-calculator" target="_blank" rel="noopener">USDA DRI Calculator for Healthcare Professionals</a> &middot; herramienta oficial para recomendaciones individuales<br>
+      &bull; <a href="https://fdc.nal.usda.gov/" target="_blank" rel="noopener">USDA FoodData Central</a> &middot; composici&oacute;n nutricional de alimentos usada como base para los rangos; las etiquetas mexicanas reales tienen prioridad para marcas concretas<br>
+      &bull; <a href="https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/" target="_blank" rel="noopener">NIH ODS &middot; vitamina D</a>, <a href="https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/" target="_blank" rel="noopener">magnesio</a> y <a href="https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/" target="_blank" rel="noopener">omega-3</a> &middot; referencias e interpretaci&oacute;n de suplementaci&oacute;n
     </div>
   </div>
 
@@ -1332,7 +1780,7 @@ if (forecastScenarioInput) forecastScenarioInput.addEventListener('change', rend
 renderMeasurementProjection();
 
 // Journey bar animation
-const peak=101.5,goal=80.0,cur=98.1;
+const peak=101.5,goal=80.0,cur=95.95;
 const pct=((peak-cur)/(peak-goal))*100;
 setTimeout(()=>{
   document.getElementById('jFill').style.width=pct.toFixed(1)+'%';
@@ -1359,7 +1807,15 @@ const chartConfigs = {
       { d: 308, v: 98.3, lbl: "25 Jul 26" },
       { d: 311, v: 98.5, lbl: "28 Jul 26" },
       { d: 323, v: 97.8, lbl: "9 Ago 26" },
-      { d: 324, v: 98.1, lbl: "10 Ago 26", note: "Actual (98.1 kg)" }
+      { d: 324, v: 98.1, lbl: "10 Ago 26" },
+      { d: 325, v: 98.8, lbl: "11 Ago 26" },
+      { d: 326, v: 98.85, lbl: "12 Ago 26" },
+      { d: 327, v: 99.2, lbl: "13 Ago 26" },
+      { d: 328, v: 99.2, lbl: "14 Ago 26" },
+      { d: 330, v: 97.9, lbl: "16 Ago 26", note: "Valor aislado; 15 Ago sin creatina" },
+      { d: 331, v: 99.05, lbl: "17 Ago 26", note: "Última pesada matutina; promedio parcial de 6 pesadas: 98.83 kg" },
+      { d: 334, v: 99.5, lbl: "20 Ago 26", note: "Pesada profesional" },
+      { d: 363, v: 95.95, lbl: "18 Sep 26", note: "Pesada profesional después de comer; no comparar directamente con pesadas matutinas" }
     ]
   },
   leanWeightCanvas: {
@@ -1377,7 +1833,8 @@ const chartConfigs = {
       { d: 297, v: 72.7, lbl: "14 Jul 26" },
       { d: 308, v: 73.0, lbl: "25 Jul 26" },
       { d: 311, v: 74.2, lbl: "28 Jul 26" },
-      { d: 324, v: 73.8, lbl: "10 Ago 26", note: "Actual estimado (75.2% peso)" }
+      { d: 324, v: 73.8, lbl: "10 Ago 26" },
+      { d: 331, v: 74.5, lbl: "17 Ago 26", note: "Estimación provisional; DEXA del 20 Ago realizado, no recalculado en esta serie" }
     ]
   },
   fatWeightCanvas: {
@@ -1395,7 +1852,8 @@ const chartConfigs = {
       { d: 297, v: 25.6, lbl: "14 Jul 26" },
       { d: 308, v: 25.3, lbl: "25 Jul 26" },
       { d: 311, v: 24.3, lbl: "28 Jul 26" },
-      { d: 324, v: 24.3, lbl: "10 Ago 26", note: "Actual estimado (24.8% grasa)" }
+      { d: 324, v: 24.3, lbl: "10 Ago 26" },
+      { d: 331, v: 24.6, lbl: "17 Ago 26", note: "Estimación provisional 24.8%; DEXA del 20 Ago realizado, no recalculado en esta serie" }
     ]
   },
   compLeanCanvas: {
@@ -1413,7 +1871,8 @@ const chartConfigs = {
       { d: 297, v: 72.7, lbl: "14 Jul 26" },
       { d: 308, v: 73.0, lbl: "25 Jul 26" },
       { d: 311, v: 74.2, lbl: "28 Jul 26" },
-      { d: 324, v: 73.8, lbl: "10 Ago 26", note: "Actual estimado (73.8 kg / 75.2%)" }
+      { d: 324, v: 73.8, lbl: "10 Ago 26" },
+      { d: 331, v: 74.5, lbl: "17 Ago 26", note: "Estimación provisional (75.2%); DEXA del 20 Ago realizado, no recalculado en esta serie" }
     ]
   },
   backCanvas: {
@@ -1434,7 +1893,9 @@ const chartConfigs = {
       { d: 312, v: 112, lbl: "14 Jul 26" },
       { d: 323, v: 112, lbl: "25 Jul 26" },
       { d: 326, v: 111, lbl: "28 Jul 26" },
-      { d: 339, v: 110, lbl: "10 Ago 26", note: "Actual en pezones (110 cm)" }
+      { d: 339, v: 110, lbl: "10 Ago 26" },
+      { d: 345, v: 110, lbl: "16 Ago 26" },
+      { d: 346, v: 111, lbl: "17 Ago 26", note: "Actual en pezones (111 cm)" }
     ]
   },
   waistCanvas: {
@@ -1455,7 +1916,9 @@ const chartConfigs = {
       { d: 312, v: 104, lbl: "14 Jul 26" },
       { d: 323, v: 103.5, lbl: "25 Jul 26" },
       { d: 326, v: 102, lbl: "28 Jul 26" },
-      { d: 339, v: 102, lbl: "10 Ago 26", note: "Actual promedio 101-103 cm" }
+      { d: 339, v: 102, lbl: "10 Ago 26" },
+      { d: 345, v: 101, lbl: "16 Ago 26" },
+      { d: 346, v: 102, lbl: "17 Ago 26", note: "Actual (102 cm); 92-92.5 excluidos por sitio" }
     ]
   },
   // BRAZOS (Serie 1: Izquierda #00C9A7, Serie 2: Derecha #5B9DFF)
@@ -1477,7 +1940,8 @@ const chartConfigs = {
       { d: 312, v: 38, lbl: "14 Jul 26" },
       { d: 323, v: 38.5, lbl: "25 Jul 26" },
       { d: 326, v: 38.5, lbl: "28 Jul 26" },
-      { d: 339, v: 38.3, lbl: "10 Ago 26", note: "Actual Izq (38.3 cm)" }
+      { d: 339, v: 38.3, lbl: "10 Ago 26" },
+      { d: 345, v: 38.5, lbl: "16 Ago 26", note: "Actual reportado para ambos brazos (38.5 cm)" }
     ],
     data2: [
       { d: 0, v: 36.5, lbl: "5 Sep 25" },
@@ -1495,7 +1959,8 @@ const chartConfigs = {
       { d: 312, v: 38.5, lbl: "14 Jul 26" },
       { d: 323, v: 38.5, lbl: "25 Jul 26" },
       { d: 326, v: 38.5, lbl: "28 Jul 26" },
-      { d: 339, v: 38.3, lbl: "10 Ago 26", note: "Actual Der (38.3 cm)" }
+      { d: 339, v: 38.3, lbl: "10 Ago 26" },
+      { d: 345, v: 38.5, lbl: "16 Ago 26", note: "Actual reportado para ambos brazos (38.5 cm)" }
     ]
   },
   // HOMBROS (Serie 1: Izquierda #00C9A7, Serie 2: Derecha #5B9DFF)
@@ -1516,7 +1981,8 @@ const chartConfigs = {
       { d: 312, v: 41.5, lbl: "14 Jul 26" },
       { d: 323, v: 42, lbl: "25 Jul 26" },
       { d: 326, v: 42, lbl: "28 Jul 26" },
-      { d: 339, v: 42, lbl: "10 Ago 26", note: "Actual Izq (42 cm)" }
+      { d: 339, v: 42, lbl: "10 Ago 26" },
+      { d: 345, v: 42.5, lbl: "16 Ago 26", note: "Actual reportado para ambos hombros (42.5 cm)" }
     ],
     data2: [
       { d: 15, v: 42, lbl: "20 Sep 25" },
@@ -1533,7 +1999,8 @@ const chartConfigs = {
       { d: 312, v: 41.5, lbl: "14 Jul 26" },
       { d: 323, v: 42, lbl: "25 Jul 26" },
       { d: 326, v: 42, lbl: "28 Jul 26" },
-      { d: 339, v: 42, lbl: "10 Ago 26", note: "Actual Der (42 cm)" }
+      { d: 339, v: 42, lbl: "10 Ago 26" },
+      { d: 345, v: 42.5, lbl: "16 Ago 26", note: "Actual reportado para ambos hombros (42.5 cm)" }
     ]
   },
   // PIERNAS (Serie 1: Izquierda #00C9A7, Serie 2: Derecha #5B9DFF)
@@ -1547,7 +2014,8 @@ const chartConfigs = {
       { d: 101, v: 68, lbl: "Med Dic 25" },
       { d: 323, v: 72.5, lbl: "25 Jul 26" },
       { d: 326, v: 71, lbl: "28 Jul 26" },
-      { d: 339, v: 70, lbl: "10 Ago 26", note: "Actual Izq (70 cm)" }
+      { d: 339, v: 70, lbl: "10 Ago 26" },
+      { d: 345, v: 70.5, lbl: "16 Ago 26", note: "Actual reportado para ambas piernas (70.5 cm)" }
     ],
     data2: [
       { d: 25, v: 69, lbl: "30 Sep 25" },
@@ -1557,7 +2025,8 @@ const chartConfigs = {
       { d: 101, v: 69.5, lbl: "Med Dic 25" },
       { d: 323, v: 72.5, lbl: "25 Jul 26" },
       { d: 326, v: 71, lbl: "28 Jul 26" },
-      { d: 339, v: 70, lbl: "10 Ago 26", note: "Actual Der (70 cm)" }
+      { d: 339, v: 70, lbl: "10 Ago 26" },
+      { d: 345, v: 70.5, lbl: "16 Ago 26", note: "Actual reportado para ambas piernas (70.5 cm)" }
     ]
   }
 };
@@ -1570,7 +2039,8 @@ const timeMilestones = [
   { d: 127, lbl: "Ene '26" },
   { d: 234, lbl: "Abr '26" },
   { d: 323, lbl: "Jul '26" },
-  { d: 339, lbl: "Ago '26" }
+  { d: 339, lbl: "Ago '26" },
+  { d: 363, lbl: "Sep '26" }
 ];
 
 const activeHoverPoints = {};
@@ -1599,7 +2069,7 @@ function drawChart(canvasId) {
   const pad = { l: 28, r: 14, t: 14, b: 22 };
   const cw = W - pad.l - pad.r;
   const ch = H - pad.t - pad.b;
-  const maxD = 339;
+  const maxD = 363;
 
   function xp(d) { return pad.l + ((d / maxD) * cw); }
   function yp(v) { return pad.t + (1 - (v - cfg.minVal) / (cfg.maxVal - cfg.minVal)) * ch; }
@@ -1749,7 +2219,7 @@ function bindCanvasEvents(canvasId) {
     const mouseX = clientX - rect.left;
     const pad = { l: 28, r: 14 };
     const cw = canvas.clientWidth - pad.l - pad.r;
-    const maxD = 339;
+    const maxD = 363;
 
     const dataList = cfg.dualSeries ? cfg.data1 : cfg.data;
     let closestPt = null;
@@ -1813,7 +2283,8 @@ window.addEventListener('resize', renderAllCharts);
 
 // Cambiar pestañas
 function switchTab(tabId) {
-  const tabs = ['calorias', 'historial-peso', 'composicion-corporal', 'historial-medidas', 'proyeccion', 'entrenamiento', 'proporciones'];
+  const tabs = ['calorias', 'historial-peso', 'composicion-corporal', 'nutriologo', 'historial-medidas', 'proyeccion', 'entrenamiento', 'proporciones'];
+  if (!tabs.includes(tabId)) return;
   tabs.forEach(t => {
     const content = document.getElementById('tab-' + t);
     const btn = document.getElementById('tab-btn-' + t);
@@ -1828,8 +2299,14 @@ function switchTab(tabId) {
     }
   });
 
+  if (window.history && window.history.replaceState) window.history.replaceState(null, '', '#' + tabId);
+  const activeButton = document.getElementById('tab-btn-' + tabId);
+  if (activeButton) activeButton.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
   setTimeout(renderAllCharts, 60);
 }
+
+const requestedTab = window.location.hash.slice(1);
+if (requestedTab) switchTab(requestedTab);
 </script>
 </body>
 </html>
