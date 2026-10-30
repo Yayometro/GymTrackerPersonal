@@ -218,18 +218,18 @@ a:hover{border-bottom-style:solid}
 
 <!-- HERO PERSISTENTE (PESO CONFIRMADO + RECORRIDO DE KILOS) -->
 <div class="hero">
-  <div class="eyebrow">&#9655; &Uacute;ltimo peso registrado &middot; 18 Septiembre 2026</div>
+  <div class="eyebrow">&#9655; &Uacute;ltimo peso profesional registrado &middot; 29 Octubre 2026</div>
   <div class="hero-row">
-    <span class="hero-num">95.95</span>
+    <span class="hero-num">94.75</span>
     <span class="hero-unit">kg</span>
   </div>
-  <div class="hero-cap">Medici&oacute;n profesional despu&eacute;s de comer; hoja redondeada a 96.0 kg. &Uacute;ltimo promedio matutino disponible: 98.83 kg (11&ndash;17 Ago, 6 pesadas) &middot; Meta: 80 kg</div>
+  <div class="hero-cap">Medici&oacute;n profesional Smart Nutrition; la hoja redondea a 94.8 kg y no especifica condiciones del pesaje. &Uacute;ltimo promedio matutino personal disponible: 98.83 kg (11&ndash;17 Ago, 6 pesadas) &middot; Meta: 80 kg</div>
 
   <div class="journey">
     <div class="journey-header">Recorrido &middot; M&aacute;ximo &rarr; Meta</div>
     <div class="j-stats">
       <div class="j-stat c-coral"><span class="j-val">101.5 kg</span><span class="j-lbl">M&aacute;ximo &middot; Abr '26</span></div>
-      <div class="j-stat c-teal"><span class="j-val">95.95 kg</span><span class="j-lbl">&Uacute;ltimo medido &middot; 18 Sep '26*</span></div>
+      <div class="j-stat c-teal"><span class="j-val">94.75 kg</span><span class="j-lbl">Nutri&oacute;logo &middot; 29 Oct '26</span></div>
       <div class="j-stat c-amber"><span class="j-val">80.0 kg</span><span class="j-lbl">Meta</span></div>
       <div class="j-stat c-blue"><span class="j-val" id="pctVal">0%</span><span class="j-lbl">Completado</span></div>
     </div>
@@ -243,28 +243,28 @@ a:hover{border-bottom-style:solid}
 
 <!-- CHART HISTORIAL DE PESO PERSISTENTE -->
 <div class="wrap">
-  <div class="sec-head"><h2>Tendencia de Peso Total</h2><span class="badge">Sep 2025 &rarr; Sep 2026 &middot; Toca / Hover</span></div>
+  <div class="sec-head"><h2>Tendencia de Peso Total</h2><span class="badge">Sep 2025 &rarr; Oct 2026 &middot; Toca / Hover</span></div>
   <div class="chart-wrap" style="margin-bottom: 0;">
-    <div class="chart-title"><span>Gr&aacute;fica de peso (kg)</span><span style="color:var(--teal)">● &Uacute;ltimo: 95.95 kg (profesional, 18 Sep)*</span></div>
+    <div class="chart-title"><span>Gr&aacute;fica de peso (kg)</span><span style="color:var(--teal)">● &Uacute;ltimo: 94.75 kg (profesional, 29 Oct)</span></div>
     <canvas id="wtCanvas"></canvas>
   </div>
-  <p style="font-size:11px;color:var(--t3);margin-top:8px;line-height:1.6">*La consulta report&oacute; 95.95 kg (96.0 kg redondeados en la hoja), despu&eacute;s de comer. Se conserva separado de la serie matutina; no compares directamente ambas condiciones ni uses esa lectura aislada para recalibrar el gasto.</p>
+  <p style="font-size:11px;color:var(--t3);margin-top:8px;line-height:1.6">La serie combina lecturas personales y profesionales, identificadas por fecha en el gr&aacute;fico. El informe del 29 Oct da 94.75 kg (94.8 kg redondeados) y no indica si fue en ayunas; no lo tratamos como promedio matutino ni como punto de calibraci&oacute;n del gasto.</p>
 </div>
 
 <!-- COMPOSICIÓN CORPORAL EN HEADER PERSISTENTE -->
 <div class="wrap">
-  <div class="sec-head"><h2>&Uacute;ltima estimaci&oacute;n de composici&oacute;n corporal</h2><span class="badge">Base provisional del 17 Ago &middot; no recalculada con el peso profesional</span></div>
+  <div class="sec-head"><h2>&Uacute;ltima composici&oacute;n corporal profesional</h2><span class="badge">Kerr 5 componentes &middot; 29 Oct 2026 &middot; no es DEXA</span></div>
   <div class="bodycomp">
     <div class="bc-card lean">
-      <div class="bc-lbl">Masa libre de grasa estimada</div>
-      <div class="bc-val">74.5 kg</div>
-      <div class="bc-sub">Estimaci&oacute;n provisional del 17 Ago; incluye agua, gluc&oacute;geno, m&uacute;sculo, hueso y &oacute;rganos</div>
+      <div class="bc-lbl">Masa muscular estimada (Kerr)</div>
+      <div class="bc-val">47.717 kg</div>
+      <div class="bc-sub">Componente muscular del modelo Kerr; no equivale a m&uacute;sculo esquel&eacute;tico medido por DEXA</div>
       <div class="bc-bar"></div>
     </div>
     <div class="bc-card fat">
-      <div class="bc-lbl">Masa Grasa &mdash; objetivo reducir</div>
-      <div class="bc-val">24.6 kg</div>
-      <div class="bc-sub">24.8% provisional del 17 Ago &middot; no es el porcentaje DEXA ni una medici&oacute;n del 18 Sep</div>
+      <div class="bc-lbl">Masa adiposa estimada (Kerr)</div>
+      <div class="bc-val">22.658 kg</div>
+      <div class="bc-sub">23.89% impreso por el informe &middot; no es el resultado DEXA</div>
       <div class="bc-bar"></div>
     </div>
   </div>
@@ -342,7 +342,7 @@ a:hover{border-bottom-style:solid}
       <div class="card t"><div class="card-lbl">Objetivo del d&iacute;a</div><div class="card-val" id="calcTarget">2,306</div><div class="card-sub">mantenimiento estimado &minus; d&eacute;ficit</div></div>
       <div class="card a"><div class="card-lbl">D&eacute;ficit semanal equivalente</div><div class="card-val" id="calcWeeklyDeficit">4,900</div><div class="card-sub">si el promedio diario se cumple</div></div>
     </div>
-    <div class="infobox"><strong>Referencia del c&aacute;lculo:</strong> se conserva 99.05 kg, &uacute;ltima pesada matutina disponible (17 Ago). Los 95.95 kg de la evaluaci&oacute;n profesional del 18 Sep fueron despu&eacute;s de comer; hasta contar con una nueva serie matutina comparable, no se usa esa lectura aislada para recalibrar el gasto.</div>
+    <div class="infobox"><strong>Referencia del c&aacute;lculo:</strong> este calculador conserva 99.05 kg como &uacute;ltima pesada matutina personal disponible (17 Ago). El dato profesional m&aacute;s reciente es 94.75 kg (29 Oct), pero el informe no especifica condiciones del pesaje; por eso el resumen ya lo muestra como &uacute;ltimo profesional, mientras que el gasto y las proyecciones siguen identificados como modelos anteriores pendientes de recalibraci&oacute;n.</div>
 
     <div class="sec-head"><h2>Referencias r&aacute;pidas con la &uacute;ltima pesada matutina (99.05 kg)</h2><span class="badge">No reemplazan el TDEE observado</span></div>
     <div class="table-wrap">
@@ -392,7 +392,7 @@ a:hover{border-bottom-style:solid}
   </div>
 
   <div class="wrap">
-    <div class="sec-head"><h2>Historial de Peso</h2><span class="badge">25 registros con peso &middot; M&aacute;s nuevos arriba</span></div>
+    <div class="sec-head"><h2>Historial de Peso</h2><span class="badge">26 registros con peso &middot; M&aacute;s nuevos arriba</span></div>
     <div class="table-wrap">
       <table>
         <thead>
@@ -401,6 +401,13 @@ a:hover{border-bottom-style:solid}
           </tr>
         </thead>
         <tbody>
+          <tr class="work-row">
+            <td style="color:var(--teal)">29 Oct 2026 &#9733;</td>
+            <td><span class="wh-kg" style="color:var(--teal)">94.75 kg</span></td>
+            <td class="r"><span class="dna">&mdash;</span></td>
+            <td><span style="font-size:11px;color:var(--blue)">Evaluaci&oacute;n profesional Smart Nutrition; traza: 94.8 kg</span></td>
+            <td><div class="bar"><div class="bar-f" style="width:80%;background:var(--blue)"></div></div></td>
+          </tr>
           <tr class="work-row">
             <td style="color:var(--teal)">18 Sep 2026 &#9733;</td>
             <td><span class="wh-kg" style="color:var(--teal)">95.95 kg</span></td>
@@ -607,18 +614,18 @@ a:hover{border-bottom-style:solid}
 <div id="tab-composicion-corporal" class="tab-content" role="tabpanel">
   <!-- COMPOSICIÓN CORPORAL CARDS -->
   <div class="wrap">
-    <div class="sec-head"><h2>&Uacute;ltima estimaci&oacute;n de composici&oacute;n corporal</h2><span class="badge">Provisional del 17 Ago; la evaluaci&oacute;n profesional del 18 Sep no midi&oacute; composici&oacute;n</span></div>
+    <div class="sec-head"><h2>&Uacute;ltima composici&oacute;n corporal profesional</h2><span class="badge">Kerr 5 componentes &middot; 29 Oct 2026 &middot; no es DEXA</span></div>
     <div class="bodycomp">
       <div class="bc-card lean">
-        <div class="bc-lbl">Masa libre de grasa estimada</div>
-        <div class="bc-val">74.5 kg</div>
-        <div class="bc-sub">75.2% del peso total &middot; m&uacute;sculo, hueso, &oacute;rganos, agua</div>
+        <div class="bc-lbl">Masa muscular estimada (Kerr)</div>
+        <div class="bc-val">47.717 kg</div>
+        <div class="bc-sub">Componente muscular del modelo Kerr; no es masa muscular esquel&eacute;tica medida por DEXA</div>
         <div class="bc-bar"></div>
       </div>
       <div class="bc-card fat">
-        <div class="bc-lbl">Masa Grasa &mdash; objetivo reducir</div>
-        <div class="bc-val">24.6 kg</div>
-        <div class="bc-sub">24.8% del peso total &middot; Naval tiene incertidumbre individual</div>
+        <div class="bc-lbl">Masa adiposa estimada (Kerr)</div>
+        <div class="bc-val">22.658 kg</div>
+        <div class="bc-sub">23.89% impreso por el informe; estimaci&oacute;n Kerr, no DEXA</div>
         <div class="bc-bar"></div>
       </div>
     </div>
@@ -626,9 +633,9 @@ a:hover{border-bottom-style:solid}
 
   <!-- CHART DEDICADO DE MASA MAGRA EN COMPOSICIÓN CORPORAL -->
   <div class="wrap" style="margin-bottom: 24px;">
-    <div class="sec-head"><h2>Gr&aacute;fico de Masa Libre de Grasa Estimada</h2><span class="badge">Modelo Naval USA &middot; no mide m&uacute;sculo directamente</span></div>
+    <div class="sec-head"><h2>Serie hist&oacute;rica de Masa Libre de Grasa (Naval)</h2><span class="badge">Estimaciones hasta 17 Ago &middot; m&eacute;todo distinto a Kerr y DEXA</span></div>
     <div class="chart-wrap" style="margin-bottom:0">
-      <div class="chart-title"><span>Masa libre de grasa (kg) &mdash; Cuello + Panza + Altura 179cm</span><span style="color:var(--teal)">● Provisional 74.5 kg</span></div>
+      <div class="chart-title"><span>Masa libre de grasa estimada (kg) &mdash; Cuello + Panza + Altura</span><span style="color:var(--teal)">● &Uacute;ltimo Naval: 74.5 kg (17 Ago)</span></div>
       <canvas id="compLeanCanvas"></canvas>
     </div>
   </div>
@@ -648,7 +655,7 @@ a:hover{border-bottom-style:solid}
           </tr>
         </thead>
         <tbody>
-          <tr><td>Peso</td><td class="c meas-cur">95.95 kg*</td><td class="c" style="color:var(--coral)">101.5 kg</td><td class="c" style="color:var(--blue)">— kg</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
+          <tr><td>Peso profesional</td><td class="c meas-cur">94.75 kg*</td><td class="c" style="color:var(--coral)">101.5 kg</td><td class="c" style="color:var(--blue)">— kg</td><td class="c"><span class="d-na">Smart Nutrition &middot; 29 Oct</span></td></tr>
           <tr><td>Cuello</td><td class="c meas-cur">43.0 cm</td><td class="c meas-val">44.5 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
           <tr><td>Panza (ombligo)</td><td class="c meas-cur">102 cm</td><td class="c" style="color:var(--coral)">107 cm</td><td class="c" style="color:var(--blue)">97.5 cm</td><td class="c"><span class="d-worse">+4.5 cm &uarr;</span></td></tr>
           <tr><td>Espalda + pecho (pezones)</td><td class="c meas-cur">111 cm</td><td class="c meas-val">115 cm</td><td class="c" style="color:var(--blue)">105 cm</td><td class="c"><span class="d-worse">+6 cm &uarr;</span></td></tr>
@@ -658,15 +665,15 @@ a:hover{border-bottom-style:solid}
           <tr><td>Hombro Izq</td><td class="c meas-cur">42.5 cm*</td><td class="c meas-val">43 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
           <tr><td>Hombro Der</td><td class="c meas-cur">42.5 cm*</td><td class="c meas-val">43 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
           <tr><td>Cadera / nalgas (autorreporte)</td><td class="c meas-cur">113 cm</td><td class="c" style="color:var(--coral)">115 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">&mdash;</span></td></tr>
-          <tr><td>Cadera (profesional)</td><td class="c meas-cur">111.4 cm*</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">nuevo protocolo</span></td></tr>
-          <tr><td>Cintura (profesional)</td><td class="c meas-cur">93.2 cm*</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">nuevo protocolo</span></td></tr>
+          <tr><td>Cadera (profesional)</td><td class="c meas-cur">110.0 cm*</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">Smart Nutrition &middot; 29 Oct</span></td></tr>
+          <tr><td>Cintura m&iacute;nima (profesional)</td><td class="c meas-cur">91.3 cm*</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span class="d-na">Smart Nutrition &middot; 29 Oct</span></td></tr>
           <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Piernas (m&aacute;s anchas)</td><td class="c meas-cur">70.5 cm*</td><td class="c meas-val">&mdash;</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--teal)">&minus;2.0 cm vs 25 Jul</span></td></tr>
           <tr style="background:var(--teal-a)"><td style="color:var(--teal)">Ambos-hombros / torso (wrap)</td><td class="c meas-cur">130 cm*</td><td class="c meas-val">130 cm</td><td class="c meas-val">&mdash;</td><td class="c"><span style="font-size:10px;color:var(--amber)">Medido 14 Ago; 135 cm del 14 Jul sigue at&iacute;pico</span></td></tr>
         </tbody>
       </table>
     </div>
     <p style="font-size:11px;color:var(--t3);margin-top:10px;line-height:1.6">
-      * El peso (95.95 kg) y cintura/cadera profesionales son del 18 Sep. Las dem&aacute;s cintas son los &uacute;ltimos autorreportes disponibles, principalmente del 16&ndash;17 Ago; no son mediciones simult&aacute;neas ni necesariamente el mismo protocolo. Los 92&ndash;92.5 cm de panza del 11&ndash;14 Ago siguen excluidos de tendencias por sitio no comparable.
+      * Peso, cintura m&iacute;nima y cadera profesionales: 29 Oct 2026. La condici&oacute;n del pesaje no est&aacute; indicada en el informe. Las dem&aacute;s cintas son autorreportes, principalmente del 16&ndash;17 Ago; no son simult&aacute;neas ni necesariamente el mismo protocolo. La cintura m&iacute;nima profesional no equivale a panza a nivel del ombligo, y los 92&ndash;92.5 cm del 11&ndash;14 Ago siguen excluidos de tendencias por sitio no comparable.
     </p>
   </div>
 </div>
@@ -674,7 +681,7 @@ a:hover{border-bottom-style:solid}
 <!-- ==================== PESTAÑA 4: HISTORIAL COMPLETO DE MEDIDAS + CHARTS GRUPALES ==================== -->
 <div id="tab-historial-medidas" class="tab-content" role="tabpanel">
   <div class="wrap">
-    <div class="sec-head"><h2>Historial Completo de Medidas</h2><span class="badge">24 entradas &middot; M&aacute;s nuevos arriba</span></div>
+    <div class="sec-head"><h2>Historial Completo de Medidas</h2><span class="badge">25 entradas &middot; M&aacute;s nuevos arriba</span></div>
     <div class="hist-scroll">
       <table class="hist-table">
         <thead>
@@ -696,6 +703,16 @@ a:hover{border-bottom-style:solid}
           </tr>
         </thead>
         <tbody>
+          <tr style="background:var(--blue-a)">
+            <td style="color:var(--blue)">29 Oct '26 &#9733;</td>
+            <td class="c hcur">94.75*</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td class="c hv">110.0</td><td class="c hv">91.3</td>
+            <td class="c hna">&mdash;</td><td class="c hna">&mdash;</td>
+            <td style="color:var(--blue);font-size:10px">Smart Nutrition; 94.8 kg redondeados en traza. Peso sin condici&oacute;n indicada; cintura m&iacute;nima, no ombligo. Ver expediente profesional.</td>
+          </tr>
           <tr style="background:var(--teal-a)">
             <td style="color:var(--teal)">18 Sep '26 &#9733;</td>
             <td class="c hcur">95.95*</td><td class="c hna">&mdash;</td>
@@ -994,13 +1011,14 @@ a:hover{border-bottom-style:solid}
 <!-- ==================== PESTAÑA 5: PROYECCIÓN DE BAJADA DE PESO ==================== -->
 <div id="tab-proyeccion" class="tab-content" role="tabpanel">
   <div class="wrap">
-    <div class="sec-head"><h2>Proyecci&oacute;n Consensuada a 12 Meses</h2><span class="badge">Base 98.1 kg &middot; 10 Ago 2026 &rarr; 10 Ago 2027</span></div>
+    <div class="sec-head"><h2>Proyecci&oacute;n Consensuada a 12 Meses</h2><span class="badge">Escenario anterior &middot; base 98.1 kg del 10 Ago 2026</span></div>
     <div class="cards" style="margin-bottom:18px">
       <div class="card a"><div class="card-lbl">Fase 1</div><div class="card-val">&minus;700</div><div class="card-sub">hasta acercarse a 90 kg</div></div>
       <div class="card t"><div class="card-lbl">Fase 2</div><div class="card-val">&minus;500</div><div class="card-sub">desde ~7 Nov hasta 31 Dic</div></div>
       <div class="card b"><div class="card-lbl">Plan al 31 Dic</div><div class="card-val">86.5 kg</div><div class="card-sub">~16.9% grasa &middot; rango pr&aacute;ctico 86&ndash;89 kg</div></div>
       <div class="card"><div class="card-lbl">Piso del modelo</div><div class="card-val">80 kg</div><div class="card-sub">al llegar, asume mantenimiento</div></div>
     </div>
+    <div class="infobox warn"><strong>Ojo: proyecci&oacute;n no recalibrada.</strong> Esta tabla conserva el escenario armado con la base del 10 Ago y la estimaci&oacute;n Naval de entonces. No incorpora el peso profesional de 94.75 kg ni la composici&oacute;n Kerr del 29 Oct; sus cifras futuras no son una proyecci&oacute;n vigente hasta actualizarla con una tendencia comparable de peso e ingesta.</div>
     <div class="table-wrap">
       <table>
         <thead>
@@ -1029,7 +1047,7 @@ a:hover{border-bottom-style:solid}
       </table>
     </div>
     <div class="infobox">
-      <strong>Metodolog&iacute;a solicitada:</strong> comparaci&oacute;n usando 7,700 kcal/kg y un <em>d&eacute;ficit real sostenido</em>, reanclada a 98.1 kg el 10 de agosto. Esto exige recalibrar la ingesta cada cuatro semanas. El peso profesional del 18 Sep (95.95 kg) fue despu&eacute;s de comer y no reemplaza una tendencia matutina estandarizada; por eso no se reancl&oacute; esta proyecci&oacute;n. El plan escalonado alcanza 90 kg a inicios de noviembre y cambia entonces a &minus;500. Las tres columnas se detienen en 80 kg y desde ah&iacute; asumen mantenimiento. Fechas te&oacute;ricas aproximadas de 80 kg: &minus;700, 25 Feb; plan, 10 Abr; &minus;500, 16 May.
+      <strong>Metodolog&iacute;a del escenario hist&oacute;rico:</strong> comparaci&oacute;n usando 7,700 kcal/kg y un <em>d&eacute;ficit real sostenido</em>, anclada a 98.1 kg el 10 de agosto. No se ha reanclado con el peso profesional de 94.75 kg del 29 Oct; tampoco debe tomarse el porcentaje Naval proyectado como una medici&oacute;n Kerr o DEXA. Las tres columnas se detienen en 80 kg y desde ah&iacute; asum&iacute;an mantenimiento. Fechas te&oacute;ricas originales: &minus;700, 25 Feb; plan, 10 Abr; &minus;500, 16 May.
       <br><strong>El porcentaje de grasa no es una segunda medici&oacute;n:</strong> parte de 24.3 kg de grasa estimada por Naval (24.8%) y reparte cada kg perdido con el escenario central descrito abajo. Sirve para visualizar una trayectoria, no para diagnosticar composici&oacute;n. Las cifras de 11&ndash;12% cerca de 80 kg son especialmente inciertas y obligan a recalibrar con DEXA, cintura, fotos y rendimiento antes de continuar.
       <br><strong>Comparaci&oacute;n matem&aacute;tica sin piso (no recomendada ni usada para medidas):</strong> forzar la resta lineal durante 365 d&iacute;as dar&iacute;a 74.4 kg con &minus;500, 64.9 kg con &minus;700 y 72.1 kg con el plan. El panel no usa esas cifras.
     </div>
@@ -1569,25 +1587,25 @@ a:hover{border-bottom-style:solid}
       </table>
     </div>
     <p style="font-size:11px;color:var(--t3);margin-top:10px;line-height:1.6">
-      *Cintura Proyectada = lo que el modelo hubiera predicho para ese peso real, interpolando entre los tres escenarios de arriba. Cada vez que se registre un peso y cintura nuevos, agrega una fila aqu&iacute; comparando contra la proyecci&oacute;n &mdash; as&iacute; con el tiempo se ve si el modelo se qued&oacute; corto, se pas&oacute;, o le atin&oacute;.
+      *El registro profesional del 29 Oct conserva la fuente y protocolo disponibles. No se rellenan con guiones medidas personales que el reporte no tom&oacute;; cintura m&iacute;nima profesional no equivale a la panza medida a nivel del ombligo.
     </p>
   </div>
 </div>
 
 <!-- FOOTER PERSISTENTE: MÉTRICAS CLAVE MOVIDAS AQUÍ -->
 <div class="wrap no-bottom-pad" style="margin-top: 28px;">
-  <div class="sec-head"><h2>M&eacute;tricas Clave</h2><span class="badge">Peso y medidas profesionales: 18 Sep &middot; c&aacute;lculos de gasto: base anterior</span></div>
+  <div class="sec-head"><h2>M&eacute;tricas Clave</h2><span class="badge">&Uacute;ltima evaluaci&oacute;n profesional: 29 Oct &middot; gasto estimado pendiente de recalibraci&oacute;n</span></div>
   <div class="cards">
-    <div class="card"><div class="card-lbl">BMR &middot; Solo existir</div><div class="card-val">~1,969</div><div class="card-sub">kcal &middot; Mifflin-St Jeor aproximado</div></div>
+    <div class="card"><div class="card-lbl">BMR &middot; Solo existir</div><div class="card-val">~1,912</div><div class="card-sub">kcal &middot; Mifflin-St Jeor con 94.75 kg, 177.7 cm, 30.21 a&ntilde;os</div></div>
     <div class="card a"><div class="card-lbl">Mantenimiento sedentario estimado</div><div class="card-val">~2,363</div><div class="card-sub">provisional hasta calibrar TDEE observado</div></div>
     <div class="card" style="border-color:rgba(255,168,48,0.3)"><div class="card-lbl">Fase actual</div><div class="card-val" style="color:var(--amber)">&minus;700</div><div class="card-sub">promedio diario &middot; 4,900 kcal/sem</div></div>
     <div class="card t"><div class="card-lbl">Segunda fase</div><div class="card-val">&minus;500</div><div class="card-sub">alrededor de 90 kg o antes por alarma</div></div>
     <div class="card b"><div class="card-lbl">Final pr&aacute;ctico 31 Dic</div><div class="card-val">86&ndash;89 kg</div><div class="card-sub">86.5 kg en el modelo te&oacute;rico</div></div>
     <div class="card a"><div class="card-lbl">Proyecci&oacute;n a 12 meses</div><div class="card-val">80 kg</div><div class="card-sub">piso del modelo; mantenimiento desde la meta</div></div>
-    <div class="card"><div class="card-lbl">% Grasa corporal (hist&oacute;rico)</div><div class="card-val">24.8%</div><div class="card-sub">Naval del 17 Ago; no es el resultado DEXA</div></div>
-    <div class="card t"><div class="card-lbl">Masa libre de grasa estimada (17 Ago)</div><div class="card-val">74.5 kg</div><div class="card-sub">provisional; no equivale a m&uacute;sculo contr&aacute;ctil</div></div>
-    <div class="card"><div class="card-lbl">Grasa estimada en modelo (17 Ago)</div><div class="card-val">24.6 kg</div><div class="card-sub">Naval provisional; DEXA del 20 Ago realizado, a&uacute;n no integrado en esta proyecci&oacute;n</div></div>
-    <div class="card b"><div class="card-lbl">Grasa a perder hasta 31 Dic</div><div class="card-val">~9.7 kg</div><div class="card-sub">plan escalonado central &middot; no medici&oacute;n</div></div>
+    <div class="card"><div class="card-lbl">Grasa corporal Kerr &middot; 29 Oct</div><div class="card-val">23.89%</div><div class="card-sub">Porcentaje impreso; no equivale a % DEXA</div></div>
+    <div class="card t"><div class="card-lbl">Masa muscular estimada Kerr</div><div class="card-val">47.717 kg</div><div class="card-sub">Componente del modelo Kerr; no m&uacute;sculo esquel&eacute;tico DEXA</div></div>
+    <div class="card"><div class="card-lbl">Masa adiposa estimada Kerr</div><div class="card-val">22.658 kg</div><div class="card-sub">Evaluaci&oacute;n profesional 29 Oct; no DEXA</div></div>
+    <div class="card b"><div class="card-lbl">Grasa a perder hasta 31 Dic</div><div class="card-val">~9.7 kg</div><div class="card-sub">proyecci&oacute;n anterior desde Naval de Ago; no recalibrada con Kerr</div></div>
   </div>
 </div>
 
@@ -1891,7 +1909,7 @@ if (forecastScenarioInput) forecastScenarioInput.addEventListener('change', rend
 renderMeasurementProjection();
 
 // Journey bar animation
-const peak=101.5,goal=80.0,cur=95.95;
+const peak=101.5,goal=80.0,cur=94.75;
 const pct=((peak-cur)/(peak-goal))*100;
 setTimeout(()=>{
   document.getElementById('jFill').style.width=pct.toFixed(1)+'%';
@@ -1926,7 +1944,8 @@ const chartConfigs = {
       { d: 330, v: 97.9, lbl: "16 Ago 26", note: "Valor aislado; 15 Ago sin creatina" },
       { d: 331, v: 99.05, lbl: "17 Ago 26", note: "Última pesada matutina; promedio parcial de 6 pesadas: 98.83 kg" },
       { d: 334, v: 99.5, lbl: "20 Ago 26", note: "Pesada profesional" },
-      { d: 363, v: 95.95, lbl: "18 Sep 26", note: "Pesada profesional después de comer; no comparar directamente con pesadas matutinas" }
+      { d: 363, v: 95.95, lbl: "18 Sep 26", note: "Peso profesional reportado: 95.95 kg (96.0 redondeado)" },
+      { d: 404, v: 94.75, lbl: "29 Oct 26", note: "Peso profesional Smart Nutrition; informe redondea a 94.8 kg; condición no indicada" }
     ]
   },
   leanWeightCanvas: {
@@ -1945,7 +1964,7 @@ const chartConfigs = {
       { d: 308, v: 73.0, lbl: "25 Jul 26" },
       { d: 311, v: 74.2, lbl: "28 Jul 26" },
       { d: 324, v: 73.8, lbl: "10 Ago 26" },
-      { d: 331, v: 74.5, lbl: "17 Ago 26", note: "Estimación provisional; DEXA del 20 Ago realizado, no recalculado en esta serie" }
+      { d: 331, v: 74.5, lbl: "17 Ago 26", note: "Última estimación Naval; composición Kerr del 29 Oct es un método distinto y no se mezcla en esta serie" }
     ]
   },
   fatWeightCanvas: {
@@ -1964,7 +1983,7 @@ const chartConfigs = {
       { d: 308, v: 25.3, lbl: "25 Jul 26" },
       { d: 311, v: 24.3, lbl: "28 Jul 26" },
       { d: 324, v: 24.3, lbl: "10 Ago 26" },
-      { d: 331, v: 24.6, lbl: "17 Ago 26", note: "Estimación provisional 24.8%; DEXA del 20 Ago realizado, no recalculado en esta serie" }
+      { d: 331, v: 24.6, lbl: "17 Ago 26", note: "Última estimación Naval (24.8%); Kerr 29 Oct se muestra por separado, no mezclar métodos" }
     ]
   },
   compLeanCanvas: {
